@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.lander {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    overflow: hidden;
+}
+
+/*full section*/
+
+.homeScreen {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+}
+
+/*top section*/
+
+.topSection {
+    min-height: 47%;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*board name */
+
+.boardName {
+    min-height: 15%;
+    width: 100%;
+    display: flex;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+}
+
+.boardNameText {
+    margin-left: 5%;
+}
+
+.mainPageBtn {
+    margin: 50px;
+    padding: 10px 20px;
+    font-size: medium;
+    background-color: black;
+    color: white;
+    border-radius: 9px 9px 9px 9px;
+}
+
+
+/*Board Visual 3d */
+
+.boardVisual {
+    min-height: 75%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*.imageBoard{*/
+/*    height: 300px;*/
+/*}*/
+
+
+/*edit button*/
+
+/*.editButton{*/
+/*    min-height: 15%;*/
+/*    width: 100%;*/
+/*    font-size: 1.4rem;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: flex-end;*/
+/*}*/
+
+/*.editIcon{*/
+/*    margin-right: 5%;*/
+/*}*/
+
+
+/*bottom sectioin*/
+
+.bottomSection {
+    min-height: 53%;
+    width: 100%;
+    background-color: #CF2121;
+    display: flex;
+    flex-direction: column;
+    border-radius: 9px 9px 0px 0px;
+}
+
+.bottomStats {
+    min-height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.statsTitle {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+}
+
+.statsTitleText {
+    margin-left: 5%;
+}
+
+.overallStats {
+    height: 70%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "speed height"
+    "balance airtime";
+}
+
+.speedStat {
+    grid-area: speed;
+}
+
+.stat {
+    margin-left: 10%;
+    column-gap: 5%;
+    display: grid;
+    grid-template-columns: 33% 30% 33%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+    "icon value . "
+    "icon text parameter"
+}
+
+.heightStat {
+    grid-area: height;
+    grid-template-columns: 33% 30% 33%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+    "icon value . "
+    "icon text parameter";
+}
+
+.balanceStat {
+    grid-area: balance;
+}
+
+.airtimeStat {
+    grid-area: airtime;
+}
+
+.Icon {
+    grid-area: icon;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 12%;
+}
+
+.Value {
+    grid-area: value;
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.Parameter {
+    grid-area: parameter;
+    color: #6A6161;
+}
+
+.Text {
+    grid-area: text;
+}
+
+/*more button*/
+
+.moreButton {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+/*navbar*/
+
+.navBar {
+    min-height: 10%;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    border-radius: 9px 9px 0px 0px;
+    padding: 5px;
+}
+
+.navList {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Load GLB</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Skateboard MPU-9250 DMP visualization</h1>
+  <div class="buttons">
+    <button onclick ="connectToBLE()" class="kickFlip buttonTrick" id="kickFlip">Connect</button>
+    <button onclick ="recalibrate()" class="kickFlip buttonTrick" >recal</button>
+    <button onclick ="startAnimationRecording()" class="kickFlip buttonTrick" >Start</button>
+    <button onclick ="stopAnimationRecording()" class="kickFlip buttonTrick" >Stop</button>
+    <button onclick ="playAnimationRecording()" class="kickFlip buttonTrick" >Play</button>
+    <button onclick ="flushAnimationRecording()" class="kickFlip buttonTrick" >flush</button>
+    <button onclick ="stopNotifications()" class="kickFlip buttonTrick" >stop Notifi</button>
+  </div>
+
+<div class="canvas">
+
+</div>
+<!-- partial:index.partial.html -->
+
+<!-- partial -->
+  <script type="module" src="./gyroDMP.js"></script>
+</body>
+</html>
