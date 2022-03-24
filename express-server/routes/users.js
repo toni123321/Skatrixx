@@ -4,7 +4,6 @@ const User=require('../models/user')
 
 
 
-
 async function getUser(req, res, next){
     let user
   try{
