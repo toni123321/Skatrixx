@@ -19,9 +19,12 @@ app.use(express.json())
 
 const usersRouter=require('./routes/users')
 const skateDataRouter=require('./routes/skateDatas')
+const trickDataRouter=require('./routes/tricks')
+
 
 app.use('/users', usersRouter)
 app.use('/skateDatas', skateDataRouter)
+app.use('/tricks', trickDataRouter)
 
 
 // PORT
