@@ -52,4 +52,4 @@ function SkatePage() {
   )
 }
 
-export default SkatePage
+export default SkatePage;

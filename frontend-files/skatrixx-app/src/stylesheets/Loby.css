@@ -1,0 +1,25 @@
+h4 {
+    color: #EFEFEF;
+    text-align: center;
+}
+
+ #Sicon {
+    display: flex;
+    margin: auto;
+    padding-top: 60px;
+    /* align-items: center;
+    justify-content: center; */
+
+} 
+
+#soloIcon {
+    display: flex;
+    margin: auto;
+    margin-top: -400px;
+}
+
+#vsIcon {
+    display: flex;
+    margin: auto;
+    margin-top: 110px;
+}

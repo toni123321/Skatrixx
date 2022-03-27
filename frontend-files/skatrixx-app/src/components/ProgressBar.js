@@ -16,7 +16,7 @@ function ProgressBar(props) {
   return (
     <div className='progress-bar'>
         <p>Lvl. {level.level}</p>
-        <div class="light-grey">
+        <div className="light-grey">
         <div id="red" ></div>
         </div><br></br>
     </div>
