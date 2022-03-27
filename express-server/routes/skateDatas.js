@@ -16,13 +16,23 @@ async function getSkateData(req, res, next){
 }
 
 //Get all skate data - polzvai - http://localhost:3000/skateDatas !!!
-router.get('/', async(req,res)=>{
+router.get('/', async(req,res) => {
   try{const skateData=await SkateData.find() 
     res.send(skateData)
   }catch(err){
       res.status(500).json({message: err.message})
   }
 })
+
+router.get('/lastRecord', async(req, res) => {
+  try {
+    const skateData = await SkateData.findOne().sort({ field: -SkateData._id }).limit(1)
+    res.send(skateData)
+  } catch(err) {
+    res.status(500).json({message: err.message})
+  }
+})
+
 
 //Get skate data by ID
 router.get('/:id', getSkateData, (req,res)=>{
