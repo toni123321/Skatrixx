@@ -4,6 +4,11 @@ const getAll = () => {
     return http.get("/skateDatas")
 }
 
+const getLastStat = () => {
+    return http.get("/skateDatas/lastRecord")
+}
+
 export default {
-    getAll
+    getAll,
+    getLastStat
 }
