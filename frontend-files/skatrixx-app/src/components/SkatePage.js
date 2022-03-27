@@ -1,6 +1,6 @@
 import {React, useState, useEffect} from 'react'
 import skateDataService from '../services/skateDataService'
-import axios from 'axios'
+import TrickPage from './TrickPage';
 
 function SkatePage() {
   const [skateData, setSkateData] = useState([]) // skateData useState
