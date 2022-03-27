@@ -3,11 +3,12 @@ import skateDataService from '../services/skateDataService'
 import axios from 'axios'
 
 function SkatePage() {
-  const [skateData, setSkateData] = useState([]) // skateDate useState
+  const [skateData, setSkateData] = useState([]) // skateData useState
   const [loading, setLoading] = useState(true) // Loading
   const [error, setError] = useState(""); // Error
 
   //  update Data on component reload
+  // on react component loading
   useEffect(() => {
     retrieveSkateData()
   }, [])
