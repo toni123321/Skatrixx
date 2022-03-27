@@ -3,7 +3,11 @@ const app=express();
 const fs=require('fs');
 const path=require('path');
 const mongoose=require('mongoose');
-require('dotenv').config()
+require('dotenv').config();
+
+// Add CORS to API
+var cors = require('cors');
+app.use(cors());
 
 app.use(express.json());
 
