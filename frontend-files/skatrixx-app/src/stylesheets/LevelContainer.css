@@ -19,23 +19,24 @@
 
 #trickName {
     margin-top: -3px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     color: #efefef;
     font-family: 'Segoe UI';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
+    text-align: left;
 }
 #trickXp{
-    margin-top: -35px;
-    margin-left: 200px;
+    margin-top: -45px;
+    margin-left: 175px;
     color: #efefef;
     font-family: 'Segoe UI';
-    font-style: normal;
+    font-style: italic;
     font-size: 14px;
 }
 #play{
-    top: -35px;
+    top: -45px;
     margin-left: 245px;
     position: relative;
 }

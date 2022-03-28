@@ -12,11 +12,12 @@ function LevelMenu(props) {
   
     return ( <div className='level-menu'>
         <p id='back' onClick={() => {props.back('Menu')}}>&lt;</p>
-            <h3>Beginner</h3>
+            {/* <h3>Beginner</h3>
             <LevelList/>
             <h3>Intermediate</h3>
             <LevelList/>
             <h3>Master</h3>
+            <LevelList/> */}
             <LevelList/>
         </div>
     )
