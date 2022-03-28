@@ -6,7 +6,7 @@
     position: fixed;
     left: 50%; top:50%;
     transform: translate(-50%, -55%);
-    z-index: 2;
+    z-index: 10;
     border-radius: 10px;
 }
 
@@ -33,11 +33,13 @@
     width: 60%;
     height: 1px;
     background-color: #595959;
+    margin: auto;
 }
 
+.qr{text-align: center;}
+
 .qr img {
-    height: 25vh;
-    margin-top: -10px;
+    height: 20vh;
     margin-bottom: 0;
 }
 
@@ -46,11 +48,67 @@
     text-align: center;
 }
 
-.username p {
-    text-align: center;
+.username {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .username i {
     color: #595959;
-    font-size: 150px;
+    font-size: 100px;
+}
+
+.search-username {
+    width: 95%;
+    height:55vh;
+    position: relative;
+}
+
+#back {
+    display: flex;
+    justify-content: center; align-items: center;
+    width: 45px; height: 45px;
+    position: absolute;
+    margin: 0;
+    left: -50px; top:-20px;
+    font-size: 40px;
+}
+
+.search-form {
+    margin-top: 30px;
+    text-align: center;
+}
+.search-form input {
+    height: 20px;
+    border-radius: 5px;
+    background-color: transparent;
+    border-bottom: 2px solid white;
+    color: white;
+    width: 60%;
+    margin: auto;
+    min-width: 200px;
+}
+
+.search-result {
+    margin: auto;
+    width: 60%;
+    min-width: 200px;
+    font-size: 25px;
+    position: relative;
+    text-align: left;
+}
+
+.search-result p {
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.search-result i {
+    margin-left: 10px;
+    font-size: 20px;
+    position: absolute;
+    right : 10px;
+    top: 10px;
 }

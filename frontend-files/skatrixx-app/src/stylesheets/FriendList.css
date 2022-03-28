@@ -57,6 +57,40 @@
   position: absolute;
 }
 
+.pending-request{
+  position: absolute;
+  right: 1px;
+  z-index: 3;
+}
+
+#accept-request, #waiting-request {
+  display: flex;
+  align-items: center;
+}
+
+#waiting-request{
+  background-color: rgba(0, 0, 0, 0.61);
+  height: 5rem; width: 65vw;
+  max-width: 385px;
+  font-size: 2rem;
+}
+
+#accept-request button, #waiting-request button {
+  background-color: white;
+  width: 40px; height: 40px;
+  border:  2px solid black;
+  font-size: 40px;
+  border-radius: 50%;
+}
+
+#accept-request-button {
+  color: rgb(101, 168, 0);
+  margin-right: 10px;
+}
+#deny-request-button {
+  color: rgb(160, 0, 0);
+}
+
 @media screen and (max-width: 330px) {
   #friend-img {
     margin-top: 0;

@@ -1,26 +1,22 @@
 import {React, useState, useEffect} from 'react'
-import {getProfileName, getProfileImage} from "../services"
 
 import "../stylesheets/Profile.css"
 
 import userTabImg from "../images/Person.png"
 import friendTabImg from "../images/Friends.png"
 import skateTabImg from "../images/Skateboard.png"
-import profilePic from "../images/profile-picture.png"
+import defaultImg from "../images/default-image.png"
 
 import ProgressBar from './ProgressBar'
 import ProfileRankings from './ProfileRankings'
 import Achievements from './Achievements'
 import FriendList from './FriendList'
+import Gallery from './Gallery'
 
-function Profile() {
+function Profile(props) {
 
-    const [profileName, setProfileName] = useState(getProfileName);
-    const [profileImage, setProfileImage] = useState(profilePic)
-    const [openedTab, setOpenedTab] = useState('Me');
-
-    useEffect(() => {
-    }, [])
+    const [profileImage, setProfileImage] = useState()
+    const [openedTab, setOpenedTab] = useState('Gallery');
     
 
     const handleTabChange = (tab) => {
@@ -62,18 +58,20 @@ function Profile() {
         }
         else if(openedTab === 'Gallery') {
             return(
-                <>Gallery</>
+                <div className='gallery-tab'>
+                    <Gallery/>
+                </div>
             )
         }
     }
-
+    
     return (
         <div className='profile'>
             <div id='profile-card'>
-                <img src={profileImage} alt='' />
+                <img src={props.img !== undefined ? props.img : defaultImg} alt='' />
                 <div id='additional-information'>
-                    <p>{profileName}</p>
-                    <ProgressBar/>
+                    <p>{props.name}</p>
+                    <ProgressBar level={props.level} xp={props.xp}/>
                 </div>
             </div>
             <div id='tabs'>
