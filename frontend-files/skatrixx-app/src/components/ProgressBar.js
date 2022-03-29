@@ -5,18 +5,19 @@ import "../stylesheets/ProgressBar.css"
 
 function ProgressBar(props) {
 
-  const [level, setLevel] = useState(getProfileLevel)
+  const [xp, setXp] = useState(props.xp)
 
   useEffect(() => {
     var progress = document.getElementById("red");
-    progress.style.width = `${level.progressToNexLvl}%`;
+    let percentage = xp / 10
+    progress.style.width = `${percentage}%`;
   }, [])
   
 
   return (
     <div className='progress-bar'>
-        <p>Lvl. {level.level}</p>
-        <div class="light-grey">
+        <p>{props.level}</p>
+        <div className="light-grey">
         <div id="red" ></div>
         </div><br></br>
     </div>

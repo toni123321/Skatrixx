@@ -1,0 +1,58 @@
+h2 {
+  color: #efefee;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold italic;
+
+  padding-top: 60px;
+}
+
+h5{
+    color: #efefee;
+    text-align: center;
+    font-size: large;
+    font-weight: bold italic;
+
+    padding-top: 10px;
+}
+
+p{
+  color: #efefee;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#VideoDiv {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 10px;
+  border-radius: 40px;
+}
+
+#videoFrame {
+    border-radius: 20px;
+}
+
+button {
+    border: none;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    color: #efefee;
+    background-color: #A61F1F;
+    font-size: large;
+    font-weight: bold;
+    box-shadow: 15px 3px 4px rgba(26, 26, 26, 0.25), inset 1px 0px 2px rgba(26, 26, 26, 0.25);
+
+}
