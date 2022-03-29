@@ -102,3 +102,8 @@
     max-width: 550px;
     margin: auto;
 }
+
+.welcome-message {
+    position: absolute;
+    z-index: 1000;
+}

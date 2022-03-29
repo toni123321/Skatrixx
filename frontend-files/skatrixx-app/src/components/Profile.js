@@ -12,10 +12,13 @@ import ProfileRankings from './ProfileRankings'
 import Achievements from './Achievements'
 import FriendList from './FriendList'
 import Gallery from './Gallery'
+import Login from './Login'
+
+import Success from './Success'
+import firebase from '../services/firebase';
 
 function Profile(props) {
 
-    const [profileImage, setProfileImage] = useState()
     const [openedTab, setOpenedTab] = useState('Gallery');
     
 
@@ -65,6 +68,15 @@ function Profile(props) {
         }
     }
     
+
+    const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(user => {
+      setUser(user);
+    })
+  }, [])
+
     return (
         <div className='profile'>
             <div id='profile-card'>
@@ -84,6 +96,7 @@ function Profile(props) {
                 <button onClick={() => {handleTabChange('Gallery')}} id='tabs-gallery'>
                 <img src={skateTabImg}alt=''/>
                 </button>
+                {user ? <Success user={user} /> : <Login />}
             </div>
 <br/>
             {displayOpenedTab()}
