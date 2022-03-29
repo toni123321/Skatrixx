@@ -5,7 +5,7 @@ import { faHourglass3 } from '@fortawesome/free-solid-svg-icons'
 
 
 
-const LevelList = () => {
+const LevelList = (props) => {
   const [trickData, setTrickData] = useState([]) // trickData useState
   const [loading, setLoading] = useState(true) //for  Loading
   const [error, setError] = useState(""); // for Error
@@ -13,16 +13,16 @@ const LevelList = () => {
   //  update Data on component reload
   // on react component loading
   useEffect(() => {
-    retrieveTrickData()
+    retrieveTrickData(props.difficulty)
   }, [])
   
   // Get skate data (async await axiox data retrieving)
-  const retrieveTrickData = async () => {
+  const retrieveTrickData = async (difficulty) => {
     setLoading(true)
     try {
-      const res = await tricksDataService.getAllTricks()
+      const res = await tricksDataService.getTricksByDifficulty(difficulty)
       setTrickData(res.data)
-      // console.log(res.data)
+      console.log(res.data)
     } 
     catch (err) {
       // console.log(err.message)
@@ -37,12 +37,11 @@ const LevelList = () => {
     {!loading && (
       !error ? (
         <div>
-          <h3>Beginner</h3>
+          <h3>{props.alley}</h3>
           {/* displaying the data from the API */}
-        {trickData.map((trick, i) => 
+        {trickData && trickData.map((trick, i) => 
         (
-           trick.difficulty === "beginner"?(  <LevelContainer trick={trick} key={i}/>)
-          : ""
+          <LevelContainer trick={trick} key={i}/>
         )
         )}
       </div>

@@ -18,7 +18,7 @@ function LevelMenu(props) {
             <LevelList/>
             <h3>Master</h3>
             <LevelList/> */}
-            <LevelList/>
+            <LevelList difficulty = {'master'} alley={"Beginner's Alley"}/>
         </div>
     )
 }
