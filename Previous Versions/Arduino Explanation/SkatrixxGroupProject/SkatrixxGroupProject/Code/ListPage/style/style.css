@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;600&display=swap');
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    width: 100%;
+   font-family: 'Raleway', sans-serif;
+   font-weight: bold;
+}
+h1{
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+a{
+    color: black;
+}
+.lander{
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+.header{
+    margin-left: 5%;
+    margin-top: 5%;
+}
+.homeScreen{
+    min-height: 0vh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+}
+
+.topBoard{
+    min-height: 10%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+}
+.bottomsection{
+    background-color: #CF2121;
+    height:100%;
+    width: 100%;
+}
+.bottomStats{
+    background-color: #CF2121;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-top: 10px;
+    height: 100%;
+    width: 100%;
+}
+.vertical-scroll-border{
+    margin-top: 5%;
+    height: 97%;
+    width: 100%;
+    overflow: auto;
+}
+.vertical-scroll{
+    height: 70px;
+    width: 100%;
+}
+.cards{
+    background-color: white;
+    margin-top: 5%;
+    margin-left: 5%;
+    border-radius: 10px;
+    width: 90vw;
+    height: 10vh;
+    box-shadow: 0px 3px 6px;
+}
+.cardcontent{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    height: 100%;
+}
+.cardcontentitem{
+    display: flex;
+    align-items: center;
+}
+.cardcontentitem-column{
+    display: flex;
+    flex-direction: column;
+}
+.navBar{
+    min-height: 6%;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.navBar-bg{
+    min-height: 6%;
+    width: 100%;
+    background-color: #CF2121;
+    display: flex;
+}
+.navList{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+#myDIV {
+    margin-top: 10px;
+    height: 250px;
+    width: 250px;
+    overflow: auto;
+  }
+  
+  #content {
+    height: 800px;
+    width: 2000px;
+    padding: 10px;
+    background-color: coral;
+  }

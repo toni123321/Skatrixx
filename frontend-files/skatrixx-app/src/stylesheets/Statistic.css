@@ -1,0 +1,62 @@
+.bar {
+    display: block !important;
+    width: 105px !important;
+}
+
+#progress-bars {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    margin-top: 110px;
+    /* width: 33vw;
+      height: 80vh; */
+}
+
+.CircularProgressbar {
+    width: 100%;
+    vertical-align: middle;
+    margin: 50px;
+}
+
+#undo {
+    width: 92px;
+    height: 40px;
+    border: 3px solid #A61F1F;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
+    color: #efefef;
+    background-color: transparent;
+    font-size: 20px;
+    /* margin-left: 60px; */
+}
+
+#save {
+    width: 92px;
+    height: 40px;
+    left: 214px;
+    top: 664px;
+    background: #A61F1F;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    color: #efefef;
+    font-size: 20px;
+    margin-left: 100px;
+}
+.title{
+    margin-bottom: -35px;
+}
+#buttons{
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+/* #progress-left {
+      float: left;
+      width: 50%;
+  }
+
+  #progress-right {
+      width: 50%;
+    float: right;
+} */

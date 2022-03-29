@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="manifest" href="../manifest.webmanifest">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skatrixx</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="../jquery-3.5.1.min.js"></script>
+</head>
+<body>
+<div class="lander" id="lander">
+    <div class="homeScreen" id="homeScreen">
+        <div class="topSection" id="topSection">
+            <div class="boardName" id="boardName">
+                <a class="backArrow" href="../ListPage/index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 24">
+                        <path id="Icon_material-arrow_back" data-name="Icon material-arrow_back"
+                              d="M30,16.5H11.745L20.13,8.115,18,6,6,18,18,30l2.115-2.115L11.745,19.5H30Z"
+                              transform="translate(-6 -6)" fill="#fff"/>
+                    </svg>
+                </a>
+                <span class="boardNameText" id="boardNameText"></span>
+            </div>
+            <div class="boardVisual" id="boardVisual">
+            </div>
+
+        </div>
+        <div class="bottomSection" id="bottomSection">
+            <div class="playButtonBox">
+                <div id="playButton">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 34.875 34.875">
+                        <path id="Icon_awesome-pause-circle" data-name="Icon awesome-pause-circle"
+                              d="M18,.563A17.438,17.438,0,1,0,35.438,18,17.434,17.434,0,0,0,18,.563ZM16.875,23.625A1.128,1.128,0,0,1,15.75,24.75H12.375a1.128,1.128,0,0,1-1.125-1.125V12.375a1.128,1.128,0,0,1,1.125-1.125H15.75a1.128,1.128,0,0,1,1.125,1.125Zm7.875,0a1.128,1.128,0,0,1-1.125,1.125H20.25a1.128,1.128,0,0,1-1.125-1.125V12.375A1.128,1.128,0,0,1,20.25,11.25h3.375a1.128,1.128,0,0,1,1.125,1.125Z"
+                              transform="translate(-0.563 -0.563)" fill="#fff"/>
+                    </svg>
+                </div>
+                <div id="pauseButton" hidden>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 34.875 34.875">
+                        <path id="Icon_awesome-play-circle" data-name="Icon awesome-play-circle"
+                              d="M18,.563A17.438,17.438,0,1,0,35.438,18,17.434,17.434,0,0,0,18,.563Zm8.135,19.125-12.375,7.1a1.691,1.691,0,0,1-2.51-1.477V10.688a1.692,1.692,0,0,1,2.51-1.477l12.375,7.523A1.693,1.693,0,0,1,26.135,19.688Z"
+                              transform="translate(-0.563 -0.563)" fill="#fff"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="timeIntBox">
+                <button id="05Button" class="timeIntBtn">x0.5</button>
+                <button id="1Button" class="timeIntBtn">normal</button>
+                <button id="2Button" class="timeIntBtn">x2</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="module" src="./script/script.js"></script>
+</html>
