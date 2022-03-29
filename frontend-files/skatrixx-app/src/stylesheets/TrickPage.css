@@ -18,12 +18,10 @@ h5{
 
 p{
   color: #efefee;
-  text-align: center;
   align-items: center;
   justify-content: center;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 10px;
 }
 
 #VideoDiv {

@@ -11,7 +11,6 @@ function ProfileRankings(props) {
 
   return (
     <div className='profile-rankings'>
-      {console.log(ranks)}
         <p id='rank-title'>Your Ranking</p>
         <div className='rankings'>
         <div className='ranking'>

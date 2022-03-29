@@ -1,58 +1,22 @@
  .friend-list {
-   width: 100%;
-  max-width: 550px;
   display: flex;
   flex-direction: column;
 }
-/*
-.friend-container {
-    position: relative;
-    width: 70%;
-    margin-bottom: 30%;
-    display: flex;
-    align-items: center;
-    font-size: 35px;
-}
 
-#bg-img {
-    max-width: 600px;
-    width: 120%;
-    padding-bottom: 0;
-    height: auto;
-    position: absolute;
-    z-index: 0;
-}
-#friend-name {
-    font-size: 15px;
-    left: 0; right: 0; top: 0; bottom: 0;
-    z-index: 1;
-    margin-left: 20px;
-}
-
-#friend-img {
-    width: 75px; 
-    height: 75px;
+  #add-friend {
+    background-color: #CF2121;
+    border: 1px solid black;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
     border-radius: 50%;
-    margin-left: 20px;
-    z-index: 2;
-}
-
-#friend-info {
-    display: flex;
-    align-items: center;
+    line-height: 16px;
+    text-align: center;
     position: absolute;
-}
-
-@media screen and (min-width: 320px) {
-    #friend-name {
-      font-size: 20px;
-    }
+    right: 10px;
+    z-index: 2;
+    cursor: pointer;
   }
-  @media screen and (min-width: 1000px) {
-    #friend-name {
-      font-size: 30px;
-    }
-  }  */
 
   .friend-container {
     position: relative;
@@ -91,6 +55,40 @@
   margin-bottom: 5px;
   margin-left: 10px;
   position: absolute;
+}
+
+.pending-request{
+  position: absolute;
+  right: 1px;
+  z-index: 3;
+}
+
+#accept-request, #waiting-request {
+  display: flex;
+  align-items: center;
+}
+
+#waiting-request{
+  background-color: rgba(0, 0, 0, 0.61);
+  height: 5rem; width: 65vw;
+  max-width: 385px;
+  font-size: 2rem;
+}
+
+#accept-request button, #waiting-request button {
+  background-color: white;
+  width: 40px; height: 40px;
+  border:  2px solid black;
+  font-size: 40px;
+  border-radius: 50%;
+}
+
+#accept-request-button {
+  color: rgb(101, 168, 0);
+  margin-right: 10px;
+}
+#deny-request-button {
+  color: rgb(160, 0, 0);
 }
 
 @media screen and (max-width: 330px) {

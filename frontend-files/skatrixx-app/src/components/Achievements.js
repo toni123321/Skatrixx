@@ -1,30 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { getProfileAchievements } from '../services'
 
-import badge1 from "../images/badges/Badge2.png"
-import badge2 from "../images/badges/Badge3.png"
-import badge3 from "../images/badges/Badge4.png"
-import badge4 from "../images/badges/Badge5.png"
-
 import "../stylesheets/Achievements.css"
 
 import AchievementContainer from './AchievementContainer'
 
 function Achievements(props) {
 
-    const achievements = [
-        badge1,
-        badge2,
-        badge3,
-        badge4
-    ]
+    let achievements = getProfileAchievements()
     const [viewedAchievement, setViewedAchievement]  = useState();
     const [nextAcievement, setNextAchievement] = useState();
     const [prevAcievement, setPrevAchievement] = useState();
     const [viewedAchievementIndex, setViewedAchievementIndex] = useState(0);
 
     useEffect(() => {
-        console.log(achievements)
         if(achievements.length === 1) {
             setViewedAchievement(achievements[0]);
             setPrevAchievement(undefined);

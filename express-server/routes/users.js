@@ -3,7 +3,6 @@ const router=express.Router()
 const User=require('../models/user')
 
 
-
 async function getUser(req, res, next){
     let user
   try{
@@ -20,6 +19,21 @@ async function getUser(req, res, next){
   next()
 }
 
+async function getUserByUsername(req, res, next) {
+    let users
+    try {
+        users = await User.find({username : {"$regex" : req.params.username, "$options" : "i"}})
+        if(users == null){
+            return res.status(404).json({message: 'Cannot find users'})
+        }
+    }
+    catch(err) {
+        res.status(500).json({message : err.message})
+    }
+    res.users = users
+    next()
+}
+
 
 //Get all users
 router.get('/', async(req,res)=>{
@@ -33,15 +47,23 @@ router.get('/', async(req,res)=>{
 
  //get one user by id
  router.get('/:id', getUser, (req,res)=>{
-    res.send(res.user.username)
+    res.send(res.user)
  })
+
+ // Search User by username
+router.get('/search/:username', getUserByUsername, (req, res) => {
+    res.send(res.users)
+})
 
  //Post user
  router.post('/',async(req,res)=>{
     const user=new User({
         username:req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        image : req.body.image,
+        level : req.body.level,
+        xp : req.body.xp
     })
     try{
       const newUser=await user.save()
@@ -80,11 +102,4 @@ router.delete('/:id', getUser, async (req,res)=>{
    
 })
 
-
-
-
-
-
-
-
-module.exports=router
+module.exports = router

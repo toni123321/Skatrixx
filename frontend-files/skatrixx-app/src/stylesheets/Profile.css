@@ -70,6 +70,7 @@
 }
 #tabs-friends {
     background-color: #1E1E1E;
+    border-radius: 0;
 }
 #tabs-gallery {
     background-color: #1E1E1E;
@@ -84,7 +85,20 @@
 }
 
  .friends-tab {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
     overflow-y: scroll;
     height: calc(100% - 65px);
     padding-bottom: 64px;
-}    
+}
+
+.gallery-tab {
+    overflow-y: scroll;
+    height: calc(100% - 65px);
+    padding-bottom: 64px; 
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+}
