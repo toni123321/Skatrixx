@@ -83,6 +83,27 @@ router.post('/', async(req, res) => {
 
 })
 
+//Update trick
+router.patch('/:id', getTrickData, async(req,res)=>{
+    if(req.body.name !=null){
+        res.trickData.name=req.body.name
+    }
+    if(req.body.xp!= null){
+        res.trickData.xp=req.body.xp
+    }
+    if(req.body.videoLink!= null){
+        res.trickData.videoLink=req.body.videoLink
+    }
+    if(req.body.difficulty!= null){
+        res.trickData.difficulty=req.body.difficulty
+    }
+    try{
+        const updatedTrick=await res.trickData.save()
+        res.json(updatedTrick)
+    }catch(err){
+         res.status(400).json({message: err.message})
+    }
+})
 
 
 
