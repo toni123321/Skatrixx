@@ -28,17 +28,10 @@ h2 {
   padding-bottom: 10px;
 }
 
-#VideoDiv {
-  display: flex;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
-
-  padding-top: 10px;
-  border-radius: 40px;
-}
 
 #videoFrame {
+    display: block;
+    margin-inline:auto;
     border-radius: 20px;
 }
 
