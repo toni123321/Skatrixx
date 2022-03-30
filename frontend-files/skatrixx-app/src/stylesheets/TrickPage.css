@@ -1,13 +1,11 @@
 #sec{
   color: #efefef;
 }
-h2 {
+#trickName {
   color: #efefee;
   text-align: center;
   font-size: x-large;
   font-weight: bold italic;
-
-  padding-top: 60px;
 }
 #des-title{
     color: #efefee;
@@ -51,5 +49,29 @@ button {
     font-size: large;
     font-weight: bold;
     box-shadow: 15px 3px 4px rgba(26, 26, 26, 0.25), inset 1px 0px 2px rgba(26, 26, 26, 0.25);
+
+}
+
+.timer-parent {
+  color: #efefee;
+  margin-top:0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.timer {
+  display: flex;
+  width: 80%;
+}
+
+.time-text {
+  width:50%
+}
+.time-sec {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap:0.8rem;
 
 }

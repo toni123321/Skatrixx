@@ -13,7 +13,7 @@
   flex-direction: column;
 }
 
-h3 {
+.level-menu h3 {
   color: #efefef;
   text-align: center;
   font-weight: 150;
@@ -21,7 +21,7 @@ h3 {
   margin-top: -20px;
 }
 
-h5 {
+.level-menu h5 {
   color: #efefef;
   text-align: center;
   font-weight: 50;

@@ -18,7 +18,7 @@ const profile = {
     ],
     "friends": [
         {
-            "name" : "pishko Ramirez",
+            "name" : "Ivan Ivanov",
             "level" : 32,
             "progressToNexLvl" : 28,
             "frRank" : 3,
@@ -27,7 +27,7 @@ const profile = {
             "image" : "./images/profile-picture.png"
         },
         {
-            "name" : "Go6ko Ramirez",
+            "name" : "George Petrov",
             "level" : 32,
             "progressToNexLvl" : 28,
             "frRank" : 3,
@@ -36,7 +36,7 @@ const profile = {
             "image" : "./images/profile-picture.png"
         },
         {
-            "name" : "Stop PLS",
+            "name" : "Phil Jones",
             "level" : 32,
             "progressToNexLvl" : 28,
             "frRank" : 3,
@@ -45,7 +45,7 @@ const profile = {
             "image" : "./images/profile-picture.png"
         },
         {
-            "name" : "Stop Ramirez",
+            "name" : "Mark Wilson",
             "level" : 32,
             "progressToNexLvl" : 28,
             "frRank" : 3,
@@ -54,7 +54,7 @@ const profile = {
             "image" : "./images/profile-picture.png"
         },
         {
-            "name" : "Kill me",
+            "name" : "Bobby White",
             "level" : 32,
             "progressToNexLvl" : 28,
             "frRank" : 3,
@@ -63,7 +63,7 @@ const profile = {
             "image" : "./images/profile-picture.png"
         },
         {
-            "name" : "pishko Ramirez",
+            "name" : "Victor Borisov",
             "level" : 32,
             "progressToNexLvl" : 28,
             "frRank" : 3,
@@ -72,7 +72,7 @@ const profile = {
             "image" : "./images/profile-picture.png"
         },
         {
-            "name" : "Go6ko Ramirez",
+            "name" : "Elena Atanasova",
             "level" : 32,
             "progressToNexLvl" : 28,
             "frRank" : 3,
@@ -81,7 +81,7 @@ const profile = {
             "image" : "./images/profile-picture.png"
         },
         {
-            "name" : "sheguvam se",
+            "name" : "Henry Walkmart",
             "level" : 32,
             "progressToNexLvl" : 28,
             "frRank" : 3,
@@ -90,7 +90,7 @@ const profile = {
             "image" : "./images/profile-picture.png"
         },
         {
-            "name" : "Ioan Pi6kofv",
+            "name" : "Ioan Efremov",
             "level" : 32,
             "progressToNexLvl" : 28,
             "frRank" : 3,
@@ -99,7 +99,7 @@ const profile = {
             "image" : "./images/profile-picture.png"
         },
         {
-            "name" : "Angel Ta6a4koff",
+            "name" : "Angel Hristov",
             "level" : 32,
             "progressToNexLvl" : 28,
             "frRank" : 3,

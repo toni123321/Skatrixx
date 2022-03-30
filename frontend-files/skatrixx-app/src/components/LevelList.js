@@ -27,6 +27,10 @@ const LevelList = (props) => {
     setPlay(!play)
   }
 
+  const handleGoBack = () => {
+    setPlay(false)
+  }
+
 
   //  update Data on component reload
   // on react component loading
@@ -52,6 +56,14 @@ const LevelList = (props) => {
     !play ?
       (
       <div >
+      <p
+        id="back"
+        onClick={() => {
+          props.handleDifficultyChange("");
+        }}
+      >
+        &lt;
+      </p>
         {/*if the data is loading too long*/}
       {loading && <div>Loading...</div>}
       {!loading && (
@@ -79,7 +91,7 @@ const LevelList = (props) => {
     )
     :
     (
-      <TrickPage trick={currTrick}/>
+      <TrickPage trick={currTrick} handleGoBack={handleGoBack}/>
     )
   )
 }

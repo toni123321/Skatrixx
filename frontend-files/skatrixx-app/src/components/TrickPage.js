@@ -30,7 +30,15 @@ function TrickPage(props) {
   return (
    !timerFinished ? (
     <div>
-    <h2 id="TrickName">{props.trick.name}</h2>
+    <p
+      id="back"
+      onClick={() => {
+        props.handleGoBack();
+      }}
+    >
+      &lt;
+    </p>
+    <h2 id="trickName">{props.trick.name}</h2>
     <div id="VideoDiv">
       <iframe
         id="videoFrame"
@@ -41,7 +49,15 @@ function TrickPage(props) {
         title="video"
       />{" "}
     </div>
-
+    <div className="timer-parent">
+      <div className="timer">
+        <div className="time-text">Time:</div>
+        <div className="time-sec">
+          <div id="sec">{seconds} sec</div>
+          <i className="fa-solid fa-hourglass"></i>
+        </div>
+      </div>
+    </div>
     <h5 id="des-title">Description:</h5>
     <p id="des">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -51,7 +67,7 @@ function TrickPage(props) {
     <button type="button" onClick={toggleStart}>
       {!isStarted ? "Start" : "Done"}
     </button>
-    <div id="sec">{seconds}</div>
+    
   </div>
    ): (
    <Statistic/>

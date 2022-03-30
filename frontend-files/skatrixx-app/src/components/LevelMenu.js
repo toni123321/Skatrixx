@@ -68,11 +68,11 @@ function LevelMenu(props) {
       </div>
     );
   } else if(difficultyOpened==="rookie"){
-    return (<LevelList difficulty={"beginner"} alley={"Beginner's Alley"} />);
+    return (<LevelList difficulty={"beginner"} alley={"Beginner's Alley"} handleDifficultyChange={handleDifficultyChange} />);
   } else if (difficultyOpened==="amateur"){
-    return (<LevelList difficulty={"intermediate"} alley={"Bkjj's Alley"} />)
+    return (<LevelList difficulty={"intermediate"} alley={"Bkjj's Alley"} handleDifficultyChange={handleDifficultyChange}/>)
   }else if (difficultyOpened==="pro"){
-    return (<LevelList difficulty={"master"} alley={"Tony's Alley"} />)
+    return (<LevelList difficulty={"master"} alley={"Tony's Alley"} handleDifficultyChange={handleDifficultyChange}/>)
   }
 }
 
