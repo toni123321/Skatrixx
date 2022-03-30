@@ -9,17 +9,16 @@ h2 {
 
   padding-top: 60px;
 }
-
-h5{
+#des-title{
     color: #efefee;
     text-align: center;
     font-size: large;
     font-weight: bold italic;
-
+    margin-top: 60px;
     padding-top: 10px;
 }
 
-p{
+#des{
   color: #efefee;
   text-align: center;
   align-items: center;

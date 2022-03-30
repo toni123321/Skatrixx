@@ -42,8 +42,8 @@ function TrickPage(props) {
       />{" "}
     </div>
 
-    <h5>Description:</h5>
-    <p>
+    <h5 id="des-title">Description:</h5>
+    <p id="des">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
     </p>

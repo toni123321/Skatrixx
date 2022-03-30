@@ -3,6 +3,7 @@ import LevelContainer from './LevelContainer'
 import tricksDataService from '../services/tricksDataService'
 import { faHourglass3 } from '@fortawesome/free-solid-svg-icons'
 import TrickPage from './TrickPage'
+import "../stylesheets/LevelList.css";
 
 
 
@@ -50,12 +51,12 @@ const LevelList = (props) => {
   return (
     !play ?
       (
-      <div>
+      <div >
         {/*if the data is loading too long*/}
       {loading && <div>Loading...</div>}
       {!loading && (
         !error ? (
-          <div>
+          <div id="tricks">
             <h3>{props.alley}</h3>
             {/* displaying the data from the API */}
           {trickData && trickData.map((trick, i) => 
