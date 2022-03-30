@@ -63,20 +63,18 @@ void loop() {
   Serial.print("Distance (cm): ");
   Serial.println(distanceCm);
   
-  delay(100);
 
-  
-//  mySensor.accelUpdate();
-//  Serial.println("!!! NEW VALUES ACCEL !!!");
-//  Serial.println("accelX: " + String(mySensor.accelX()));
-//  Serial.println("accelY: " + String(mySensor.accelY()));
-//  Serial.println("accelZ: " + String(mySensor.accelZ()));
+  mySensor.accelUpdate();
+  Serial.println("!!! NEW VALUES ACCEL !!!");
+  Serial.println("accelX: " + String(mySensor.accelX()));
+  Serial.println("accelY: " + String(mySensor.accelY()));
+  Serial.println("accelZ: " + String(mySensor.accelZ()));
 
 //  Serial.println("-------------------------------------");
-//  mySensor.gyroUpdate();
-//  Serial.println("!!! NEW VALUES GYRO !!!");
+    mySensor.gyroUpdate();
+    Serial.println("!!! NEW VALUES GYRO !!!");
 //  Serial.println("gyroX: " + String(mySensor.gyroX()));
 //  Serial.println("gyroY: " + String(mySensor.gyroY()));
-//  Serial.println("gyroZ: " + String(mySensor.gyroZ()));
-  //delay(500);
+    Serial.println("gyroZ: " + String(mySensor.gyroZ()));
+  delay(500);
 }
