@@ -24,7 +24,7 @@ function LevelMenu(props) {
     )
     }
     else {
-            return (<LevelList difficulty = {'beginner'} alley={"Beginner's Alley"} back={}/>)
+            return (<LevelList difficulty = {'beginner'} alley={"Beginner's Alley"}/>)
     }
 }
 
