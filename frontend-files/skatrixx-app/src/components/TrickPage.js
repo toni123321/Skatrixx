@@ -1,15 +1,15 @@
 import {React, useState, useEffect} from 'react'
 import "../stylesheets/TrickPage.css"
 
-function TrickPage() {
+function TrickPage(props) {
 
   return (
     <div>
-      <h2 id="TrickName">Ollie</h2>
+      <h2 id="TrickName">{props.trick.name}</h2>
       <div id="VideoDiv">
         <iframe
           id="videoFrame"
-          src="https://www.youtube.com/embed/E7wJTI-1dvQ"
+          src={props.trick.videoLink}
           frameborder="0"
           allow="autoplay; encrypted-media"
           allowfullscreen
