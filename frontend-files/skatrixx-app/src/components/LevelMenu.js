@@ -54,23 +54,25 @@ function LevelMenu(props) {
         <div className="master">
           <img src={ProsRamp} id="ProsRamp" />
           <h3
-            onClick={() => {
-              handleDifficultyChange("pro");
-            }}
+            
           >
             Pro's Park
           </h3>
           <h5>25 Tricks</h5>
-          <button type="button" onclick="" id="ProsButton">
+          <button type="button" onClick={() => {
+              handleDifficultyChange("pro");
+            }} id="ProsButton">
         Go →
       </button>
         </div>
       </div>
     );
-  } else if(dif==="rookie"){
-    return <LevelList difficulty={"beginner"} alley={"Beginner's Alley"} />;
-  } else if (dif==="amateur"){
-    return <LevelList difficulty={"intermidiate"} alley={"Bkjj's Alley"} />;
+  } else if(difficultyOpened==="rookie"){
+    return (<LevelList difficulty={"beginner"} alley={"Beginner's Alley"} />);
+  } else if (difficultyOpened==="amateur"){
+    return (<LevelList difficulty={"intermediate"} alley={"Bkjj's Alley"} />)
+  }else if (difficultyOpened==="pro"){
+    return (<LevelList difficulty={"master"} alley={"Tony's Alley"} />)
   }
 }
 
