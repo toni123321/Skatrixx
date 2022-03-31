@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getProfileRanking } from '../services'
+import { getProfileRanking } from '../services/user'
 
 import "../stylesheets/ProfileRankings.css"
 

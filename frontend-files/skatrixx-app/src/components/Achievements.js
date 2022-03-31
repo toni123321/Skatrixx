@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getProfileAchievements } from '../services'
+import { getProfileAchievements } from '../services/user'
 
 import "../stylesheets/Achievements.css"
 

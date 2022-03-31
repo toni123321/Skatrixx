@@ -6,14 +6,22 @@ import LevelMenu from './LevelMenu'
 import SIcon from "../images/s-1 1.svg"
 import SoloIcon from "../images/Account.svg"
 import VersusIcon from "../images/Head to Head.svg"
+import { Link } from 'react-router-dom'
 
 function Loby() {
 
-  const [gamemode, setGamemode] = useState('Menu');
+  const [gamemode, setGamemode] = useState('Menu')
+  const [skatePopup, setSkatePopup] = useState(false)
 
   const handleGamemode = (gamemode) => {
       setGamemode(gamemode);
   }
+
+  const toggleSkatePopup = () => {
+    setSkatePopup(!skatePopup)
+  }
+
+
 
   useEffect(() => {
     
@@ -27,16 +35,23 @@ function Loby() {
           <img src={SIcon} alt='' id= "Sicon" />
         <div><img onClick={() => {handleGamemode('solo')}} src={SoloIcon} alt=''  id= "soloIcon"/>
         <h4>Solo</h4></div>
-        <div><img onClick={() => {handleGamemode('skate')}} src={VersusIcon} alt=''  id= "vsIcon"/>
+        <div><img onClick={toggleSkatePopup} src={VersusIcon} alt=''  id= "vsIcon"/>
         <h4>S.K.A.T.E</h4></div>
+        {skatePopup ?         
+        <div id='SKATE-Popup'>
+          <div id='SKATE-options'>
+            <p id='SKATE-close' onClick={toggleSkatePopup}>X</p>
+            <Link to={'/create'} style={{ textDecoration: 'none' }}><button id='skate-btn'>Create Lobby</button></Link>
+            <p>OR</p>
+            <Link to={'/join'} style={{ textDecoration: 'none' }}><button id='skate-btn'>Join Lobby</button></Link> 
+          </div>
+        </div>
+         : ''}
         </div>
       )
     }
     else if(gamemode === 'solo') {
       return (<LevelMenu back={handleGamemode}/>)
-    }
-    else if(gamemode === 'skate') {
-        return (<>ok brat</>)
     }
   }
 

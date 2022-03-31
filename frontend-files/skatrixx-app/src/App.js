@@ -10,8 +10,11 @@ import GamePage from './components/GamePage';
 import Statistc from './components/Statistic';
 
 import { useState, useEffect } from 'react';
-import { getUser, loggedUser } from './services';
+import { loggedUser } from './services/api_client';
+import { getUser } from './services/user';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
+import JoinSkateLobby from './components/JoinSkateLobby';
+import CreateSkateLobby from './components/CreateSkateLobby';
 
 export const friendRequestSent = () => {
   NotificationManager.success('Friend Request Has Been Sent', 'Success')
@@ -49,6 +52,8 @@ function App() {
             <Route path={'/skate'} element={<SkatePage/>}/>
             <Route path={'/trophy'} element={<Statistc/>}/>
             <Route path={'/game'} element={<GamePage />}/>
+            <Route path={'/join'} element={<JoinSkateLobby/>}/>
+            <Route path={'/create'} element={<CreateSkateLobby/>}/>
           </Routes>
           <NavBar/>
           <NotificationContainer/>

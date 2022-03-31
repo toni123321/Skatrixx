@@ -1,0 +1,17 @@
+.lobbyMembers {
+    width: 90vw;
+    max-width: 550px;
+    position: relative;
+}
+
+#invite-to-lobby-button {
+    cursor: pointer;
+    background-color: rgb(93, 155, 1); 
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    margin-left: 10px; margin-top: 10px;
+    border: 1px solid black;
+}
+

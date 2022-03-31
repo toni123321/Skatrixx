@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 import "../stylesheets/AddFreindPopUp.css";
 
 import QrIcon from "../images/qr.png"
-import {searchUserByUsername, sendFriendRequestByUsername } from '../services';
+import {sendFriendRequestByUsername } from '../services/connection';
+import { searchUserByUsername } from '../services/user'
 import { friendRequestSent } from '../App';
 import AddWithQR from './AddWithQR';
 
@@ -24,7 +25,6 @@ function AddFriendPopUp(props) {
   }
 
   const handleSendFriendRequest = async (username) => {
-    console.log(username);
     if(sendFriendRequestByUsername(username) !== null) {
       friendRequestSent()
     }

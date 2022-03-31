@@ -1,6 +1,9 @@
 import {React, useState, useEffect} from 'react'
 
 import "../stylesheets/Profile.css"
+import LogIn from "./Login"
+import Success from './Success'
+import firebase from '../services/firebase'
 
 import userTabImg from "../images/Person.png"
 import friendTabImg from "../images/Friends.png"
@@ -12,14 +15,10 @@ import ProfileRankings from './ProfileRankings'
 import Achievements from './Achievements'
 import FriendList from './FriendList'
 import Gallery from './Gallery'
-import Login from './Login'
-
-import Success from './Success'
-import firebase from '../services/firebase';
 
 function Profile(props) {
 
-    const [openedTab, setOpenedTab] = useState('Gallery');
+    const [openedTab, setOpenedTab] = useState('Me');
     
 
     const handleTabChange = (tab) => {
@@ -42,6 +41,14 @@ function Profile(props) {
             setOpenedTab('Gallery')
         }
     }
+
+    const [user, setUser] = useState(null)
+    useEffect(() => {
+      firebase.auth().onAuthStateChanged(user => {
+          setUser(user)
+      })
+    }, [])
+    
 
     const displayOpenedTab = () => {
         if(openedTab === 'Me') {
@@ -67,15 +74,6 @@ function Profile(props) {
             )
         }
     }
-    
-
-    const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged(user => {
-      setUser(user);
-    })
-  }, [])
 
     return (
         <div className='profile'>
@@ -96,7 +94,7 @@ function Profile(props) {
                 <button onClick={() => {handleTabChange('Gallery')}} id='tabs-gallery'>
                 <img src={skateTabImg}alt=''/>
                 </button>
-                {user ? <Success user={user} /> : <Login />}
+                {user ? <Success user={user}/> : <LogIn/>}
             </div>
 <br/>
             {displayOpenedTab()}

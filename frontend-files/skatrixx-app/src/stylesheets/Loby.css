@@ -23,3 +23,40 @@ h4 {
     margin: auto;
     margin-top: 110px;
 }
+
+#SKATE-Popup {
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.479);
+}
+
+#SKATE-close {
+    text-align: left;
+}
+
+#SKATE-options {
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(175, 13, 13);
+    width: 80%;
+    height: 450px;
+    max-width: 350px;
+    max-height: 250px;
+    padding: 20px;
+    text-decoration: none;
+}
+
+#skate-btn  {
+    box-shadow: 10px 3px 4px rgb(26 26 26 / 20%);
+    background-color: #1e1e1e;
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 150px;
+    height: 50px;
+}

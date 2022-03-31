@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getUserConnections } from '../services';
+import { getUserConnections } from '../services/user';
 
 import "../stylesheets/FriendList.css"
 import AddFriendPopUp from './AddFriendPopUp';

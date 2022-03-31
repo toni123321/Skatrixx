@@ -3,7 +3,9 @@ import React, { useState, useEffect } from 'react'
 import "../stylesheets/FriendList.css"
 import backgroundImg from  "../images/skate1 2.png"
 import defaultImg from "../images/default-image.png"
-import { acceptFriendRequest, cancelFriendRequest, getUser, loggedUser } from '../services';
+import { loggedUser } from '../services/api_client'
+import { getUser} from '../services/user';
+import { acceptFriendRequest, cancelFriendRequest } from '../services/connection';
 import { errorPopUp, friendRequsetAccepted, friendRequsetCancelled } from '../App';
  
 function FriendContainer(props) {

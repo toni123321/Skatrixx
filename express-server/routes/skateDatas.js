@@ -52,7 +52,7 @@ router.post('/',async(req,res)=>{
   })
   try{
     const newSkateData=await skateData.save()
-    res.status(201).json(skateData)
+    res.status(201).json(newSkateData)
   }catch(err){
     res.status(400).json({message: err.message})
   }

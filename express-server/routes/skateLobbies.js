@@ -1,0 +1,150 @@
+const express = require('express')
+const skateLobby = require('../models/skateLobby')
+const router = express.Router()
+const SkateLobby = require('../models/skateLobby')
+const { createCode } = require('../services/skateLobbyService')
+
+async function getSkateLobby(req, res, next) {
+    let skateLobby
+    try {
+        skateLobby = await SkateLobby.findById(req.params.id)
+        if(skateLobby == null) {
+            return res.status(404).json({message : "Cannot find lobby"})
+        }
+    }
+    catch(err) {
+        return res.status(500).json({message : err.message})
+    }
+    res.skateLobby = skateLobby
+    next()
+}
+
+async function getLobbyByCode(req, res, next) {
+    let skateLobby
+    try {
+        skateLobby = await SkateLobby.findOne({accessCode : req.params.code})
+        if(skateLobby == null) {
+            return res.status(404).json({message : "Cannot find lobby"})
+        }
+    }
+    catch(err) {return res.status(500).json({message : err.message})}
+    res.skateLobby = skateLobby
+    next()
+}
+
+router.get('/', async(req, res) => {
+    try {
+        const skateLobby = await SkateLobby.find();
+        res.send(skateLobby)
+    }
+    catch(err) {
+        res.status(500).json({message : err.message})
+    }
+})
+
+router.get('/:id', getSkateLobby, (req, res) => {
+    try {
+        res.send(res.SkateLobby);
+    }
+    catch(err) {
+        res.status(500).json({message : err.message})
+    }
+})
+
+router.post('/', async(req, res) => {
+    const skateLobby = new SkateLobby({
+        accessCode : createCode(),
+        isPrivate : req.body.isPrivate,
+        members : req.body.members,
+        limit:  req.body.limit
+    })
+    try {
+        const newSkateLobby = await skateLobby.save()
+        res.status(201).json(newSkateLobby)
+    }
+    catch(err) {
+        res.status(400).json({message : err.message})
+    }
+})
+
+router.patch('/join/:code', getLobbyByCode,async(req, res) => {
+    if(req.body.members !== null && Object.keys(res.skateLobby.members).length < res.skateLobby.limit) {
+        res.skateLobby.members.push(req.body.user_id)
+        try{
+            const updatedLobby = await res.skateLobby.save()
+            res.json(updatedLobby)
+        }
+        catch(err) {
+            res.status(400).json({message : err.message})
+        }
+    }
+    else {res.status(403).json({message : "This lobby is already full"})}
+})
+
+router.patch('/:id/:userId/leave', getSkateLobby, async(req, res) => {
+    if(req.params.userId !== null) {
+        res.skateLobby.members.pull(req.params.userId)
+    }
+    try{
+        const updatedLobby = await res.skateLobby.save()
+        res.json(updatedLobby)
+    }
+    catch(err) {
+        res.status(400).json({message : err.message})
+    }
+})
+
+router.patch('/:id/invite/:userId', getSkateLobby, async(req, res) => {
+    if(req.params.userId !== null){
+        res.skateLobby.invitations.push(req.params.userId);
+    }
+    try{
+        const updatedLobby = await res.skateLobby.save()
+        res.json(updatedLobby)
+    }
+    catch(err) {
+        res.status(400).json({message : err.message})
+    }
+})
+
+router.patch('/:id/deny/:userId', getSkateLobby, async(req, res) => {
+    if(req.params.userId !== null){
+        res.skateLobby.invitations.pull(req.params.userId);
+    }
+    try{
+        const updatedLobby = await res.skateLobby.save()
+        res.json(updatedLobby)
+    }
+    catch(err) {
+        res.status(400).json({message : err.message})
+    }
+})
+
+router.patch('/:id/accept/:userId', getSkateLobby, async(req, res) => {
+    if(req.params.userId !== null && Object.keys(res.skateLobby.members).length < res.skateLobby.limit){
+        res.skateLobby.invitations.pull(req.params.userId);
+        res.skateLobby.invitations.push(req.params.userId);
+    }
+    try{
+        const updatedLobby = await res.skateLobby.save()
+        res.json(updatedLobby)
+    }
+    catch(err) {
+        res.status(400).json({message : err.message})
+    }
+})
+
+router.patch('/:id/:access', getSkateLobby, async(req, res) => {
+    if(req.params.access !== null){
+        res.skateLobby.isPrivate = access
+    }
+    try{
+        const updatedLobby = await res.skateLobby.save()
+        res.json(updatedLobby)
+    }
+    catch(err) {
+        res.status(400).json({message : err.message})
+    }
+})
+
+module.exports = router

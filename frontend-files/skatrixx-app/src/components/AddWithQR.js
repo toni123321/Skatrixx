@@ -5,7 +5,8 @@ import "../stylesheets/AddWithQR.css"
 import QRCode from "react-qr-code";
 import { QrReader } from 'react-qr-reader';
 
-import { loggedUser, sendFriendRequestQR } from '../services';
+import { loggedUser } from '../services/api_client';
+import { sendFriendRequestQR } from '../services/connection';
 import { friendRequestSent } from '../App';
 
 function AddWithQR(props) {

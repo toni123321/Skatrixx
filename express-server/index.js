@@ -33,12 +33,14 @@ const usersRouter = require('./routes/users')
 const skateDataRouter = require('./routes/skateDatas')
 const trickDataRouter = require('./routes/tricks')
 const connectioDataRouter = require('./routes/connections')
+const lobbyDataRouter = require('./routes/skateLobbies')
 
 
 app.use('/users', usersRouter)
 app.use('/skateDatas', skateDataRouter)
 app.use('/tricks', trickDataRouter)
 app.use('/connections', connectioDataRouter)
+app.use('/lobbies', lobbyDataRouter)
 
 
 // PORT
