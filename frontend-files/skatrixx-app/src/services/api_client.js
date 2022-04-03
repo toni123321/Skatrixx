@@ -1,6 +1,7 @@
 import axios from "axios";
+export const loggedUser = localStorage.getItem("userId")
 
-export const loggedUser = '62496cd5528e0cad7bc26777'
+
 
 export default axios.create({
   baseURL: "http://localhost:3000/",

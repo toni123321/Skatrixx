@@ -23,9 +23,9 @@ async function getUserByUsername(req, res, next) {
     let users
     try {
         users = await User.find({username : {"$regex" : req.params.username, "$options" : "i"}})
-        if(users == null){
-            return res.status(404).json({message: 'Cannot find users'})
-        }
+        // if(users.length == 0){
+        //     return res.status(404).json({message: 'Cannot find users'})
+        // }
     }
     catch(err) {
         res.status(500).json({message : err.message})
@@ -52,7 +52,12 @@ router.get('/', async(req,res)=>{
 
  // Search User by username
 router.get('/search/:username', getUserByUsername, (req, res) => {
-    res.send(res.users)
+//    if(res.users==null){
+//        return res.status(400).json({message: 'Cannot find users'})
+//    }
+        res.send(res.users)
+
+    
 })
 
  //Post user

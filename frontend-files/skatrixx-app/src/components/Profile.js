@@ -1,9 +1,6 @@
-import {React, useState, useEffect} from 'react'
+import {React, useState} from 'react'
 
 import "../stylesheets/Profile.css"
-import LogIn from "./Login"
-import Success from './Success'
-import firebase from '../services/firebase'
 
 import userTabImg from "../images/Person.png"
 import friendTabImg from "../images/Friends.png"
@@ -11,6 +8,7 @@ import skateTabImg from "../images/Skateboard.png"
 import defaultImg from "../images/default-image.png"
 
 import ProgressBar from './ProgressBar'
+import Success from './Success'
 import ProfileRankings from './ProfileRankings'
 import Achievements from './Achievements'
 import FriendList from './FriendList'
@@ -42,14 +40,6 @@ function Profile(props) {
         }
     }
 
-    const [user, setUser] = useState(null)
-    useEffect(() => {
-      firebase.auth().onAuthStateChanged(user => {
-          setUser(user)
-      })
-    }, [])
-    
-
     const displayOpenedTab = () => {
         if(openedTab === 'Me') {
             return(
@@ -80,7 +70,8 @@ function Profile(props) {
             <div id='profile-card'>
                 <img src={props.img !== undefined ? props.img : defaultImg} alt='' />
                 <div id='additional-information'>
-                    <p>{props.name}</p>
+                <p>{props.name}</p>
+                <Success className='log-out'/>
                     <ProgressBar level={props.level} xp={props.xp}/>
                 </div>
             </div>

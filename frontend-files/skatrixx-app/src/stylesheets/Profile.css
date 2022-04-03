@@ -51,6 +51,13 @@
     margin-left: auto; margin-right: auto; margin-top: -10px;
 }
 
+.welcome-message-sign-out button {
+    border-radius: 10px;
+    width: 100px;
+    height: 25px;
+    margin-bottom: 0;
+}
+
 #tabs button {
     display: flex;
     align-items: center;

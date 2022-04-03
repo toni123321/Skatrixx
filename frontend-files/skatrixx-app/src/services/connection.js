@@ -1,8 +1,8 @@
 import { loggedUser } from './api_client';
 
 const axios = require('axios');
-const url = "http://localhost:3000/";
-//const url = "https://skatrixx.herokuapp.com/";
+export const url = "http://localhost:3000/";
+//export const url = "https://skatrixx.herokuapp.com/";
 
 export const sendFriendRequestByUsername = (username) => {
 
