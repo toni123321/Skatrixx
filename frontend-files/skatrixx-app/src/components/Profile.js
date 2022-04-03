@@ -1,9 +1,11 @@
 import {React, useState, useEffect} from 'react'
+import axios from 'axios'
 
 import "../stylesheets/Profile.css"
 import LogIn from "./Login"
 import Success from './Success'
 import firebase from '../services/firebase'
+import { url } from '../services/connection'
 
 import userTabImg from "../images/Person.png"
 import friendTabImg from "../images/Friends.png"
@@ -45,10 +47,55 @@ function Profile(props) {
     const [user, setUser] = useState(null)
     useEffect(() => {
       firebase.auth().onAuthStateChanged(user => {
+
+         console.log(user)
           setUser(user)
+          validateUser(user.displayName,user.photoURL,user.email)
+          
       })
     }, [])
-    
+
+    const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: {},
+        };
+
+    const validateUser = (displName,photoURL,email) =>{
+
+        axios.get(`${url}users/search/${displName}`)
+            .then((response) => {
+                    if (response.status === 200) {    
+                        console.log(response.data)
+                        const obj=Object.assign({}, response.data)
+                        if( Object.keys(obj).length != 0){   
+                        localStorage.setItem("userId",obj[0]._id)
+                            // if(localStorage.getItem("userId")!==null){
+                            //     localStorage.setItem("profileURL",photoURL)
+                            // }  /---- POD VUPROS :) ----\
+                        }
+                        else{
+                           axios
+                            .post(`${url}users`, JSON.stringify({
+                                username: displName,
+                                email: email,
+                                password: "",
+                                image : photoURL,
+                                level: "beginner",
+                                xp : 0,
+                           }),config)
+                             .then((response) => {
+                                 if(response.status===201){
+                                    localStorage.setItem("userId",response.data._id)
+                                 }
+                            
+                            });
+                    }                          
+            }    
+            });    
+      }
+   
 
     const displayOpenedTab = () => {
         if(openedTab === 'Me') {
@@ -80,7 +127,7 @@ function Profile(props) {
             <div id='profile-card'>
                 <img src={props.img !== undefined ? props.img : defaultImg} alt='' />
                 <div id='additional-information'>
-                    <p>{props.name}</p>
+                <p>{props.name}</p>
                     <ProgressBar level={props.level} xp={props.xp}/>
                 </div>
             </div>
@@ -94,7 +141,7 @@ function Profile(props) {
                 <button onClick={() => {handleTabChange('Gallery')}} id='tabs-gallery'>
                 <img src={skateTabImg}alt=''/>
                 </button>
-                {user ? <Success user={user}/> : <LogIn/>}
+                {user ? <Success user={user}/>  : <LogIn/>}
             </div>
 <br/>
             {displayOpenedTab()}

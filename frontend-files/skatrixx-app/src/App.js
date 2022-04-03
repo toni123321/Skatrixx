@@ -8,6 +8,7 @@ import Profile from './components/Profile';
 import SkatePage from './components/SkatePage';
 import GamePage from './components/GamePage';
 import Statistc from './components/Statistic';
+import { url } from './services/connection';
 
 import { useState, useEffect } from 'react';
 import { loggedUser } from './services/api_client';
@@ -15,6 +16,7 @@ import { getUser } from './services/user';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import JoinSkateLobby from './components/JoinSkateLobby';
 import CreateSkateLobby from './components/CreateSkateLobby';
+import axios from 'axios';
 
 export const friendRequestSent = () => {
   NotificationManager.success('Friend Request Has Been Sent', 'Success')
@@ -40,9 +42,29 @@ function App() {
     setUser(await getUser(loggedUser))
   }
 
-  useEffect(() => {
-    loadUser();
-  }, [])
+  // useEffect(() => {
+  //   loadUser();
+  // }, [])
+
+  const reloadProfile =  () => {
+     window.location.reload();
+  }
+
+  useEffect(() =>{
+    if(localStorage.getItem("userId") !== null){
+      axios.get(`${url}users/${localStorage.getItem("userId")}`)
+      .then((response) => {
+        if(response.status===200){
+         
+           setUser(response.data)
+           
+        }
+      })
+
+    }else{
+      //loadUser();
+    }
+  })
   
   return (
     <Router>

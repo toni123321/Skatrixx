@@ -7,12 +7,13 @@ const Success = ({ user }) => {
 
 const signout = () => {
     console.log("Click")
+    localStorage.removeItem("userId")
+    localStorage.removeItem("profileURL")
     auth.signOut()
+
 }
   return (
     <div className="welcome-message">
-      <h1>Hello, <span></span>{user.displayName}</h1>
-      <img src={user.photoURL} alt="" />
       <button onClick={signout}>Sign out</button>
     </div>  
   )
