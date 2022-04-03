@@ -19,6 +19,21 @@ async function getSkateLobby(req, res, next) {
     next()
 }
 
+async function getPublicSkateLobby(req, res, next) {
+    let skateLobby
+    try {
+        skateLobby = await SkateLobby.find({isPrivate : false})
+        if(skateLobby == null) {
+            return res.status(404).json({message : "Cannot find lobby"})
+        }
+    }
+    catch(err) {
+        return res.status(500).json({message : err.message})
+    }
+    res.skateLobby = skateLobby
+    next()
+}
+
 async function getLobbyByCode(req, res, next) {
     let skateLobby
     try {
@@ -34,8 +49,17 @@ async function getLobbyByCode(req, res, next) {
 
 router.get('/', async(req, res) => {
     try {
-        const skateLobby = await SkateLobby.find();
-        res.send(skateLobby)
+        const lobbies = await SkateLobby.find();
+        res.send(lobbies)
+    }
+    catch(err) {
+        res.status(500).json({message : err.message})
+    }
+})
+
+router.get('/public', getPublicSkateLobby, (req, res) => {
+    try {
+        res.send(res.skateLobby)
     }
     catch(err) {
         res.status(500).json({message : err.message})

@@ -94,7 +94,6 @@ function Profile(props) {
                 <button onClick={() => {handleTabChange('Gallery')}} id='tabs-gallery'>
                 <img src={skateTabImg}alt=''/>
                 </button>
-                {user ? <Success user={user}/> : <LogIn/>}
             </div>
 <br/>
             {displayOpenedTab()}
