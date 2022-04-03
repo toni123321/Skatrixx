@@ -1,5 +1,6 @@
 const trick = require("../models/trick");
 
+
 function levelUp(input) {
     let sum = 0
     let tricks = trick.find();
