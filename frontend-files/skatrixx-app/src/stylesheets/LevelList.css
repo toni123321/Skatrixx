@@ -1,0 +1,12 @@
+#tricks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tricks h3 {
+    color: #efefef;
+    text-align: center;
+    font-weight: 150;
+    font-weight: bold;
+}

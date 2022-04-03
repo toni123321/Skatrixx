@@ -1,40 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import "../stylesheets/LevelContainer.css"
-import PlayIcon from "../images/Play.svg"
-import SkatePage from './SkatePage';
+import PlayIcon from "../images/Play.png"
 
 function LevelContainer(props) {  
-  const [gamemode, setGamemode] = useState('Menu');
-
-  const handleGamemode = (gamemode) => {
-      setGamemode(gamemode);
-  }
-  useEffect(() => {}, [])
-  const loadGamemode = () => {
-    if(gamemode === 'Menu') {
-      return (
-        <div>
-         
-      <img onClick={() => {handleGamemode('tutorial')}} src={PlayIcon} alt=''  id= "PlayIcon"/>
-      </div>
-      )
-    }else if(gamemode === 'tutorial') {
-      return (<SkatePage back={handleGamemode}/>)
-    }
+ 
+  const openTrick = () => {
+    props.handlePlay(props.trick)
+    console.log("Here")
   }
 
   return (
-    <>{loadGamemode()}</>
+      
+      <div id='trick'>
+        <p id="trickName">{props.trick.name}</p> 
+        <div className='trick-right'>
+        <p id="trickXp">{props.trick.xp}xp</p>
+        <i className="material-icons play-trick-arrow" onClick={openTrick}>keyboard_arrow_right</i>
+        </div>
+      </div>
+      
   )
-  // return (
-  //   <div id='trickList'> 
-  //   <div className='trick'>
-  //     <p id="trickName">{props.trick.name}</p> 
-  //     <p id="trickXp">{props.trick.xp}</p>
-  //     <img src={PlayIcon} id="play"/> 
-  //   </div>
-  //   </div>
-  // )
 }
 
 export default LevelContainer

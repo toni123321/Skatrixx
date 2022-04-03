@@ -1,22 +1,22 @@
-h2 {
+#sec{
+  color: #efefef;
+}
+#trickName {
   color: #efefee;
   text-align: center;
   font-size: x-large;
   font-weight: bold italic;
-
-  padding-top: 60px;
 }
-
-h5{
+#des-title{
     color: #efefee;
     text-align: center;
     font-size: large;
     font-weight: bold italic;
-
+    margin-top: 60px;
     padding-top: 10px;
 }
 
-p{
+#des{
   color: #efefee;
   align-items: center;
   justify-content: center;
@@ -24,17 +24,10 @@ p{
   padding-right: 20px;
 }
 
-#VideoDiv {
-  display: flex;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
-
-  padding-top: 10px;
-  border-radius: 40px;
-}
 
 #videoFrame {
+    display: block;
+    margin-inline:auto;
     border-radius: 20px;
 }
 
@@ -54,5 +47,29 @@ button {
     font-size: large;
     font-weight: bold;
     box-shadow: 15px 3px 4px rgba(26, 26, 26, 0.25), inset 1px 0px 2px rgba(26, 26, 26, 0.25);
+
+}
+
+.timer-parent {
+  color: #efefee;
+  margin-top:0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.timer {
+  display: flex;
+  width: 80%;
+}
+
+.time-text {
+  width:50%
+}
+.time-sec {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap:0.8rem;
 
 }

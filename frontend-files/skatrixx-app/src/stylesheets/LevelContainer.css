@@ -1,9 +1,13 @@
 
 
-#trickList {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
+#trick {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1.2rem;
+    /* display: grid; */
+    /* grid-template-columns: 1fr; */
+    /* gap: 8px; */
     width: 300px;
     height: 40px;
     border: 2px solid #efefef;
@@ -14,28 +18,43 @@
 }
 
 .trick {
-    padding: 10px;
+    /* padding: 10px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1rem;
+}
+
+.trick-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.play-trick-arrow {
+    color: red;
 }
 
 #trickName {
-    margin-top: -3px;
-    margin-left: 10px;
+    /* margin-top: -3px; */
+    /* margin-left: 10px; */
     color: #efefef;
     font-family: 'Segoe UI';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
+    /* text-align: left; */
 }
 #trickXp{
-    margin-top: -35px;
-    margin-left: 200px;
+    /* margin-top: -45px; */
+    /* margin-left: 175px; */
     color: #efefef;
     font-family: 'Segoe UI';
-    font-style: normal;
+    font-style: italic;
     font-size: 14px;
 }
 #play{
-    top: -35px;
-    margin-left: 245px;
-    position: relative;
+    /* top: -45px; */
+    /* margin-left: 245px; */
+    /* position: relative; */
 }
