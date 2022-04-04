@@ -22,6 +22,7 @@
     background-color: #1e1e1e;
     border-radius: 30px;
     width: 35%;
+    min-width: 200px;
     height: 40px;
     justify-content: space-evenly;
     margin: auto;
@@ -75,12 +76,14 @@
     margin-top: 20px;
     text-align: center;
     font-size: 15px;
+    margin-bottom: 0;
 }
 
 #lobby-code {
     text-align: center;
     font-size: 30px;
     margin: 0;
+    margin-bottom: 10px;
     font-weight: 650;
     text-decoration: underline;
 }

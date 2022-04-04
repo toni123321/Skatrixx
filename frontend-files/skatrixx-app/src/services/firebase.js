@@ -43,6 +43,8 @@ const finishSignIn = () => {
 
 export const signInWithGoogle = async () => {
   await auth.signInWithPopup(provider)
-  finishSignIn()
+  setTimeout(() => {
+    finishSignIn()
+  }, 100);
 }
 export default firebase;

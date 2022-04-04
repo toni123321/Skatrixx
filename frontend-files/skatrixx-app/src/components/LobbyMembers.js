@@ -9,9 +9,8 @@ function LobbyMembers() {
     const [lobbyMembers, setLobbyMembers] = useState([])
 
     useEffect(() => {
-        console.log(loggedUser)
         let arr = []
-        arr.push(loggedUser)
+        arr.push(localStorage.getItem("userId"))
       setLobbyMembers(arr)
     }, [])
     

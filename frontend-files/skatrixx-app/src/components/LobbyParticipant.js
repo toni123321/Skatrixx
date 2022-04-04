@@ -12,12 +12,13 @@ function LobbyParticipant(props) {
     }
 
     useEffect(() => {
+      loadUser()
     }, [])
     
 
   return (
     <div>
-        
+        {user.username}
     </div>
   )
 }

@@ -1,5 +1,8 @@
 .lobby-container {
     display: flex;
+    color: #efefef;
+    background-color: silver;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -41,6 +44,7 @@
     width: 40px; height: 40px;
     border-radius: 50%;
     line-height: 40px;
+    border: 1px solid black;
     text-align: center;
     background-color: grey;
 }
@@ -49,6 +53,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    border: 1px solid black;
     margin-right: 5px;
     margin-left: 5px;
 }

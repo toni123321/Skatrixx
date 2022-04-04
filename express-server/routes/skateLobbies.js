@@ -160,7 +160,7 @@ router.patch('/:id/accept/:userId', getSkateLobby, async(req, res) => {
 
 router.patch('/:id/:access', getSkateLobby, async(req, res) => {
     if(req.params.access !== null){
-        res.skateLobby.isPrivate = access
+        res.skateLobby.isPrivate = req.params.access
     }
     try{
         const updatedLobby = await res.skateLobby.save()
@@ -168,6 +168,29 @@ router.patch('/:id/:access', getSkateLobby, async(req, res) => {
     }
     catch(err) {
         res.status(400).json({message : err.message})
+    }
+})
+
+router.patch('/:id/limit/:limit', getSkateLobby, async(req, res) => {
+    if(req.params.limit !== null){
+        res.skateLobby.limit = req.params.limit
+    }
+    try{
+        const updatedLobby = await res.skateLobby.save()
+        res.json(updatedLobby)
+    }
+    catch(err) {
+        res.status(400).json({message : err.message})
+    }
+})
+
+router.delete('/:id', getSkateLobby, async(req,res) => {
+    try{
+        await res.skateLobby.remove()
+        res.json({message: 'Deleted lobby'})
+    }
+    catch (err){
+        res.status(500).json({message :err.message})
     }
 })
 

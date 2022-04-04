@@ -2,6 +2,7 @@ import {React, useState, useEffect} from 'react'
 import Login from './Login'
 import '../stylesheets/LogInScreen.css'
 
+import backgroundImage from '../images/background_image.png'
 import firebase from '../services/firebase'
 import { url } from '../services/connection'
 import axios from 'axios'
@@ -58,6 +59,7 @@ function LogInScreen() {
       }
   return (
     <div>
+      <img id='background-image' src={backgroundImage} alt=''/>
         <Login/>
     </div>
   )

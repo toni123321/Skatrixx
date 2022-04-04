@@ -11,6 +11,7 @@ import Statistc from './components/Statistic';
 import { url } from './services/connection';
 
 import { useState, useEffect } from 'react';
+import backgroundImage from './images/background_image.png'
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import JoinSkateLobby from './components/JoinSkateLobby';
 import CreateSkateLobby from './components/CreateSkateLobby';
@@ -54,6 +55,7 @@ function App() {
   return (
     <Router>
         <div>
+        <img id='background-image' src={backgroundImage} alt=''/>
           <Routes>
             <Route path={'/'} exact element={<Profile name={user.username} img={user.image} level={user.level} xp={user.xp}/>}/>
             <Route path={'/skate'} element={<SkatePage/>}/>
@@ -70,6 +72,5 @@ function App() {
 }
 else {return <LogInScreen/>}
 }
-
 export default App;
 

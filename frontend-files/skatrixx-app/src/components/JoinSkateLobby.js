@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getLobbies } from '../services/lobby'
 import LobbyContainer from './LobbyContainer'
+import '../stylesheets/JoinSkateLobby.css'
 
 function JoinSkateLobby() {
 
@@ -17,11 +18,15 @@ function JoinSkateLobby() {
 
   return (
     <div className='join-skate-lobby'>
+        <div id='public-skate-lobbies'>
         {lobbies.map(lobby => (
-          <div>
             <LobbyContainer lobby={lobby}/>
-          </div>
         ))}
+        </div>
+        <div id='join-lobby-code'>
+          <input type={'text'}/>
+          <button id='lobby-container-join-button'>Join</button>
+        </div>
     </div>
   )
 }
