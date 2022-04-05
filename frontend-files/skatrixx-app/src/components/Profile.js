@@ -67,11 +67,11 @@ function Profile(props) {
 
     return (
         <div className='profile'>
+             <Success className='log-out'/>
             <div id='profile-card'>
-                <img src={props.img !== undefined ? props.img : defaultImg} alt='' />
+                <img src={props.img !== undefined ? props.img : defaultImg} alt='' id="profile-image" />
                 <div id='additional-information'>
                 <p>{props.name}</p>
-                <Success className='log-out'/>
                     <ProgressBar level={props.level} xp={props.xp}/>
                 </div>
             </div>
