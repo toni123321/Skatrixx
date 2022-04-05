@@ -30,6 +30,14 @@ export const createLobby = async (id) => {
         
 }
 
+export const getLobbyById = async (id) => {
+    try {
+        const resp = await axios.get(url + 'lobbies/' + id)
+        return resp.data
+    }
+    catch(err) {console.log(err)}
+}
+
 export const joinLobby = (code) => {
     var data = {
         user_id : loggedUser

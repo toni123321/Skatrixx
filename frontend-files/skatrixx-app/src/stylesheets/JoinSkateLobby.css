@@ -5,26 +5,25 @@
     align-items: center;
     width: 250px;
     margin: auto;
-    background-color: red;
     padding: 10px;
     position: absolute;
     left: 0; right: 0;
     bottom: 65px;
-    border-radius: 10px;
-    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #1e1e1e;
 }
 
 #join-lobby-code input {
     height: 30px;
     width: 160px;
-    border-radius: 50px;
+    border-radius: 5px;
     margin-right: 20px;
 }
 
 #lobby-container-join-button {
     height: 30px;
     width: 80px;
-    border-radius: 50px;
+    border-radius: 5px;
     margin: 0;
 }
 

@@ -19,6 +19,18 @@ async function getSkateLobby(req, res, next) {
     next()
 }
 
+async function getLobbyByUser(req, res, next) {
+    let skateLobby
+    try {
+        skateLobby = await SkateLobby.findOne({members : req.body.members[0]})
+    }
+    catch(err) {
+        return res.status(500).json({message : err.message})
+    }
+    res.skateLobby = skateLobby
+    next()
+}
+
 async function getPublicSkateLobby(req, res, next) {
     let skateLobby
     try {
@@ -75,7 +87,8 @@ router.get('/:id', getSkateLobby, (req, res) => {
     }
 })
 
-router.post('/', async(req, res) => {
+router.post('/', getLobbyByUser, async(req, res) => {
+    if(res.skateLobby == null) {
     const skateLobby = new SkateLobby({
         accessCode : createCode(),
         isPrivate : req.body.isPrivate,
@@ -88,6 +101,11 @@ router.post('/', async(req, res) => {
     }
     catch(err) {
         res.status(400).json({message : err.message})
+    }
+}
+    else {
+        const newSkateLobby = res.skateLobby
+        res.status(200).json(newSkateLobby)
     }
 })
 

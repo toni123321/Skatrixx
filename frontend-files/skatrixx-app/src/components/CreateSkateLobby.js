@@ -7,15 +7,19 @@ import LobbyMembers from './LobbyMembers';
 function CreateSkateLobby() {
 
     const [lobby, setLobby] = useState({})
-    const [maxPlayerCount, setMaxPlayerCount] = useState(2)
-    const [lobbyVisibility, setLobbyVisibility]  = useState('private')
+    const [maxPlayerCount, setMaxPlayerCount] = useState(undefined)
+    const [lobbyVisibility, setLobbyVisibility]  = useState(undefined)
     
     const loadContent = async () => {
-        setLobby(await createLobby(localStorage.getItem('userId')))
+       setLobby(await createLobby(localStorage.getItem('userId')))
+    }
+
+    const loadLobbyData = () => {
+        setMaxPlayerCount(lobby.limit)
     }
     
     useEffect(() => {
-        loadContent()
+        loadContent()     
     }, [])
     
 
@@ -25,7 +29,7 @@ function CreateSkateLobby() {
             setMaxPlayerCount(newCount)
             changeLimit(lobby._id, newCount)
         }
-        else if (position === 'down' && maxPlayerCount > 2) {
+        else if (position === 'down' && (maxPlayerCount > 2 && maxPlayerCount > lobby.members.length)) {
             const newCount = maxPlayerCount - 1
             setMaxPlayerCount(newCount)
             changeLimit(lobby._id, newCount)
@@ -45,20 +49,21 @@ function CreateSkateLobby() {
             changeVisibility(lobby._id, 'false')
         }
     }
-    if(lobby !== {}) {
+
+  if(lobby !== {} && lobby.limit !== undefined) {
   return (
-    <div className='create-skate-lobby'>
+    <div className='create-skate-lobby'> 
         <div id='lobby-settings'>
             <div id='visibility-switch'>
-                <p onClick={() => handleLobbyVisibilityChange('private')} id='private-lobby-visibility'>Private</p>
-                <p onClick={() => handleLobbyVisibilityChange('public')} id='public-lobby-visibility'>Public</p>
+                <p onClick={() => handleLobbyVisibilityChange('private')} id='private-lobby-visibility' style={{backgroundColor : lobby.isPrivate ? '#CF2121' : '#1e1e1e'}}>Private</p>
+                <p onClick={() => handleLobbyVisibilityChange('public')} id='public-lobby-visibility' style={{backgroundColor : !lobby.isPrivate ? '#CF2121' : '#1e1e1e'}}>Public</p>
             </div>
             <div id='player-limit'>
                 <p>Max. players:</p>
                 <div id='player-limit-control'>
                     <button onClick={() => handleChangeMaxPlayerCount('up')} style={{opacity : maxPlayerCount<10 ? 1 : .5}} id='player-limit-increase'>+</button>
-                    <p id='player-limit-current'>{maxPlayerCount}</p>
-                    <button onClick={() => handleChangeMaxPlayerCount('down')} style={{opacity : maxPlayerCount>2 ? 1 : .5}} id='player-limit-decrease'>-</button>
+                    <p id='player-limit-current'>{maxPlayerCount !== undefined ? maxPlayerCount : loadLobbyData()}</p>
+                    <button onClick={() => handleChangeMaxPlayerCount('down')} style={{opacity : maxPlayerCount>2 && maxPlayerCount !== lobby.members.length  ? 1 : .5}} id='player-limit-decrease'>-</button>
                 </div>
             </div>
             <p id='lobby-code-text'>ACCESS CODE</p>
@@ -66,12 +71,13 @@ function CreateSkateLobby() {
         </div>
         <div id='line'></div>
         <div id='lobby-members'>
-            <LobbyMembers/>
+            <LobbyMembers members={lobby.members}/>
         </div>
     </div>
   )
 }
-else {return (<div>
+else {return (
+<div>
     <p>Ne</p>
 </div>)}
 }

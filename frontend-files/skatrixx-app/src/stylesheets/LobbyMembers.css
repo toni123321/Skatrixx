@@ -15,3 +15,10 @@
     border: 1px solid black;
 }
 
+#lobby-member-list {
+    display: grid;
+    width: 80%;
+    border-radius: 5px;
+    margin-left:auto; margin-right: auto;
+    grid-template-columns: auto auto;
+}
