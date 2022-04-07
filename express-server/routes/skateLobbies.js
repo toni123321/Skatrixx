@@ -178,7 +178,7 @@ router.patch('/:id/deny/:userId', getSkateLobby, async(req, res) => {
 router.patch('/:id/accept/:userId', getSkateLobby, async(req, res) => {
     if(req.params.userId !== null && Object.keys(res.skateLobby.members).length < res.skateLobby.limit){
         res.skateLobby.invitations.pull(req.params.userId);
-        res.skateLobby.invitations.push(req.params.userId);
+        res.skateLobby.members.push(req.params.userId);
     }
     try{
         const updatedLobby = await res.skateLobby.save()
