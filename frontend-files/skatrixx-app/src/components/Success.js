@@ -1,7 +1,6 @@
 import React from 'react';
-
 import { auth } from '../services/firebase'
-
+import LogOut from "../images/Logout.png"
 
 const Success = ({ user }) => {
 
@@ -14,7 +13,7 @@ const signout = () => {
 }
   return (
     <div className="welcome-message-sign-out">
-      <button onClick={signout}>Sign out</button>
+      <img src={LogOut} onClick={signout} id="logout" alt='' /> 
     </div>  
   )
 }

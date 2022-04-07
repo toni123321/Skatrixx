@@ -22,6 +22,10 @@ export const friendRequestSent = () => {
   NotificationManager.success('Friend Request Has Been Sent', 'Success')
 }
 
+export const friendInvited = (username) => {
+  NotificationManager.success(`${username} has been invited to the lobby`, 'Success')
+}
+
 export const friendRequsetCancelled = () => {
   NotificationManager.success('Friend Request Has Been Cancelled', 'Success')
 }
@@ -32,6 +36,10 @@ export const friendRequsetAccepted = () => {
 
 export const errorPopUp = () => {
   NotificationManager.error('There was a problem, please try again', 'Error')
+}
+
+export const lobbyNotFound = () => {
+  NotificationManager.error('This lobby does not exist', 'Error')
 }
 
 function App() {

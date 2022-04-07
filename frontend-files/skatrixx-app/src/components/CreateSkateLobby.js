@@ -61,9 +61,10 @@ function CreateSkateLobby() {
             <div id='player-limit'>
                 <p>Max. players:</p>
                 <div id='player-limit-control'>
-                    <button onClick={() => handleChangeMaxPlayerCount('up')} style={{opacity : maxPlayerCount<10 ? 1 : .5}} id='player-limit-increase'>+</button>
+                <button onClick={() => handleChangeMaxPlayerCount('down')} style={{opacity : maxPlayerCount>2 && maxPlayerCount !== lobby.members.length  ? 1 : .5}} id='player-limit-decrease'>-</button>
+                   
                     <p id='player-limit-current'>{maxPlayerCount !== undefined ? maxPlayerCount : loadLobbyData()}</p>
-                    <button onClick={() => handleChangeMaxPlayerCount('down')} style={{opacity : maxPlayerCount>2 && maxPlayerCount !== lobby.members.length  ? 1 : .5}} id='player-limit-decrease'>-</button>
+                    <button onClick={() => handleChangeMaxPlayerCount('up')} style={{opacity : maxPlayerCount<10 ? 1 : .5}} id='player-limit-increase'>+</button>
                 </div>
             </div>
             <p id='lobby-code-text'>ACCESS CODE</p>
@@ -71,7 +72,7 @@ function CreateSkateLobby() {
         </div>
         <div id='line'></div>
         <div id='lobby-members'>
-            <LobbyMembers members={lobby.members}/>
+            <LobbyMembers members={lobby.members} lobby={lobby}/>
         </div>
     </div>
   )

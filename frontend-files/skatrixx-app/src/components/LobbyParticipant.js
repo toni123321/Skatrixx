@@ -6,7 +6,6 @@ import '../stylesheets/LobbyParticipant.css'
 function LobbyParticipant(props) {
 
     const [user, setUser] = useState(getUser(props.member))
-    const [userImg, setUserImg] = useState(null)
 
     const loadUser = async () => {
         setUser(await getUser(props.member))
@@ -16,13 +15,15 @@ function LobbyParticipant(props) {
       loadUser()
     }, [])
     
-
-  return (
-    <div className='lobby-participant'>
-      <img src={user.image} alt='Loading...'/>
-      <p>{user.username}</p>
-    </div>
-  )
+    if(user.image !== undefined) {
+      return (
+        <div className='lobby-participant'>
+          <img src={user.image} alt='Loading...'/>
+          <p>{user.username}</p>
+        </div>
+      )
+    }
+    else {return (<></>)}
 }
 
 export default LobbyParticipant

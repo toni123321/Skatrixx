@@ -19,7 +19,7 @@
     max-width: 800px;
 }
 
-#profile-card img {
+#profile-image{
     width: 105px;
     height: 105px;
     border-radius: 50%;
@@ -51,11 +51,15 @@
     margin-left: auto; margin-right: auto; margin-top: -10px;
 }
 
-.welcome-message-sign-out button {
+/* .welcome-message-sign-out button {
     border-radius: 10px;
     width: 100px;
     height: 25px;
     margin-bottom: 0;
+} */
+#logout{
+  float: right;  
+  padding-right: 20px;
 }
 
 #tabs button {

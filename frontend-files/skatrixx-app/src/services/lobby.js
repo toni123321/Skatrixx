@@ -38,9 +38,17 @@ export const getLobbyById = async (id) => {
     catch(err) {console.log(err)}
 }
 
-export const joinLobby = (code) => {
+export const joinLobbyButton = async (id, userId) => {
+    try {
+        const resp = await axios.patch(url + `lobbies/${id}/join/${userId}`)
+        return resp.data
+    }
+    catch (err) {console.log(err)}
+}
+
+export const joinLobby = (code, userId) => {
     var data = {
-        user_id : loggedUser
+        user_id : userId
     }
 
     var config = {
@@ -81,6 +89,15 @@ export const changeVisibility = async (lobbyId, visibility) => {
     try {
         const resp = await axios.patch(url + 'lobbies/' + lobbyId + `/${visibility}`)
         return resp.data
+    }
+    catch(err) {console.log(err)}
+}
+
+export const inviteFriend = async (id, userId) => {
+    try {
+        const resp = await axios.patch(url + 'lobbies/' + id + '/invite/' + userId)
+        if(resp.status !== 404) {return resp.data}
+        return null
     }
     catch(err) {console.log(err)}
 }

@@ -56,7 +56,9 @@ function AddFriendPopUp(props) {
             <div className='search-results'>
               {searchResults.length > 0 ? searchResults.map(result => (
                 <div key={result._id} className='search-result' onClick={() => {handleSendFriendRequest(result.username)}}>
-                  <p>{result.username} <i className="fa-solid fa-user-plus"></i></p>
+                  <img src={result.image} alt=''/>
+                  <p>{result.username}</p>
+                  <i className="fa-solid fa-user-plus"></i>
                 </div>
               )): ''}
             </div>

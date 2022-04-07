@@ -123,6 +123,19 @@ router.patch('/join/:code', getLobbyByCode,async(req, res) => {
     else {res.status(403).json({message : "This lobby is already full"})}
 })
 
+router.patch('/:id/join/:userId', getSkateLobby, async(req, res) => {
+    if(req.params.userId !== null && Object.keys(res.skateLobby.members).length < res.skateLobby.limit) {
+        res.skateLobby.members.push(req.params.userId)
+        try{
+            const updatedLobby = await res.skateLobby.save()
+            res.json(updatedLobby)
+        }
+        catch(err) {
+            res.status(400).json({message : err.message})
+        }
+    }
+})
+
 router.patch('/:id/:userId/leave', getSkateLobby, async(req, res) => {
     if(req.params.userId !== null) {
         res.skateLobby.members.pull(req.params.userId)

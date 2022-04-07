@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { joinLobbyButton } from '../services/lobby'
 import { getUser } from '../services/user'
 
 import '../stylesheets/LobbyContainer.css'
@@ -6,8 +7,8 @@ import '../stylesheets/LobbyContainer.css'
 function LobbyContainer(props) {
 
     const [lobbyLeader, setLobbyLeader] = useState({})
-    const [secondLobbyLeader, setSecondLobbyLeader] = useState(null)
-    const [thirdLobbyLeader, setThirdLobbyLeader] = useState(null)
+    const [secondLobbyLeader, setSecondLobbyLeader] = useState(undefined)
+    const [thirdLobbyLeader, setThirdLobbyLeader] = useState(undefined)
     const [containerLoaded, setContainerLoaded] = useState(false);
 
     const loadLobbyLeader = async () => {
@@ -16,11 +17,15 @@ function LobbyContainer(props) {
         if(Object.keys(props.lobby.members).length > 1) {
             setSecondLobbyLeader(await getUser(props.lobby.members[1]))
         }
-        if(Object.keys(props.lobby.members).length >= 2) {
+        if(Object.keys(props.lobby.members).length > 2) {
             setThirdLobbyLeader(await getUser(props.lobby.members[2]))
         }
         setContainerLoaded(true)
     }
+  }
+
+  const joinLobby = async () => {
+    await joinLobbyButton(props.lobby._id, localStorage.getItem('userId'))
   }
 
     useEffect(() => {
@@ -34,18 +39,18 @@ function LobbyContainer(props) {
           <p id='lobby-container-owner'>{lobbyLeader.username}'s lobby <p id='lobby-availability'>{Object.keys(props.lobby.members).length}/{props.lobby.limit}</p></p>
           <div id='lobby-container-images'>
             <img id='lobby-container-image' src={lobbyLeader.image} alt=''/>
-            {secondLobbyLeader !== null ? <img id='lobby-container-image' src={secondLobbyLeader.image} alt=''/> : ''}
-            {thirdLobbyLeader !== null ? <img id='lobby-container-image' src={thirdLobbyLeader.image} alt=''/> : ''}
+            {secondLobbyLeader !== undefined ? <img id='lobby-container-image' src={secondLobbyLeader.image} alt=''/> : ''}
+            {thirdLobbyLeader !== undefined ? <img id='lobby-container-image' src={thirdLobbyLeader.image} alt=''/> : ''}
             {props.lobby.members.length > 3 ? <p>+{props.lobby.members.length - 3}</p> : ''}
         </div>
         <div id='lobby-container-controls'>
-          <button id='lobby-container-join'>Join</button>
+          <button id='lobby-container-join' onClick={() => {joinLobby()}}>Join</button>
         </div>
         </div>
     </div>
   )
 }
-else {return (<div>Loading</div>)}
+else {return (<div>Loading...</div>)}
 }
 
 export default LobbyContainer
