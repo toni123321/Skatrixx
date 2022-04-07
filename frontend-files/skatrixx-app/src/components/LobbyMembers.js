@@ -6,7 +6,7 @@ import LobbyParticipant from './LobbyParticipant'
 
 function LobbyMembers(props) {
 
-  const [inviteToLobby, setInviteToLobby] = useState(true)
+  const [inviteToLobby, setInviteToLobby] = useState(false)
 
   const handleToggleInvitePopUp = () => {
     setInviteToLobby(!inviteToLobby)
