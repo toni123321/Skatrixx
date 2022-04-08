@@ -1,5 +1,6 @@
 import './App.css';
 import 'react-notifications/lib/notifications.css';
+import socketIOClient from "socket.io-client";
 
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
@@ -17,6 +18,10 @@ import JoinSkateLobby from './components/JoinSkateLobby';
 import CreateSkateLobby from './components/CreateSkateLobby';
 import LogInScreen from './components/LogInScreen'
 import axios from 'axios';
+
+const ENDPOINT = "http://localhost:4001/";
+
+
 
 export const friendRequestSent = () => {
   NotificationManager.success('Friend Request Has Been Sent', 'Success')
@@ -45,6 +50,24 @@ export const lobbyNotFound = () => {
 function App() {
 
   const [user, setUser] = useState('')
+  ///
+const [response, setResponse] = useState("");
+
+
+useEffect(() => {
+  const socket= socketIOClient(ENDPOINT);
+  socket.on("FromAPI", data => {
+    console.log(data);
+  });
+
+}, []);
+
+//   const dIsconnect = () =>{
+//     socket= socketIOClient(ENDPOINT);
+//      socket.disconnect();
+//  }
+
+
 
   useEffect(() =>{
     if(localStorage.getItem("userId") !== null){
@@ -75,6 +98,8 @@ function App() {
           <NavBar/>
           <NotificationContainer/>
       </div>
+
+     
     </Router>
   )
 }

@@ -19,6 +19,8 @@ async function getUser(req, res, next){
   next()
 }
 
+
+
 async function getUserByUsername(req, res, next) {
     let users
     try {
@@ -35,6 +37,11 @@ async function getUserByUsername(req, res, next) {
 }
 
 
+router.get("/tovaEShibanTest", (req, res) => {
+    res.send({ response: "I am alive" }).status(200);
+  });
+
+  
 //Get all users
 router.get('/', async(req,res)=>{
     try{
