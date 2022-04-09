@@ -6,18 +6,18 @@ const levelService = require('../services/levelService')
 
 async function getUser(req, res, next){
     let user
-  try{
-    user=await User.findById(req.params.id)
-   if(user == null){
-       return res.status(404).json({message: 'Cannot find user'})
-   }
-  }
-  catch(err){
-     return res.status(500).json({message: err.message})
-  }
+    try{
+        user=await User.findById(req.params.id)
+    if(user == null){
+        return res.status(404).json({message: 'Cannot find user'})
+    }
+    }
+    catch(err){
+        return res.status(500).json({message: err.message})
+    }
 
-  res.user=user
-  next()
+    res.user=user
+    next()
 }
 
 
@@ -106,21 +106,23 @@ router.patch('/:id', getUser, async(req,res)=>{
     }
 })
 
-//Update levelUp
-router.patch('/levelUp/:id', getUser,   async(req,res)=>{
-    let user = res.user
-    console.log(req.body)
-    if(req.body.trickId !=null && req.body.trickStat!= null){
-        console.log("alalabala")
-        user = levelService.levelUp(res.user, req.body.trickId, req.body.trickStat )
-    }
+// User levelUp using path request
+router.patch('/levelUp/:id', getUser, async(req,res)=>{
+    // check if req.body parameters(trickId, trickStat) have values)
     try{
-        const updatedUser=await user.save()
+        if(req.body.trickId !=null && req.body.trickStat!= null){
+            // wait to get the updated user
+            const user = await levelService.levelUp(res.user, req.body.trickId, req.body.trickStat )
+            res.user.xp = user.xp
+        }
+        const updatedUser=await res.user.save()
         res.json(updatedUser)
     }catch(err){
          res.status(400).json({message: err.message})
     }
 })
+
+
 //Delete user
 router.delete('/:id', getUser, async (req,res)=>{
     try{

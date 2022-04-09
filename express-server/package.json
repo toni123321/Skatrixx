@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js", 
+    "test": "jest",
+    "start": "node index.js",
     "debug": "nodemon --inspect index.js"
   },
   "keywords": [],
@@ -18,5 +18,8 @@
     "mongoose": "^6.2.6",
     "nodemon": "^2.0.15",
     "socket.io": "^4.4.1"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }
