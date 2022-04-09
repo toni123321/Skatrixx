@@ -32,9 +32,9 @@ function Statistic(props) {
 
   const levelUp = async () => { 
     try{
-    const res = await user.levelUp(loggedUserId, attemptTrickData)
-    console.log(res)
-    setMsg(`Congrats, your xp now is: ${res.data.xp}`)
+      const res = await user.levelUp(loggedUserId, attemptTrickData)
+      console.log(res)
+      setMsg(`Congrats, your xp now is: ${res.data.xp}`)
     }
     catch(err) {
       setMsg("Opps, there was a mistake. Try again!")
