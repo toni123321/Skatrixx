@@ -70,7 +70,7 @@ function TrickPage(props) {
     
   </div>
    ): (
-   <Statistic/>
+   <Statistic trick={props.trick}/>
    )
   );
 }

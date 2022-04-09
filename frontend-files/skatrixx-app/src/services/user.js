@@ -1,4 +1,5 @@
 import { loggedUser } from './api_client';
+import http from "./api_client"
 
 const axios = require('axios');
 const url = "http://localhost:3000/";
@@ -57,4 +58,16 @@ export const searchUserByUsername = async (input) => {
         return resp.data
     }
     catch(err) {console.log(err)}
+}
+
+
+// level system
+
+
+const levelUp = (userId, attemptTrickData) => {
+    return http.patch(`/users/levelUp/${userId}`, attemptTrickData);
+}
+
+export default {
+    levelUp
 }
