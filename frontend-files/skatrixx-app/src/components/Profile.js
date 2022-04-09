@@ -17,7 +17,6 @@ import Gallery from './Gallery'
 function Profile(props) {
 
     const [openedTab, setOpenedTab] = useState('Me');
-    
 
     const handleTabChange = (tab) => {
         if(tab === 'Me') {
