@@ -1,6 +1,7 @@
 const express=require('express')
 const router=express.Router()
 const User=require('../models/user')
+const levelService = require('../services/levelService')
 
 
 async function getUser(req, res, next){
@@ -87,11 +88,15 @@ router.get('/search/:username', getUserByUsername, (req, res) => {
 
 //Update user
 router.patch('/:id', getUser, async(req,res)=>{
+    console.log(req.body)
     if(req.body.username !=null){
         res.user.username=req.body.username
     }
     if(req.body.password!= null){
         res.user.password=req.body.password
+    }
+    if(req.body.xp!= null){
+        res.user.xp= req.body.xp
     }
     try{
         const updatedUser=await res.user.save()
@@ -101,7 +106,21 @@ router.patch('/:id', getUser, async(req,res)=>{
     }
 })
 
-
+//Update levelUp
+router.patch('/levelUp/:id', getUser,   async(req,res)=>{
+    let user = res.user
+    console.log(req.body)
+    if(req.body.trickId !=null && req.body.trickStat!= null){
+        console.log("alalabala")
+        user = levelService.levelUp(res.user, req.body.trickId, req.body.trickStat )
+    }
+    try{
+        const updatedUser=await user.save()
+        res.json(updatedUser)
+    }catch(err){
+         res.status(400).json({message: err.message})
+    }
+})
 //Delete user
 router.delete('/:id', getUser, async (req,res)=>{
     try{

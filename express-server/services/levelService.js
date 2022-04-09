@@ -1,15 +1,17 @@
 const trick = require("../models/trick");
 
 
-function levelUp(input) {
-    let sum = 0
-    let tricks = trick.find();
-    for (let i = 0; i <= tricks.length; i++) {
-        let current = tricks[i]  
-        if(current === tricks.name) {sum += tricks.xp}
-            console.log("Congrats")
-        }
-    console.log(sum)
+function levelUp(user, trickId, trickStat) {
+    if(trickStat >= 75){
+        const trick = trick.find(trick => trick._id === trickId);
+        user.xp += trick.xp    
+    }
+    return user
 }
-
-levelUp(["Ollie", "Ollie", "Kickflip"])
+// TODO: check how to improve the trick of the user and to return some description
+function checkForLevelUp(){
+    
+}
+module.exports = {
+    levelUp
+}

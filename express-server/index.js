@@ -6,45 +6,45 @@ const mongoose=require('mongoose');
 require('dotenv').config();
 
 ///
-const http = require("http");
-const socketIo = require("socket.io");
+// const http = require("http");
+// const socketIo = require("socket.io");
 
 
-const index = require("./routes/users");
+// const index = require("./routes/users");
 
-app.use(index);
+// app.use(index);
 
-const server = http.createServer(app);
+// const server = http.createServer(app);
 
 
 
-const io = socketIo(server, { cors: { origin: '*' } }); // < Interesting!
+// const io = socketIo(server, { cors: { origin: '*' } }); // < Interesting!
 
-//tva e koeto se prashta (API-TO)
-const getApiAndEmit = socket => {
-    const response = usersRouter;
-    // Emitting a new message. Will be consumed by the client
-    socket.emit("FromAPI", response);
-  };
+// //tva e koeto se prashta (API-TO)
+// const getApiAndEmit = socket => {
+//     const response = usersRouter;
+//     // Emitting a new message. Will be consumed by the client
+//     socket.emit("FromAPI", response);
+//   };
   
 
 
-// let interval;
+// // let interval;
 
-io.on("connection", (socket) => {
-  console.log("New client connected");
-//   if (interval) {
-//     clearInterval(interval);
-//   }
-//   interval = setInterval(() => getApiAndEmit(socket), 1000);
-getApiAndEmit(socket)
+// io.on("connection", (socket) => {
+//   console.log("New client connected");
+// //   if (interval) {
+// //     clearInterval(interval);
+// //   }
+// //   interval = setInterval(() => getApiAndEmit(socket), 1000);
+// getApiAndEmit(socket)
 
-  socket.on("disconnect", () => {
-    console.log("Client disconnected");
-    clearInterval(interval);
-  });
+//   socket.on("disconnect", () => {
+//     console.log("Client disconnected");
+//     // clearInterval(interval);
+//   });
 
-});
+// });
 
 
 /// lainaa
@@ -89,9 +89,9 @@ app.use('/lobbies', lobbyDataRouter)
 
 // PORT
 const port=process.env.PORT || 3000;
-const porT = process.env.PORT || 4001;
+// const porT = process.env.PORT || 4001;
 
 app.listen(port, () => console.log(`Listen on port ${port}...`));
 
 
-server.listen(porT, () => console.log(`Listening on port ${porT}`));
+// server.listen(porT, () => console.log(`Listening on port ${porT}`));
