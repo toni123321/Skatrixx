@@ -1,12 +1,25 @@
-const express= require('express');
-const app=express();
-const fs=require('fs');
-const path=require('path');
-const mongoose=require('mongoose');
+// Back-end port declaration
 require('dotenv').config();
+const port=process.env.PORT || 3000;
 
-// Add CORS to API
+// Main Imports
+const express = require('express')
+const mongoose=require('mongoose');
 const cors = require('cors');
+
+// Router Imports
+const usersRouter = require('./routes/users')
+const skateDataRouter = require('./routes/skateDatas')
+const trickDataRouter = require('./routes/tricks')
+const connectioDataRouter = require('./routes/connections')
+const lobbyDataRouter = require('./routes/skateLobbies')
+
+// App and DB setup
+const app=express();
+const db=mongoose.connection;
+app.use(express.json())
+
+// CORS origin handling for App and WS
 app.use(cors({
     origin: [
         'http://localhost:3001',
@@ -16,36 +29,47 @@ app.use(cors({
     ]
 }));
 
-
-app.use(express.json());
-
+// Confirms/Denies connection to DB
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true});
-
-const db=mongoose.connection;
 db.on('error', (error)=> console.error(error));
-db.once('open', ()=> console.error('Connected to db'));
+db.once('open', ()=> console.error('Connected to MongoDB cloud'));
 
-
-app.use(express.json())
-
-
-const usersRouter = require('./routes/users')
-const skateDataRouter = require('./routes/skateDatas')
-const trickDataRouter = require('./routes/tricks')
-const connectioDataRouter = require('./routes/connections')
-const lobbyDataRouter = require('./routes/skateLobbies')
-
-
+// Setting ENDPOINTS for the REST API
 app.use('/users', usersRouter)
 app.use('/skateDatas', skateDataRouter)
 app.use('/tricks', trickDataRouter)
 app.use('/connections', connectioDataRouter)
 app.use('/lobbies', lobbyDataRouter)
 
+const server = app.listen(port, () => {console.log(`Back end is running on port: ${port}`)});
 
-// PORT
-const port=process.env.PORT || 3000;
+//Websocket server declaration
+const io = require("socket.io")(server, {
+  cors: {
+   origin: "*"
+ }
+});
 
-app.listen(port, () => console.log(`Listen on port ${port}...`));
+io.on("connection", socket => {
+  console.log(`${socket.id} has connected`);
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
+  });
+  socket.on('log-in-user', (userid) => {
+    socket.join(userid)
+  })
+  socket.on('join-lobby', (lobbyId) => {
+    socket.join(lobbyId)
+    console.log(`A user has joined ${lobbyId}`)
+  })
+  socket.on('leave-lobby', (lobbyId) => {
+    socket.leave(lobbyId)
+  })
+  socket.on('log-out-user', (userId) => {
+    socket.leave(userId)
+  })
 
+  app.set('socketio', io)
 
+})
+  

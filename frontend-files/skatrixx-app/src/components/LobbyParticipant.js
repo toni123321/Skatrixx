@@ -6,6 +6,7 @@ import '../stylesheets/LobbyParticipant.css'
 function LobbyParticipant(props) {
 
     const [user, setUser] = useState(getUser(props.member))
+    const [pending, setPending] = useState(props.pending)
 
     const loadUser = async () => {
         setUser(await getUser(props.member))
@@ -18,8 +19,11 @@ function LobbyParticipant(props) {
     if(user.image !== undefined) {
       return (
         <div className='lobby-participant'>
-          <img src={user.image} alt='Loading...'/>
-          <p>{user.username}</p>
+          { pending ? <p style={{backgroundColor : '#1e1e1e'}} id='lobby-participant-pending'>Pending</p> : ''}
+          <div style={{opacity : pending ? .65 : 1}}>
+            <img src={user.image} alt='Loading...'/>
+            <p>{user.username}</p>
+          </div>
         </div>
       )
     }

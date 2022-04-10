@@ -9,15 +9,12 @@ import axios from 'axios'
 
 function LogInScreen() {
 
-    const [user, setUser] = useState(null)
     useEffect(() => {
       firebase.auth().onAuthStateChanged(user => {
-          console.log(user)
-          setUser(user)
         validateUser(user.displayName,user.photoURL,user.email)
-          
       })
     }, [])
+
 
     const config = {
         headers: {
@@ -56,6 +53,7 @@ function LogInScreen() {
                     }                          
             }    
             });    
+
       }
   return (
     <div>

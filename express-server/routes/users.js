@@ -2,7 +2,6 @@ const express=require('express')
 const router=express.Router()
 const User=require('../models/user')
 
-
 async function getUser(req, res, next){
     let user
   try{
@@ -19,6 +18,8 @@ async function getUser(req, res, next){
   next()
 }
 
+
+
 async function getUserByUsername(req, res, next) {
     let users
     try {
@@ -33,8 +34,7 @@ async function getUserByUsername(req, res, next) {
     res.users = users
     next()
 }
-
-
+  
 //Get all users
 router.get('/', async(req,res)=>{
     try{

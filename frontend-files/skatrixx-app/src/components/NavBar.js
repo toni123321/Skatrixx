@@ -57,10 +57,10 @@ function NavBar() {
 
   return (
     <div className='nav'>
-        <Link className='nav-link' id='link-game' to={"/game"}><img onClick={() => setActiveBtn2('Game')} id="game" className='nav-icon' src={swordIcon} alt=''/>GAME</Link>
-        <Link className='nav-link' id='link-trophy' to={"/trophy"}><i onClick={() => setActiveBtn2('Trophy')} id="trophy" className='fas fa-trophy nav-icon'></i>ACHIEVEMENTS</Link>
-        <Link className='nav-link' id='link-skate' to={"/skate"}><img onClick={() => setActiveBtn2('Skate')} id="skate" className={'nav-icon-center'} src={skateIcon} alt=''/>MY SKATE</Link>
-        <Link className='nav-link' id='link-profile' to={"/"}><i onClick={() => setActiveBtn2('Profile')} id="profile" className='fas fa-user-alt nav-icon active'></i>PROFILE</Link>
+        <Link className='nav-link' id='link-game' to={"/game"} onClick={() => setActiveBtn2('Game')} ><img id="game" className='nav-icon' src={swordIcon} alt=''/>GAME</Link>
+        <Link className='nav-link' id='link-trophy' to={"/trophy"} onClick={() => setActiveBtn2('Trophy')}><i id="trophy" className='fas fa-trophy nav-icon'></i>ACHIEVEMENTS</Link>
+        <Link className='nav-link' id='link-skate' to={"/skate"} onClick={() => setActiveBtn2('Skate')}><img id="skate" className={'nav-icon-center'} src={skateIcon} alt=''/>MY SKATE</Link>
+        <Link className='nav-link' id='link-profile' to={"/"} onClick={() => setActiveBtn2('Profile')}><i id="profile" className='fas fa-user-alt nav-icon active'></i>PROFILE</Link>
     </div>
   )
 }

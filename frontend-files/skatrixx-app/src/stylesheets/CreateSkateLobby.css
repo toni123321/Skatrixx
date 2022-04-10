@@ -8,13 +8,28 @@
     color: white;
 }
 
-
 #lobby-settings {
+    height: 25%;
     margin-top: 20px;
     width: 95%;
     border-radius: 10px;
     padding-top: 10px;
+    position: relative;
 }
+
+#lobby-settings-block {
+    position: absolute;
+    background-color: #1e1e1e91;
+    height: 95%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 550px;
+    z-index: 3;
+}
+
+#lobby-settings-block p {margin-bottom: 60px;}
 
 #visibility-switch {
     cursor: pointer;

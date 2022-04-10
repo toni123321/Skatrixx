@@ -1,5 +1,4 @@
 const express = require('express')
-const skateLobby = require('../models/skateLobby')
 const router = express.Router()
 const SkateLobby = require('../models/skateLobby')
 const { createCode } = require('../services/skateLobbyService')
@@ -110,10 +109,12 @@ router.post('/', getLobbyByUser, async(req, res) => {
 })
 
 router.patch('/join/:code', getLobbyByCode,async(req, res) => {
+    const io = req.app.get('socketio')
     if(req.body.members !== null && Object.keys(res.skateLobby.members).length < res.skateLobby.limit) {
         res.skateLobby.members.push(req.body.user_id)
         try{
             const updatedLobby = await res.skateLobby.save()
+            io.emit(updatedLobby._id, updatedLobby)
             res.json(updatedLobby)
         }
         catch(err) {
@@ -124,10 +125,12 @@ router.patch('/join/:code', getLobbyByCode,async(req, res) => {
 })
 
 router.patch('/:id/join/:userId', getSkateLobby, async(req, res) => {
+    const io = req.app.get('socketio')
     if(req.params.userId !== null && Object.keys(res.skateLobby.members).length < res.skateLobby.limit) {
         res.skateLobby.members.push(req.params.userId)
         try{
             const updatedLobby = await res.skateLobby.save()
+            io.emit(req.params.id, updatedLobby)
             res.json(updatedLobby)
         }
         catch(err) {
@@ -137,11 +140,13 @@ router.patch('/:id/join/:userId', getSkateLobby, async(req, res) => {
 })
 
 router.patch('/:id/:userId/leave', getSkateLobby, async(req, res) => {
+    const io = req.app.get('socketio')
     if(req.params.userId !== null) {
         res.skateLobby.members.pull(req.params.userId)
     }
     try{
         const updatedLobby = await res.skateLobby.save()
+        io.emit(req.params.id, updatedLobby)
         res.json(updatedLobby)
     }
     catch(err) {
@@ -150,11 +155,14 @@ router.patch('/:id/:userId/leave', getSkateLobby, async(req, res) => {
 })
 
 router.patch('/:id/invite/:userId', getSkateLobby, async(req, res) => {
+    const io = req.app.get('socketio')
     if(req.params.userId !== null){
         res.skateLobby.invitations.push(req.params.userId);
     }
     try{
         const updatedLobby = await res.skateLobby.save()
+        io.emit(req.params.userId, updatedLobby)
+        io.emit(req.params.id, updatedLobby)
         res.json(updatedLobby)
     }
     catch(err) {
@@ -163,11 +171,13 @@ router.patch('/:id/invite/:userId', getSkateLobby, async(req, res) => {
 })
 
 router.patch('/:id/deny/:userId', getSkateLobby, async(req, res) => {
+    const io = req.app.get('socketio')
     if(req.params.userId !== null){
         res.skateLobby.invitations.pull(req.params.userId);
     }
     try{
         const updatedLobby = await res.skateLobby.save()
+        io.emit(req.params.id, updatedLobby)
         res.json(updatedLobby)
     }
     catch(err) {
@@ -176,12 +186,14 @@ router.patch('/:id/deny/:userId', getSkateLobby, async(req, res) => {
 })
 
 router.patch('/:id/accept/:userId', getSkateLobby, async(req, res) => {
+    const io = req.app.get('socketio')
     if(req.params.userId !== null && Object.keys(res.skateLobby.members).length < res.skateLobby.limit){
         res.skateLobby.invitations.pull(req.params.userId);
         res.skateLobby.members.push(req.params.userId);
     }
     try{
         const updatedLobby = await res.skateLobby.save()
+        io.emit(req.params.id, updatedLobby)
         res.json(updatedLobby)
     }
     catch(err) {
@@ -190,11 +202,13 @@ router.patch('/:id/accept/:userId', getSkateLobby, async(req, res) => {
 })
 
 router.patch('/:id/:access', getSkateLobby, async(req, res) => {
+    const io = req.app.get('socketio')
     if(req.params.access !== null){
         res.skateLobby.isPrivate = req.params.access
     }
     try{
         const updatedLobby = await res.skateLobby.save()
+        io.emit(req.params.id, updatedLobby)
         res.json(updatedLobby)
     }
     catch(err) {
@@ -203,11 +217,13 @@ router.patch('/:id/:access', getSkateLobby, async(req, res) => {
 })
 
 router.patch('/:id/limit/:limit', getSkateLobby, async(req, res) => {
+    const io = req.app.get('socketio')
     if(req.params.limit !== null){
         res.skateLobby.limit = req.params.limit
     }
     try{
         const updatedLobby = await res.skateLobby.save()
+        io.emit(req.params.id, updatedLobby)
         res.json(updatedLobby)
     }
     catch(err) {

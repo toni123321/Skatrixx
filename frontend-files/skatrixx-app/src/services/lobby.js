@@ -46,7 +46,7 @@ export const joinLobbyButton = async (id, userId) => {
     catch (err) {console.log(err)}
 }
 
-export const joinLobby = (code, userId) => {
+export const joinLobby = async (code, userId) => {
     var data = {
         user_id : userId
     }
@@ -59,14 +59,12 @@ export const joinLobby = (code, userId) => {
         },
         data : data
     }
-
-    axios(config)
-        .then(function (response) {
-            if(response.status) {
-
-            }
-        })
-        .catch(function (error) {console.log(error)})
+    try{
+        const resp = await axios(config)
+        if(resp.status === 200) {console.log('yes'); return true}
+        else {return false}
+    }
+    catch(err) {console.log(err)}
 }   
 
 export const getLobbies = async () => {
@@ -96,6 +94,24 @@ export const changeVisibility = async (lobbyId, visibility) => {
 export const inviteFriend = async (id, userId) => {
     try {
         const resp = await axios.patch(url + 'lobbies/' + id + '/invite/' + userId)
+        if(resp.status !== 404) {return resp.data}
+        return null
+    }
+    catch(err) {console.log(err)}
+}
+
+export const acceptAndJoinLobby = async (id, userId) => {
+    try {
+        const resp = await axios.patch(url + 'lobbies/' + id + '/accept/' + userId)
+        if(resp.status !== 404) {return resp.data}
+        return null
+    }
+    catch(err) {console.log(err)}
+}
+
+export const denyAndLeaveLobby = async (id, userId) => {
+    try {
+        const resp = await axios.patch(url + 'lobbies/' + id + '/deny/' + userId)
         if(resp.status !== 404) {return resp.data}
         return null
     }

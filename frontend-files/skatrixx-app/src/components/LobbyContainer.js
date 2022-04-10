@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { joinLobbyButton } from '../services/lobby'
+import { acceptAndJoinLobby, joinLobbyButton } from '../services/lobby'
 import { getUser } from '../services/user'
 
 import '../stylesheets/LobbyContainer.css'
+import { acceptInvite } from '../websockets/lobbyWS'
 
 function LobbyContainer(props) {
 
@@ -25,7 +26,8 @@ function LobbyContainer(props) {
   }
 
   const joinLobby = async () => {
-    await joinLobbyButton(props.lobby._id, localStorage.getItem('userId'))
+      await acceptAndJoinLobby(props.lobby._id, localStorage.getItem('userId'))
+      acceptInvite()
   }
 
     useEffect(() => {

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { getLobbies, joinLobby } from '../services/lobby'
 import LobbyContainer from './LobbyContainer'
 import '../stylesheets/JoinSkateLobby.css'
-import { faCode } from '@fortawesome/free-solid-svg-icons'
+import { acceptInvite } from '../websockets/lobbyWS'
+import { lobbyNotFound } from '../App'
 
 function JoinSkateLobby() {
 
@@ -19,9 +20,11 @@ function JoinSkateLobby() {
 
   const joinLobbyWithCode = async () => {
     if(lobbyCode.length === 6) {
-      await joinLobby(lobbyCode, localStorage.getItem('userId'))
+      const resp = await joinLobby(lobbyCode, localStorage.getItem('userId'))
+      if(resp) {acceptInvite()}
+      else {lobbyNotFound()}
+      }
     }
-  }
 
   useEffect(() => {
     loadLobbies()

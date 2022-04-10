@@ -1,4 +1,5 @@
 .lobby-participant {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,8 +12,16 @@
     border-radius: 5px;
     word-wrap:break-word;
     margin: 10px;
+    text-align: center;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
+#lobby-participant-pending {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-150%);
+}
+
 .lobby-participant img {
     border-radius: 50%;
     width: 40%;

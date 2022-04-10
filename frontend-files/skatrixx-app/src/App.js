@@ -1,22 +1,25 @@
 import './App.css';
 import 'react-notifications/lib/notifications.css';
+import backgroundImage from './images/background_image.png'
 
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
+import { url } from './services/connection';
+import { socket } from './websockets/ws_client';
+import { logInUser } from './websockets/userWS';
 
 import NavBar from './components/NavBar';
 import Profile from './components/Profile';
 import SkatePage from './components/SkatePage';
 import GamePage from './components/GamePage';
 import Statistc from './components/Statistic';
-import { url } from './services/connection';
-
-import { useState, useEffect } from 'react';
-import backgroundImage from './images/background_image.png'
-import {NotificationContainer, NotificationManager} from 'react-notifications';
 import JoinSkateLobby from './components/JoinSkateLobby';
 import CreateSkateLobby from './components/CreateSkateLobby';
 import LogInScreen from './components/LogInScreen'
-import axios from 'axios';
+import LobbyInvitePopUp from './components/LobbyInvitePopUp';
 
 export const friendRequestSent = () => {
   NotificationManager.success('Friend Request Has Been Sent', 'Success')
@@ -45,6 +48,7 @@ export const lobbyNotFound = () => {
 function App() {
 
   const [user, setUser] = useState('')
+  const [lobbyInvite, setLobbyInvite] = useState(null);
 
   useEffect(() =>{
     if(localStorage.getItem("userId") !== null){
@@ -52,13 +56,16 @@ function App() {
       .then((response) => {
         if(response.status===200){
            setUser(response.data)
+           logInUser()
         }
       })
-
-    }else{
-      //loadUser();
     }
   })
+
+  socket.on(localStorage.getItem('userId'), lobby => {
+    setLobbyInvite(lobby)
+  })
+
   if(localStorage.getItem('userId') !== null) {
   return (
     <Router>
@@ -75,6 +82,7 @@ function App() {
           <NavBar/>
           <NotificationContainer/>
       </div>
+      {lobbyInvite !== null ? <LobbyInvitePopUp lobby={lobbyInvite}/> : ''}
     </Router>
   )
 }
