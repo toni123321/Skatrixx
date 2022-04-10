@@ -1,15 +1,27 @@
-const trick = require("../models/trick");
+const trickModel = require("../models/trick");
 
-
-function levelUp(input) {
-    let sum = 0
-    let tricks = trick.find();
-    for (let i = 0; i <= tricks.length; i++) {
-        let current = tricks[i]  
-        if(current === tricks.name) {sum += tricks.xp}
-            console.log("Congrats")
+// Level up + increase xp
+async function levelUp(user, trickId, trickStat) {
+    if(trickStat >= 75){
+        try {
+            // Find the trick by trickId
+            const trick = await trickModel.findById(trickId) 
+            user.xp += trick.xp
         }
-    console.log(sum)
+        catch(err) {
+            return res.status(404).json({message: 'Cannot find the trick!'})
+        }   
+    }
+    return user
 }
 
-levelUp(["Ollie", "Ollie", "Kickflip"])
+
+// TODO: check how to improve the trick of the user and to return some description
+function checkForLevelUp(){
+    
+}
+
+
+module.exports = {
+    levelUp
+}

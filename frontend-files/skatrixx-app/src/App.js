@@ -20,6 +20,9 @@ import JoinSkateLobby from './components/JoinSkateLobby';
 import CreateSkateLobby from './components/CreateSkateLobby';
 import LogInScreen from './components/LogInScreen'
 import LobbyInvitePopUp from './components/LobbyInvitePopUp';
+import Achievements from './components/Achievements';
+
+
 
 export const friendRequestSent = () => {
   NotificationManager.success('Friend Request Has Been Sent', 'Success')
@@ -74,7 +77,7 @@ function App() {
           <Routes>
             <Route path={'/'} exact element={<Profile name={user.username} img={user.image} level={user.level} xp={user.xp}/>}/>
             <Route path={'/skate'} element={<SkatePage/>}/>
-            <Route path={'/trophy'} element={<Statistc/>}/>
+            <Route path={'/trophy'} element={<Achievements/>}/>
             <Route path={'/game'} element={<GamePage />}/>
             <Route path={'/join'} element={<JoinSkateLobby/>}/>
             <Route path={'/create'} element={<CreateSkateLobby/>}/>

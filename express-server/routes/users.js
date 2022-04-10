@@ -1,21 +1,22 @@
 const express=require('express')
 const router=express.Router()
 const User=require('../models/user')
+const levelService = require('../services/levelService')
 
 async function getUser(req, res, next){
     let user
-  try{
-    user=await User.findById(req.params.id)
-   if(user == null){
-       return res.status(404).json({message: 'Cannot find user'})
-   }
-  }
-  catch(err){
-     return res.status(500).json({message: err.message})
-  }
+    try{
+        user=await User.findById(req.params.id)
+    if(user == null){
+        return res.status(404).json({message: 'Cannot find user'})
+    }
+    }
+    catch(err){
+        return res.status(500).json({message: err.message})
+    }
 
-  res.user=user
-  next()
+    res.user=user
+    next()
 }
 
 
@@ -80,13 +81,33 @@ router.get('/search/:username', getUserByUsername, (req, res) => {
 
 //Update user
 router.patch('/:id', getUser, async(req,res)=>{
+    console.log(req.body)
     if(req.body.username !=null){
         res.user.username=req.body.username
     }
     if(req.body.password!= null){
         res.user.password=req.body.password
     }
+    if(req.body.xp!= null){
+        res.user.xp= req.body.xp
+    }
     try{
+        const updatedUser=await res.user.save()
+        res.json(updatedUser)
+    }catch(err){
+         res.status(400).json({message: err.message})
+    }
+})
+
+// User levelUp using path request
+router.patch('/levelUp/:id', getUser, async(req,res)=>{
+    // check if req.body parameters(trickId, trickStat) have values)
+    try{
+        if(req.body.trickId !=null && req.body.trickStat!= null){
+            // wait to get the updated user
+            const user = await levelService.levelUp(res.user, req.body.trickId, req.body.trickStat )
+            res.user.xp = user.xp
+        }
         const updatedUser=await res.user.save()
         res.json(updatedUser)
     }catch(err){
