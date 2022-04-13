@@ -7,8 +7,8 @@ const consistencySchema = new mongoose.Schema({
         required:true
      },
      loginDate:{
-         type: Date,
-         required: true
+         type: Array<Date>dates,
+         required: false
      }
 
 })
