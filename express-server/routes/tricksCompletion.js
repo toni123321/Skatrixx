@@ -5,10 +5,24 @@ const MyTricks=require('../models/mytricks')
 async function getMyTricks(req, res, next) {
     let mytricks
     try{
-        mytricks = await MyTricks.find({user_id : req.params.user_id}, {trick_id : req.params.trick_id})
+        mytricks = await MyTricks.find({user_id : req.params.user_id}, {trick_id : req.params.trick_id}, {isSkate : req.params.isSkate})
         if (mytricks == null) {
             //post request
-            return res.status(404).json({message: 'Cannot find my trick'})
+            router.post(async(res) => {
+                var mytrick = {user_id: req.params.user_id, trick_id : req.params.trick_id, isSkate : req.params.isSkate}
+                try {
+                    await mytrick.save()
+                    
+                    //claim Badge for First success on this trick
+
+                    const newMyTrick = "First success on this trick!"
+                    res.status(201).json(newMyTrick)
+                }
+                catch(err) {
+                    res.status(400).json({message: err.message})
+                }
+            })
+
         }
     }
     catch(err){
@@ -29,3 +43,25 @@ router.get('/', getMyTricks,(req,res) => {
     }
 })
 
+
+router.post('/', async(req, res) => {
+
+    const mytricks = new MyTricks({
+        user_id: req.body.user_id,
+        trick_id: req.body.trick_id,
+        isSkate: req.body.isSkate
+    })
+    try {
+        const newMyTrick = await mytricks.save()
+        res.status(201).json(newMyTrick)
+    }
+    catch(err) {
+        res.status(400).json({message: err.message})
+    }
+})
+
+
+
+
+
+module.exports=router
