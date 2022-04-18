@@ -12,7 +12,7 @@ import Success from './Success'
 import ProfileRankings from './ProfileRankings'
 import Achievements from './Achievements'
 import FriendList from './FriendList'
-import Gallery from './Gallery'
+import Gallery from './skateGallery/Gallery'
 
 function Profile(props) {
 
