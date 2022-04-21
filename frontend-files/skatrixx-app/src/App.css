@@ -18,3 +18,22 @@ body {
   min-width: 100vw;
   min-height: 100vh;
 }
+
+button {
+  border: none;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  color: #efefee;
+  background-color: #A61F1F;
+  font-size: large;
+  font-weight: bold;
+  box-shadow: 15px 3px 4px rgba(26, 26, 26, 0.25), inset 1px 0px 2px rgba(26, 26, 26, 0.25);
+
+}

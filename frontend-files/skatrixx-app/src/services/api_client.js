@@ -1,11 +1,15 @@
 import axios from "axios";
-export const loggedUser = localStorage.getItem("userId")
 
-
+let baseURL = "http://localhost:3000/"
+if (process.env.NODE_ENV === 'production') {
+  baseURL = "https://skatrixx.herokuapp.com/" 
+}
 
 export default axios.create({
-  baseURL: "http://localhost:3000/",
+  baseURL: baseURL,
   headers: {
     "Content-type": "application/json"
   }
-});
+})
+export const getBaseUrl = baseURL
+export const loggedUser = localStorage.getItem("userId")
