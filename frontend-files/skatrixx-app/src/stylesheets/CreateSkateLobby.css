@@ -25,7 +25,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 550px;
+    max-width: 550px;
     z-index: 3;
 }
 
