@@ -1,7 +1,7 @@
 import { loggedUser } from './api_client';
 
 const axios = require('axios');
-const url = "https://skaterixx.herokuapp.com";
+const url = "http://localhost:3001";
 //const url = "https://skatrixx.herokuapp.com/";
 
 export const createLobby = async (id) => {
