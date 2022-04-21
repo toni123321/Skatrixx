@@ -7,7 +7,7 @@ npm install
 nodemon index.js
 
 ### - To build Docker image
-docker build -t <folder-name> .
+docker build -t (folder-name) .
 
 ### - To create Docker container
-docker run -it -p 4002:3001 --rm --name <Name of container>  <folder-name>
+docker run -it -p 4002:3001 --rm --name (Name of container)  (folder-name)
