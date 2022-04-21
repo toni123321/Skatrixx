@@ -19,9 +19,9 @@ function InviteToLobby(props) {
   return (
     <div className='invite-popup'>
         <p onClick={props.close}>X</p>
-        {friends !== undefined ? friends.map(friend => (
+        {friends && friends.map(friend => (
             <InviteFriendContainer connection={friend} lobby={props.lobby}/>
-        )) : 'Loading'}
+        ))}
     </div>
   )
 }
