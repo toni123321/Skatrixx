@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getUserConnections } from '../services/user'
+import { getUserConnections } from '../services/userService'
 import '../stylesheets/InviteToLobby.css'
 import InviteFriendContainer from './InviteFriendContainer'
 

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { getUser } from '../services/user'
+import { getUser } from '../services/userService'
 
 import { acceptInvite, denyInvite } from '../websockets/lobbyWS'
 
 import '../stylesheets/LobbyInvitePopUp.css'
-import { acceptAndJoinLobby, denyAndLeaveLobby } from '../services/lobby'
+import { acceptAndJoinLobby, denyAndLeaveLobby } from '../services/lobbyService'
 
 function LobbyInvitePopUp(props) {
 

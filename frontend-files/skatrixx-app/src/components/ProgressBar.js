@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getProfileLevel } from '../services/user'
+import { getProfileLevel } from '../services/userService'
 
 import "../stylesheets/ProgressBar.css"
 

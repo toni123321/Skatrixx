@@ -4,9 +4,9 @@ import "../stylesheets/FriendList.css"
 import backgroundImg from  "../images/skate1 2.png"
 import defaultImg from "../images/default-image.png"
 import { loggedUser } from '../services/api_client'
-import { getUser} from '../services/user';
-import { acceptFriendRequest, cancelFriendRequest } from '../services/connection';
-import { errorPopUp, friendRequsetAccepted, friendRequsetCancelled } from '../App';
+import { getUser} from '../services/userService';
+import { acceptFriendRequest, cancelFriendRequest } from '../services/friendsConnectionService';
+import {friendRequsetAccepted, friendRequsetCancelled } from '../App';
  
 function FriendContainer(props) {
 

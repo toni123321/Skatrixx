@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import "../stylesheets/AddFreindPopUp.css";
 
 import QrIcon from "../images/qr.png"
-import {sendFriendRequestByUsername } from '../services/connection';
-import { searchUserByUsername } from '../services/user'
+import {sendFriendRequestByUsername } from '../services/friendsConnectionService';
+import { searchUserByUsername } from '../services/userService'
 import { friendRequestSent } from '../App';
 import AddWithQR from './AddWithQR';
 

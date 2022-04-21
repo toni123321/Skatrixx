@@ -1,5 +1,5 @@
 import React from 'react';
-import { auth } from '../services/firebase'
+import { auth } from '../services/firebaseService'
 import LogOut from "../images/Logout.png"
 
 const Success = ({ user }) => {

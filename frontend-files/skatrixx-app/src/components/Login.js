@@ -1,4 +1,4 @@
-import { signInWithGoogle } from '../services/firebase';
+import { signInWithGoogle } from '../services/firebaseService';
 import "../stylesheets/LogInScreen.css"
 
 

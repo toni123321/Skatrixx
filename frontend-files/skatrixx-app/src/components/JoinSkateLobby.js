@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getLobbies, joinLobby } from '../services/lobby'
+import { getLobbies, joinLobby } from '../services/lobbyService'
 import LobbyContainer from './LobbyContainer'
 import '../stylesheets/JoinSkateLobby.css'
 import { acceptInvite } from '../websockets/lobbyWS'

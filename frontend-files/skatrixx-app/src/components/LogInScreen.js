@@ -1,10 +1,10 @@
-import {React, useState, useEffect} from 'react'
+import {React, useEffect} from 'react'
 import Login from './Login'
 import '../stylesheets/LogInScreen.css'
 
 import backgroundImage from '../images/background_image.png'
-import firebase from '../services/firebase'
-import { url } from '../services/connection'
+import firebase from '../services/firebaseService'
+import { url } from '../services/friendsConnectionService'
 import axios from 'axios'
 
 function LogInScreen() {

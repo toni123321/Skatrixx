@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { getUser } from "../services/user"
+import { getUser } from "../services/userService"
 import '../stylesheets/LobbyParticipant.css'
 
 function LobbyParticipant(props) {

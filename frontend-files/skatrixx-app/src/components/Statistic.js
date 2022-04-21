@@ -2,7 +2,7 @@ import {React, useEffect, useState} from 'react'
 import "../stylesheets/Statistic.css"
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import user from "../services/user"
+import user from "../services/userService"
 
 function Statistic(props) {
   const [ovrStat, setOvrStat] = useState(50)

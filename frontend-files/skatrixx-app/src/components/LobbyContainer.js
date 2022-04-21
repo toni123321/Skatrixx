@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { acceptAndJoinLobby, joinLobbyButton } from '../services/lobby'
-import { getUser } from '../services/user'
+import { acceptAndJoinLobby } from '../services/lobbyService'
+import { getUser } from '../services/userService'
 
 import '../stylesheets/LobbyContainer.css'
 import { acceptInvite } from '../websockets/lobbyWS'

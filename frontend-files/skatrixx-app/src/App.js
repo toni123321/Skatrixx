@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 
-import { url } from './services/connection';
+import { url } from './services/friendsConnectionService';
 import { socket } from './websockets/ws_client';
 import { logInUser } from './websockets/userWS';
 
@@ -15,7 +15,6 @@ import NavBar from './components/NavBar';
 import Profile from './components/Profile';
 import SkatePage from './components/SkatePage';
 import GamePage from './components/GamePage';
-import Statistc from './components/Statistic';
 import JoinSkateLobby from './components/JoinSkateLobby';
 import CreateSkateLobby from './components/CreateSkateLobby';
 import LogInScreen from './components/LogInScreen'

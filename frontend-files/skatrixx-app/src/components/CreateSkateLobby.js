@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { changeLimit, changeVisibility, createLobby } from '../services/lobby';
+import { changeLimit, changeVisibility, createLobby } from '../services/lobbyService';
 import { socket } from '../websockets/ws_client';
 
 import "../stylesheets/CreateSkateLobby.css"

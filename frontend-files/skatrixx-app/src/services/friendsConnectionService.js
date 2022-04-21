@@ -1,11 +1,9 @@
-import { loggedUser } from './api_client';
+import { loggedUser, getBaseUrl } from './api_client';
 
 const axios = require('axios');
-export const url = "http://localhost:3000/";
-//export const url = "https://skatrixx.herokuapp.com/";
+export const url = getBaseUrl
 
 export const sendFriendRequestByUsername = (username) => {
-
     var data = {
         username : username,
         sender_id : loggedUser

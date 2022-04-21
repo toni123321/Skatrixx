@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { friendInvited } from '../App';
 import { loggedUser } from '../services/api_client';
-import { inviteFriend } from '../services/lobby';
-import { getUser } from '../services/user';
+import { inviteFriend } from '../services/lobbyService';
+import { getUser } from '../services/userService';
 
 import '../stylesheets/InviteFriendContainer.css'
 

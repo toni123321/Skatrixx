@@ -2,23 +2,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCadauMqTk6KDL18v0gfYEyrMPFeadTIyM",
-
-//   authDomain: "skatrixx-8f268.firebaseapp.com",
-
-//   projectId: "skatrixx-8f268",
-
-//   storageBucket: "skatrixx-8f268.appspot.com",
-
-//   messagingSenderId: "1017155773610",
-
-//   appId: "1:1017155773610:web:3e64f1ab1e7097c507dcd3",
-
-//   measurementId: "G-NCCCTV8NV6"
-
-// };
-
+// Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyDTkCkGpdK-_bYWHPv9jas1WNvw3gYbsj8",
   authDomain: "skatrixx2-3f452.firebaseapp.com",
@@ -45,6 +29,6 @@ export const signInWithGoogle = async () => {
   await auth.signInWithPopup(provider)
   setTimeout(() => {
     finishSignIn()
-  }, 100);
+  }, 500);
 }
 export default firebase;

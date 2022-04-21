@@ -1,9 +1,8 @@
-import { loggedUser } from './api_client';
+import { loggedUser, getBaseUrl } from './api_client';
 import http from "./api_client"
 
 const axios = require('axios');
-const url = "http://localhost:3000/";
-//const url = "https://skatrixx.herokuapp.com/";
+const url = getBaseUrl
 
 const profile = {
     "id" : 1,
