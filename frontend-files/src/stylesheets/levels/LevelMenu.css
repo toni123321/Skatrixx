@@ -1,0 +1,52 @@
+#back {
+  margin-left: 45px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.level-menu {
+  height: calc(100vh - 65px);
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.level-menu h3 {
+  color: #efefef;
+  text-align: center;
+  font-weight: 150;
+  font-weight: bold;
+  margin-top: -20px;
+}
+
+.level-menu h5 {
+  color: #efefef;
+  text-align: center;
+  font-weight: 50;
+  font-weight: bold italic;
+  margin-top: -20px;
+}
+
+#RookieRamp,
+#IntermediateRamp,
+#ProsRamp {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+  /* padding-bottom: 20px; */
+}
+
+#RookieButton, #IntermediateButton, #ProsButton {
+    height: 30px;
+    width: 80px;
+    border-radius: 50px;
+
+    margin-top: -20px;
+}

@@ -1,0 +1,52 @@
+.achievements {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+.achievements p {margin-bottom: 0px;}
+
+#achievement {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#rotator-wheel {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-left: auto; margin-right: auto;
+    max-width: 550px;
+    height:max-content;overflow: hidden;
+    position: relative;
+    flex-direction: row;
+    transition: transform 1s;
+}
+
+
+.selector{
+    color: white;
+    font-size: 25px;
+    font-weight: 1000;
+    background-color: transparent;
+    height: max-content;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+}
+
+#next{right: 0;}
+#prev {left: 0;}
+
+#previous-achievement{
+    opacity: .6;
+}
+
+#next-achievement{
+    opacity: .6;
+}
+
+#current-achievement {  
+    zoom: 120%;
+}

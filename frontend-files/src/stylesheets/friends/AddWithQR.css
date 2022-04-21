@@ -1,0 +1,57 @@
+.add-with-qr {
+    width: 95%;
+}
+
+.add-with-qr #back {margin-top: 20px;}
+
+.qr-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #1E1E1E;
+    border: 2px solid #1E1E1E;
+    height: 30px;
+    width: 60%;
+    max-width: 200px;
+    border-radius: 150px;
+    margin-left: auto; margin-right: auto;
+}
+
+.qr-tabs button {
+    height: 100%;
+    width: 50%;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: linear .3s;
+    font-size: 10px;
+}
+
+#qr-tabs-my {
+    background-color: #CF2121;
+    border-top-left-radius: 150px;
+    border-bottom-left-radius: 150px;
+}
+#qr-tabs-scan {
+    background-color: #1E1E1E;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+}
+
+.my-qr-tab, .scan-qr-tab {
+    height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-code-reader {
+   height: 256px;
+   width: 256px;
+}
+
+.qr-code{
+    border: 3px solid white;
+}
+
+

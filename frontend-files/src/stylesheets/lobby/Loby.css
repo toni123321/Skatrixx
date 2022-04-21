@@ -1,0 +1,81 @@
+h4 {
+    color: #EFEFEF;
+    text-align: center;
+}
+
+ #Sicon {
+    display: flex;
+    margin: auto;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding-top: 160px;
+    /* align-items: center;
+    justify-content: center; */
+
+} 
+#solo{
+    margin-bottom: 50px;
+}
+#soloIcon {
+    display: flex;
+    margin: auto;
+    /* margin-top: -400px; */
+}
+
+#vsIcon {
+    display: flex;
+    margin: auto;
+    /* margin-top: 110px; */
+}
+
+#SKATE-Popup {
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.479);
+}
+
+#SKATE-close {
+    text-align: right;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-right: 10px;
+    color: #EFEFEF;
+}
+
+#SKATE-options {
+    text-align: center;
+    border-radius: 10px;
+    background-color: #1e1e1e;
+    width: 80%;
+    height: 450px;
+    max-width: 350px;
+    max-height: 250px;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.skate-btn  {
+    box-shadow: 10px 3px 4px rgb(26 26 26 / 20%);
+    /* background-color: #1e1e1e; */
+    border: 3px solid rgb(165, 26, 26);
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 150px;
+    height: 50px;
+   
+}
+#join{
+    background: transparent;
+}
+#or{
+    color: #EFEFEF;
+    font-weight: lighter;
+}

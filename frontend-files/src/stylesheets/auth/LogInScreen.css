@@ -1,0 +1,13 @@
+.log-in-button {
+    border-radius: 10px;
+    width: 250px;
+    position: absolute;
+    top: 50%;
+    left: 0; right: 0;
+    margin: auto;
+    transform: translateY(-50%);
+}
+
+.fa-google{
+    padding-right: 10px;
+}
