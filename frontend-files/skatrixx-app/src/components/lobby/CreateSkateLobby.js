@@ -60,7 +60,6 @@ function CreateSkateLobby() {
   return (
     <div className='create-skate-lobby'> 
         <div id='lobby-settings'>
-        
         {localStorage.getItem('userId') !== lobby.members[0] ? 
             <div id='lobby-settings-block'>
                 <p>Only the lobby leader can change the settings of the lobby</p>
