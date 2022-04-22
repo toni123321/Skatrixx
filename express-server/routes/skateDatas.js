@@ -1,4 +1,5 @@
 const express=require('express')
+const skateData = require('../models/skateData')
 const router=express.Router()
 const SkateData=require('../models/skateData')
 
