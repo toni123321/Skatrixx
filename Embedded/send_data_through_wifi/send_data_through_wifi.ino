@@ -24,6 +24,7 @@ void setup() {
     request->send_P(200, "text/plain", readData().c_str());
   });
 
+
   server.begin();
  
 }
