@@ -14,6 +14,8 @@ const trickDataRouter = require('./routes/tricks')
 const connectioDataRouter = require('./routes/connections')
 const lobbyDataRouter = require('./routes/skateLobbies')
 const achievementsService = require('./routes/achievements')
+const consistencyRouter = require('./routes/consistencies');
+const { Router } = require('express');
 
 // App and DB setup
 const app=express();
@@ -42,6 +44,7 @@ app.use('/tricks', trickDataRouter)
 app.use('/connections', connectioDataRouter)
 app.use('/lobbies', lobbyDataRouter)
 app.use('/achievements', achievementsService)
+app.use('/consistency', consistencyRouter)
 
 const server = app.listen(port, () => {console.log(`Back end is running on port: ${port}`)});
 

@@ -19,6 +19,9 @@ router.get('/', async(req,res) => {
             else if(count == 10){
                 response = "User claimed badge for *10 trick"
             }
+            else{
+                response = count
+            }
         
         res.send(response)
     }
