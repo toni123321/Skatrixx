@@ -24,6 +24,16 @@ void setup() {
     request->send_P(200, "text/plain", readData().c_str());
   });
 
+  server.on("/put", HTTP_PUT, [](AsyncWebServerRequest *request){
+        String state;
+        if (request->hasParam(state, true)) {
+            state = request->getParam(state, true)->value();
+        } else {
+            state = "No state sent";
+        }
+        request->send(200, "text/plain", "This is your current state: " + state);
+  });
+
 
   server.begin();
  

@@ -27,8 +27,8 @@ router.get('/', async(req,res) => {
 
 router.get('/lastRecord', async(req, res) => {
   try {
-    const skateData = await SkateData.find().sort({_id:-1}).limit(2);
-    res.send(skateData)
+    const skateData = await SkateData.find().sort({_id:-1});
+    res.send(skateData[0])
   } catch(err) {
     res.status(500).json({message: err.message})
   }
