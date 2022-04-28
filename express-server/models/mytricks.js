@@ -1,14 +1,6 @@
 const mongoose = require('mongoose')
 
 const mytricksSchema = new mongoose.Schema({
-     /*username:{
-        type: String,
-        required:true
-     },
-     trickName:{
-        type: String,
-        required:true
-     },*/
      user_id: {
          type: String,
          required: true
