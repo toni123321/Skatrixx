@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const Consistency = require('../models/consistency')
-const dateTime = require('../node_modules/node-datetime');
 
 
 router.get('/', async(req, res) => {
@@ -11,11 +10,10 @@ router.get('/', async(req, res) => {
 
     try{
         const consistency = await Consistency.find(query)
-
-        const newDate = consistency.loginDate.last
+        const newDate = consistency[0].loginDate[consistency[0].loginDate.length-1]
         newDate.setDate(newDate.getDate()+1)
 
-        res.status(201).json(consistency)
+        res.status(201).json(newDate)
     }
     catch(err){
         res.status(500).json({message: err.message})
@@ -24,8 +22,8 @@ router.get('/', async(req, res) => {
 
 router.post('/', async(req, res) => {
 
-    const dt = dateTime.create();
-    const formatted = dt.format('Y-m-d');
+    const formatted = Date.now()
+    //const formatted = dt.format("%Y-%m-%d")
 
     const consistency = new Consistency({
         user_id: req.body.user_id
@@ -44,15 +42,16 @@ router.post('/', async(req, res) => {
 
 router.put('/', async(req, res) => {
 
-    const dt = dateTime.create();
-    const formatted = dt.format('Y-m-d');
+    /*const dt = dateTime.create();
+    const formatted = dt.format('Y-m-d');*/
+    const formatted = Date.now()
     
     const query = {
         user_id: req.body.user_id
     }
     try{
         const consistency = await Consistency.find(query)
-        const lastDate = consistency.loginDate.last
+        const lastDate = consistency.loginDate.last()
         lastDate.setDate(lastDate.getDate()+1)
         if(lastDate == formatted){
             consistency.loginDate.push(formatted)

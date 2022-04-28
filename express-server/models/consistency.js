@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const DateTime = require('node-datetime/src/datetime')
 
 const consistencySchema = new mongoose.Schema({
 
@@ -6,10 +7,13 @@ const consistencySchema = new mongoose.Schema({
         type: String,
         required:true
      },
-     loginDate:{
-         type: Array(),
-         required: false
-     }
+
+     loginDate: [
+        {
+        type: Date,
+        required: false
+        }
+    ]
 
 })
 

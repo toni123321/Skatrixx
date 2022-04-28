@@ -13,6 +13,7 @@ router.get('/', async(req,res) => {
             const count = await MyTricks.countDocuments(query)
 
             let response
+
             if(count == 1){
                 response = "User claimed badge for *1 trick"
             }
@@ -20,7 +21,7 @@ router.get('/', async(req,res) => {
                 response = "User claimed badge for *10 trick"
             }
             else{
-                response = count
+                response = count.toString()
             }
         
         res.send(response)
