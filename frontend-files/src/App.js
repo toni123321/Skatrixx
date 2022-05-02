@@ -2,6 +2,7 @@ import './App.css';
 import 'react-notifications/lib/notifications.css';
 import backgroundImage from './images/background_image.png'
 
+
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
@@ -85,7 +86,9 @@ function App() {
           <NotificationContainer/>
       </div>
       {lobbyInvite !== null ? <LobbyInvitePopUp lobby={lobbyInvite}/> : ''}
+    
     </Router>
+    
   )
 }
 else {return <LogInScreen/>}
