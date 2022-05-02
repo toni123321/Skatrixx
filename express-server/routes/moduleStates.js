@@ -18,7 +18,7 @@ router.get('/', async(req,res)=>{
  //Update moduleState start
 router.patch('/start',async(req,res)=>{
  
-
+    
     try{
         const moduleStates = await moduleState.findOne().sort({$natural: -1}).limit(1)
         if( moduleStates.isStarted==false){
@@ -46,7 +46,7 @@ router.patch('/start',async(req,res)=>{
     }
 })
  
-//Post user - ma sh go triq tva nq se polzva!!!
+//Post user 
 // router.post('/',async(req,res)=>{
 //     const mOduleState=new moduleState({
 //         isStarted: req.body.isStarted
@@ -57,7 +57,7 @@ router.patch('/start',async(req,res)=>{
 //     }catch(err){
 //       res.status(400).json({message: err.message})
 //     }
-// }) kakto sum napisal gore tva nqma da go pipate!
+// })
 
 
 
