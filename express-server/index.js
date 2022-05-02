@@ -13,6 +13,7 @@ const skateDataRouter = require('./routes/skateDatas')
 const trickDataRouter = require('./routes/tricks')
 const connectioDataRouter = require('./routes/connections')
 const lobbyDataRouter = require('./routes/skateLobbies')
+const moduleStateRouter = require('./routes/moduleStates')
 
 // App and DB setup
 const app=express();
@@ -40,6 +41,7 @@ app.use('/skateDatas', skateDataRouter)
 app.use('/tricks', trickDataRouter)
 app.use('/connections', connectioDataRouter)
 app.use('/lobbies', lobbyDataRouter)
+app.use('/moduleStates', moduleStateRouter)
 
 const server = app.listen(port, () => {console.log(`Back end is running on port: ${port}`)});
 
