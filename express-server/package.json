@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon index.js",
-    "debug": "nodemon --inspect index.js"
+    "server": "nodemon index.js",
+    "client": "npm start --prefix ../frontend-files",
+    "debug": "nodemon --inspect index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^7.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",

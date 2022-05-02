@@ -4,4 +4,4 @@ COPY package.json ./
 COPY package-lock.json ./
 COPY ./ ./
 RUN npm i
-CMD ["node", "index.js"]
+CMD ["nodemon",  "start"]

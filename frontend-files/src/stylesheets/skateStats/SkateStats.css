@@ -38,6 +38,16 @@
     align-items: center;
 }
 
+#pedal{
+    height: 20px;
+    width: 30px;
+    margin-bottom: 5px;
+}
+.canvas{
+    height: 500px;
+    background: rgb(0, 0, 0);
+}
+
 .skate-img {
     width: 60%;
     height: 60%;

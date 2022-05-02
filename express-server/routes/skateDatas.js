@@ -1,4 +1,5 @@
 const express=require('express')
+const skateData = require('../models/skateData')
 const router=express.Router()
 const SkateData=require('../models/skateData')
 
@@ -26,8 +27,8 @@ router.get('/', async(req,res) => {
 
 router.get('/lastRecord', async(req, res) => {
   try {
-    const skateData = await SkateData.findOne().sort({ field: -SkateData._id }).limit(1)
-    res.send(skateData)
+    const skateData = await SkateData.find().sort({_id:-1});
+    res.send(skateData[0])
   } catch(err) {
     res.status(500).json({message: err.message})
   }
