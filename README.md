@@ -3,6 +3,9 @@
 ### - To install node modules
 npm install
 
+### - To run whole application
+npm run dev
+
 ### - To run node server
 nodemon index.js
 
