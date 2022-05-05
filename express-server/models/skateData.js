@@ -3,35 +3,35 @@ const mongoose=require('mongoose')
 
 const skateData=new mongoose.Schema({
     speed: {
-        type: Number,
+        type: String,
         required: true
     },
     height: {
-        type: Number,
+        type: String,
         required: true
     },
     airtime: {
-        type: Number,
+        type: String,
         required: true
     },
     rotation: {
-        type: Number,
+        type: String,
         required: true
     },
     accelX: {
-        type: Number,
+        type: String,
         required: true
     },
     accelY: {
-        type: Number,
+        type: String,
         required: true
     },
     accelZ: {
-        type: Number,
+        type: String,
         required: true
     },
     gyroZ: {
-        type: Number,
+        type: String,
         required: true
     }
 })
