@@ -69,6 +69,7 @@ void setup() {
 
 int count = 0;
 void loop() {
+  
 
   if(count <= 1) 
   {
@@ -109,34 +110,40 @@ void loop() {
 
     if (WiFi.status() == WL_CONNECTED)
     {
-      HTTPClient client;
-      client.begin("https://skatrixx.herokuapp.com/skateDatas");
-      client.addHeader("Content-Type", "application/json");
-      const size_t CAPACITY = JSON_OBJECT_SIZE(8);
-      StaticJsonDocument<CAPACITY> doc;
-      JsonObject object = doc.to<JsonObject>();
-      object["speed"] = 15;
-      object["height"] = int(distanceCm);
-      object["airtime"] = 1;
-      object["rotation"] = 5;
-      object["accelX"] = int(mySensor.accelX());
-      object["accelY"] = int(mySensor.accelY());
-      object["accelZ"] = int(mySensor.accelZ());
-      object["gyroZ"] = int(mySensor.gyroZ());
+      HTTPClient client1;
+      client1.begin("https://skatrixx.herokuapp.com/skateDatas/lastRecord");
+      client1.addHeader("Content-Type", "application/json");
+      client1.GET();
+      Serial.println("Res: " + client1.getString());
       
-      serializeJson(doc, jsonOutput);
-      
-      int httpCode = client.POST(String(jsonOutput));
-      if(httpCode > 0) {
-        String payload = client.getString();
-        Serial.println("\nStatuscode: " + String(httpCode));
-        Serial.println(payload);
-  
-        client.end();
-      }
-      else {
-        Serial.println("Error on HTTP request");
-      }
+//      HTTPClient client;
+//      client.begin("https://skatrixx.herokuapp.com/skateDatas");
+//      client.addHeader("Content-Type", "application/json");
+//      const size_t CAPACITY = JSON_OBJECT_SIZE(8);
+//      StaticJsonDocument<CAPACITY> doc;
+//      JsonObject object = doc.to<JsonObject>();
+//      object["speed"] = 15;
+//      object["height"] = int(distanceCm);
+//      object["airtime"] = 1;
+//      object["rotation"] = 5;
+//      object["accelX"] = int(mySensor.accelX());
+//      object["accelY"] = int(mySensor.accelY());
+//      object["accelZ"] = int(mySensor.accelZ());
+//      object["gyroZ"] = int(mySensor.gyroZ());
+//      
+//      serializeJson(doc, jsonOutput);
+//      
+//      int httpCode = client.POST(String(jsonOutput));
+//      if(httpCode > 0) {
+//        String payload = client.getString();
+//        Serial.println("\nStatuscode: " + String(httpCode));
+//        Serial.println(payload);
+//  
+//        client.end();
+//      }
+//      else {
+//        Serial.println("Error on HTTP request");
+//      }
     }
     else {
       Serial.println("Connection lost");
