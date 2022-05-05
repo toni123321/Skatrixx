@@ -73,14 +73,14 @@ int currentMode = 2;
 unsigned long getMillis = 0;
 unsigned long trickMillis = 0;
 
-int skate_speed = 0;
-int height = 0;
-int airtime = 0;
-int rotation = 0;
-double accelX = 0;
-double accelY = 0;
-double accelZ = 0;
-double gyroZ = 0;
+String skate_speed = "";
+String height = "";
+String airtime = "";
+String rotation = "";
+String skate_accelX = "";
+String skate_accelY = "";
+String skate_accelZ = "";
+String skate_gyroZ = "";
 
 
 void loop() {
@@ -127,16 +127,16 @@ void loop() {
     mySensor.accelUpdate();
     mySensor.gyroUpdate();
 
-    skate_speed = 15;
-    height = int(distanceCm);
-    airtime = 1;
-    rotation = 5;
+    skate_speed = String(15);
+    height = String(distanceCm);
+    airtime = String(1);
+    rotation = String(5);
     
-    accelX = double(mySensor.accelX()); 
-    accelY = double(mySensor.accelY());
-    accelZ = double(mySensor.accelZ());
-    gyroZ = double(mySensor.gyroZ());
-   
+    skate_accelX = String(mySensor.accelX()); 
+    skate_accelY = String(mySensor.accelY());
+    skate_accelZ = String(mySensor.accelZ());
+    skate_gyroZ = String(mySensor.gyroZ());
+
     
   }
   else if(currentMode == STOP_MODE) {
@@ -145,19 +145,41 @@ void loop() {
     HTTPClient client;
     client.begin("https://skatrixx.herokuapp.com/skateDatas");
     client.addHeader("Content-Type", "application/json");
-    const size_t CAPACITY = JSON_OBJECT_SIZE(8);
+
+    
+    const size_t CAPACITY = JSON_OBJECT_SIZE(sizeof(skate_gyroZ));
+
+    Serial.println(sizeof(skate_speed));
+    Serial.println(sizeof(height));
+    Serial.println(sizeof(airtime));
+    Serial.println(sizeof(rotation));
+    
+    Serial.println(sizeof(skate_accelX));
+    Serial.println(sizeof(skate_accelY));
+    Serial.println(sizeof(skate_accelZ));   
+    Serial.println(sizeof(skate_gyroZ));
+    Serial.println(sizeof("1"));
+    Serial.println(sizeof("10"));
+    Serial.println(sizeof("-10"));
+
+    
     StaticJsonDocument<CAPACITY> doc;
     JsonObject object = doc.to<JsonObject>();
     object["speed"] = skate_speed;
     object["height"] = height;
     object["airtime"] = airtime;
     object["rotation"] = rotation;
-    object["accelX"] = accelX;
-    object["accelY"] = accelY;
-    object["accelZ"] = accelZ;
-    object["gyroZ"] = gyroZ;
+    object["accelX"] = skate_accelX;
+    object["accelY"] = skate_accelY;
+    object["accelZ"] = skate_accelZ;
+    object["gyroZ"] = skate_gyroZ;
+
+    Serial.println(skate_gyroZ);
     
     serializeJson(doc, jsonOutput);
+
+    Serial.println(object);
+    Serial.println(jsonOutput);
     
     int httpCode = client.POST(String(jsonOutput));
     if(httpCode > 0) {
