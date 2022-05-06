@@ -8,12 +8,19 @@ router.get('/', async(req, res) => {
         user_id: req.body.user_id
     }
 
+    let response
     try{
         const consistency = await Consistency.find(query)
-        const newDate = consistency[0].loginDate[consistency[0].loginDate.length-1]
-        newDate.setDate(newDate.getDate()+1)
+        const length = consistency[0].loginDate.length
+        if(length == 7){
+            response = "7 days in a row"
+        }
+        else{
+            response = length.toString()
+        }
+        
 
-        res.status(201).json(newDate)
+        res.status(201).json(response)
     }
     catch(err){
         res.status(500).json({message: err.message})
@@ -42,24 +49,23 @@ router.post('/', async(req, res) => {
 
 router.put('/', async(req, res) => {
 
-    /*const dt = dateTime.create();
-    const formatted = dt.format('Y-m-d');*/
-    const formatted = Date.now()
-    
+    const formatted = new Date(Date.now())
+
     const query = {
         user_id: req.body.user_id
     }
     try{
         const consistency = await Consistency.find(query)
-        const lastDate = consistency.loginDate.last()
+        let lastDate = consistency[0].loginDate[consistency[0].loginDate.length-1]
         lastDate.setDate(lastDate.getDate()+1)
-        if(lastDate == formatted){
-            consistency.loginDate.push(formatted)
+        //console.log(lastDate.getHours())
+        if(lastDate.getDate() == formatted.getDate()){
+            consistency[0].loginDate.push(formatted)
             res.status(201).json(consistency)
         }
         else{
-            consistency.loginDate.length = 0
-            consistency.loginDate.push(formatted)
+            consistency[0].loginDate.length = 0
+            consistency[0].loginDate.push(formatted)
             
             res.status(201).json(consistency)
         }
