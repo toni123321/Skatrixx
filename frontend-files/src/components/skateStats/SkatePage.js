@@ -9,14 +9,14 @@ import "../../stylesheets/skateStats/SkateStats.css"
 function SkatePage() {
   const initialLastSkateData = {
     _id: "",
-    speed: null,
-    height: null,
-    airtime: null,
-    rotation: null,
-    accelX: null,
-    accelY: null,
-    accelZ: null,
-    gyroZ: null,
+    speed: "",
+    height: "",
+    airtime: "",
+    rotation: "",
+    accelX: "",
+    accelY: "",
+    accelZ: "",
+    gyroZ: "",
   }
 
   const [skateData, setSkateData] = useState(initialLastSkateData) // skateData useState

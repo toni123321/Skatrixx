@@ -67,13 +67,8 @@ void setup() {
   Serial.println(WiFi.localIP());
 }
 
-int count = 0;
-void loop() {
-  
 
-  if(count <= 1) 
-  {
-    count++;
+void loop() {
     digitalWrite(TRIG_PIN, LOW);
     delayMicroseconds(2);
     // Sets the trigPin on HIGH state for 10 micro seconds
@@ -107,14 +102,14 @@ void loop() {
 //  Serial.println("gyroX: " + String(mySensor.gyroX()));
 //  Serial.println("gyroY: " + String(mySensor.gyroY()));
     Serial.println("gyroZ: " + String(mySensor.gyroZ()));
-
-    if (WiFi.status() == WL_CONNECTED)
-    {
-      HTTPClient client1;
-      client1.begin("https://skatrixx.herokuapp.com/skateDatas/lastRecord");
-      client1.addHeader("Content-Type", "application/json");
-      client1.GET();
-      Serial.println("Res: " + client1.getString());
+//
+//    if (WiFi.status() == WL_CONNECTED)
+//    {
+//      HTTPClient client1;
+//      client1.begin("https://skatrixx.herokuapp.com/skateDatas/lastRecord");
+//      client1.addHeader("Content-Type", "application/json");
+//      client1.GET();
+//      Serial.println("Res: " + client1.getString());
       
 //      HTTPClient client;
 //      client.begin("https://skatrixx.herokuapp.com/skateDatas");
@@ -143,13 +138,13 @@ void loop() {
 //      }
 //      else {
 //        Serial.println("Error on HTTP request");
-//      }
-    }
-    else {
-      Serial.println("Connection lost");
-    }
-    delay(1000);
-  }
+//      } 
+//    }
+//    else {
+//      Serial.println("Connection lost");
+//    }
+    delay(500);
+//  }
 
   
 }
