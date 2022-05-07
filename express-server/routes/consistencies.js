@@ -57,16 +57,23 @@ router.put('/', async(req, res) => {
     try{
         const consistency = await Consistency.find(query)
         let lastDate = consistency[0].loginDate[consistency[0].loginDate.length-1]
-        lastDate.setDate(lastDate.getDate()+1)
+        //lastDate.setDate(lastDate.getDate()+1)
         //console.log(lastDate.getHours())
-        if(lastDate.getDate() == formatted.getDate()){
+        if(lastDate.getDate() == (formatted.getDate()-1)){
             consistency[0].loginDate.push(formatted)
-            res.status(201).json(consistency)
+
+            const newConsistency = await consistency[0].save()
+            res.status(201).json(newConsistency)
+        }
+        else if(lastDate.getDate() != formatted.getDate()){
+            consistency[0].loginDate = []
+            
+            consistency[0].loginDate.push(formatted)
+            const newConsistency = await consistency[0].save()
+            
+            res.status(201).json(newConsistency)
         }
         else{
-            consistency[0].loginDate.length = 0
-            consistency[0].loginDate.push(formatted)
-            
             res.status(201).json(consistency)
         }
     }
