@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "debug": "nodemon --inspect index.js",
+    "start": "nodemon index.js",
     "server": "nodemon index.js",
     "client": "npm start --prefix ../frontend-files",
-    "debug": "nodemon --inspect index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
