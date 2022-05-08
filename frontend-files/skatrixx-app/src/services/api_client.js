@@ -4,7 +4,7 @@ export const loggedUser = localStorage.getItem("userId")
 
 
 export default axios.create({
-  baseURL: "https://skaterixx.herokuapp.com",
+  baseURL: "https://localhost:3000/",
   headers: {
     "Content-type": "application/json"
   }
