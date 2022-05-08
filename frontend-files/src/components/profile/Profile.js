@@ -44,7 +44,6 @@ function Profile(props) {
             return(
                 <div className='me-tab'>
                     <ProfileRankings/>
-                    <Achievements/>
                 </div>
             )
         }

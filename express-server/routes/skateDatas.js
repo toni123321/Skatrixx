@@ -46,10 +46,14 @@ try
 //Post skate data
 router.post('/',async(req,res)=>{
   const skateData=new SkateData({
-      speed:req.body.speed, height: req.body.height,
-      airtime: req.body.airtime,rotation: req.body.rotation,
-      accelX: req.body.accelX, accelY: req.body.accelY,
-      accelZ: req.body.accelZ, gyroZ: req.body.gyroZ
+      speed:req.body.speed, 
+      height: req.body.height,
+      airtime: req.body.airtime,
+      rotation: req.body.rotation,
+      accelX: req.body.accelX, 
+      accelY: req.body.accelY,
+      accelZ: req.body.accelZ, 
+      gyroZ: req.body.gyroZ
   })
   try{
     const newSkateData=await skateData.save()

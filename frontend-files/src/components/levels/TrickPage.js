@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import "../../stylesheets/levels/TrickPage.css";
 import { useTimer } from "react-timer-hook";
 import Statistic from "./Statistic";
+import { endTrick, startTrick } from "../../services/moduleStateService";
 
 function TrickPage(props) {
   const expiryTimestamp = new Date();
@@ -14,14 +15,15 @@ function TrickPage(props) {
   const [isStarted, setIsStarted] = useState(false);
   const [timerFinished, setTimerFinished] = useState(false)
 
-  const toggleStart = () => {
+  const toggleStart = async () => {
 
     if (!isStarted) {
       start();
+      await startTrick()
     } else {
       pause();
       setTimerFinished(true)
-
+      await endTrick()
     }
 
     setIsStarted(!isStarted);

@@ -1,9 +1,13 @@
 .achievements {
     text-align: center;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
 }
 .achievements p {margin-bottom: 0px;}
+
+.pageTitleAchievements {
+    padding-bottom: 30px;
+}
 
 #achievement {
     margin-left: auto;
@@ -49,4 +53,66 @@
 
 #current-achievement {  
     zoom: 120%;
+}
+
+.pageTitleAchievements {
+    color: white
+}
+
+ .TrickTitle {
+     color: white;
+     padding: 15px;
+     padding-left: 30px;
+ }
+
+  .LoyaltyBadges {
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    max-width: 300px;
+    margin: auto;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+
+  .LoyaltyBadges::-webkit-scrollbar {
+    display: none;
+  }
+
+
+.badge {
+    display: inline-block;
+    padding: 5px;
+  }
+
+  .badgeSize {
+    height: 55px;
+    width: 55px;
+  }
+
+
+.progressBar {
+    width: 5px;
+    height: 40px;
+    border: 2px solid white;
+    display: block;
+    /* margin-right: 1.5rem; */
+    position: relative;
+    transform: rotate(90deg);
+    border-radius: 20px;
+    margin-top: -30px;
+    margin-left: 50px;
+    align-items: left;
+}
+
+.progressBar span {
+    height: 20px;
+    position: absolute;
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: -2px;
 }
