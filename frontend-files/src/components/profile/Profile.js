@@ -7,12 +7,22 @@ import friendTabImg from "../../images/Friends.png"
 import skateTabImg from "../../images/Skateboard.png"
 import defaultImg from "../../images/default-image.png"
 
+<<<<<<< HEAD:frontend-files/skatrixx-app/src/components/Profile.js
+import ProgressBar from './ProgressBar'
+import Success from './Success'
+import ProfileRankings from './ProfileRankings'
+import Achievements from './Achievements'
+import FriendList from './FriendList'
+import Gallery from './skateGallery/Gallery'
+import CameraComponent from './skateGallery/CameraComponent'
+=======
 import ProgressBar from '../profile/ProgressBar'
 import Success from '../auth/Success'
 import ProfileRankings from '../profile/ProfileRankings'
 import Achievements from '../achievements/Achievements'
 import FriendList from '../friends/FriendList'
 import Gallery from '../gallery/Gallery'
+>>>>>>> main:frontend-files/src/components/profile/Profile.js
 
 function Profile(props) {
 
@@ -57,7 +67,8 @@ function Profile(props) {
         else if(openedTab === 'Gallery') {
             return(
                 <div className='gallery-tab'>
-                    <Gallery/>
+                    {/* <Gallery/> */}
+                    <CameraComponent/>
                 </div>
             )
         }

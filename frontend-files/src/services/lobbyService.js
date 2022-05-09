@@ -1,7 +1,16 @@
 import { getBaseUrl } from './api_client';
 
 const axios = require('axios');
+<<<<<<< HEAD:frontend-files/src/services/lobbyService.js
+<<<<<<< HEAD:frontend-files/skatrixx-app/src/services/lobby.js
+const url = "http://localhost:3001";
+=======
+const url = "https://localhost:3000/";
+>>>>>>> 656726ee4f07c2d7578d271697cb4b07db261c78:frontend-files/skatrixx-app/src/services/lobby.js
+//const url = "https://skatrixx.herokuapp.com/";
+=======
 const url = getBaseUrl
+>>>>>>> main:frontend-files/src/services/lobbyService.js
 
 export const createLobby = async (id) => {
     var data = {

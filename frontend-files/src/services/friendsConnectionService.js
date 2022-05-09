@@ -1,7 +1,16 @@
 import { loggedUser, getBaseUrl } from './api_client';
 
 const axios = require('axios');
+<<<<<<< HEAD:frontend-files/src/services/friendsConnectionService.js
+<<<<<<< HEAD:frontend-files/skatrixx-app/src/services/connection.js
+export const url = "http://localhost:3001";
+=======
+export const url = "https://localhost:3000/";
+>>>>>>> 656726ee4f07c2d7578d271697cb4b07db261c78:frontend-files/skatrixx-app/src/services/connection.js
+//export const url = "https://skatrixx.herokuapp.com/";
+=======
 export const url = getBaseUrl
+>>>>>>> main:frontend-files/src/services/friendsConnectionService.js
 
 export const sendFriendRequestByUsername = (username) => {
     var data = {
