@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-
 import "../../stylesheets/gallery/Gallery.css"
 import image1 from "../../images/skateboards/1.jpg"
 import image2 from "../../images/skateboards/2.jpg"
 import image3 from "../../images/skateboards/3.jpg"
 import image4 from "../../images/skateboards/4.jpg"
+import CameraComponent from './CameraComponent'
 
 function Gallery() {
 
@@ -28,7 +28,8 @@ function Gallery() {
   }
   return (
     <div className='gallery'>
-      {images.map(image => (
+      <CameraComponent/>
+      {/* {images.map(image => (
         <div className='gallery-container' onClick={() => {handleOpenImage(image)}}>
           <img src={image} alt=''/>
         </div>
@@ -37,7 +38,7 @@ function Gallery() {
       <div id='viewImage'>
         <p onClick={() => {handleOpenImage(undefined)}}>X</p>
         <img src={viewedImage} alt=''/>
-      </div> : ''}
+      </div> : ''} */}
     </div>
   )
 }
