@@ -1,0 +1,58 @@
+
+.skate-stat-parent {
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skate-stat-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+    color: white;
+}
+
+.skate-stat-item {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.skate-stat-text {
+    font-size: 1.2rem;
+}
+
+.skate-preview {
+    background-color: #101010;
+    height: calc(60vh - 64px);
+    display: flex;
+    max-width: 550px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+#pedal{
+    height: 20px;
+    width: 30px;
+    margin-bottom: 5px;
+}
+.canvas{
+    height: 500px;
+    background: rgb(0, 0, 0);
+}
+
+.skate-img {
+    width: 60%;
+    height: 60%;
+}
+
+.SKATEMenu {
+    position: relative;
+}

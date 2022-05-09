@@ -1,4 +1,5 @@
 const express=require('express')
+const skateData = require('../models/skateData')
 const router=express.Router()
 const SkateData=require('../models/skateData')
 
@@ -26,8 +27,8 @@ router.get('/', async(req,res) => {
 
 router.get('/lastRecord', async(req, res) => {
   try {
-    const skateData = await SkateData.findOne().sort({ field: -SkateData._id }).limit(1)
-    res.send(skateData)
+    const skateData = await SkateData.find().sort({_id:-1});
+    res.send(skateData[0])
   } catch(err) {
     res.status(500).json({message: err.message})
   }
@@ -45,10 +46,14 @@ try
 //Post skate data
 router.post('/',async(req,res)=>{
   const skateData=new SkateData({
-      speed:req.body.speed, height: req.body.height,
-      airtime: req.body.airtime,rotation: req.body.rotation,
-      accelX: req.body.accelX, accelY: req.body.accelY,
-      accelZ: req.body.accelZ, gyroZ: req.body.gyroZ
+      speed:req.body.speed, 
+      height: req.body.height,
+      airtime: req.body.airtime,
+      rotation: req.body.rotation,
+      accelX: req.body.accelX, 
+      accelY: req.body.accelY,
+      accelZ: req.body.accelZ, 
+      gyroZ: req.body.gyroZ
   })
   try{
     const newSkateData=await skateData.save()

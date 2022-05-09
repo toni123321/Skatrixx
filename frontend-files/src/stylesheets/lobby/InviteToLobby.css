@@ -1,0 +1,22 @@
+.invite-popup {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    margin: auto;
+    top: 50%;
+    transform: translateY(calc(-50% - 30px));
+    max-width: 550px;
+    width: 90%; height: 60vh;
+    border: 1px solid #83838380;
+    border-radius: 5px;
+    background-color: #1E1E1E;
+}
+
+.invite-popup p {
+    text-align: right;
+    font-size: 25px;
+    margin-right: 20px;
+    margin-top: 5px;
+    border-radius: 50%;
+    background-color: right;
+    color: white;
+}

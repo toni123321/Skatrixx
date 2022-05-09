@@ -1,0 +1,121 @@
+.profile {
+    color: silver;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+}
+
+#profile-card {
+    height: max-content;
+    display: block;
+    margin-top: 25px;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    width: 90%;
+    margin-left: auto; margin-right: auto;
+    max-width: 800px;
+}
+
+#profile-image{
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    margin-left: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#additional-information {
+    font-size: 25px;
+    margin: 0 auto ;
+    width: 60%;
+}
+
+#additional-information p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #1E1E1E;
+    border: 2px solid #1E1E1E;
+    height: 30px;
+    width: 70%;
+    max-width: 500px;
+    border-radius: 150px;
+    margin-left: auto; margin-right: auto; margin-top: -10px;
+}
+
+/* .welcome-message-sign-out button {
+    border-radius: 10px;
+    width: 100px;
+    height: 25px;
+    margin-bottom: 0;
+} */
+#logout{
+  float: right;  
+  padding-right: 20px;
+}
+
+#tabs button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: linear .3s;
+}
+
+#tabs-me {
+    background-color: #CF2121;
+    border-top-left-radius: 150px;
+    border-bottom-left-radius: 150px;
+}
+#tabs-friends {
+    background-color: #1E1E1E;
+    border-radius: 0;
+}
+#tabs-gallery {
+    background-color: #1E1E1E;
+    border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px;
+}
+
+.me-tab{
+    overflow-y: scroll;
+    height: calc(100% - 65px);
+    padding-bottom: 64px; 
+}
+
+ .friends-tab {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+    overflow-y: scroll;
+    height: calc(100% - 65px);
+    padding-bottom: 64px;
+}
+
+.gallery-tab {
+    overflow-y: scroll;
+    height: calc(100% - 65px);
+    padding-bottom: 64px; 
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+}
+
+
+.welcome-message {
+    position: absolute;
+    z-index: 1000;
+}
