@@ -1,6 +1,5 @@
-import './App.css';
 import {useState, useEffect} from "react";  
-import {storage} from './firebase'
+import {storage} from '../../services/firebaseService'
 import {ref, uploadBytes, listAll, getDownloadURL} from "firebase/storage" //reference where in our bucket is the image,listing all the files
 import {v4} from 'uuid' //for randomizing letters
 // import { set } from 'mongoose';
@@ -53,3 +52,4 @@ function App() {
 }
 
 export default App;
+

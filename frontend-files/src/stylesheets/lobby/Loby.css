@@ -66,13 +66,13 @@ h4 {
     box-shadow: 10px 3px 4px rgb(26 26 26 / 20%);
     /* background-color: #1e1e1e; */
     border: 3px solid rgb(165, 26, 26);
-    margin-top: 20px;
+    margin-top: 52px;
     border-radius: 5px;
     width: 150px;
     height: 50px;
    
 }
-#join{
+#camera{
     background: transparent;
 }
 #or{

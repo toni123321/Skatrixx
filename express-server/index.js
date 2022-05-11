@@ -27,6 +27,8 @@ app.use(cors({
         'http://localhost:3001/*',
         'https://i451508.hera.fhict.nl',
         'https://i451508.hera.fhict.nl/*',
+        'https://i455146.hera.fhict.nl',
+        'https://i455146.hera.fhict.nl/*',
         'http://127.0.0.1:3001'
     ]
 }));
