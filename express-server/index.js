@@ -8,12 +8,12 @@ const mongoose=require('mongoose');
 const cors = require('cors');
 
 // Router Imports
-const usersRouter = require('./routes/users')
-const skateDataRouter = require('./routes/skateDatas')
-const trickDataRouter = require('./routes/tricks')
-const connectioDataRouter = require('./routes/connections')
-const lobbyDataRouter = require('./routes/skateLobbies')
-const moduleStateRouter = require('./routes/moduleStates')
+const usersRouter = require('./skatrixx/routes/users')
+const skateDataRouter = require('./skatrixx/routes/skateDatas')
+const trickDataRouter = require('./skatrixx/routes/tricks')
+const connectioDataRouter = require('./skatrixx/routes/connections')
+const lobbyDataRouter = require('./skatrixx/routes/skateLobbies')
+const moduleStateRouter = require('./skatrixx/routes/moduleStates')
 
 // App and DB setup
 const app=express();
@@ -31,6 +31,7 @@ app.use(cors({
     ]
 }));
 
+
 // Confirms/Denies connection to DB
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true});
 db.on('error', (error)=> console.error(error));
@@ -45,6 +46,14 @@ app.use('/lobbies', lobbyDataRouter)
 app.use('/moduleStates', moduleStateRouter)
 
 const server = app.listen(port, () => {console.log(`Back end is running on port: ${port}`)});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join('/skate', "index.html"));
+  res.sendFile(path.join('/trophy', "index.html"));
+  res.sendFile(path.join('/game', "index.html"));
+  res.sendFile(path.join('/join', "index.html"));
+  res.sendFile(path.join('/create', "index.html"));
+});
 
 //Websocket server declaration
 const io = require("socket.io")(server, {
