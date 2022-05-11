@@ -13,6 +13,7 @@ import ProfileRankings from '../profile/ProfileRankings'
 import Achievements from '../achievements/Achievements'
 import FriendList from '../friends/FriendList'
 import Gallery from '../gallery/Gallery'
+import CameraComponent from '../gallery/CameraComponent'
 
 function Profile(props) {
 
@@ -57,7 +58,8 @@ function Profile(props) {
         else if(openedTab === 'Gallery') {
             return(
                 <div className='gallery-tab'>
-                    <Gallery/>
+                    {/* <Gallery/> */}
+                    <CameraComponent />
                 </div>
             )
         }
