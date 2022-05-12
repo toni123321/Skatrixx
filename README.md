@@ -3,6 +3,12 @@
 ## Live Link
 > https://i451508.hera.fhict.nl/
 
+## Figma prototype
+> https://www.figma.com/file/xPccm5aQFLGmXnU8X67uyT/High-fidelity-Skaterixx
+
+## Documentation
+> https://git.fhict.nl/I451508/sm4-rb1-skatrixx/-/tree/main/Documents
+
 ## Links to all members's portfolios
 
 | Name | Portfolio |
@@ -12,8 +18,9 @@
 | Angel | [Link](https://git.fhict.nl/I451459/individual_repo_smartmobile_semester4/-/wikis/home) |
 | Joan | [Link](https://git.fhict.nl/I451508/sm4-rb1-joan_krastanov/-/wikis/home) |
 | Antonio | [Link](https://git.fhict.nl/I454917/smartmobile-portfolio/-/wikis/home) |
-| Arkan | [Link]() |
+| Arkan | [Link](https://git.fhict.nl/I451854/shaban_a) |
 
+## Localhost installation
 ### - To install node modules
 > npm install
 
