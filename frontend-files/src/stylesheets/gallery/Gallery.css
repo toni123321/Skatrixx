@@ -1,6 +1,21 @@
 #addimg{
-  width:150px;
+  width: 150px;
   height: 150px;
+  object-fit: fit; 
+}
+#image_input {
+  visibility: hidden;
+}
+#uploading{
+  height: 150px;
+  width: 150px;
+}
+#outputImg{
+  width: auto;
+  height: 100%;
+}
+#outputImgContainer{
+  height: 80%;
 }
 .skateBtn{
   box-shadow: 10px 3px 4px rgb(26 26 26 / 20%);
@@ -17,7 +32,7 @@
 .gallery {
     margin: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto;
     justify-content: space-evenly;
     align-items: center;
     width: 96%;
@@ -34,12 +49,11 @@
       overflow: hidden;
   }
 
-  .gallery-container img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover; 
+  .galleryImage {
+    width: 150px;
+    height: 150px;
+    object-fit: fit; 
   }
-
   #viewImage {
       text-align: center;
       background-color: rgba(0, 0, 0, 0.377);
