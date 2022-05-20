@@ -14,6 +14,9 @@ const trickDataRouter = require('./routes/tricks')
 const connectioDataRouter = require('./routes/connections')
 const lobbyDataRouter = require('./routes/skateLobbies')
 const moduleStateRouter = require('./routes/moduleStates')
+const achievementsService = require('./routes/achievements')
+const consistencyRouter = require('./routes/consistencies');
+const { Router } = require('express');
 
 // App and DB setup
 const app=express();
@@ -27,9 +30,12 @@ app.use(cors({
         'http://localhost:3001/*',
         'https://i451508.hera.fhict.nl',
         'https://i451508.hera.fhict.nl/*',
+        'https://i455146.hera.fhict.nl',
+        'https://i455146.hera.fhict.nl/*',
         'http://127.0.0.1:3001'
     ]
 }));
+
 
 // Confirms/Denies connection to DB
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true});
@@ -43,8 +49,18 @@ app.use('/tricks', trickDataRouter)
 app.use('/connections', connectioDataRouter)
 app.use('/lobbies', lobbyDataRouter)
 app.use('/moduleStates', moduleStateRouter)
+app.use('/achievements', achievementsService)
+app.use('/consistency', consistencyRouter)
 
 const server = app.listen(port, () => {console.log(`Back end is running on port: ${port}`)});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join('/skate', "index.html"));
+  res.sendFile(path.join('/trophy', "index.html"));
+  res.sendFile(path.join('/game', "index.html"));
+  res.sendFile(path.join('/join', "index.html"));
+  res.sendFile(path.join('/create', "index.html"));
+});
 
 //Websocket server declaration
 const io = require("socket.io")(server, {

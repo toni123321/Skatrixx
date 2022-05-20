@@ -58,8 +58,8 @@ function Profile(props) {
         else if(openedTab === 'Gallery') {
             return(
                 <div className='gallery-tab'>
-                    {/* <Gallery/> */}
-                    <CameraComponent />
+                    <Gallery/>
+                    {/* <CameraComponent /> */}
                 </div>
             )
         }

@@ -2,6 +2,7 @@ const express=require('express')
 const router=express.Router()
 const User=require('../models/user')
 const levelService = require('../services/levelService')
+const Consistency = require('../models/consistency')
 
 async function getUser(req, res, next){
     let user
@@ -71,8 +72,15 @@ router.get('/search/:username', getUserByUsername, (req, res) => {
         level : req.body.level,
         xp : req.body.xp
     })
+
     try{
       const newUser=await user.save()
+
+      const consistency = new Consistency({
+        user_id: user.id
+    })
+    await consistency.save()
+
       res.status(201).json(newUser)
     }catch(err){
       res.status(400).json({message: err.message})
