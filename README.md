@@ -9,7 +9,7 @@ small system to be connected to our server and to the app which the user has acc
 > https://i451508.hera.fhict.nl/
 
 ## Video of hardware system communicating with the PWA app through the backend server
-- You can see it in the folder _VideoDemo-phase1-Hardware system/_ of the repository
+- You can see it in our YouTube channel. [Link here](https://youtu.be/Ymbr5G8lzB0)
 
 
 **You want to see some of our work. You can view our prototype in Figma, our documentation or our code in the repository. 
