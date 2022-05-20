@@ -42,9 +42,11 @@ Please see below fo rmore information.**
 3. Install node modules since you probably have a local version of node modules which differs from the one from used in the project
 - Install node modules on the backend
 > cd express-server (Please, run this command from the parent folder - sm4-rb1-skatrixx/)
+
 > npm install
 - Install node modules on the frontend
 > cd frontend-files (Please, run this command from the parent folder - sm4-rb1-skatrixx/)
+
 > npm install
 
 
@@ -53,16 +55,19 @@ Please see below fo rmore information.**
 **Want to run the server and the app at the same time, then use this command**
 - To run whole application
 > cd express-server (Please, run this command from the parent folder - sm4-rb1-skatrixx/)
+
 > npm run dev 
 
 **Don't want to run the two apps at once, then here are the two commands for you**
 
 - Run Express server only
 > cd express-server (Please, run this command from the parent folder - sm4-rb1-skatrixx/)
+
 > nodemon index.js
 
 - Run React app only
 > cd frontend-files (Please, run this command from the parent folder - sm4-rb1-skatrixx/)
+
 > npm start
 
 
