@@ -1,0 +1,37 @@
+/* Popup style */
+.popup-box {
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.479);
+  }
+   
+  .box {
+    text-align: center;
+    border-radius: 10px;
+    background-color: #1e1e1e;
+    width: 80%;
+    height: 450px;
+    max-width: 350px;
+    max-height: 250px;
+    padding: 20px;
+  }
+   
+  .close-icon {
+    content: 'x';
+    cursor: pointer;
+    position: fixed;
+    right: calc(15% - 30px);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #999;
+    font-size: 20px;
+  }
