@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+import 'firebase/compat/firestore'
+import {getStorage} from 'firebase/storage' //service, accepts the application and use the storage in the app;
 
 // Firebase Config
 const firebaseConfig = {
@@ -14,7 +15,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase 
-firebase.initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
+export const storage = getStorage(app) //access everywhere in our app 
 
 export const auth = firebase.auth();
 

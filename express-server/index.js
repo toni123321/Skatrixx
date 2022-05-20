@@ -34,6 +34,7 @@ app.use(cors({
     ]
 }));
 
+
 // Confirms/Denies connection to DB
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true});
 db.on('error', (error)=> console.error(error));
@@ -50,6 +51,14 @@ app.use('/achievements', achievementsService)
 app.use('/consistency', consistencyRouter)
 
 const server = app.listen(port, () => {console.log(`Back end is running on port: ${port}`)});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join('/skate', "index.html"));
+  res.sendFile(path.join('/trophy', "index.html"));
+  res.sendFile(path.join('/game', "index.html"));
+  res.sendFile(path.join('/join', "index.html"));
+  res.sendFile(path.join('/create', "index.html"));
+});
 
 //Websocket server declaration
 const io = require("socket.io")(server, {

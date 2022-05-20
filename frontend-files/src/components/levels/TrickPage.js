@@ -66,7 +66,7 @@ function TrickPage(props) {
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
 
-    <button type="button" onClick={toggleStart}>
+    <button type="button" id="trickBtn" onClick={toggleStart}>
       {!isStarted ? "Start" : "Done"}
     </button>
     
