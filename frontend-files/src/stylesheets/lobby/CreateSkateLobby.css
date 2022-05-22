@@ -36,7 +36,22 @@
     }
 }
 
-#lobby-settings-block p {
+#lobby-settings-block p{
+    margin-top: 470px;
+    z-index: 10;
+    font-size: 20px;
+    height: 75px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #4e4e4e63;
+    border-radius: 5px;
+    word-wrap: break-word;
+    /* margin: 10px; */
+    text-align: center;
+    box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 50%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px;
+    background: rgb(28, 28, 28, 90%);
     margin-bottom: 60px;
     text-align: center; 
     animation: hideAnimation 0s ease-in 4s;
