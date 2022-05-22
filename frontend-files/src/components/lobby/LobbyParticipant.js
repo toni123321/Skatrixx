@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { getUser } from "../../services/userService"
 import '../../stylesheets/lobby/LobbyParticipant.css'
 
+
 function LobbyParticipant(props) {
 
     const [user, setUser] = useState(getUser(props.member))
