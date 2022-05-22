@@ -15,11 +15,18 @@
 #invite-to-lobby-button {
     cursor: pointer;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     margin-right: 20px;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: 
+    #219EBC;
 }
-
+#addFriend{
+    width: auto;
+    height: 100%;
+}
 #lobby-member-list {
     display: grid;
     border-radius: 5px;
