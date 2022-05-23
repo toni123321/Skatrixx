@@ -70,22 +70,14 @@
     color: white;
     cursor: pointer;
     transition: linear .3s;
+    background-color: transparent;
 }
 
-#tabs-me {
-background-color: transparent;
+
+.openedTab {
+    border-bottom: 2px solid #cf2525;
 }
-#tabs-friends {
-    background-color: transparent;
-    /* background-color: #1E1E1E;
-    border-radius: 0; */
-}
-#tabs-gallery {
-    background-color: transparent;
-    /* background-color: #1E1E1E;
-    border-top-right-radius: 150px;
-    border-bottom-right-radius: 150px; */
-}
+
 
 .me-tab{
     overflow-y: scroll;
