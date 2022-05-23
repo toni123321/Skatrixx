@@ -21,21 +21,21 @@ function Profile(props) {
 
     const handleTabChange = (tab) => {
         if(tab === 'Me') {
-            document.getElementById('tabs-me').style.backgroundColor = '#CF2121';
-            document.getElementById('tabs-friends').style.backgroundColor = '#1E1E1E';
-            document.getElementById('tabs-gallery').style.backgroundColor = '#1E1E1E';
+            // document.getElementById('tabs-me').style.backgroundColor = '#CF2121';
+            // document.getElementById('tabs-friends').style.backgroundColor = '#1E1E1E';
+            // document.getElementById('tabs-gallery').style.backgroundColor = '#1E1E1E';
             setOpenedTab('Me')
         }
         else if(tab === 'Friends') {
-            document.getElementById('tabs-me').style.backgroundColor = '#1E1E1E';
-            document.getElementById('tabs-friends').style.backgroundColor = '#CF2121';
-            document.getElementById('tabs-gallery').style.backgroundColor = '#1E1E1E';
+            // document.getElementById('tabs-me').style.backgroundColor = '#1E1E1E';
+            // document.getElementById('tabs-friends').style.backgroundColor = '#CF2121';
+            // document.getElementById('tabs-gallery').style.backgroundColor = '#1E1E1E';
             setOpenedTab('Friends')
         }
         else if(tab === 'Gallery') {
-            document.getElementById('tabs-me').style.backgroundColor = '#1E1E1E';
-            document.getElementById('tabs-friends').style.backgroundColor = '#1E1E1E';
-            document.getElementById('tabs-gallery').style.backgroundColor = '#CF2121';
+            // document.getElementById('tabs-me').style.backgroundColor = '#1E1E1E';
+            // document.getElementById('tabs-friends').style.backgroundColor = '#1E1E1E';
+            // document.getElementById('tabs-gallery').style.backgroundColor = '#CF2121';
             setOpenedTab('Gallery')
         }
     }
@@ -76,14 +76,17 @@ function Profile(props) {
                 </div>
             </div>
             <div id='tabs'>
-                <button onClick={() => {handleTabChange('Me')}} id='tabs-me'>
-                    <img src={userTabImg} alt=''/>
+                   <button onClick={() => {handleTabChange('Me')}} id='tabs-me'>
+                <p>Profile</p>
+                {openedTab === "Me"? ( <hr/>) : ""}
                 </button>
                 <button onClick={() => {handleTabChange('Friends')}} id='tabs-friends'>
-                    <img src={friendTabImg}alt=''/>
+                <p>Friends</p>
+                {openedTab === "Friends"? (<div class="line-tab">  <i class="fa-solid fa-horizontal-rule"></i> </div>) : ""}
                 </button>
                 <button onClick={() => {handleTabChange('Gallery')}} id='tabs-gallery'>
-                <img src={skateTabImg}alt=''/>
+                <p>Gallery</p>
+                {openedTab === "Gallery"? (<div class="line-tab"> <i class="fa-solid fa-horizontal-rule"></i> </div>) : ""}
                 </button>
             </div>
 <br/>
