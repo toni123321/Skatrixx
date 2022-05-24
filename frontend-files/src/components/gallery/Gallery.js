@@ -3,13 +3,7 @@ import "../../stylesheets/gallery/Gallery.css"
 import {storage} from '../../services/firebaseService'
 import {ref, uploadBytes, listAll, getDownloadURL} from "firebase/storage" //reference where in our bucket is the image,listing all the files
 import {v4} from 'uuid' //for randomizing letters
-import image1 from "../../images/skateboards/1.jpg"
-import image2 from "../../images/skateboards/2.jpg"
-import image3 from "../../images/skateboards/3.jpg"
-import image4 from "../../images/skateboards/4.jpg"
 import imageAdd from "../../images/add new image.png"
-import CameraComponent from './CameraComponent' 
-import UploadImage from './UploadImage' 
 import Modal from './Modal'
 
 
@@ -24,20 +18,6 @@ function Gallery() {
   const [isOpen, setIsOpen] = useState(false);
   const [galleryMode, setgalleryMode] = useState('Gallery');
   const imageListRef = ref(storage, "images/")
-  
-  // const images = [
-  //   image1,
-  //   image2,
-  //   image3,
-  //   image4,
-  //   image1,
-  //   image2,
-  //   image3,
-  //   image1,
-  //   image2,
-  //   image3,
-  //   image4
-  // ]
   
   useEffect(() => {
     listAll(imageListRef).then((response) => {
@@ -97,7 +77,6 @@ function Gallery() {
                   <img src={imageAdd} alt="upload-button" id="uploading" onClick={togglePopup}/>
                 </label>
                 <input type="file" id="image_input" name="file"  onChange={onImageChosen}></input>
-              {/* <img src={imageAdd} id="addimg" ></img> */}
           </div>
           {imageUrls.map(image => (
             <div className='gallery-container' onClick={() => {handleOpenImage(image)}}>
