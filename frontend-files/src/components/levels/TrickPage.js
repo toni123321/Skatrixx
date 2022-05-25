@@ -1,80 +1,39 @@
-import { React, useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import "../../stylesheets/levels/TrickPage.css";
-import { useTimer } from "react-timer-hook";
-import Statistic from "./Statistic";
-import { endTrick, startTrick } from "../../services/moduleStateService";
+import Timer from 'simple-circle-timer'
 
-function TrickPage(props) {
-  const expiryTimestamp = new Date();
-  expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + 60); // 1 minute timer
-  const { seconds, reset, start, pause } = useTimer({
-    expiryTimestamp,
-    autoStart: false,
-    onExpire: () => console.warn("onExpire called"),
-  });
-  const [isStarted, setIsStarted] = useState(false);
-  const [timerFinished, setTimerFinished] = useState(false)
+function TrickPage() {
 
-  const toggleStart = async () => {
+  
+    const [ timerExists, setTimerExists ] = useState( false )
+    const [ running, setRunning ] = useState( true )
+    const [ reset, setReset ] = useState( false )
 
-    if (!isStarted) {
-      start();
-      await startTrick()
-    } else {
-      pause();
-      setTimerFinished(true)
-      await endTrick()
+    useEffect(() => {
+      mountPaused()
+    }, [])
+  
+    //new timer is loaded in a paused state, awaiting 'play' command
+    const mountPaused = () => {
+      setTimerExists( true )
+      setRunning( false )
     }
 
-    setIsStarted(!isStarted);
-  };
-
-  return (
-   !timerFinished ? (
-    <div>
-    <p
-      id="back"
-      onClick={() => {
-        props.handleGoBack();
-      }}
-    >
-      &lt;
-    </p>
-    <h2 id="trickName">{props.trick.name}</h2>
-    <div id="VideoDiv">
-      <iframe
-        id="videoFrame"
-        src={props.trick.videoLink}
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-        title="video"
-      />{" "}
-    </div>
-    <div className="timer-parent">
-      <div className="timer">
-        <div className="time-text">Time:</div>
-        <div className="time-sec">
-          <div id="sec">{seconds} sec</div>
-          <i className="fa-solid fa-hourglass"></i>
-        </div>
-      </div>
-    </div>
-    <h5 id="des-title">Description:</h5>
-    <p id="des">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-
-    <button type="button" id="trickBtn" onClick={toggleStart}>
-      {!isStarted ? "Start" : "Done"}
-    </button>
     
-  </div>
-   ): (
-   <Statistic trick={props.trick}/>
-   )
-  );
-}
+    return (
+      <>
+      <div className='timerContainer'>
+      {timerExists ? <Timer id={'timer'} running={running} setRunning={setRunning} reset={reset} setReset={setReset} fillColor={'rgba(166, 31, 31, 1)'} bgColor={'#101010'}/> : null }
+        <div className={'iconsContainer'} style={{ display: 'flex' }}>
+          {/* <button onClick={() => setRunning( true )}>Play</button> */}
+          <i class="fas fa-play fa-2x" id="timerIcons" onClick={() => setRunning( true )}></i>
+          <i class="fa-solid fa-pause fa-2x" id="timerIcons" onClick={() => setRunning( false )}></i>
+          <i class="fa-solid fa-undo fa-2x" id="timerIcons" onClick={() => setReset( true )}></i>
+          </div>
+        </div> 
+      </>
+    )
+ }
+
 
 export default TrickPage;
