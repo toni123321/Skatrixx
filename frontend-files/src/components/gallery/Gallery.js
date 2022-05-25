@@ -71,16 +71,19 @@ function Gallery() {
         {isOpen && <Modal
           content={<>
           <div id="outputImgContainer">
-            <div id="imageFrame">
-             {outputImg !== null ? (<img src={outputImg} id="outputImg" alt=""/>) : (
-               <div>
-                    <label htmlFor="image_input" >
-                      
+            <div id="imageFrame" className={`${outputImg === null ? 'imageFrame-selectFiles': ''}`}>
+            {outputImg !== null ? 
+            (<img src={outputImg} id="outputImg" alt=""/>) 
+            : 
+            (
+                <div id="selectFilesBtn">
+                  <label htmlFor="image_input" >
                     <img src={gallery} alt="upload-button" id="uploading"/>
+                    <p>Select skate image...</p>
                   </label>
-                  <input type="file" id="image_input" name="file"  onChange={onImageChosen}></input>
-                  </div>
-             )}
+                  <input type="file" id="image_input" name="file" onChange={onImageChosen}></input>
+                </div>
+            )}
             </div>
             <button id="uploadBtn" onClick={uploadFile}> Upload Image</button>
           </div>
