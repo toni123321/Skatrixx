@@ -6,10 +6,6 @@
 #image_input {
   visibility: hidden;
 }
-#uploading{
-  height: 150px;
-  width: 150px;
-}
 #outputImg{
   width: auto;
   height: 100%;
@@ -49,11 +45,17 @@
       overflow: hidden;
   }
 
-  .galleryImage {
-    width: 150px;
-    height: 150px;
-    object-fit: fit; 
+  .gallery-container label, .galleryImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
   }
+
+  #uploading {
+    height: 100%;
+  }
+
+
   #viewImage {
       text-align: center;
       background-color: rgba(0, 0, 0, 0.377);
@@ -79,4 +81,10 @@
     max-width: 450px; max-height: 450px;
     z-index : 6;
     width: 90vw; height: 90vw;
+  }
+
+  @media only screen and (max-width : 350px) {
+    .gallery{
+      grid-template-columns: auto auto; 
+    }
   }
