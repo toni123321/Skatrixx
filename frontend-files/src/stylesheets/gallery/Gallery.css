@@ -6,9 +6,18 @@
 #image_input {
   visibility: hidden;
 }
+#imageFrame{
+  width:80%;
+  height: 80%;
+  margin: 20px auto;
+}
+#selectFile{
+  /* display: none; */
+}
 #outputImg{
-  width: auto;
+  width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 #outputImgContainer{
   height: 80%;

@@ -4,6 +4,7 @@ import {storage} from '../../services/firebaseService'
 import {ref, uploadBytes, listAll, getDownloadURL} from "firebase/storage" //reference where in our bucket is the image,listing all the files
 import {v4} from 'uuid' //for randomizing letters
 import imageAdd from "../../images/add new image.png"
+import gallery from "../../images/Image Gallery.png"
 import Modal from './Modal'
 
 
@@ -43,6 +44,10 @@ function Gallery() {
  
   const togglePopup = () => {
     setIsOpen(!isOpen);
+    if(!isOpen){
+      setImageUpload(null);
+      setOutputImg(null);
+    }
   }
   const uploadFile = () => {
     if (imageUpload == null) return;
@@ -66,8 +71,18 @@ function Gallery() {
         {isOpen && <Modal
           content={<>
           <div id="outputImgContainer">
-            {outputImg !== "" ? (<img src={outputImg} id="outputImg" alt=""/>) : (<></>)}
-            <button onClick={uploadFile}> Upload Image</button>
+            <div id="imageFrame">
+             {outputImg !== null ? (<img src={outputImg} id="outputImg" alt=""/>) : (
+               <div>
+                    <label htmlFor="image_input" >
+                      
+                    <img src={gallery} alt="upload-button" id="uploading"/>
+                  </label>
+                  <input type="file" id="image_input" name="file"  onChange={onImageChosen}></input>
+                  </div>
+             )}
+            </div>
+            <button id="uploadBtn" onClick={uploadFile}> Upload Image</button>
           </div>
           </>}
           handleClose={togglePopup}
