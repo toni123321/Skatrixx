@@ -10,7 +10,7 @@
     display: grid;
     grid-template-columns: auto auto;
     padding: 10px;
-    color: white;
+    color: #efefef;
 }
 
 .skate-stat-item {

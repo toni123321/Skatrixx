@@ -2,7 +2,7 @@
     width: 100%;
     max-width: 550px;
     height: 64px;
-    background-color: #101010;
+    background-color: #1c1c1c;
     position: fixed;
     bottom: -2px;
     border-top-left-radius: 10px;
@@ -19,7 +19,7 @@
 .nav-icon {
     cursor: pointer;
     height: 44px;
-    color: white;
+    color: #efefef;
     font-size: 1.8rem;
     margin-top: 5px;
     margin-bottom: -10px;

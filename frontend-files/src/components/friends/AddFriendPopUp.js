@@ -50,7 +50,7 @@ function AddFriendPopUp(props) {
     else if (addOption === 'username') {
       return (
         <div className='search-username'>
-          <div onClick={() => {changeAddOption('')}} id='back'><p>&lt;</p></div>
+          <div onClick={() => {changeAddOption('')}} id='back'><p>   <i class="fa-solid fa-angle-left"></i></p></div>
           <div className='search-form'>
             <input type='text'  onChange={handleSearchByUsername}/>
             <div className='search-results'>

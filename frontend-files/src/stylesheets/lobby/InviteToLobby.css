@@ -8,7 +8,7 @@
     width: 90%; height: 60vh;
     border: 1px solid #83838380;
     border-radius: 5px;
-    background-color: #1E1E1E;
+    background-color: #1c1c1c;
 }
 
 .invite-popup #popup-title {
@@ -23,7 +23,7 @@
     margin-top: 5px; */
     border-radius: 50%;
     background-color: right;
-    color: white;
+    color: #efefef;
 }
 
 .invite-popup i {

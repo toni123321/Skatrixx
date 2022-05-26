@@ -10,8 +10,7 @@
       height: 30px;
       margin-right: 20px;
       padding: 5px;
-      background-color: 
-      #219EBC;
+      background-color: #219EBC;
     right: 10px;
     z-index: 2;
     cursor: pointer;
@@ -84,19 +83,19 @@
 }
 
 #accept-request button, #waiting-request button {
-  background-color: white;
+  background-color: #efefef;
   width: 40px; height: 40px;
-  border:  2px solid black;
+  border:  2px solid #1C1C1C;
   font-size: 40px;
   border-radius: 50%;
 }
 
 #accept-request-button {
-  color: rgb(101, 168, 0);
+  color:   #218134;
   margin-right: 10px;
 }
 #deny-request-button {
-  color: rgb(160, 0, 0);
+  color: #E6171F;
 }
 
 @media screen and (max-width: 330px) {

@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
+    color: #EFEFEF;
 }
 
 #lobby-settings {
@@ -19,7 +19,7 @@
 
 #lobby-settings-block {
     position: absolute;
-    background-color: #1e1e1e91;
+    background-color: #1c1c1c;
     height: 95%;
     width: 100%;
     display: flex;
@@ -61,7 +61,7 @@
 #visibility-switch {
     cursor: pointer;
     display: flex;
-    background-color: #1e1e1e;
+    background-color: #1c1c1c;
     border-radius: 30px;
     width: 35%;
     min-width: 200px;
@@ -72,7 +72,7 @@
 }
 
 #private-lobby-visibility, #public-lobby-visibility {
-    border: 2px solid #1e1e1e;
+    border: 2px solid #1c1c1c;
     width: 50%;
     height: 38px;
     display: flex; 
@@ -90,7 +90,7 @@
 #public-lobby-visibility {
     border-bottom-right-radius: 30px;
     border-top-right-radius: 30px;
-    background-color: #1e1e1e;
+    background-color: #1c1c1c;
 }
 
 #player-limit {text-align: center;}
@@ -134,5 +134,5 @@
     height: .5px;
     width: 70vw;
     max-width: 450px;
-    background-color: white;
+    background-color: #EFEFEF;
 }

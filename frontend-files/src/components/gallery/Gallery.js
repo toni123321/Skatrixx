@@ -6,6 +6,7 @@ import {v4} from 'uuid' //for randomizing letters
 import imageAdd from "../../images/add new image.png"
 import gallery from "../../images/Image Gallery.png"
 import Modal from './Modal'
+import skateboardImage from '../../services/skateGallery'
 
 
 function Gallery() {
@@ -19,17 +20,21 @@ function Gallery() {
   const [isOpen, setIsOpen] = useState(false);
   const [galleryMode, setgalleryMode] = useState('Gallery');
   const imageListRef = ref(storage, "images/")
+  const [images, setImages] = useState([])
   
   useEffect(() => {
-    // listAll(imageListRef).then((response) => {
-    //   response.items.forEach((item) => {
-    //     getDownloadURL(item).then((url) => {
-    //       setImageUrls((prev) => [...prev, url]);
-    //     });
-    //   });
-    // });
+    getSkateboardImages()
   }, [])
 
+  useEffect(() => {
+    getSkateboardImages()
+  }, [images.length])
+
+
+  const getSkateboardImages = async () => {
+    const skateboardImages = await skateboardImage.getAll()
+    setImages(skateboardImages.data)
+  }
 
   // --- Methods
   const onImageChosen = (event) => {
@@ -58,10 +63,22 @@ function Gallery() {
     //where to be upload and the image itself 
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        setImageUrls((prev) => [...prev, url])
+        //setImageUrls((prev) => [...prev, url])
+        const data = {
+          user_id: "hello",
+          dateAdded: Date.now(),
+          image: url
+        }
+        const newSkateImage = postImage(data)
+        setImages(prev => [...prev, newSkateImage])
+        
       })
     })
     togglePopup()
+  }
+
+  const postImage = async (data) => {
+    return await skateboardImage.uploadImage(data);
   }
   
   
@@ -97,9 +114,9 @@ function Gallery() {
                 </label>
                 <input type="file" id="image_input" name="file"  onChange={onImageChosen}></input>
           </div>
-          {imageUrls.map(image => (
-            <div className='gallery-container' onClick={() => {handleOpenImage(image)}}>
-              <img src={image}  className="galleryImage" alt=''/>
+          {images && images.map(image => (
+            <div className='gallery-container' onClick={() => {handleOpenImage(image.image)}}>
+              <img src={image.image}  className="galleryImage" alt=''/>
             </div>
           ))}
           {viewedImage !== undefined ? 

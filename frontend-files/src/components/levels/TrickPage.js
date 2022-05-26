@@ -38,7 +38,7 @@ function TrickPage(props) {
         props.handleGoBack();
       }}
     >
-     <i class="fa-solid fa-angle-left"></i> Back
+     <i class="fa-solid fa-angle-left"></i>
     </p>
     <h2 id="trickName">{props.trick.name}</h2>
     <div id="VideoDiv">
