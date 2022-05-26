@@ -75,7 +75,8 @@
 
 
 .openedTab {
-    border-bottom: 2px solid #cf2525;
+    border-bottom: 3px solid #cf2525;
+    font-size: 20px;
 }
 
 

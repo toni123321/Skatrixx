@@ -1,6 +1,6 @@
 import './App.css';
 import 'react-notifications/lib/notifications.css';
-import backgroundImage from './images/background_image 2.png'
+import backgroundImage from './images/background_image.png'
 
 
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
