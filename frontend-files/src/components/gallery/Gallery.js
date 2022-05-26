@@ -21,13 +21,7 @@ function Gallery() {
   const imageListRef = ref(storage, "images/")
   
   useEffect(() => {
-    listAll(imageListRef).then((response) => {
-      response.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          setImageUrls((prev) => [...prev, url]);
-        });
-      });
-    });
+    
   }, [])
 
   // --- Methods
