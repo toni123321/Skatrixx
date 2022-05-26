@@ -23,14 +23,14 @@ function LevelMenu(props) {
         id="back"
         onClick={() => {
           props.back("Menu");
-        }}
-      >&lt;
+        }}>
+        <i className="fa-solid fa-angle-left"></i>
       </p>
       <div className='LevelMenuSwipe'>
       <div className="beginner">
         <img src={RookieRamp} onClick={() => {
             handleDifficultyChange("rookie");
-          }} id="RookieRamp" />
+          }} id="RookieRamp" alt=""/>
         <h3>
           Rookie's Park
         </h3>

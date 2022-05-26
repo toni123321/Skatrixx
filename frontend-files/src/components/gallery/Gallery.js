@@ -10,7 +10,7 @@ import Modal from './Modal'
 
 function Gallery() {
   // --- useStates or ref
-
+ 
   // View certain image
   const [viewedImage, setViewedImage] = useState(undefined);
   const [imageUpload, setImageUpload] = useState(null)
@@ -21,8 +21,15 @@ function Gallery() {
   const imageListRef = ref(storage, "images/")
   
   useEffect(() => {
-    
+    // listAll(imageListRef).then((response) => {
+    //   response.items.forEach((item) => {
+    //     getDownloadURL(item).then((url) => {
+    //       setImageUrls((prev) => [...prev, url]);
+    //     });
+    //   });
+    // });
   }, [])
+
 
   // --- Methods
   const onImageChosen = (event) => {

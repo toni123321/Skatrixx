@@ -75,7 +75,7 @@ function AddFriendPopUp(props) {
 
   return (
     <div className='add-friend-popup'>
-      <p onClick={() => { props.open(false) }} id='close'>X</p>
+      <p onClick={() => { props.open(false) }} id='close'><i class="fa-solid fa-xmark"></i></p>
       <div id='options'>
         {loadAddFriened()}
       </div>

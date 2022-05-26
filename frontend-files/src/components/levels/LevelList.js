@@ -62,7 +62,7 @@ const LevelList = (props) => {
           props.handleDifficultyChange("");
         }}
       >
-        &lt;
+      <i class="fa-solid fa-angle-left"></i> Back
       </p>
         {/*if the data is loading too long*/}
       {loading && <div>Loading...</div>}
