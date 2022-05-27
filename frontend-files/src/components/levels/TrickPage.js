@@ -16,10 +16,10 @@ const TrickPage = () => {
     }, [])
 
 
-    //     useEffect(() => {
-    //     SpeechRecognition.startListening({continues:true})
-    //     console.log("listeing starts")
-    // }, [])
+        useEffect(() => {
+        SpeechRecognition.startListening({continues:true})
+        console.log("listeing starts")
+    }, [])
 
   
     //new timer is loaded in a paused state, awaiting 'play' command
@@ -36,17 +36,23 @@ const TrickPage = () => {
       browserSupportsSpeechRecognition,
     } = useSpeechRecognition();
 
-    const commands = [
-      {
-        command: ["Start *"],
-        callback: ({command}) => setMessage({command}),
-        setRunning: true
-      },
-      {
-        command: "clear",
-        callback: ({resetTranscript}) => resetTranscript()
+    // const commands = [
+    //   {
+    //     command: ["Start *"],
+    //     callback: ({command}) => setMessage({command}),
+    //     setRunning: true
+    //   },
+    //   {
+    //     command: "clear",
+    //     callback: ({resetTranscript}) => resetTranscript()
+    //   }
+    // ]
+
+    const startTimerWithSpeech =  () => {
+      if(transcript.contains("Start Timer")) {
+       return setRunning(true)
+        }else {setRunning()}
       }
-    ]
   
     if (!browserSupportsSpeechRecognition) {
       return <span>Browser doesn't support speech recognition.</span>;
@@ -58,13 +64,13 @@ const TrickPage = () => {
       <div className='timerContainer'>
       <div className='speechCommand'>
       <div>
-      <p className='speechText'>{transcript}</p>
+      <p className='speechText' onChange={startTimerWithSpeech}>{transcript} </p>
         {/* <p>Microphone: {listening ? 'on' : 'off'}</p> */}
         <i class="fas fa-microphone fa-2x" id="timerIcons" onClick={SpeechRecognition.startListening}> {listening ? 'on' : 'off'}</i>
         {/* <button onClick={SpeechRecognition.startListening}>Start</button> */}
       </div>
       </div>
-      {timerExists ? <Timer id={'timer'} running={running} setRunning={setRunning} reset={reset} setReset={setReset} fillColor={'rgba(166, 31, 31, 1)'} bgColor={'#101010'}/> : null }
+      {timerExists ? <Timer id={'timer'} running={running} setRunning={setRunning} reset={reset} setReset={setReset} fillColor={'rgba(166, 31, 31, 1)'} bgColor={'#101010'} onChange={startTimerWithSpeech}/> : null }
         <div className={'iconsContainer'} style={{ display: 'flex' }}>
           {/* <button onClick={() => setRunning( true )}>Play</button> */}
           <i class="fas fa-play fa-2x" id="timerIcons" onClick={() => setRunning( true )}></i>
