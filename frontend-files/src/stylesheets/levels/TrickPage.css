@@ -54,6 +54,14 @@
   background: black;
 }
 
+.speechCommand{
+  margin-bottom: 70px;
+}
+
+.speechText{
+  color: white;
+}
+
 #timer {
   color: white;
 }
@@ -73,6 +81,10 @@
 
 #timerIcons {
   color: white;
+}
+
+.speechText{
+  color:white;
 }
 
 .timer-parent {
