@@ -1,6 +1,15 @@
+.trick {
+    width: 100%;
+    height: auto;
+    border: 2px solid #efefef;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-top: 15px;
+    max-width: 550px;
+    cursor: pointer;
+}
 
-
-#trick {
+#trick-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,21 +17,17 @@
     /* display: grid; */
     /* grid-template-columns: 1fr; */
     /* gap: 8px; */
-    width: 300px;
     height: 40px;
-    border: 2px solid #efefef;
-    box-sizing: border-box;
-    border-radius: 150px;
     margin: auto;
-    margin-top: 15px;
+    color: #efefee;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold italic;
+
 }
 
-.trick {
-    /* padding: 10px; */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-inline: 1rem;
+.trick-content{
+    display: none;
 }
 
 .trick-right {
@@ -52,9 +57,4 @@
     font-family: 'Segoe UI';
     font-style: italic;
     font-size: 14px;
-}
-#play{
-    /* top: -45px; */
-    /* margin-left: 245px; */
-    /* position: relative; */
 }

@@ -75,12 +75,12 @@ function App() {
         <div>
         <img id='background-image' src={backgroundImage} alt=''/>
           <Routes>
-            <Route path={'/'} exact element={<Profile name={user.username} img={user.image} level={user.level} xp={user.xp}/>}/>
-            <Route path={'/skate'} element={<SkatePage/>}/>
-            <Route path={'/trophy'} element={<Achievements/>}/>
-            <Route path={'/game'} element={<GamePage />}/>
-            <Route path={'/join'} element={<JoinSkateLobby/>}/>
-            <Route path={'/create'} element={<CreateSkateLobby/>}/>
+            <Route path='/' exact element={<Profile name={user.username} img={user.image} level={user.level} xp={user.xp}/>}/>
+            <Route path='/skate' element={<SkatePage/>}/>
+            <Route path='/trophy' element={<Achievements/>}/>
+            <Route path='/game' element={<GamePage />}/>
+            <Route path='/join' element={<JoinSkateLobby/>}/>
+            <Route path='/create' element={<CreateSkateLobby/>}/>
           </Routes>
           <NavBar/>
           <NotificationContainer/>
