@@ -68,7 +68,7 @@ const TrickPage = () => {
         <i class="fas fa-microphone fa-2x" id="timerIcons" onClick={SpeechRecognition.startListening}> {listening ? 'on' : 'off'}</i>
       </div>
       </div>
-      {timerExists ? <Timer id={'timer'} running={running} setRunning={setRunning} reset={reset} setReset={setReset} fillColor={'rgba(166, 31, 31, 1)'} bgColor={'#101010'} onChange={startTimerWithSpeech}/> : null }
+      {timerExists ? <Timer id={'timer'} running={running} setRunning={setRunning} reset={reset} setReset={setReset} fillColor={'rgba(166, 31, 31, 1)'} bgColor={'#101010'}/> : null }
         <div className={'iconsContainer'} style={{ display: 'flex' }}>
           <i class="fas fa-play fa-2x" id="timerIcons" onClick={() => setRunning( true )}></i>
           <i class="fa-solid fa-pause fa-2x" id="timerIcons" onClick={() => setRunning( false )}></i>
