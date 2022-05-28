@@ -1,47 +1,19 @@
-#sec{
-  color: #efefef;
-}
-
-.game-page #trickName {
-  color: #efefee;
-  text-align: center;
-  font-size: x-large;
-  font-weight: bold italic;
-}
-
-#des-title{
-    color: #efefee;
-    text-align: center;
-    font-size: large;
-    font-weight: bold italic;
-    margin-top: 60px;
-    padding-top: 10px;
-}
-
-#des{
-  color: #efefee;
-  width: 80%;
-  margin-inline: auto;
-}
-
-
 #videoFrame {
-    display: block;
-    margin-inline:auto;
-    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+#VideoDiv {
+  height: 30vh;
+  padding-block: 1rem;
 }
 
 #trickBtn {
     border: none;
-    display: flex;
     margin: auto;
-    align-items: center;
-    justify-content: center;
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    cursor: pointer;
-
+    height: 40px;
+    border-radius: 5px;
     color: #efefee;
     background-color: #A61F1F;
     font-size: large;

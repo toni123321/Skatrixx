@@ -17,13 +17,10 @@ const TrickPage = () => {
      setRunning( false )
    }
 
-    useEffect(() => {
-      mountPaused()
-    }, [])
-
 
       useEffect(() => {
         startListening()
+        mountPaused()
  }, [])
 
     const commands = [

@@ -74,8 +74,7 @@ const LevelList = (props) => {
           {trickData && trickData.map((trick, i) => 
           (
             // render LevelContainer and send the trick and the handlePlay function
-            <LevelContainer trick={trick} key={i} handlePlay={handlePlay}/>
-
+            <LevelContainer trick={trick} key={i} handlePlay={handlePlay} nr={i}/>
           )
           )}
         </div>
