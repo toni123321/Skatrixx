@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LevelList from "./LevelList";
 import "../../stylesheets/levels/LevelMenu.css";
 import RookieRamp from "../../images/RookieRamp.png";
@@ -6,12 +6,39 @@ import IntermediateRamp from "../../images/IntermediateRamp.png";
 import ProsRamp from "../../images/ProsRamp.png";
 
 function LevelMenu(props) {
+
+  const difficulties = [{
+    name : "Rookie Ramp",
+    trickNr : "10",
+    diff: "rookie",
+    image: RookieRamp
+  },
+  {
+    name : "Amateur Ramp",
+    trickNr : "20",
+    diff: "amateur",
+    image: IntermediateRamp
+},
+{
+name : "Pro Ramp",
+    trickNr : "25",
+    diff: "pro",
+    image: ProsRamp
+  }
+];
+
   // Use state (hooks)
   const [difficultyOpened, setDificultyOpened] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
   // Use effect - load levels
+  useEffect(() => {
+    var containers = document.getElementsByClassName("difficulty-container")
+    //containers[0].classList.add("selected")
+  }, [])
+  
 
   // Functions - levels logic
-
   const handleDifficultyChange = (dif) => {
     setDificultyOpened(dif);
   };
@@ -26,34 +53,16 @@ function LevelMenu(props) {
         }}
       >&lt;
       </p>
-      <div className='LevelMenuSwipe'>
-      <div className="beginner">
-        <img src={RookieRamp} onClick={() => {
-            handleDifficultyChange("rookie");
-          }} id="RookieRamp" />
-        <h3>
-          Rookie's Park
-        </h3>
-        <h5>10 Tricks</h5>
-      </div>
-      <div className="intermediate">
-        <img src={IntermediateRamp} onClick={() => {
-            handleDifficultyChange("amateur");
-          }} id="IntermediateRamp" />
-        <h3>
-          Amateur's Park
-        </h3>
-        <h5>20 Tricks</h5>
-      </div>
-      <div className="master">
-        <img src={ProsRamp} onClick={() => {
-            handleDifficultyChange("pro");
-          }} id="ProsRamp" />
-        <h3>
-          Pro's Park
-        </h3>
-        <h5>25 Tricks</h5>
-      </div>
+      <div className='level-menu-swipe'>
+        {difficulties.map(difficulty => (
+          <div className="difficulty-container">
+          <img src={difficulty.image} onClick={() => {
+              handleDifficultyChange(difficulty.diff);
+            }} alt=''/>
+          <h3>{difficulty.name}</h3>
+          <h5>{difficulty.trickNr} tricks</h5>
+        </div>
+        ))}
       </div>
     </div>
     );

@@ -2,8 +2,8 @@ html, body {height: 100%;}
 
 body {
   background: transparent;
-  background-image: none;
-  /* background-image: linear-gradient(to bottom, #590D0D, #101010 ); */
+  /*background-image: none;*/
+  background-image: linear-gradient(to bottom, #590D0D, #101010 );
   /* background: url(./images/image\ 13.png); */
   overflow: hidden;
 }

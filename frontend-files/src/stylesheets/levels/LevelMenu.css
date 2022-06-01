@@ -6,11 +6,9 @@
   text-align: left;
 }
 
-.level-menu {
-  height: calc(100vh - 65px);
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
+.level-menu{
+  max-width: 550px;
+  margin: auto;
 }
 
 .level-menu h3 {
@@ -29,41 +27,46 @@
   margin-top: -20px;
 }
 
-.LevelMenuSwipe {
+.level-menu-swipe {
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 100vh;
-   
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
+  width: auto;
 }
 
 .LevelMenuSwipe::-webkit-scrollbar {
   display: none;
 }
 
-#RookieRamp,
-#IntermediateRamp,
-#ProsRamp {
+.difficulty-container {
   display: flex;
   margin: auto;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  margin-top: 50%;
+  padding-bottom: 20px;
+  margin-inline: 15px;
+  opacity: .6;
+}
+.difficulty-container .prev {
 
-  width: 200px;
-  height: 200px;
-  margin-top: 20px;
-  /* padding-bottom: 20px; */
 }
 
-#RookieButton, #IntermediateButton, #ProsButton {
-    height: 30px;
-    width: 80px;
-    border-radius: 50px;
+.difficulty-container .selected {
+  transform: scale(1.5);
+  opacity: 1;
+}
 
-    margin-top: -20px;
+.difficulty-container .next {
+  
+}
+
+.difficulty-container img {
+  width: 200px;
 }
 
