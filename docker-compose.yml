@@ -1,0 +1,25 @@
+version: "3.3"
+services:
+  backend:
+    container_name: "skatrixx-be"
+    image: "skatrixx-be"
+    build: ./express-server
+    ports:
+      - "3000:3000"
+    networks:
+      - skatrixx-network
+  frontend:
+    container_name: "skatrixx-fe"
+    image: "skatrixx-fe"
+    build: ./frontend-files
+    ports:
+      - "3001:3000"
+    links:
+      - backend
+    depends_on:
+      - backend
+    networks:
+      - skatrixx-network
+networks:
+  skatrixx-network:
+    driver: bridge
