@@ -39,7 +39,7 @@ function LevelMenu(props) {
       <div className="intermediate">
         <img src={IntermediateRamp} onClick={() => {
             handleDifficultyChange("amateur");
-          }} id="IntermediateRamp" />
+          }} id="IntermediateRamp" alt="" />
         <h3>
           Amateur's Park
         </h3>
@@ -48,7 +48,7 @@ function LevelMenu(props) {
       <div className="master">
         <img src={ProsRamp} onClick={() => {
             handleDifficultyChange("pro");
-          }} id="ProsRamp" />
+          }} id="ProsRamp" alt="" />
         <h3>
           Pro's Park
         </h3>

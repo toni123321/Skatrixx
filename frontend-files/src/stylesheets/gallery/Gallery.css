@@ -83,16 +83,17 @@
       height: 100vh;
       left: 0; top:0;
       margin: auto;
-      color: #1c1c1c;
       z-index: 5;
   }
 
   #viewImage p {
-    font-size: 40px;
-      margin:auto;
-      margin-top: 10vh;
-      max-width: 550px;
-      text-align: left;
+    /* font-size: 30px; */
+    margin: auto;
+    margin-right: 25px;
+    margin-top: 10vh;
+    max-width: 550px;
+    text-align: right;
+    z-index: 3;
   }
 
   #viewImage img {
