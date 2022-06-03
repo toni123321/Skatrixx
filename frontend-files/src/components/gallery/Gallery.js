@@ -13,17 +13,26 @@ function Gallery() {
   // --- useStates or ref
  
   // View certain image
-  const [viewedImage, setViewedImage] = useState(undefined);
+  const [viewedImage, setViewedImage] = useState(undefined)
   const [imageUpload, setImageUpload] = useState(null)
-  const [imageUrls, setImageUrls] = useState([]);
+  const [imageUrls, setImageUrls] = useState([])
   const [outputImg, setOutputImg] = useState(null)
   const [isOpen, setIsOpen] = useState(false);
-  const [galleryMode, setgalleryMode] = useState('Gallery');
+  const [galleryMode, setgalleryMode] = useState('Gallery')
   const imageListRef = ref(storage, "images/")
   const [images, setImages] = useState([])
+
+  // currUser
+  const [userId, setUserId] = useState("")
+
   
   useEffect(() => {
     getSkateboardImages()
+
+    const userId = localStorage.getItem('userId')
+    if(userId !== null) {
+      setUserId(userId)
+    }
   }, [])
 
   useEffect(() => {
@@ -32,7 +41,7 @@ function Gallery() {
 
 
   const getSkateboardImages = async () => {
-    const skateboardImages = await skateboardImage.getAll()
+    const skateboardImages = await skateboardImage.getAllByUserId(userId)
     setImages(skateboardImages.data)
   }
 
@@ -65,7 +74,7 @@ function Gallery() {
       getDownloadURL(snapshot.ref).then((url) => {
         //setImageUrls((prev) => [...prev, url])
         const data = {
-          user_id: "hello",
+          user_id: userId,
           dateAdded: Date.now(),
           image: url
         }

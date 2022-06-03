@@ -19,11 +19,21 @@ async function getSkateboardImage(req, res, next){
     next()
 }
 
-//get all request of the images for a specific user
+//get all request of the images (if you add parameter user_id you get images of a specific user)
 router.get('/', async(req,res) => {
-    try{const skateboardImage=await SkateboardImage.find() 
-      res.send(skateboardImage)
-    }catch(err){
+    try{
+        let skateboardImage = null
+        const userId = req.query.user_id
+        if (userId != null) {
+            skateboardImage=await SkateboardImage.find()
+            skateboardImage = skateboardImage.filter(skateImage => skateImage.user_id == userId) 
+        }
+        else{
+            skateboardImage=await SkateboardImage.find() 
+        }
+        res.send(skateboardImage)
+    }
+    catch(err){
         res.status(500).json({message: err.message})
     }
   })
