@@ -42,8 +42,6 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #1E1E1E;
-    border: 2px solid #1E1E1E;
     height: 30px;
     width: 70%;
     max-width: 500px;
@@ -69,25 +67,18 @@
     height: 100%;
     width: 50%;
     border: none;
-    color: white;
+    color: #efefef;
     cursor: pointer;
     transition: linear .3s;
+    background-color: transparent;
 }
 
-#tabs-me {
-    background-color: #CF2121;
-    border-top-left-radius: 150px;
-    border-bottom-left-radius: 150px;
+
+.openedTab {
+    border-bottom: 3px solid #219EBC;
+    font-size: 20px;
 }
-#tabs-friends {
-    background-color: #1E1E1E;
-    border-radius: 0;
-}
-#tabs-gallery {
-    background-color: #1E1E1E;
-    border-top-right-radius: 150px;
-    border-bottom-right-radius: 150px;
-}
+
 
 .me-tab{
     overflow-y: scroll;

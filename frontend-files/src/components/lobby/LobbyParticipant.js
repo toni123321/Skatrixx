@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { getUser } from "../../services/userService"
 import '../../stylesheets/lobby/LobbyParticipant.css'
 
+
 function LobbyParticipant(props) {
 
     const [user, setUser] = useState(getUser(props.member))
@@ -19,10 +20,10 @@ function LobbyParticipant(props) {
     if(user.image !== undefined) {
       return (
         <div className='lobby-participant'>
-          { pending ? <p style={{backgroundColor : '#1e1e1e'}} id='lobby-participant-pending'>Pending</p> : ''}
-          <div style={{opacity : pending ? .65 : 1}}>
+          
+          <div>
             <img src={user.image}  referrerPolicy='no-referrer' alt='Loading...'/>
-            <p>{user.username}</p>
+            <p>{pending ? "Pending..." : user.username}</p>
           </div>
         </div>
       )

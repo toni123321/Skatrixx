@@ -51,7 +51,7 @@ function Loby() {
         {skatePopup ?         
         <div id='SKATE-Popup'>
           <div id='SKATE-options'>
-            <p id='SKATE-close' onClick={toggleSkatePopup}>X</p>
+            <p id='SKATE-close' onClick={toggleSkatePopup}><i class="fa-solid fa-xmark"></i></p>
             <Link to={'/create'} style={{ textDecoration: 'none' }}><button className='skate-btn'>Create Lobby</button></Link>
             <p id="or">OR</p>
             <Link to={'/join'} style={{ textDecoration: 'none' }}><button className='skate-btn' id="join">Join Lobby</button></Link> 
