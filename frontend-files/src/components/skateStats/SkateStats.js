@@ -12,29 +12,41 @@ function SkateStats({skateStat}) {
         <div className="skate-stat-container">
             <div className="skate-stat-item">
                 <img src={speedImg} alt="Speed"/>
-                <div>
-                    <div>{stat.speed}</div>
+                <div className='stat'>
+                    <div className='value'>
+                        <div>{stat.speed}</div>
+                        <div className='skate-stat-dimensions'>km/h</div>
+                    </div>
                     <div className='skate-stat-text'>Speed</div>
                 </div>
             </div>
             <div className="skate-stat-item">
                 <img src={heightImg} alt="Height"/>
-                <div>
-                    <div>{stat.height}</div>
+                <div className='stat'>
+                    <div className='value'>
+                        <div>{stat.height}</div>
+                        <div className='skate-stat-dimensions'>cm</div>
+                    </div>
                     <div className='skate-stat-text'>Height</div>
                 </div>
             </div>
             <div className="skate-stat-item">
                 <img src={rotaitonImg} alt="Rotation"/>
-                <div>
-                    <div>{stat.rotation}</div>
+                <div className='stat'>
+                    <div className='value'>
+                        <div>{stat.rotation}</div>
+                        <div className='skate-stat-dimensions top'>°</div>
+                    </div>
                     <div className='skate-stat-text'>Rotation</div>
                 </div>
             </div>
             <div className="skate-stat-item">
                 <img src={airtimeImg} height="45px" width="45px" alt="Airtime"/>
-                <div>
-                    <div>{stat.airtime}</div>
+                <div className='stat'>
+                    <div className='value'>
+                        <div>{stat.airtime}</div>
+                        <div className='skate-stat-dimensions'>sec</div>
+                    </div>
                     <div className='skate-stat-text'>Airtime</div>
                 </div>
             </div>
