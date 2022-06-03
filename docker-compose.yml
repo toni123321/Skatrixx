@@ -13,7 +13,7 @@ services:
     image: "skatrixx-fe"
     build: ./frontend-files
     ports:
-      - "3001:3000"
+      - "3001:3001"
     links:
       - backend
     depends_on:
