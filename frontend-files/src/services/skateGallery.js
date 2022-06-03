@@ -1,11 +1,12 @@
 import http from "./api_client"
+import { loggedUser } from './api_client';
 
 const getAll = () => {
     return http.get("/skateGallery")
 }
 
-const getAllByUserId = (user_id) => {
-    return http.get(`/skateGallery?user_id=${user_id}`)
+const getAllByUserId = () => {
+    return http.get(`/skateGallery?user_id=${loggedUser}`)
 }
 
 const getById = (id) => {

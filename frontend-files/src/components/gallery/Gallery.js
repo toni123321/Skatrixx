@@ -7,6 +7,7 @@ import imageAdd from "../../images/add new image.png"
 import gallery from "../../images/Image Gallery.png"
 import Modal from './Modal'
 import skateboardImage from '../../services/skateGallery'
+import { getUser } from '../../services/userService'
 
 
 function Gallery() {
@@ -28,11 +29,6 @@ function Gallery() {
   
   useEffect(() => {
     getSkateboardImages()
-
-    const userId = localStorage.getItem('userId')
-    if(userId !== null) {
-      setUserId(userId)
-    }
   }, [])
 
   useEffect(() => {
@@ -40,8 +36,8 @@ function Gallery() {
   }, [images.length])
 
 
-  const getSkateboardImages = async () => {
-    const skateboardImages = await skateboardImage.getAllByUserId(userId)
+  const getSkateboardImages = async (user_id) => {
+    const skateboardImages = await skateboardImage.getAllByUserId()
     setImages(skateboardImages.data)
   }
 
