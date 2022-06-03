@@ -12,6 +12,7 @@ function FriendContainer(props) {
 
   const [friend, setFriend] = useState();
 
+
   const loadFriend = async () => {
     if(loggedUser !== props.connection.sender_id) {
       setFriend(await getUser(props.connection.sender_id))
@@ -42,7 +43,8 @@ function FriendContainer(props) {
             <div className='pending-request'>
               {props.connection.sender_id === loggedUser ? 
               <div id='waiting-request'>
-                <p>Pending...</p>
+                {/* <p id='friend-name'>{friend.username}</p>
+                <p>Pending...</p> */}
                 <button id='deny-request-button' onClick={handleCancelRequest}><i className="fa-solid fa-circle-xmark"></i></button>
               </div> : 
               <div id='accept-request'>
@@ -52,7 +54,7 @@ function FriendContainer(props) {
             </div>}
         <div id='friend-info'>
             <img id='friend-img' src={friend.image !== undefined ? friend.image : defaultImg} alt=''/>
-            <p id='friend-name'>{friend.username}</p>
+            <p id='friend-name'>{!props.connection.accepted ? "Pending..." : friend.username}</p>
         </div>
         <img id='bg-img' src={backgroundImg} alt=''/>
     </div>

@@ -29,7 +29,7 @@
 
 
 .selector{
-    color: white;
+    color: #efefef;
     font-size: 25px;
     font-weight: 1000;
     background-color: transparent;
@@ -56,11 +56,11 @@
 }
 
 .pageTitleAchievements {
-    color: white
+    color: #efefef
 }
 
  .TrickTitle {
-     color: white;
+     color: #efefef;
      padding: 15px;
      padding-left: 30px;
  }

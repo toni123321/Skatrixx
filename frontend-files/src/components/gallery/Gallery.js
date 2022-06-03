@@ -3,51 +3,43 @@ import "../../stylesheets/gallery/Gallery.css"
 import {storage} from '../../services/firebaseService'
 import {ref, uploadBytes, listAll, getDownloadURL} from "firebase/storage" //reference where in our bucket is the image,listing all the files
 import {v4} from 'uuid' //for randomizing letters
-import image1 from "../../images/skateboards/1.jpg"
-import image2 from "../../images/skateboards/2.jpg"
-import image3 from "../../images/skateboards/3.jpg"
-import image4 from "../../images/skateboards/4.jpg"
 import imageAdd from "../../images/add new image.png"
-import CameraComponent from './CameraComponent' 
-import UploadImage from './UploadImage' 
+import gallery from "../../images/Image Gallery.png"
 import Modal from './Modal'
+import skateboardImage from '../../services/skateGallery'
+import { getUser } from '../../services/userService'
 
 
 function Gallery() {
   // --- useStates or ref
-
+ 
   // View certain image
-  const [viewedImage, setViewedImage] = useState(undefined);
+  const [viewedImage, setViewedImage] = useState(undefined)
   const [imageUpload, setImageUpload] = useState(null)
-  const [imageUrls, setImageUrls] = useState([]);
+  const [imageUrls, setImageUrls] = useState([])
   const [outputImg, setOutputImg] = useState(null)
   const [isOpen, setIsOpen] = useState(false);
-  const [galleryMode, setgalleryMode] = useState('Gallery');
+  const [galleryMode, setgalleryMode] = useState('Gallery')
   const imageListRef = ref(storage, "images/")
-  
-  // const images = [
-  //   image1,
-  //   image2,
-  //   image3,
-  //   image4,
-  //   image1,
-  //   image2,
-  //   image3,
-  //   image1,
-  //   image2,
-  //   image3,
-  //   image4
-  // ]
+  const [images, setImages] = useState([])
+
+  // currUser
+  const [userId, setUserId] = useState("")
+
   
   useEffect(() => {
-    listAll(imageListRef).then((response) => {
-      response.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          setImageUrls((prev) => [...prev, url]);
-        });
-      });
-    });
+    getSkateboardImages()
   }, [])
+
+  useEffect(() => {
+    getSkateboardImages()
+  }, [images.length])
+
+
+  const getSkateboardImages = async (user_id) => {
+    const skateboardImages = await skateboardImage.getAllByUserId()
+    setImages(skateboardImages.data)
+  }
 
   // --- Methods
   const onImageChosen = (event) => {
@@ -63,6 +55,10 @@ function Gallery() {
  
   const togglePopup = () => {
     setIsOpen(!isOpen);
+    if(!isOpen){
+      setImageUpload(null);
+      setOutputImg(null);
+    }
   }
   const uploadFile = () => {
     if (imageUpload == null) return;
@@ -72,10 +68,22 @@ function Gallery() {
     //where to be upload and the image itself 
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        setImageUrls((prev) => [...prev, url])
+        //setImageUrls((prev) => [...prev, url])
+        const data = {
+          user_id: userId,
+          dateAdded: Date.now(),
+          image: url
+        }
+        const newSkateImage = postImage(data)
+        setImages(prev => [...prev, newSkateImage])
+        
       })
     })
     togglePopup()
+  }
+
+  const postImage = async (data) => {
+    return await skateboardImage.uploadImage(data);
   }
   
   
@@ -86,8 +94,21 @@ function Gallery() {
         {isOpen && <Modal
           content={<>
           <div id="outputImgContainer">
-            {outputImg !== "" ? (<img src={outputImg} id="outputImg" alt=""/>) : (<></>)}
-            <button onClick={uploadFile}> Upload Image</button>
+            <div id="imageFrame" className={`${outputImg === null ? 'imageFrame-selectFiles': ''}`}>
+            {outputImg !== null ? 
+            (<img src={outputImg} id="outputImg" alt=""/>) 
+            : 
+            (
+                <div id="selectFilesBtn">
+                  <label htmlFor="image_input" >
+                    <img src={gallery} alt="upload-button" id="uploading"/>
+                    <p>Select skate image...</p>
+                  </label>
+                  <input type="file" id="image_input" name="file" onChange={onImageChosen}></input>
+                </div>
+            )}
+            </div>
+            <button id="uploadBtn" onClick={uploadFile}> Upload Image</button>
           </div>
           </>}
           handleClose={togglePopup}
@@ -97,16 +118,15 @@ function Gallery() {
                   <img src={imageAdd} alt="upload-button" id="uploading" onClick={togglePopup}/>
                 </label>
                 <input type="file" id="image_input" name="file"  onChange={onImageChosen}></input>
-              {/* <img src={imageAdd} id="addimg" ></img> */}
           </div>
-          {imageUrls.map(image => (
-            <div className='gallery-container' onClick={() => {handleOpenImage(image)}}>
-              <img src={image}  className="galleryImage" alt=''/>
+          {images && images.map(image => (
+            <div className='gallery-container' onClick={() => {handleOpenImage(image.image)}}>
+              <img src={image.image}  className="galleryImage" alt=''/>
             </div>
           ))}
           {viewedImage !== undefined ? 
           <div id='viewImage'>
-            <p onClick={() => {handleOpenImage(undefined)}}>X</p>
+            <p onClick={() => {handleOpenImage(undefined)}}><i class="fa-solid fa-xmark"></i></p>
             <img src={viewedImage} alt=''/>
           </div> : ''}
         </div>

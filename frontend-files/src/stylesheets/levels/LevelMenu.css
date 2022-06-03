@@ -1,6 +1,6 @@
 #back {
   margin-left: 45px;
-  color: white;
+  color: #efefef;
   font-size: 40px;
   cursor: pointer;
   text-align: left;
@@ -29,6 +29,22 @@
   margin-top: -20px;
 }
 
+.LevelMenuSwipe {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+   
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.LevelMenuSwipe::-webkit-scrollbar {
+  display: none;
+}
+
 #RookieRamp,
 #IntermediateRamp,
 #ProsRamp {
@@ -50,3 +66,4 @@
 
     margin-top: -20px;
 }
+

@@ -4,19 +4,26 @@
 }
 
   #add-friend {
-    background-color: #CF2121;
-    border: 1px solid black;
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
-    border-radius: 50%;
-    line-height: 16px;
-    text-align: center;
-    position: absolute;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      margin-right: 20px;
+      padding: 5px;
+      background-color: #219EBC;
     right: 10px;
     z-index: 2;
     cursor: pointer;
   }
+#add-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+#add{
+  height: 100%;
+  width: auto;
+}
 
   .friend-container {
     position: relative;
@@ -69,26 +76,27 @@
 }
 
 #waiting-request{
-  background-color: rgba(0, 0, 0, 0.61);
+  /* background-color: rgba(0, 0, 0, 0.61); */
   height: 5rem; width: 65vw;
   max-width: 385px;
   font-size: 2rem;
 }
 
 #accept-request button, #waiting-request button {
-  background-color: white;
+  margin-right: -10px;
+  background-color: #efefef;
   width: 40px; height: 40px;
-  border:  2px solid black;
+  border:  2px solid #1C1C1C;
   font-size: 40px;
   border-radius: 50%;
 }
 
 #accept-request-button {
-  color: rgb(101, 168, 0);
+  color:   #218134;
   margin-right: 10px;
 }
 #deny-request-button {
-  color: rgb(160, 0, 0);
+  color: #E6171F;
 }
 
 @media screen and (max-width: 330px) {

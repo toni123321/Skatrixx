@@ -5,6 +5,7 @@ import { inviteFriend } from '../../services/lobbyService';
 import { getUser } from '../../services/userService';
 
 import '../../stylesheets/friends/InviteFriendContainer.css'
+import backgroundImg from  "../../images/skate1 2.png"
 
 function InviteFriendContainer(props) {
 
@@ -29,10 +30,17 @@ function InviteFriendContainer(props) {
 
     if(friend !== undefined) {
         return (
-            <div className='invite-friend-container'>
-                <img id='invite-friend-image' src={friend.image} alt=''/>    
-                <p id='invite-friend-username'>{friend.username}</p>    
-                <i className="fa-solid fa-user-plus" onClick={sendInvite}></i>   
+            <div className='invite-friend-container-parent'>
+              <div className='invite-friend-container'>
+                <div id='invite-friend-container-user'>
+                  <img id='invite-friend-image' src={friend.image} alt=''/>    
+                  <p id='invite-friend-username'>{friend.username}</p>
+                </div>
+                <div id='invite-friend-container-btn'>
+                  <i className="fa-solid fa-user-plus" onClick={sendInvite}></i>
+                </div>
+              </div>
+              <img src={backgroundImg} alt=''/>
             </div>
           )
     }

@@ -10,7 +10,7 @@
     display: grid;
     grid-template-columns: auto auto;
     padding: 10px;
-    color: white;
+    color: #efefef;
 }
 
 .skate-stat-item {
@@ -26,6 +26,25 @@
 
 .skate-stat-text {
     font-size: 1.2rem;
+    align-self: flex-start;
+}
+
+.skate-stat-item .stat {
+    display: flex;
+    flex-direction: column;
+}
+.skate-stat-item .value {
+    display: flex;
+    gap: 3px;
+}
+.skate-stat-dimensions {
+    font-size: 0.8rem;
+    align-self: flex-end;
+    font-weight: 600;
+}
+.skate-stat-item .top {
+    align-self: flex-start !important;
+    font-size: 1.5rem;
 }
 
 .skate-preview {

@@ -31,7 +31,6 @@
     border-radius: 20px;
 }
 
-<<<<<<< HEAD:frontend-files/skatrixx-app/src/stylesheets/TrickPage.css
 #trickBtn {
     border: none;
     display: flex;
@@ -44,14 +43,13 @@
     cursor: pointer;
 
     color: #efefee;
-    background-color: #A61F1F;
+    background-color: #CF2121;
     font-size: large;
     font-weight: bold;
     box-shadow: 15px 3px 4px rgba(26, 26, 26, 0.25), inset 1px 0px 2px rgba(26, 26, 26, 0.25);
 
 }
-=======
->>>>>>> main:frontend-files/src/stylesheets/levels/TrickPage.css
+
 
 
 
