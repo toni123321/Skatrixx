@@ -35,6 +35,7 @@ function AddFriendPopUp(props) {
     if (addOption === '') {
       return (
         <div>
+          <p id="title-add">Add a friend</p>
           <div className='username' onClick={() => { changeAddOption('username') }}>
             <i className='fas fa-user-alt'></i>
             <p>Add with Username</p>

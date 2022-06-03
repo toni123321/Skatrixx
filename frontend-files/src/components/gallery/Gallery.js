@@ -121,7 +121,7 @@ function Gallery() {
           ))}
           {viewedImage !== undefined ? 
           <div id='viewImage'>
-            <p onClick={() => {handleOpenImage(undefined)}}>X</p>
+            <p onClick={() => {handleOpenImage(undefined)}}><i class="fa-solid fa-xmark"></i></p>
             <img src={viewedImage} alt=''/>
           </div> : ''}
         </div>

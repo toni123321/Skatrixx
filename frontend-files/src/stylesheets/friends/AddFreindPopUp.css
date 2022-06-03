@@ -18,7 +18,6 @@
 
 #options {
     position: relative;
-    border: 1px solid #111111;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -28,7 +27,11 @@
     height: 60vh;
     margin: 50px auto;
 }
-
+#title-add{
+ color:#EFEFEF;
+ text-align: left;
+ font-weight: 500px;
+}
 #line {
     width: 60%;
     height: 1px;

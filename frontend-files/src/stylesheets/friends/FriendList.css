@@ -76,13 +76,14 @@
 }
 
 #waiting-request{
-  background-color: rgba(0, 0, 0, 0.61);
+  /* background-color: rgba(0, 0, 0, 0.61); */
   height: 5rem; width: 65vw;
   max-width: 385px;
   font-size: 2rem;
 }
 
 #accept-request button, #waiting-request button {
+  margin-right: -10px;
   background-color: #efefef;
   width: 40px; height: 40px;
   border:  2px solid #1C1C1C;
