@@ -7,6 +7,8 @@ import {sendFriendRequestByUsername } from '../../services/friendsConnectionServ
 import { searchUserByUsername } from '../../services/userService'
 import { friendRequestSent } from '../../App';
 import AddWithQR from './AddWithQR';
+import searchIcon from '../../images/Search.png';
+import { seededRandom } from 'three/src/math/MathUtils';
 
 function AddFriendPopUp(props) {
 
@@ -34,29 +36,20 @@ function AddFriendPopUp(props) {
   const loadAddFriened = () => {
     if (addOption === '') {
       return (
-        <div>
-          <p id="title-add">Add a friend</p>
-          <div className='username' onClick={() => { changeAddOption('username') }}>
-            <i className='fas fa-user-alt'></i>
-            <p>Add with Username</p>
-          </div>
-          <div id='line'></div>
-          <div className='qr' onClick={() => { changeAddOption('qr') }}>
-            <img src={QrIcon} alt='' />
-            <p>Add with QR</p>
-          </div>
-        </div>
-      )
-    }
-    else if (addOption === 'username') {
-      return (
-        <div className='search-username'>
-          <div onClick={() => {changeAddOption('')}} id='back'><p>   <i class="fa-solid fa-angle-left"></i></p></div>
-          <div className='search-form'>
-            <input type='text'  onChange={handleSearchByUsername}/>
-            <div className='search-results'>
-              {searchResults.length > 0 ? searchResults.map(result => (
-                <div key={result._id} className='search-result' onClick={() => {handleSendFriendRequest(result.username)}}>
+    <div>
+      <div id="title-container">
+      <p id="title-add">Add a friend by <i>name</i> or <i>QR</i></p>
+      {/* <div onClick={() => {changeAddOption('')}} id='back'><p>   <i class="fa-solid fa-angle-left"></i></p></div> */}
+      </div>
+    
+         <div id="modal-container">
+           <div className='search-form'>
+              <div className='search-username'>
+                  <input type='text'  onChange={handleSearchByUsername} placeholder="username"/>
+                  <img src={searchIcon} id="search" alt=""></img>
+              <div className='search-results'>
+                  {searchResults.length > 0 ? searchResults.map(result => (
+                  <div key={result._id} className='search-result' onClick={() => {handleSendFriendRequest(result.username)}}>
                   <img src={result.image} alt=''/>
                   <p>{result.username}</p>
                   <i className="fa-solid fa-user-plus"></i>
@@ -65,8 +58,18 @@ function AddFriendPopUp(props) {
             </div>
           </div>
         </div>
+          <div className='qr' onClick={() => { changeAddOption('qr') }}>
+            <img src={QrIcon} alt='' />
+          </div>
+        </div>   
+</div>
       )
     }
+    // else if (addOption === 'username') {
+    //   return (
+      
+    //   )
+    // }
     else if (addOption === 'qr') {
       return (
         <AddWithQR changeAddOption={changeAddOption}/>
