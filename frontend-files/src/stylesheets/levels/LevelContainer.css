@@ -1,9 +1,9 @@
 .trick {
     width: 100%;
     height: auto;
-    border: 2px solid #efefef;
+    border: 1px solid #efefef;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 50px;
     margin-top: 15px;
     max-width: 550px;
     cursor: pointer;
@@ -17,14 +17,47 @@
     /* display: grid; */
     /* grid-template-columns: 1fr; */
     /* gap: 8px; */
-    height: 40px;
+    height: 70px;
     margin: auto;
     color: #efefee;
     text-align: center;
-    font-size: x-large;
-    font-weight: bold italic;
+    font-size: large;
+    font-weight: bold;
 
 }
+
+.trick-line-colored {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    font-style: italic;
+    color: #1C80DB;
+    margin-right: -75px;
+}
+
+.trick-container-detail {
+    display: flex;  
+    margin-top: -30px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+}
+
+.trick-minutes {
+    color: #efefee;
+    font-size: small;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.trick-avarge-scoretext {
+    font-size: small;
+    color: #efefee;
+
+}
+
+/* .trick-line-colored {
+    margin: -20;
+    padding:0;
+} */
 
 .trick-content{
     display: none;
