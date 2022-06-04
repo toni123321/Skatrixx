@@ -14,7 +14,7 @@ function LobbyMembers(props) {
 
   if(props.members !== undefined) {
   return (
-    <div className='lobbyMembers'>
+    <div className={`lobbyMembers ${!props.is_creator ? 'not-creator' : ''}`}>
         <div>
           <button id='invite-to-lobby-button' onClick={handleToggleInvitePopUp}> <img src={addFriend} id="addFriend" alt=""></img></button>
         </div>

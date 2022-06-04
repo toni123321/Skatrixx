@@ -11,6 +11,9 @@
     margin-right: auto;
     margin-bottom: 65px;
 }
+.not-creator {
+    height: calc(100vh - 220px);
+}
 
 #invite-to-lobby-button {
     cursor: pointer;
@@ -18,7 +21,7 @@
     width: 40px;
     height: 40px;
     margin-right: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 5px;
     background-color: 
     #219EBC;

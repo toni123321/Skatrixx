@@ -58,35 +58,38 @@ function CreateSkateLobby() {
 
   if(lobby !== {} && lobby.limit !== undefined) {
   return (
-    <div className='create-skate-lobby'> 
+    <div className='create-skate-lobby'>
         <div id='lobby-settings'>
-        {localStorage.getItem('userId') !== lobby.members[0] ? 
-            <div id='lobby-settings-block'>
-                <p>Only the lobby leader can change the settings of the lobby</p>
-            </div>
-             : ''
-        }
-
-            <div id='visibility-switch'>
-                <p onClick={() => handleLobbyVisibilityChange('private')} id='private-lobby-visibility' style={{backgroundColor : lobby.isPrivate ? '#CF2121' : '#1e1e1e'}}>Private</p>
-                <p onClick={() => handleLobbyVisibilityChange('public')} id='public-lobby-visibility' style={{backgroundColor : !lobby.isPrivate ? '#CF2121' : '#1e1e1e'}}>Public</p>
-            </div>
-            <div id='player-limit'>
-                <p>Max. players:</p>
-                <div id='player-limit-control'>
-                <button onClick={() => handleChangeMaxPlayerCount('down')} style={{opacity : maxPlayerCount>2 && maxPlayerCount !== lobby.members.length  ? 1 : .5}} id='player-limit-decrease'>-</button>
-                   
-                    <p id='player-limit-current'>{maxPlayerCount !== undefined ? maxPlayerCount : loadLobbyData()}</p>
-                    <button onClick={() => handleChangeMaxPlayerCount('up')} style={{opacity : maxPlayerCount<10 ? 1 : .5}} id='player-limit-increase'>+</button>
-                </div>
-            </div>
-            <p id='lobby-code-text'>ACCESS CODE</p>
-            <p id='lobby-code'>{lobby.accessCode}</p>
+            {localStorage.getItem('userId') !== lobby.members[0] ? 
+                (
+                    <div id='lobby-settings-block'>
+                        <p>Only the lobby leader can change the settings of the lobby</p>
+                    </div>
+                )
+                :
+                (
+                    <div>
+                        <div id='visibility-switch'>
+                            <p onClick={() => handleLobbyVisibilityChange('private')} id='private-lobby-visibility' style={{backgroundColor : lobby.isPrivate ? '#CF2121' : '#1e1e1e'}}>Private</p>
+                            <p onClick={() => handleLobbyVisibilityChange('public')} id='public-lobby-visibility' style={{backgroundColor : !lobby.isPrivate ? '#CF2121' : '#1e1e1e'}}>Public</p>
+                        </div>
+                        <div id='player-limit'>
+                            <p>Max. players:</p>
+                            <div id='player-limit-control'>
+                            <button onClick={() => handleChangeMaxPlayerCount('down')} style={{opacity : maxPlayerCount>2 && maxPlayerCount !== lobby.members.length  ? 1 : .5}} id='player-limit-decrease'>-</button>
+                            
+                                <p id='player-limit-current'>{maxPlayerCount !== undefined ? maxPlayerCount : loadLobbyData()}</p>
+                                <button onClick={() => handleChangeMaxPlayerCount('up')} style={{opacity : maxPlayerCount<10 ? 1 : .5}} id='player-limit-increase'>+</button>
+                            </div>
+                        </div>
+                        <p id='lobby-code-text'>ACCESS CODE</p>
+                        <p id='lobby-code'>{lobby.accessCode}</p>
+                    </div>
+                )
+            }    
         </div>
         <div id='line'></div>
-        <div id='lobby-members'>
-            <LobbyMembers members={lobby.members} pending={lobby.invitations} lobby={lobby}/>
-        </div>
+        <LobbyMembers members={lobby.members} pending={lobby.invitations} lobby={lobby} is_creator={localStorage.getItem('userId') === lobby.members[0] ? true : false}/>
     </div>
   )
 }
