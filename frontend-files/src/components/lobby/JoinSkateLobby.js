@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { getLobbies, joinLobby } from '../../services/lobbyService'
 import LobbyContainer from './LobbyContainer'
 import '../../stylesheets/lobby/JoinSkateLobby.css'
+import CityMap from '../Location/CityMap'
+import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import { acceptInvite } from '../../websockets/lobbyWS'
 import { lobbyNotFound } from '../../App'
 
@@ -33,6 +36,11 @@ function JoinSkateLobby() {
 
   return (
     <div className='join-skate-lobby'>
+      <div className='cityMapButton'>
+      {/* <Route component={CityMap} /> */}
+        <p className='cityMapTitle'>City Map</p>
+        <i className="fa-solid fa-arrow-right-long fa-lg"></i>
+      </div>
         <div id='public-skate-lobbies'>
         {lobbies.map(lobby => (
             <LobbyContainer lobby={lobby}/>

@@ -3,7 +3,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: black;
 }
 
 a {
@@ -32,4 +33,57 @@ a {
 .combobox-input {
   width: 100%;
   padding: 0.5rem;
+}
+
+.joinLobby {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  width: 140px;
+  background-color: red;
+  background: rgba(239, 239, 239, 0.2);
+  border-radius: 20px;
+  margin-top: 5px;
+}
+
+.lobbyContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+}
+
+.lobbyProfilePicMap {
+  z-index: 1;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  margin-top: -150px;
+  background-color: white;
+}
+
+.lobbyTitleMap{
+  color: #efefee;
+  margin-left: auto;
+  margin-right: auto;
+  float:center;
+  /* float: left; */
+  /* margin-top: 50px; */
+  /* margin-left: -15px; */
+  /* width: 150px; */
+  font-size: medium;
+  font-weight: bold;
+}
+
+.fa-map-marker-alt {
+  color: white;
+}
+
+.lobbyAreaMap{
+  color: #efefee;
+  font-size: x-small;
+  font-weight: bold;
 }
