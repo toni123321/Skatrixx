@@ -27,7 +27,7 @@ a {
 
 .map-container {
   width: 100%;
-  height: 70vh;
+  height: 50vh;
 }
 
 .combobox-input {
@@ -36,7 +36,9 @@ a {
 }
 
 .joinLobby {
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 180px;
@@ -48,8 +50,9 @@ a {
 }
 
 .lobbyContainer {
-  position: relative;
+  /* position: relative; */
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -57,11 +60,13 @@ a {
 }
 
 .lobbyProfilePicMap {
-  z-index: 1;
-  min-width: 50px;
-  min-height: 50px;
+  position: absolute;
+  top: -25px;
+  /* z-index: 1; */
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  margin-top: -150px;
+  /* margin-top: -150px; */
   background-color: white;
 }
 
@@ -70,20 +75,56 @@ a {
   margin-left: auto;
   margin-right: auto;
   float:center;
-  /* float: left; */
-  /* margin-top: 50px; */
-  /* margin-left: -15px; */
-  /* width: 150px; */
-  font-size: medium;
+  margin-top: 55px;
+  font-size: 12px;
   font-weight: bold;
 }
 
-.fa-map-marker-alt {
+
+.ContainerInfo{
+  display:flex;
+  flex-direction: column;
+  /* jusftify-content:center;
+  align-items: center; */
+}
+
+.fa-map-marker-alt, .fa-clock, .fa-arrow-right-long{
   color: white;
 }
 
-.lobbyAreaMap{
+.fa-arrow-right-long{
+  margin-left: 20px;
+}
+
+.lobbyAreaTitle, .lobbyStatusTitle{
+  display:flex;
+  flex-direction: row;
+  gap: 5px
+}
+
+.lobbyAreaTitle, .lobbyStatusTitle{
   color: #efefee;
   font-size: x-small;
+  font-weight: 400;
+  height: 40px;
+}
+
+.lobbyAreaTitle{
+  margin-bottom: -25px;
+}
+
+.lobbyAreaInfo, .lobbyStatusInfo{
+  display: flex;
+  flex-direction: row;
+  justify-conten: left;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+.joinLobbyButton{
+  color: #efefee;
+  font-size: 14px;
   font-weight: bold;
+  height: 40px;
+  margin-top: -10px;
 }

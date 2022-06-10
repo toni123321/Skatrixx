@@ -23,21 +23,55 @@ function Map() {
     <div className="lobbyContainer">
       <div className="joinLobby">
       <div className="lobbyProfilePicMap"> </div>
+      <div className="ContainerInfo">
         <p className="lobbyTitleMap">
             Pedro's Lobby
           </p>
-          {/* <p className="lobbyAreaMap">Area 51</p>  */}
+          <div className="lobbyAreaInfo">
+          <p className="lobbyAreaTitle"> <i className="fas fa-map-marker-alt"></i>Area 51</p> 
+          </div>
+          <div className="lobbyStatusInfo">
+          <p className="lobbyStatusTitle"><i className="fa-solid fa-clock"></i>Status: started</p> 
+          </div>
+          </div>
+          <div className="joinLobbyButtonContainer">
+            <p className="joinLobbyButton">Join<i className="fa-solid fa-arrow-right-long fa-2xl"></i></p>
+          </div>
       </div>
       <div className="joinLobby">
-      <div className="lobbyProfilePicMap">
-
-      </div>
+      <div className="lobbyProfilePicMap"> </div>
+      <div className="ContainerInfo">
+        <p className="lobbyTitleMap">
+            Pedro's Lobby
+          </p>
+          <div className="lobbyAreaInfo">
+          <p className="lobbyAreaTitle"> <i className="fas fa-map-marker-alt"></i>Area 51</p> 
+          </div>
+          <div className="lobbyStatusInfo">
+          <p className="lobbyStatusTitle"><i className="fa-solid fa-clock"></i>Status: started</p> 
+          </div>
+          <div className="joinLobbyButtonContainer">
+            <p className="joinLobbyButton">Join<i className="fa-solid fa-arrow-right-long fa-2xl"></i></p>
+          </div>
+          </div>
       </div>
       <div className="joinLobby">
-      <div className="lobbyProfilePicMap">
-
-        </div>  
-        </div>
+      <div className="lobbyProfilePicMap"> </div>
+      <div className="ContainerInfo">
+        <p className="lobbyTitleMap">
+            Pedro's Lobby
+          </p>
+          <div className="lobbyAreaInfo">
+          <p className="lobbyAreaTitle"> <i className="fas fa-map-marker-alt"></i>Area 51</p> 
+          </div>
+          <div className="lobbyStatusInfo">
+          <p className="lobbyStatusTitle"><i className="fa-solid fa-clock"></i>Status: started</p> 
+          </div>
+          <div className="joinLobbyButtonContainer">
+            <p className="joinLobbyButton">Join<i className="fa-solid fa-arrow-right-long fa-2xl"></i></p>
+          </div>
+          </div>
+      </div>
     </div>
   </div>
   );
