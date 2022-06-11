@@ -2,6 +2,8 @@
 #include "WiFi.h"
 #include "ESPAsyncWebServer.h"
 
+// Create an Access Point from ESP32
+// Example for setting ssid and password
 const char *ssid = "MyESP32AP";
 const char *password = "testpassword";
 AsyncWebServer server(80);

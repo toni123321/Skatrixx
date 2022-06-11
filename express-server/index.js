@@ -24,18 +24,18 @@ const app=express();
 const db=mongoose.connection;
 app.use(express.json())
 
-// CORS origin handling for App and WS
+// CORS origin handling for App and WebSockets(WS)
 app.use(cors({
     origin: [
-        'http://localhost:3001',
-        'http://localhost:3001/*',
-        'https://i451508.hera.fhict.nl',
-        'https://i451508.hera.fhict.nl/*',
-        'https://i455146.hera.fhict.nl',
-        'https://i455146.hera.fhict.nl/*',
-        'http://127.0.0.1:3001'
+      process.env.LOCAL_FRONTEND_ORIGIN,
+      process.env.LOCAL_FRONTEND_PATHS,
+      process.env.PRODUCTION_FRONTEND_ORIGIN,
+      process.env.PRODUCTION_FRONTEND_PATHS,
+      process.env.LOCAL_LIVE_SERVER_FRONTEND
     ]
 }));
+
+
 
 
 // Confirms/Denies connection to DB

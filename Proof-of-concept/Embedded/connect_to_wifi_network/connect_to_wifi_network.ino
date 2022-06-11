@@ -1,6 +1,8 @@
 #include <WiFi.h>
-const char* ssid = "TP-Link_272F";
-const char* password = "98789627";
+
+// Write ssid and password here to test it
+const char* ssid = "********";
+const char* password = "********";
 
 void setup() {
   // put your setup code here, to run once:

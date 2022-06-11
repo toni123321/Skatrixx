@@ -3,6 +3,7 @@
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 #include <Arduino_JSON.h>
+#include "configuration.h"
 
 #ifdef _ESP32_HAL_I2C_H_
 // Define pins for MPU9250
@@ -18,8 +19,6 @@
 #define CM_TO_INCH 0.393701
 #endif
 
-const char* ssid = "AndroidAP";
-const char* password = "arpr1138245567";
 char jsonOutput[128];
 
 MPU9250_asukiaaa mySensor;
@@ -52,7 +51,7 @@ void setup() {
   mySensor.beginAccel();
   mySensor.beginGyro();
 
-  WiFi.begin(ssid, password);
+  WiFi.begin(SSID, PASSWORD);
   Serial.print("Connecting to WiFi");
 
    // check wifi connection
@@ -92,7 +91,7 @@ void loop() {
       getMillis = currMillis;
       Serial.println(getMillis);
       HTTPClient client1;
-      client1.begin("https://skatrixx.herokuapp.com/moduleStates");
+      client1.begin(MODULE_STATE_API_URL);
       client1.addHeader("Content-Type", "application/json");
       client1.GET();
 
@@ -143,7 +142,7 @@ void loop() {
     // Make POST request to trick data
     
     HTTPClient client;
-    client.begin("https://skatrixx.herokuapp.com/skateDatas");
+    client.begin(SKATE_DATA_API_URL);
     client.addHeader("Content-Type", "application/json");
 
     

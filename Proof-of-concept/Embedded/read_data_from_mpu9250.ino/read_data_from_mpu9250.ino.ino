@@ -17,10 +17,11 @@
 #define CM_TO_INCH 0.393701
 #endif
 
-//const char* ssid = "TP-Link_272F";
-//const char* password = "98789627";
-const char* ssid = "AndroidAP";
-const char* password = "arpr1138245567";
+// Write ssid and password here to test it
+// const char* ssid = "********";
+// const char* password = "********";
+const char* ssid = "********";
+const char* password = "********";
 char jsonOutput[128];
 
 MPU9250_asukiaaa mySensor;

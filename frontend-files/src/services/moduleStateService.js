@@ -1,9 +1,7 @@
-const axios = require('axios');
+import { getBaseUrl } from './api_client';
 
-let url = "http://localhost:3000/"
-if (process.env.NODE_ENV === 'production') {
-  url = "https://skatrixx.herokuapp.com/" 
-}
+const axios = require('axios');
+export const url = getBaseUrl
 
 export const startTrick = async () => {
     var config = {

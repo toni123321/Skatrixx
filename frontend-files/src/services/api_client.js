@@ -1,8 +1,8 @@
 import axios from "axios";
 
-let baseURL = "http://localhost:3000/"
+let baseURL = process.env.LOCAL_BASE_URL
 if (process.env.NODE_ENV === 'production') {
-  baseURL = "https://skatrixx.herokuapp.com/" 
+  baseURL = process.env.PRODUCTION_BASE_URL
 }
 
 export default axios.create({
