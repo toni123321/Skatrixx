@@ -116,7 +116,6 @@ a {
 .lobbyAreaInfo, .lobbyStatusInfo{
   display: flex;
   flex-direction: row;
-  justify-conten: left;
   gap: 5px;
   margin-left: 10px;
 }

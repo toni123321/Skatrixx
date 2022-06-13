@@ -22,6 +22,7 @@ h4 {
     display: flex;
     margin: auto;
     /* margin-top: -400px; */
+    width: 60px;
 }
 
 #vsIcon {
@@ -77,3 +78,54 @@ h4 {
     color: #EFEFEF;
     font-weight: lighter;
 }
+
+.mainLobyContainer {
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content: center; */
+    align-items: center;
+    margin: auto;
+}
+
+.soloContainer{
+    width: 266px;
+    height: 192px;
+    background: rgba(217, 217, 217, 0.12);
+    border-radius: 20px;
+}
+
+.soloContainerInfo{
+    align-items: left;
+    justify-content: left;
+    float:left;
+    margin-left: 20px;
+}
+
+.lobbyContainerHeader{
+    font-size: x-large;
+    margin-left: -55px;
+    margin-bottom: -5px;
+}
+
+.skateContainer{
+    width: 266px;
+    height: 192px;
+
+    background: rgba(217, 217, 217, 0.12);
+    border-radius: 20px;
+}
+
+.soloGameInfo{
+    width: 120px;
+    height: 45px;
+
+    font-size: small;
+    font-weight: italic bold;
+}
+
+.buttonStyling{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* /* float: left; */
+} 
