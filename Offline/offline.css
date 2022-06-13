@@ -5,7 +5,7 @@ body {
 
 @font-face {
     font-family: "Malgun Gothic";
-    src: url('./fonts/malgun.ttf') format("truetype");
+    src: url('fonts/malgun.ttf') format("truetype");
 }
 
 body {
@@ -13,6 +13,7 @@ body {
     /* background: url(./images/image\ 13.png); */
     color: #efefee;
     background-color: black;
+    font-family: Malgun;
 }
 
 .backgroundImage {
