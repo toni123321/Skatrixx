@@ -23,6 +23,7 @@ h4 {
     margin: auto;
     /* margin-top: -400px; */
     width: 60px;
+    margin-left: 0;
 }
 
 #vsIcon {
@@ -80,21 +81,22 @@ h4 {
 }
 
 .mainLobyContainer {
-    /* display: flex;
-    flex-direction: column; */
-    /* justify-content: center; */
+    display: flex;
     align-items: center;
-    margin: auto;
+    justify-content: center;
 }
 
-.soloContainer{
-    width: 266px;
+.squareContainer{
+    display: flex;
+    width: 256px;
     height: 192px;
     background: rgba(217, 217, 217, 0.12);
     border-radius: 20px;
+    gap: 20px;
+    padding-left: 15px;
 }
 
-.soloContainerInfo{
+.squareContainerInfo{
     align-items: left;
     justify-content: left;
     float:left;
@@ -107,15 +109,15 @@ h4 {
     margin-bottom: -5px;
 }
 
-.skateContainer{
+/* .skateContainer{
     width: 266px;
     height: 192px;
 
     background: rgba(217, 217, 217, 0.12);
     border-radius: 20px;
-}
+} */
 
-.soloGameInfo{
+.GameInfoText{
     width: 120px;
     height: 45px;
 
@@ -126,6 +128,16 @@ h4 {
 .buttonStyling{
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    /* /* float: left; */
+    gap: 10px;
+     /* float: left; */
+    margin-left: 0;
+    margin-top: 50px;
 } 
+
+.fa-arrow-right-long{
+    margin-bottom: 30px;
+}
+
+#skateTitle{
+    margin-right: -30px;
+}

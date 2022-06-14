@@ -36,22 +36,28 @@ function Loby() {
 
           <div className='mainLobyContainer' id="Sicon" > 
 
-            <div className='soloContainer' id="solo">
-              <div className='soloContainerInfo'>
+            <div className='squareContainer' id="solo">
+              <div className='squareContainerInfo'>
               <h4 className='lobbyContainerHeader'>SOLO</h4>
-              <p className='soloGameInfo'>Challenge yorself,
+              <p className='GameInfoText'>Challenge yorself,
               learn how to skate
               improve records</p>
               </div>
               <div className='buttonStyling'>
             <img onClick={() => {handleGamemode('solo')}} src={SoloIcon} alt=''  id= "soloIcon"/>
-            <i class="fa-solid fa-arrow-right-long fa-2xl"></i>
+            <i className="fa-solid fa-arrow-right-long fa-2xl"></i>
             </div>
             </div>
 
-            <div className='skateContainer'>
+            <div className='squareContainer' id="solo">
+              <div className='squareContainerInfo'>
+              <h4 className='lobbyContainerHeader' id='skateTitle'>S.K.A.T.E</h4>
+              <p className='GameInfoText'>Play with your team and see who does the trick better</p>
+              </div>
+              <div className='buttonStyling'>
               <img onClick={toggleSkatePopup} src={VersusIcon} alt=''  id= "vsIcon"/>
-              <h4>S.K.A.T.E.</h4>
+            <i className="fa-solid fa-arrow-right-long fa-2xl"></i>
+            </div>
             </div>
 
         </div>
