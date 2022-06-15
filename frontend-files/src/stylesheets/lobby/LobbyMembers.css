@@ -1,5 +1,4 @@
 .lobbyMembers {
-    width: 90vw;
     overflow-y: scroll;
     height: calc(100vh - 320px);
     max-width: 550px;
@@ -12,21 +11,35 @@
     margin-bottom: 65px;
 }
 
+#lobbyMembers-info {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#lobby-player-count {
+    font-weight: 600;
+    font-size: large;
+}
+
 #invite-to-lobby-button {
     cursor: pointer;
     border-radius: 50%;
     width: 30px;
     height: 30px;
     margin-right: 20px;
+    font-weight: 300;
+    background: none;
 }
 
 #lobby-member-list {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     border-radius: 5px;
     place-items: center;
-    width: 75%;
     max-width: 350px;
     overflow-x: hidden;
     grid-template-columns: 1fr 1fr;
     margin-inline: auto;
+    margin-top: 10px;
 }

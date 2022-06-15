@@ -54,6 +54,7 @@
     justify-content: space-evenly;
     margin: auto;
     align-items: center;
+    margin-top: 50px;
 }
 
 #private-lobby-visibility, #public-lobby-visibility {
@@ -64,18 +65,6 @@
     align-items: center;
     justify-content: center;
     transition: .3s linear;
-}
-
-#private-lobby-visibility {
-    border-bottom-left-radius: 30px;
-    border-top-left-radius: 30px;
-    background-color: #1e1e1e;
-}
-
-#public-lobby-visibility {
-    border-bottom-right-radius: 30px;
-    border-top-right-radius: 30px;
-    background-color: #1e1e1e;
 }
 
 #player-limit {text-align: center;}
@@ -101,23 +90,12 @@
 
 #lobby-code-text {
     margin-top: 20px;
+    margin-bottom: 10px;
     text-align: center;
-    font-size: 15px;
-    margin-bottom: 0;
+    font-size: 20px;
 }
 
 #lobby-code {
-    text-align: center;
-    font-size: 30px;
-    margin: 0;
-    margin-bottom: 10px;
     font-weight: 650;
     text-decoration: underline;
-}
-
-#line {
-    height: .5px;
-    width: 70vw;
-    max-width: 450px;
-    background-color: white;
 }

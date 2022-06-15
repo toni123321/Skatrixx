@@ -15,8 +15,9 @@ function LobbyMembers(props) {
   if(props.members !== undefined) {
   return (
     <div className='lobbyMembers'>
-        <div>
-          <button id='invite-to-lobby-button' onClick={handleToggleInvitePopUp}>+</button>
+        <div id={"lobbyMembers-info"}>
+          <p>Players: <span id={"lobby-player-count"}>{props.members.length}</span></p>
+          <button id='invite-to-lobby-button' onClick={handleToggleInvitePopUp}>Add</button>
         </div>
         <div id='lobby-member-list'>
           {props.members.map(member => (
