@@ -72,6 +72,8 @@
 
   #uploading {
     height: 100%;
+    max-width: 125px;
+    max-height: 125px;
   }
 
 
