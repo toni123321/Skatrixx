@@ -1,6 +1,6 @@
 const FULL_DASH_ARRAY = 283;
-const WARNING_THRESHOLD = 10;
-const ALERT_THRESHOLD = 5;
+const WARNING_THRESHOLD = 60;
+const ALERT_THRESHOLD = 30;
 
 const COLOR_CODES = {
   info: {
@@ -16,11 +16,14 @@ const COLOR_CODES = {
   }
 };
 
-const TIME_LIMIT = 20;
+const TIME_LIMIT = 3600;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
 let remainingPathColor = COLOR_CODES.info.color;
+let start = document.getElementById("start")
+let restart = document.getElementById("restart")
+let stop = document.getElementById("stop")
 
 document.getElementById("app").innerHTML = `
 <div class="base-timer">
@@ -48,8 +51,16 @@ document.getElementById("app").innerHTML = `
 
 startTimer();
 
-function onTimesUp() {
-  clearInterval(timerInterval);
+start.addEventListener('click', function (params) {
+  
+})
+restart.addEventListener('click', function () {
+  stopTimer()
+  console.log("yayayay")
+})
+
+function stopTimer() {
+  clearInterval();
 }
 
 function startTimer() {
@@ -63,7 +74,7 @@ function startTimer() {
     setRemainingPathColor(timeLeft);
 
     if (timeLeft === 0) {
-      onTimesUp();
+      stopTimer();
     }
   }, 1000);
 }
