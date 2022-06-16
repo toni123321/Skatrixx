@@ -3,7 +3,7 @@ const mongoose=require('mongoose')
 
 const skateData=new mongoose.Schema({
     status: {
-        type: Type,
+        type: String,
         required: true
     },
     height: {
