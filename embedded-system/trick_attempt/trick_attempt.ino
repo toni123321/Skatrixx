@@ -81,6 +81,7 @@ String skate_accelZ = "";
 
 
 void loop() {
+
   unsigned long currMillis = millis();
   //int trick_status = read_status();
   if (WiFi.status() == WL_CONNECTED)

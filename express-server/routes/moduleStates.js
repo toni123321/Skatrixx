@@ -17,8 +17,6 @@ router.get('/', async(req,res)=>{
 
  //Update moduleState start
 router.patch('/start',async(req,res)=>{
- 
-    
     try{
         const moduleStates = await moduleState.findOne().sort({$natural: -1}).limit(1)
         if( moduleStates.isStarted==false){

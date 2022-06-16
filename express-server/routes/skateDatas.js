@@ -2,6 +2,7 @@ const express=require('express')
 const skateData = require('../models/skateData')
 const router=express.Router()
 const SkateData=require('../models/skateData')
+const skateDataService = require('../services/skateDataService')
 
 
 async function getSkateData(req, res, next){
@@ -16,23 +17,27 @@ async function getSkateData(req, res, next){
   next()
 }
 
-//Get all skate data - polzvai - http://localhost:3000/skateDatas !!!
+//Get all skate data
 router.get('/', async(req,res) => {
-  try{const skateData=await SkateData.find() 
+  try{
+    const skateData=await SkateData.find().sort({_id:-1});
     res.send(skateData)
   }catch(err){
       res.status(500).json({message: err.message})
   }
 })
 
-router.get('/lastRecord', async(req, res) => {
+router.get('/lastPerformance', async(req, res) => {
   try {
     const skateData = await SkateData.find().sort({_id:-1});
+    //console.log(skateDataService.getLastPerformance(skateData))
     res.send(skateData[0])
+
   } catch(err) {
     res.status(500).json({message: err.message})
   }
 })
+
 
 
 //Get skate data by ID
