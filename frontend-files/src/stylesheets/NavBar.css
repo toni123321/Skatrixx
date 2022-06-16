@@ -18,30 +18,28 @@
 
 .nav-icon {
     cursor: pointer;
-    height: 44px;
     color: #efefef;
-    font-size: 1.8rem;
     margin-top: 5px;
     margin-bottom: -10px;
+    height: 1.8rem; width: 1.8rem;
 }
 
 .active {
     color: #cf2525;
 }
-
+/* 
 #skate {
     height: 44px; width: 44px;
     filter : invert(92%) sepia(0%) saturate(7469%) hue-rotate(108deg) brightness(115%) contrast(98%);
     margin-top: -5px;
     margin-bottom: -2px;
-    transform: rotate(45deg);
 }
 
 #game {
     height: 1.8rem; width: 1.8rem;
     margin-bottom: 5px;
     filter : invert(92%) sepia(0%) saturate(7469%) hue-rotate(108deg) brightness(115%) contrast(98%);
-}
+} */
 
 .nav-link {
     display: flex;

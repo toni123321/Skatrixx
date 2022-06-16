@@ -3,37 +3,45 @@
   flex-direction: column;
 }
 
-  #add-friend {
-      cursor: pointer;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      margin-right: 20px;
-      padding: 5px;
-      background-color: #219EBC;
-    right: 10px;
-    z-index: 2;
-    cursor: pointer;
-  }
+#add-friend {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  font-size: large;
+  font-weight: bold;
+  padding: 5px;
+  right: 10px;
+  z-index: 2;
+  cursor: pointer;
+}
+
 #add-container{
   width: 100%;
   display: flex;
   justify-content: flex-end;
 }
+
 #add{
   height: 100%;
   width: auto;
 }
 
-  .friend-container {
-    position: relative;
-    width: 70%;
-    margin-bottom: 20px;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
+.friend-container {
+  position: relative;
+  width: 94%;
+  border-radius: 10px;
+  max-width: 550px;
+  height: 10vh;
+  margin-bottom: 5px;
+  margin-inline: auto;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
 }
 
 #friend-name {
@@ -42,13 +50,9 @@
   z-index: 1;
 }
 
-#bg-img {
-  width: 120%;
-}
-
 #friend-img {
-  width: 50px; 
-  height: 50px;
+  width:7vh;
+  height: 7vh;
   border-radius: 50%;
   margin-left: 20px;
   margin-top: 8px;
@@ -76,7 +80,6 @@
 }
 
 #waiting-request{
-  /* background-color: rgba(0, 0, 0, 0.61); */
   height: 5rem; width: 65vw;
   max-width: 385px;
   font-size: 2rem;
@@ -92,7 +95,7 @@
 }
 
 #accept-request-button {
-  color:   #218134;
+  color:#218134;
   margin-right: 10px;
 }
 #deny-request-button {

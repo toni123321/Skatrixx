@@ -6,8 +6,7 @@ html, body {height: 100%;}
 
 body {
   background: transparent;
-  background-image: linear-gradient(to bottom, #590D0D, #101010 );
-  /* background: url(./images/image\ 13.png); */
+  background-color: black;
   color: #efefee;
 }
 
@@ -33,20 +32,25 @@ body {
   height: var(--container-height);
 }
 
+.container-border {
+  border: 0.5px solid rgba(255, 255, 255, 0.281); 
+}
 
 #background-image {
   z-index: -1 ;
-  opacity: 90%;
+  opacity: 50%;
   position: fixed;
   top: 0;
   left: 0;
   min-width: 100vw;
   min-height: 100vh;
 }
+
 .fa-angle-left:before {
   content: "\f104";
   font-size: 25px;
 }
+
 button {
   border: none;
   display: flex;
@@ -57,11 +61,9 @@ button {
   width: 80px;
   border-radius: 50%;
   cursor: pointer;
-
   color: #efefee;
   background-color: #CF2121;
   font-size: large;
   font-weight: bold;
   box-shadow: 15px 3px 4px rgba(26, 26, 26, 0.25), inset 1px 0px 2px rgba(26, 26, 26, 0.25);
-
 }

@@ -38,13 +38,11 @@ function FriendContainer(props) {
   
   if(friend !== undefined) {
   return (
-    <div className='friend-container'>
+    <div className='friend-container container-border'>
       {props.connection.accepted ? '' : 
             <div className='pending-request'>
               {props.connection.sender_id === loggedUser ? 
               <div id='waiting-request'>
-                {/* <p id='friend-name'>{friend.username}</p>
-                <p>Pending...</p> */}
                 <button id='deny-request-button' onClick={handleCancelRequest}><i className="fa-solid fa-circle-xmark"></i></button>
               </div> : 
               <div id='accept-request'>
@@ -56,7 +54,7 @@ function FriendContainer(props) {
             <img id='friend-img' src={friend.image !== undefined ? friend.image : defaultImg} alt=''/>
             <p id='friend-name'>{!props.connection.accepted ? "Pending..." : friend.username}</p>
         </div>
-        <img id='bg-img' src={backgroundImg} alt=''/>
+        <div className='default-container'></div>
     </div>
   )
   }

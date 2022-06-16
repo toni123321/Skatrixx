@@ -46,15 +46,9 @@
     width: 70%;
     max-width: 500px;
     border-radius: 150px;
-    margin-left: auto; margin-right: auto; margin-top: -10px;
+    margin-inline: auto;
 }
 
-/* .welcome-message-sign-out button {
-    border-radius: 10px;
-    width: 100px;
-    height: 25px;
-    margin-bottom: 0;
-} */
 #logout{
   float: right;  
   padding-right: 20px;
@@ -75,7 +69,7 @@
 
 
 .openedTab {
-    border-bottom: 3px solid #219EBC;
+    border-bottom: 3px solid #FFFFFF;
     font-size: 20px;
 }
 
