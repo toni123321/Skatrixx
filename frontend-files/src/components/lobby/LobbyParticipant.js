@@ -20,11 +20,12 @@ function LobbyParticipant(props) {
     if(user.image !== undefined) {
       return (
         <div className='lobby-participant'>
-          
-          <div>
+          <div className='lobby-participant-info' style={{opacity : pending ? .65 : 1}}>
             <img src={user.image}  referrerPolicy='no-referrer' alt='Loading...'/>
-            <p>{pending ? "Pending..." : user.username}</p>
+            <p>{user.username.split(' ')[0]}</p>
           </div>
+          { pending ? <p id='lobby-participant-pending'>Pending...</p> : ''}
+          <div className='default-container'></div>
         </div>
       )
     }

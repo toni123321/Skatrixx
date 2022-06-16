@@ -14,9 +14,10 @@ function LobbyMembers(props) {
 
   if(props.members !== undefined) {
   return (
-    <div className={`lobbyMembers ${!props.is_creator ? 'not-creator' : ''}`}>
-        <div>
-          <button id='invite-to-lobby-button' onClick={handleToggleInvitePopUp}> <img src={addFriend} id="addFriend" alt=""></img></button>
+    <div className='lobbyMembers'>
+        <div id={"lobbyMembers-info"}>
+          <p>Players: <span id={"lobby-player-count"}>{props.members.length}</span></p>
+          <button id='invite-to-lobby-button' onClick={handleToggleInvitePopUp}>Add</button>
         </div>
         <div id='lobby-member-list'>
           {props.members.map(member => (

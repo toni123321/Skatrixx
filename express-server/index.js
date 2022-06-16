@@ -17,6 +17,7 @@ const moduleStateRouter = require('./routes/moduleStates')
 const achievementsService = require('./routes/achievements')
 const consistencyRouter = require('./routes/consistencies');
 const skateGallery = require('./routes/skateboardImages');
+const gameRouter = require('./routes/skateGames')
 const { Router } = require('express');
 
 // App and DB setup
@@ -53,6 +54,7 @@ app.use('/moduleStates', moduleStateRouter)
 app.use('/achievements', achievementsService)
 app.use('/consistency', consistencyRouter)
 app.use('/skateGallery', skateGallery)
+app.use('/game', gameRouter)
 
 const server = app.listen(port, () => {console.log(`Back end is running on port: ${port}`)});
 
@@ -88,6 +90,9 @@ io.on("connection", socket => {
   })
   socket.on('log-out-user', (userId) => {
     socket.leave(userId)
+  })
+  socket.on('join-game', (gameLobby) => {
+    socket.join(gameLobby)
   })
 
   app.set('socketio', io)

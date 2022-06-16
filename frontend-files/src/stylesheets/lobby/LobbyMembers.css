@@ -1,12 +1,10 @@
 .lobbyMembers {
-    width: 90vw;
     overflow-y: scroll;
     height: calc(100vh - 320px);
     max-width: 550px;
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 65px;
@@ -15,28 +13,34 @@
     height: calc(100vh - 220px);
 }
 
+#lobbyMembers-info {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#lobby-player-count {
+    font-weight: 600;
+    font-size: large;
+}
+
 #invite-to-lobby-button {
     cursor: pointer;
     border-radius: 50%;
     width: 40px;
     height: 40px;
     margin-right: 20px;
-    margin-top: 10px;
-    padding: 5px;
-    background-color: 
-    #219EBC;
-}
-#addFriend{
-    width: auto;
-    height: 100%;
+    font-weight: 300;
+    background: none;
 }
 #lobby-member-list {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     border-radius: 5px;
     place-items: center;
-    width: 75%;
     max-width: 350px;
     overflow-x: hidden;
     grid-template-columns: 1fr 1fr;
     margin-inline: auto;
+    margin-top: 10px;
 }

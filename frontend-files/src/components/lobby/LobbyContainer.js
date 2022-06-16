@@ -37,13 +37,13 @@ function LobbyContainer(props) {
     if(containerLoaded) {
   return (
     <div className='lobby-container'>
+      <div className='default-container'></div>
         <div id='lobby-container-information'>
-          <p id='lobby-container-owner'>{lobbyLeader.username}'s lobby <p id='lobby-availability'>{Object.keys(props.lobby.members).length}/{props.lobby.limit}</p></p>
+          <p id='lobby-container-owner'>{lobbyLeader.username.split(' ')[0]}'s lobby</p>
           <div id='lobby-container-images'>
             <img id='lobby-container-image' src={lobbyLeader.image} alt=''/>
             {secondLobbyLeader !== undefined ? <img id='lobby-container-image' src={secondLobbyLeader.image} alt=''/> : ''}
-            {thirdLobbyLeader !== undefined ? <img id='lobby-container-image' src={thirdLobbyLeader.image} alt=''/> : ''}
-            {props.lobby.members.length > 3 ? <p>+{props.lobby.members.length - 3}</p> : ''}
+            {props.lobby.members.length > 3 ? <p>+{props.lobby.members.length - 3}</p> : <img id='lobby-container-image' src={thirdLobbyLeader.image} alt=''/>}
         </div>
         <div id='lobby-container-controls'>
           <button id='lobby-container-join' onClick={() => {joinLobby()}}>Join</button>

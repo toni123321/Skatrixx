@@ -1,28 +1,33 @@
 .lobby-participant {
-    height: 150px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid #4e4e4e63;
+    display: flex;
+    width: 98%;
+    max-width: 520px;
     border-radius: 5px;
     word-wrap:break-word;
-    margin: 10px;
-    text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    margin-bottom: 5px;
+    position: relative;
+    border: .5px solid rgba(255, 255, 255, 0.281);
+}
+
+.lobby-participant-info {
+    display: flex;  
+    align-items: center;
+}
+
+.lobby-participant-info p {
+    margin-left: 10px;
 }
 
 #lobby-participant-pending {
     position: absolute;
-    top: 50%;
-    transform: translateY(-150%);
+    right: 10px;
+    transform: translateY(50%);
 }
 
-.lobby-participant img {
+.lobby-participant-info img {
     border-radius: 50%;
-    width: 70%;
+    width: 60px;
     height: auto;
-}
-
-.lobby-participant p {
-    text-align: center;
+    margin-left: 15px;
+    margin-block: 10px;
 }
