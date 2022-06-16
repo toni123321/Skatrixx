@@ -16,8 +16,6 @@ const firebaseConfig = {
   measurementId: environment.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
-console.log(process.env.FIREBASE_API_KEY)
-
 // Initialize Firebase 
 const app = firebase.initializeApp(firebaseConfig);
 export const storage = getStorage(app) //access everywhere in our app 
