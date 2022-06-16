@@ -24,7 +24,7 @@ function LobbyParticipant(props) {
             <p>{user.username.split(' ')[0]}</p>
           </div>
           { pending ? <p id='lobby-participant-pending'>Pending...</p> : ''}
-          <div className='lobby-paticipant-container'></div>
+          <div className='default-container'></div>
         </div>
       )
     }

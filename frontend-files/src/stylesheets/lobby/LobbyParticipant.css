@@ -31,14 +31,3 @@
     margin-left: 15px;
     margin-block: 10px;
 }
-
-.lobby-paticipant-container {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.33);
-    mix-blend-mode: darken;
-    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
-    backdrop-filter: blur(4px);
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-}

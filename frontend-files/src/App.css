@@ -8,7 +8,25 @@ body {
 }
 
 :root {
-  
+  --container-position: absolute;
+  --container-background: rgba(0, 0, 0, 0.33);
+  --container-blend-mode: darken;
+  --container-box-shadown: inset 0 0 2000px rgba(255, 255, 255, .5);
+  --container-backdrop-filter: blur(4px);
+  --container-z-index: -1;
+  --container-width: 100%;
+  --container-height: 100%;
+}
+
+.default-container {
+  position: var(--container-position);
+  background: var(--container-background);
+  mix-blend-mode: var(--container-blend-mode);
+  box-shadow: var(--container-box-shadown);
+  backdrop-filter: var(--container-backdrop-filter);
+  z-index: var(--container-z-index);
+  width: var(--container-width);
+  height: var(--container-height);
 }
 
 

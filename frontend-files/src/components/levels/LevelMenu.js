@@ -28,7 +28,7 @@ function LevelMenu(props) {
           &lt;
         </p>
         <div className="beginner">
-          <img src={RookieRamp} id="RookieRamp" />
+          <img src={RookieRamp} id="RookieRamp" alt=''/>
           <h3>
             Rookie's Park
           </h3>
@@ -40,7 +40,7 @@ function LevelMenu(props) {
       </button>
         </div>
         <div className="intermediate">
-          <img src={IntermediateRamp} id="IntermediateRamp" />
+          <img src={IntermediateRamp} id="IntermediateRamp" alt=''/>
           <h3>
             Amateur's Park
           </h3>
@@ -52,7 +52,7 @@ function LevelMenu(props) {
       </button>
         </div>
         <div className="master">
-          <img src={ProsRamp} id="ProsRamp" />
+          <img src={ProsRamp} id="ProsRamp" alt=''/>
           <h3
             
           >
