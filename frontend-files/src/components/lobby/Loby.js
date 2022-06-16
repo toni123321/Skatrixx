@@ -33,23 +33,31 @@ function Loby() {
       return (
         <div>
           <div className='mainLobyContainer' id="Sicon" >
-            <div className='soloContainer container-border' id="solo">
+            <div className='soloContainer container-border' id="solo" onClick={() => { handleGamemode('solo') }}>
               <div className='default-container'></div>
+              <h4 className='lobbyContainerHeader'>SOLO</h4>
               <div className='soloContainerInfo'>
-                <h4 className='lobbyContainerHeader'>SOLO</h4>
                 <p className='soloGameInfo'>Challenge yorself,
                   learn how to skate
                   improve records</p>
+                  <img src={SoloIcon} alt='' id="soloIcon" />
               </div>
               <div className='buttonStyling'>
-                <img onClick={() => { handleGamemode('solo') }} src={SoloIcon} alt='' id="soloIcon" />
                 <i class="fa-solid fa-arrow-right-long fa-2xl"></i>
               </div>
             </div>
-            <div className='skateContainer container-border'>
+            <div className='skateContainer container-border' onClick={() => {toggleSkatePopup()}}>
             <div className='default-container'></div>
-              <img onClick={toggleSkatePopup} src={VersusIcon} alt='' id="vsIcon" />
-              <h4>S.K.A.T.E.</h4>
+            <h4 className='lobbyContainerHeader'>S.K.A.T.E</h4>
+              <div className='soloContainerInfo'>
+                <p className='soloGameInfo'>Play with you team
+                and see who does
+                the trick better</p>
+                  <img src={VersusIcon} alt='' id="soloIcon" />
+              </div>
+              <div className='buttonStyling'>
+                <i class="fa-solid fa-arrow-right-long fa-2xl"></i>
+              </div>
             </div>
           </div>
           {skatePopup ?

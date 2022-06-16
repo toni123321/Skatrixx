@@ -67,11 +67,11 @@ name : "Pro Ramp",
     </div>
     );
   } else if(difficultyOpened==="rookie"){
-    return (<LevelList difficulty={"beginner"} alley={"Beginner's Alley"} handleDifficultyChange={handleDifficultyChange} />);
+    return (<LevelList difficulty={"beginner"} alley={"Rookie Ramp"} handleDifficultyChange={handleDifficultyChange} />);
   } else if (difficultyOpened==="amateur"){
-    return (<LevelList difficulty={"intermediate"} alley={"Bkjj's Alley"} handleDifficultyChange={handleDifficultyChange}/>)
+    return (<LevelList difficulty={"intermediate"} alley={"Amateur Ramp"} handleDifficultyChange={handleDifficultyChange}/>)
   }else if (difficultyOpened==="pro"){
-    return (<LevelList difficulty={"master"} alley={"Tony's Alley"} handleDifficultyChange={handleDifficultyChange}/>)
+    return (<LevelList difficulty={"master"} alley={"Pro Ramp"} handleDifficultyChange={handleDifficultyChange}/>)
   }
 }
 

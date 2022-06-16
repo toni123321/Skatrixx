@@ -30,47 +30,19 @@
   margin-bottom: 70px;
 }
 
-.speechText{
-  color: white;
-}
-
-#timer {
-  color: white;
-}
-
 .timerContainer {
+  padding-top: 10vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   min-height: 100vh;
-}
-
-.iconsContainer i{
-  margin-inline: 20px;
-  margin-top: 40px;
-}
-
-#timerIcons {
-  color: white;
+  background-color: #101010;
 }
 
 .speechText{
   color:white;
 }
 
-.timer-parent {
-  color: #efefee;
-  margin-top:0.5rem;
-  display: flex;
-  justify-content: center;
-}
-
-.timer {
-  display: flex;
-  max-width: 300px;
-  width: 60%;
-}
 
 .time-text {
   width:50%

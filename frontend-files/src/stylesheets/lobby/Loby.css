@@ -87,16 +87,15 @@ h4 {
 }
 
 .soloContainerInfo{
-    align-items: left;
-    justify-content: left;
-    float:left;
+    display: flex;
     margin-left: 20px;
 }
 
 .lobbyContainerHeader{
     font-size: x-large;
-    margin-left: -55px;
     margin-bottom: -5px;
+    margin-left: 20px;
+    text-align: left;
 }
 
 .skateContainer{
@@ -114,8 +113,7 @@ h4 {
 }
 
 .buttonStyling{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    /* /* float: left; */
+    text-align: right;
+    margin-right: 45px;
+    margin-top: 10px;
 } 

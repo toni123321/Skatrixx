@@ -16,13 +16,28 @@ function LevelContainer(props) {
 
    const startTrick = () => {
     props.handlePlay(props.trick)
-    console.log("Here")
   }
+
+  useEffect(() => {
+    var line = document.getElementsByClassName("trick-line-colored")
+    for(var i = 0; i < line.length; i++)
+    if(props.difficulty === "beginner") {
+      line[i].style.color = "green"
+    }
+    else if(props.difficulty === "intermediate") {
+      line[i].style.color = "blue"
+    }
+    else if(props.difficulty === "master") {
+      line[i].style.color = "red"
+    }
+}, [])
+  
 
    
 
   return (
-      <div className='trick'>
+      <div className='trick container-border'>
+        <div className='default-container'></div>
         <div id='trick-header' onClick={openTrick}>
           <p className='trick-line-colored'>|</p>
         <p id="trickName">{props.trick.name} - {props.trick.xp}XP</p> 
@@ -36,14 +51,14 @@ function LevelContainer(props) {
         </div>
         <div className='trick-content'>
           <div id="VideoDiv">
-            {/* <iframe
+            <iframe
               id="videoFrame"
               src={props.trick.videoLink}
-              frameborder="0"
+              frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
               title="video"
-            /> */}
+            />
           </div>
           <button type="button" id="trickBtn" onClick={startTrick}>Start</button>
         </div>

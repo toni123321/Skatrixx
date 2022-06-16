@@ -44,7 +44,6 @@ const LevelList = (props) => {
     try {
       const res = await tricksDataService.getTricksByDifficulty(difficulty)
       setTrickData(res.data)
-      console.log(res.data)
     } 
     catch (err) {
       // console.log(err.message)
@@ -74,7 +73,7 @@ const LevelList = (props) => {
           {trickData && trickData.map((trick, i) => 
           (
             // render LevelContainer and send the trick and the handlePlay function
-            <LevelContainer trick={trick} key={i} handlePlay={handlePlay} nr={i}/>
+            <LevelContainer trick={trick} key={i} handlePlay={handlePlay} nr={i} difficulty={props.difficulty}/>
           )
           )}
         </div>
