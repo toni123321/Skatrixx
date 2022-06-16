@@ -5,7 +5,7 @@ const SkateData=require('../models/skateData')
 
 
 async function getSkateData(req, res, next){
-    let skateData
+  let skateData
   try{skateData=await SkateData.findById(req.params.id)
    if(skateData == null){
        return res.status(404).json({message: 'Cannot find skate data'})}}
@@ -46,14 +46,11 @@ try
 //Post skate data
 router.post('/',async(req,res)=>{
   const skateData=new SkateData({
-      speed:req.body.speed, 
+      status: req.body.status,
       height: req.body.height,
       airtime: req.body.airtime,
-      rotation: req.body.rotation,
-      accelX: req.body.accelX, 
-      accelY: req.body.accelY,
-      accelZ: req.body.accelZ, 
-      gyroZ: req.body.gyroZ
+      rotationY:req.body.rotationY,
+      rotationZ: req.body.rotationZ,
   })
   try{
     const newSkateData=await skateData.save()
