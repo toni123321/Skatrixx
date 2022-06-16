@@ -3,8 +3,10 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 import "../stylesheets/NavBar.css";
-import skateIcon from "../images/skate-icon.png";
-import swordIcon from "../images/swords-icon.png";
+import skateIcon from "../images/nav-icons/skate.png";
+import swordIcon from "../images/nav-icons/Battle.png";
+import profileIcon from "../images/nav-icons/profile.png";
+import achievementIcon from "../images/nav-icons/award.png";
 
 function NavBar() {
 
@@ -58,9 +60,9 @@ function NavBar() {
   return (
     <div className='nav'>
         <Link className='nav-link' id='link-game' to={"/game"} onClick={() => setActiveBtn2('Game')} ><img id="game" className='nav-icon' src={swordIcon} alt=''/>GAME</Link>
-        <Link className='nav-link' id='link-trophy' to={"/trophy"} onClick={() => setActiveBtn2('Trophy')}><i id="trophy" className='fas fa-trophy nav-icon'></i>ACHIEVEMENTS</Link>
+        <Link className='nav-link' id='link-trophy' to={"/trophy"} onClick={() => setActiveBtn2('Trophy')}><img id="trophy" className={'nav-icon-center'} src={achievementIcon} alt=''/>ACHIEVEMENTS</Link>
         <Link className='nav-link' id='link-skate' to={"/skate"} onClick={() => setActiveBtn2('Skate')}><img id="skate" className={'nav-icon-center'} src={skateIcon} alt=''/>MY SKATE</Link>
-        <Link className='nav-link' id='link-profile' to={"/"} onClick={() => setActiveBtn2('Profile')}><i id="profile" className='fas fa-user-alt nav-icon active'></i>PROFILE</Link>
+        <Link className='nav-link' id='link-profile' to={"/"} onClick={() => setActiveBtn2('Profile')}><img id="profile" className='fas fa-user-alt nav-icon active' src={profileIcon} alt=''/>PROFILE</Link>
     </div>
   )
 }

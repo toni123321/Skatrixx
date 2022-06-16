@@ -36,7 +36,7 @@ function LobbyContainer(props) {
     
     if(containerLoaded) {
   return (
-    <div className='lobby-container'>
+    <div className='lobby-container container-border'>
       <div className='default-container'></div>
         <div id='lobby-container-information'>
           <p id='lobby-container-owner'>{lobbyLeader.username.split(' ')[0]}'s lobby</p>

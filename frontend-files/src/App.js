@@ -1,17 +1,13 @@
 import './App.css';
 import 'react-notifications/lib/notifications.css';
 import backgroundImage from './images/background_image.png'
-
-
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
-
 import { url } from './services/friendsConnectionService';
 import { socket } from './websockets/ws_client';
 import { logInUser } from './websockets/userWS';
-
 import NavBar from './components/NavBar';
 import Profile from './components/profile/Profile';
 import SkatePage from './components/skateStats/SkatePage';
@@ -22,8 +18,6 @@ import LogInScreen from './components/auth/LogInScreen'
 import LobbyInvitePopUp from './components/lobby/LobbyInvitePopUp';
 import Achievements from './components/achievements/Achievements';
 import TrickPage from './components/levels/TrickPage';
-
-
 
 export const friendRequestSent = () => {
   NotificationManager.success('Friend Request Has Been Sent', 'Success')
@@ -54,9 +48,9 @@ function App() {
   const [user, setUser] = useState('')
   const [lobbyInvite, setLobbyInvite] = useState(null);
 
-  useEffect(() =>{
+  const loadUser = async () => {
     if(localStorage.getItem("userId") !== null){
-      axios.get(`${url}users/${localStorage.getItem("userId")}`)
+      await axios.get(`${url}users/${localStorage.getItem("userId")}`)
       .then((response) => {
         if(response.status===200){
            setUser(response.data)
@@ -64,6 +58,10 @@ function App() {
         }
       })
     }
+  }
+
+  useEffect(() =>{
+    loadUser()
   })
 
   socket.on(localStorage.getItem('userId'), lobby => {

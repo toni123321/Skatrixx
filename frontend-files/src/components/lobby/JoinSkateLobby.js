@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { getLobbies, joinLobby } from '../../services/lobbyService'
 import LobbyContainer from './LobbyContainer'
 import '../../stylesheets/lobby/JoinSkateLobby.css'
-import CityMap from './CityMap'
-import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-import { acceptInvite } from '../../websockets/lobbyWS'
-import { lobbyNotFound } from '../../App'
+import CityMap from './CityMap';
 
 function JoinSkateLobby() {
 
