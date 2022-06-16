@@ -46,7 +46,7 @@ function Profile(props) {
             <div id='profile-card'>
                 <img src={props.img !== undefined ? props.img : defaultImg}  referrerPolicy='no-referrer' alt='' id="profile-image" />
                 <div id='additional-information'>
-                <p>{props.name.split(' ')[0]}</p>
+                <p>{props.name && props.name.split(' ')[0]}</p>
                 </div>
             </div>
             <div id='tabs'>

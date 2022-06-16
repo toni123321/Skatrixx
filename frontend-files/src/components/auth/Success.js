@@ -5,7 +5,6 @@ import LogOut from "../../images/Logout.png"
 const Success = ({ user }) => {
 
 const signout = () => {
-    console.log("Click")
     localStorage.removeItem("userId")
     localStorage.removeItem("profileURL")
     auth.signOut()
