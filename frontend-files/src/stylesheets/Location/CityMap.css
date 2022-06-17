@@ -1,11 +1,4 @@
-.places-container {
-  /* position: absolute; */
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  width: 300px;
-}
+
 
 .map-container {
   width: 100%;
@@ -25,14 +18,12 @@
   align-items: center;
   height: 180px;
   width: 140px;
-  background-color: red;
-  background: rgba(239, 239, 239, 0.2);
-  border-radius: 20px;
+  border-radius: 10px;
   margin-top: 5px;
 }
 
 .lobbyContainer {
-  /* position: relative; */
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -48,7 +39,6 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  /* margin-top: -150px; */
   background-color: white;
 }
 
@@ -66,8 +56,6 @@
 .ContainerInfo{
   display:flex;
   flex-direction: column;
-  /* jusftify-content:center;
-  align-items: center; */
 }
 
 .fa-map-marker-alt, .fa-clock, .fa-arrow-right-long{

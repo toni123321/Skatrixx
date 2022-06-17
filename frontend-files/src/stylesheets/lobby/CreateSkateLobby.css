@@ -18,15 +18,11 @@
 }
 
 #lobby-settings-block {
-    background-color: #1c1c1c;
-    /* height: 95%; */
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     max-width: 550px;
-    /* animation: hideAnimation 0s ease-in 4s;
-    animation-fill-mode: forwards; */
 }
 
 @keyframes hideAnimation {
@@ -40,31 +36,11 @@
 #lobby-settings-block p{
     margin-bottom: 60px;
     text-align: center;
-    
-    /* margin-top: 470px;
-    z-index: 10;
-    font-size: 20px;
-    height: 75px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    border: 1px solid #4e4e4e63;
-    border-radius: 5px;
-    word-wrap: break-word;
-    text-align: center;
-    box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 50%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px;
-    background: rgb(28, 28, 28, 90%);
-    margin-bottom: 60px;
-    text-align: center; 
-    animation: hideAnimation 0s ease-in 4s;
-    animation-fill-mode: forwards; */
 }
 
 #visibility-switch {
     cursor: pointer;
     display: flex;
-    background-color: #1c1c1c;
     border-radius: 30px;
     width: 35%;
     min-width: 200px;
@@ -76,8 +52,7 @@
 }
 
 #private-lobby-visibility, #public-lobby-visibility {
-    border: 2px solid #1c1c1c;
-    width: 50%;
+    width: 20%;
     height: 38px;
     display: flex; 
     align-items: center;

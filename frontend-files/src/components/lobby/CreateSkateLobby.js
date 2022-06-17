@@ -17,20 +17,20 @@ function CreateSkateLobby() {
 
     
     useEffect(() => {
-        loadContent()     
+        loadContent()  
     }, [])
     
 
     const handleLobbyVisibilityChange = (visibility) => {
         setLobbyVisibility(visibility)
         if(visibility === 'private') {
-            document.getElementById('private-lobby-visibility').style.backgroundColor = '#CF2121'
-            document.getElementById('public-lobby-visibility').style.backgroundColor = '#1e1e1e'
+            document.getElementById('private-lobby-visibility').style.borderBottom = '2px solid white'
+            document.getElementById('public-lobby-visibility').style.borderBottom = 'none'
             changeVisibility(lobby._id, 'true');
         }
         else if(visibility === 'public') {
-            document.getElementById('public-lobby-visibility').style.backgroundColor = '#CF2121'
-            document.getElementById('private-lobby-visibility').style.backgroundColor = '#1e1e1e'
+            document.getElementById('private-lobby-visibility').style.borderBottom = 'none'
+            document.getElementById('public-lobby-visibility').style.borderBottom = '2px solid white'
             changeVisibility(lobby._id, 'false')
         }
     }
@@ -49,10 +49,9 @@ function CreateSkateLobby() {
             </div>
              : ''
         }
-
             <div id='visibility-switch'>
-                <p onClick={() => handleLobbyVisibilityChange('private')} id='private-lobby-visibility' style={{backgroundColor : lobby.isPrivate ? '#CF2121' : '#1e1e1e'}}>Private</p>
-                <p onClick={() => handleLobbyVisibilityChange('public')} id='public-lobby-visibility' style={{backgroundColor : !lobby.isPrivate ? '#CF2121' : '#1e1e1e'}}>Public</p>
+                <p onClick={() => handleLobbyVisibilityChange('private')} style={{borderBottom : lobby.isPrivate ? "2px solid white" : "none"}} id='private-lobby-visibility'>Private</p>
+                <p onClick={() => handleLobbyVisibilityChange('public')} style={{borderBottom : !lobby.isPrivate ? "2px solid white" : "none"}} id='public-lobby-visibility'>Public</p>
             </div>
             <p id='lobby-code-text'>Access code: <span id='lobby-code'>{lobby.accessCode}</span></p>
         </div>

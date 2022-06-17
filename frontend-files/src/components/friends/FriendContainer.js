@@ -39,6 +39,7 @@ function FriendContainer(props) {
   if(friend !== undefined) {
   return (
     <div className='friend-container container-border'>
+              <div className='default-container'></div>
       {props.connection.accepted ? '' : 
             <div className='pending-request'>
               {props.connection.sender_id === loggedUser ? 
@@ -54,7 +55,6 @@ function FriendContainer(props) {
             <img id='friend-img' src={friend.image !== undefined ? friend.image : defaultImg} alt=''/>
             <p id='friend-name'>{!props.connection.accepted ? "Pending..." : friend.username.split(' ')[0]}</p>
         </div>
-        <div className='default-container'></div>
     </div>
   )
   }

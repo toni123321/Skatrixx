@@ -59,9 +59,8 @@ function LogInScreen() {
   return (
     <div>
       <img id='background-image' src={backgroundImage} alt=''/>
-      <img src={Logo} alt="" id="logo"></img>
       <div id="log-container">
-        
+        <h1>Skatrixx</h1>
       <form className="logInForm">
         <div className="inputs">
         <label for="pwd"><i class="fa-regular fa-envelope"></i></label>

@@ -21,7 +21,8 @@ function Map() {
     <Marker position={center} />
   </GoogleMap>
     <div className="lobbyContainer">
-      <div className="joinLobby">
+      <div className="joinLobby container-border">
+      <div className="default-container"></div>
       <div className="lobbyProfilePicMap"> </div>
       <div className="ContainerInfo">
         <p className="lobbyTitleMap">
@@ -38,7 +39,8 @@ function Map() {
             <p className="joinLobbyButton">Join<i className="fa-solid fa-arrow-right-long fa-2xl"></i></p>
           </div>
       </div>
-      <div className="joinLobby">
+      <div className="joinLobby container-border">
+      <div className="default-container"></div>
       <div className="lobbyProfilePicMap"> </div>
       <div className="ContainerInfo">
         <p className="lobbyTitleMap">
@@ -55,7 +57,8 @@ function Map() {
           </div>
           </div>
       </div>
-      <div className="joinLobby">
+      <div className="joinLobby container-border">
+      <div className="default-container"></div>
       <div className="lobbyProfilePicMap"> </div>
       <div className="ContainerInfo">
         <p className="lobbyTitleMap">
