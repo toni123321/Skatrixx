@@ -17,7 +17,7 @@ function LobbyMembers(props) {
     <div className='lobbyMembers'>
         <div id={"lobbyMembers-info"}>
           <p>Players: <span id={"lobby-player-count"}>{props.members.length}</span></p>
-          <button id='invite-to-lobby-button' onClick={handleToggleInvitePopUp}>Add</button>
+          <button className='default-button' id='invite-to-lobby-button' onClick={handleToggleInvitePopUp}>Add</button>
         </div>
         <div id='lobby-member-list'>
           {props.members.map(member => (

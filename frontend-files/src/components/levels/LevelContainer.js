@@ -60,7 +60,7 @@ function LevelContainer(props) {
               title="video"
             />
           </div>
-          <button type="button" id="trickBtn" onClick={startTrick}>Start</button>
+          <button className='default-button' type="button" id="trickBtn" onClick={startTrick}>Start</button>
         </div>
       </div>
       
