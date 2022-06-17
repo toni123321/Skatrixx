@@ -44,11 +44,11 @@ function FriendContainer(props) {
             <div className='pending-request'>
               {props.connection.sender_id === loggedUser ? 
               <div id='waiting-request'>
-                <button className='default-button' id='deny-request-button' onClick={handleCancelRequest}><i className="fa-solid fa-circle-xmark"></i></button>
+                <i className="fa-solid fa-circle-xmark" id='deny-request-button' onClick={handleCancelRequest}></i>
               </div> : 
               <div id='accept-request'>
-                <button className='default-button' id='accept-request-button' onClick={handleAcceptRequest}><i className="fa-solid fa-circle-check"></i></button>
-                <button className='default-button' id='deny-request-button' onClick={handleCancelRequest}><i className="fa-solid fa-circle-xmark"></i></button>
+                <i className='fa-solid fa-circle-check' id='accept-request-button' onClick={handleAcceptRequest}></i>
+                <i className="fa-solid fa-circle-xmark" id='deny-request-button' onClick={handleCancelRequest}></i>
               </div>}
             </div>}
         <div id='friend-info'>

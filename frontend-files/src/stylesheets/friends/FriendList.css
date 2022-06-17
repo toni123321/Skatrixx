@@ -70,17 +70,11 @@
 #accept-request, #waiting-request {
   display: flex;
   align-items: center;
+  margin-right: 10px;
 }
 
-#waiting-request{
-  font-size: 2rem;
-  margin-right: 20px;
-}
-
-#accept-request button, #waiting-request button {
-  margin-right: -10px;
+#accept-request i, #waiting-request i {
   background-color: #efefef;
-  padding: 0 !important;
   font-size: 40px;
   border-radius: 50%;
 }
@@ -91,6 +85,7 @@
 }
 #deny-request-button {
   color: #E6171F;
+
 }
 
 @media screen and (max-width: 330px) {
