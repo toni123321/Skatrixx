@@ -9,7 +9,7 @@ function AchievementContainer(props) {
         <p>{props.name}</p>
         <img src={props.image} alt=''/>
         <p>0/{props.max} collected</p>
-        <button className={''}>View</button>
+        <button className={'achievementsBtn default-button'}>View</button>
       </div>
     )
   }
