@@ -52,7 +52,7 @@ function FriendContainer(props) {
             </div>}
         <div id='friend-info'>
             <img id='friend-img' src={friend.image !== undefined ? friend.image : defaultImg} alt=''/>
-            <p id='friend-name'>{!props.connection.accepted ? "Pending..." : friend.username}</p>
+            <p id='friend-name'>{!props.connection.accepted ? "Pending..." : friend.username.split(' ')[0]}</p>
         </div>
         <div className='default-container'></div>
     </div>

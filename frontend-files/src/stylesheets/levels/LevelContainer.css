@@ -1,10 +1,6 @@
 .trick {
-    width: 94%;
-    height: fit-content;
-    box-sizing: border-box;
-    border-radius: 50px;
+    border-radius: 5px;
     margin-top: 15px;
-    max-width: 550px;
     cursor: pointer;
     position: relative;
 }
@@ -13,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 1.2rem;
+    padding: 0 1.2rem;
     height: 70px;
     margin: auto;
     color: #efefee;
@@ -28,14 +24,12 @@
     font-size: xx-large;
     font-style: italic;
     color: #1C80DB;
-    margin-right: -75px;
 }
 
 .trick-container-detail {
     display: flex;  
     margin-top: -30px;
-    margin-left: 50px;
-    margin-bottom: 10px;
+    margin-left: 40px;
 }
 
 .trick-minutes {
@@ -55,10 +49,23 @@
     display: none;
 }
 
+.trick-content hr {
+    height: .5px;
+    border: none;
+    background-color: #efefee;
+    width: 80%;
+    margin: auto;
+}
+
 .trick-right {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+#VideoDiv{
+    width: 94%;
+    margin: auto;
 }
 
 .play-trick-arrow {
@@ -72,9 +79,21 @@
     font-weight: 500;
     font-size: 16px;
 }
+
+#trickName {
+    margin-left: 10px;
+    width: 100%;
+    text-align: left;
+}
+
 #trickXp{
     color: #efefef;
     font-family: 'Segoe UI';
     font-style: italic;
     font-size: 14px;
+}
+
+#trickBtn {
+    margin-top: -10px !important;
+    margin-bottom: 10px !important;
 }
