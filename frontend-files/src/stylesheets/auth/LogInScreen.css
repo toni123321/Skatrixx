@@ -70,12 +70,13 @@
     align-items: center;
 }
 #leftLine, #rightLine{
-   
+   margin: auto;
     border: 2px solid #EFEFEF;
-    width:150px;
+    width:125px;
     height:2px;
 }
 #or{
+    padding:20px;
     text-transform: capitalize;
     font-weight: 700;
 }
