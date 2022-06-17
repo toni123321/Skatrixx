@@ -1,17 +1,105 @@
-.log-in-button {
-    border-radius: 10px;
+
+
+#logo{
+    margin-top: -90px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#log-container{
+    margin-top: -65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+.logInForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    margin: auto;
+}
+.inputs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#email,
+#pwd {
+    padding-left:15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    max-width: 300px;
     width: 250px;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #efeefe;
+    color: #efefef;
+}
+/* #email,
+#pwd :focus {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #CF2121;
+} */
+#fpas, #acount{
+    text-align: center;
+    font-size: 12px;
+}
+.links{
+    color:#CF2121;
+}
+#log {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 150px;
+    height: 35px;
+    background: #CF2121;
+    border-radius: 46px;
+}
+#option{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+#leftLine, #rightLine{
+   
+    border: 2px solid #EFEFEF;
+    width:150px;
+    height:2px;
+}
+#or{
+    text-transform: capitalize;
+    font-weight: 700;
+}
+.log-in-button {
+    background: #EFEFEF;
+    border-radius: 46px;
+    width: 150px;
+    height: 35px;
     position: absolute;
-    top: 50%;
+    color: #101010;
+    font-size: 15px;
+    font-weight: 100;
+    margin: auto;
+    /* top: 45%; */
     left: 0;
     right: 0;
-    margin: auto;
-    transform: translateY(-50%);
-    border: none;
-    padding: 0.5rem;
-    background-color: #CF2121;
 }
 
-.fa-google{
-    padding-right: 10px;
+#icon {
+    padding-left: 10px;
+    /* padding-right: 6px; */
 }
+
+/* .fa-google {
+    padding-left: 6px;
+    padding-right: 10px;
+} */

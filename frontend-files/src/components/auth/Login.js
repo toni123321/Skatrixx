@@ -1,5 +1,6 @@
 import { signInWithGoogle } from '../../services/firebaseService';
 import "../../stylesheets/auth/LogInScreen.css"
+import GoogleIcon from '../../images/googleIcon.png'
 
 
 const Login = () => {
@@ -10,7 +11,8 @@ const Login = () => {
 
   return (
     <div>
-      <button className="log-in-button" onClick={loginInWithGoogleAndAuthorize}><i className="fab fa-google"></i>Sign in with Google</button>
+      {/* <i className="fab fa-google"></i> */}
+      <button className="log-in-button" onClick={loginInWithGoogleAndAuthorize}>Sign in with <img id="icon" src={GoogleIcon} alt=''></img> </button>
     </div>
   )
 }
