@@ -4,11 +4,11 @@ const getAll = () => {
     return http.get("/skateDatas")
 }
 
-const getLastStat = () => {
-    return http.get("/skateDatas/lastRecord")
+const getLastPerformance = () => {
+    return http.get("/skateDatas/getLastPerformance")
 }
 
 export default {
     getAll,
-    getLastStat
+    getLastPerformance
 }
