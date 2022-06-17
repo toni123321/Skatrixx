@@ -22,7 +22,6 @@ function Loby() {
   }
 
 
-
   useEffect(() => {
     
   }, [])
@@ -39,12 +38,10 @@ function Loby() {
             <div className='squareContainer' id="solo">
               <div className='squareContainerInfo'>
               <h4 className='lobbyContainerHeader'>SOLO</h4>
-              <p className='GameInfoText'>Challenge yorself,
-              learn how to skate
-              improve records</p>
+              <p className='GameInfoText'>Challenge yorself, learn how to skate improve records</p>
               </div>
-              <div className='buttonStyling'>
-            <img onClick={() => {handleGamemode('solo')}} src={SoloIcon} alt=''  id= "soloIcon"/>
+              <div className='buttonStyling' onClick={() => {handleGamemode('solo')}} >
+            <img src={SoloIcon} alt=''  id= "soloIcon"/>
             <i className="fa-solid fa-arrow-right-long fa-2xl"></i>
             </div>
             </div>
@@ -54,8 +51,8 @@ function Loby() {
               <h4 className='lobbyContainerHeader' id='skateTitle'>S.K.A.T.E</h4>
               <p className='GameInfoText'>Play with your team and see who does the trick better</p>
               </div>
-              <div className='buttonStyling'>
-              <img onClick={toggleSkatePopup} src={VersusIcon} alt=''  id= "vsIcon"/>
+              <div className='buttonStyling' onClick={toggleSkatePopup}>
+              <img src={VersusIcon} alt=''  id= "vsIcon"/>
             <i className="fa-solid fa-arrow-right-long fa-2xl"></i>
             </div>
             </div>

@@ -19,10 +19,11 @@ function JoinSkateLobby() {
   const loadMapmode = () => {
     if (mapmode === 'Join') {
       return ( <div className='join-skate-lobby'>
-      <div className='cityMapButton' onClick={() => {handleMapmode('Map')}}>
+      <div className='cityMapButtonContainer' onClick={() => {handleMapmode('Map')}}>
+        <div className='cityMapButtonContent'>
       {/* <Route component={CityMap} /> */}
-        <p className='cityMapTitle'>City Map</p>
-        <i className="fa-solid fa-arrow-right-long fa-lg"></i>
+        <p className='cityMapTitle'>See City Map <i className="fa-solid fa-arrow-right-long fa-lg"></i></p>
+        </div>
       </div>
         <div id='public-skate-lobbies'>
         {lobbies.map(lobby => (

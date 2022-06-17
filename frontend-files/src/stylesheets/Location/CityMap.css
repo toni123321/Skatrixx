@@ -1,0 +1,129 @@
+/* html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: black;
+} */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.places-container {
+  /* position: absolute; */
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 300px;
+}
+
+.map-container {
+  width: 100%;
+  height: 50vh;
+}
+
+.combobox-input {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.joinLobby {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  width: 140px;
+  background-color: red;
+  background: rgba(239, 239, 239, 0.2);
+  border-radius: 20px;
+  margin-top: 5px;
+}
+
+.lobbyContainer {
+  /* position: relative; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+}
+
+.lobbyProfilePicMap {
+  position: absolute;
+  top: -25px;
+  /* z-index: 1; */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /* margin-top: -150px; */
+  background-color: white;
+}
+
+.lobbyTitleMap{
+  color: #efefee;
+  margin-left: auto;
+  margin-right: auto;
+  float:center;
+  margin-top: 55px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+.ContainerInfo{
+  display:flex;
+  flex-direction: column;
+  /* jusftify-content:center;
+  align-items: center; */
+}
+
+.fa-map-marker-alt, .fa-clock, .fa-arrow-right-long{
+  color: white;
+}
+
+.fa-arrow-right-long{
+  margin-left: 20px;
+}
+
+.lobbyAreaTitle, .lobbyStatusTitle{
+  display:flex;
+  flex-direction: row;
+  gap: 5px
+}
+
+.lobbyAreaTitle, .lobbyStatusTitle{
+  color: #efefee;
+  font-size: x-small;
+  font-weight: 400;
+  height: 40px;
+}
+
+.lobbyAreaTitle{
+  margin-bottom: -25px;
+}
+
+.lobbyAreaInfo, .lobbyStatusInfo{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+.joinLobbyButton{
+  color: #efefee;
+  font-size: 14px;
+  font-weight: bold;
+  height: 40px;
+  margin-top: -10px;
+}
