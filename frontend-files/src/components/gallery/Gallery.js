@@ -7,7 +7,7 @@ import imageAdd from "../../images/add new image.png"
 import gallery from "../../images/Image Gallery.png"
 import Modal from './Modal'
 import skateboardImage from '../../services/skateGallery'
-import { getUser } from '../../services/userService'
+import { loggedUser } from '../../services/api_client';
 
 
 function Gallery() {
@@ -29,6 +29,7 @@ function Gallery() {
   
   useEffect(() => {
     getSkateboardImages()
+    setUserId(loggedUser)
   }, [])
 
   useEffect(() => {
@@ -113,11 +114,13 @@ function Gallery() {
           </>}
           handleClose={togglePopup}
           />}
-          <div className='gallery-container'>
-                <label htmlFor="image_input" >
-                  <img src={imageAdd} alt="upload-button" id="uploading" onClick={togglePopup}/>
-                </label>
-                <input type="file" id="image_input" name="file"  onChange={onImageChosen}></input>
+          <div className='gallery-container' id="add_new_image">
+                  <label htmlFor="image_input" onClick={togglePopup}>
+                    {/* <img src={imageAdd} alt="upload-button" id="uploading" onClick={togglePopup}/> */}
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <p>New one</p>
+                  </label>
+                  <input type="file" id="image_input" name="file"  onChange={onImageChosen}></input>
           </div>
           {images && images.map(image => (
             <div className='gallery-container' onClick={() => {handleOpenImage(image.image)}}>
