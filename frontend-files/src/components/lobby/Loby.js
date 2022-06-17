@@ -42,7 +42,7 @@ function Loby() {
                   <img src={SoloIcon} alt='' id="soloIcon" />
               </div>
               <div className='buttonStyling'>
-                <i class="fa-solid fa-arrow-right-long fa-2xl"></i>
+                <i className="fa-solid fa-arrow-right-long fa-2xl"></i>
               </div>
             </div>
             <div className='skateContainer container-border' onClick={() => {toggleSkatePopup()}}>
@@ -55,7 +55,7 @@ function Loby() {
                   <img src={VersusIcon} alt='' id="soloIcon" />
               </div>
               <div className='buttonStyling'>
-                <i class="fa-solid fa-arrow-right-long fa-2xl"></i>
+                <i className="fa-solid fa-arrow-right-long fa-2xl"></i>
               </div>
             </div>
           </div>

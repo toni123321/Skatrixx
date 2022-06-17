@@ -28,9 +28,25 @@
 }
 
 #public-skate-lobbies {
-  overflow-y: scroll;
-  height: calc(100vh - 120px);
-  padding-bottom: 65px;
+    overflow-y: scroll;
+    height: calc(100vh - 120px);
+    padding-bottom: 65px;
+}
+
+.cityMapButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.cityMapTitle{
+    margin-right: 50px;
 }
 
 /* #cityMapArrow {

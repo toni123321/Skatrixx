@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "../../stylesheets/levels/LevelContainer.css"
 
-
 function LevelContainer(props) {  
 
   const [opened, setOpened] = useState(true)
@@ -50,6 +49,7 @@ function LevelContainer(props) {
           <p className='trick-avarge-scoretext'>Based on avarge score</p>
         </div>
         <div className='trick-content'>
+          <hr></hr>
           <div id="VideoDiv">
             <iframe
               id="videoFrame"
