@@ -4,7 +4,7 @@ import "../../stylesheets/lobby/Loby.css"
 
 import LevelMenu from '../levels/LevelMenu'
 // import SIcon from "../images/s-1 1.svg"
-import SoloIcon from "../../images/Account.svg"
+import SoloIcon from "../../images/Skateboarding.svg"
 import VersusIcon from "../../images/Head to Head.svg"
 import { Link } from 'react-router-dom'
 

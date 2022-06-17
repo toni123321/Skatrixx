@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
-
-
 import "../../stylesheets/achievements/AchievementContainer.css"
 
 function AchievementContainer(props) {
 
-  if(props.img !== undefined) {
     return (
-      <div className='achievement-container'>
-          <img src={props.img} alt=''/>
+      <div className='achievement-container container-border'>
+        <div className='default-container'></div>
+        <p>{props.name}</p>
+        <img src={props.image} alt=''/>
+        <p>0/{props.max} collected</p>
+        <button className={''}>View</button>
       </div>
     )
   }
-  else {return(<></>)}
-}
 
 export default AchievementContainer

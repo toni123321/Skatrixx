@@ -53,13 +53,6 @@ body {
 
 button {
   border: none;
-  display: flex;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
   cursor: pointer;
   color: #efefee;
   background-color: #A61F1F;

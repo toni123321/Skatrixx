@@ -1,18 +1,17 @@
-
-
 #logo{
     margin-top: -90px;
     margin-left: auto;
     margin-right: auto;
 }
+
 #log-container{
-    margin-top: -65px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
+    margin-top: 25%;
+    width: 94%;
+    max-width: 550px;
+    text-align: center;
+    margin-inline: auto;
 }
+
 .logInForm {
     display: flex;
     flex-direction: column;
@@ -21,11 +20,7 @@
     align-items: center;
     margin: auto;
 }
-.inputs{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
+
 #email,
 #pwd {
     padding-left:15px;
@@ -40,28 +35,13 @@
     border-bottom: 2px solid #efeefe;
     color: #efefef;
 }
-/* #email,
-#pwd :focus {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 2px solid #CF2121;
-} */
 #fpas, #acount{
-    text-align: center;
     font-size: 12px;
 }
 .links{
     color:#CF2121;
 }
-#log {
-    margin-top: 25px;
-    margin-bottom: 25px;
-    width: 150px;
-    height: 35px;
-    background: #CF2121;
-    border-radius: 46px;
-}
+
 #option{
     display: flex;
     flex-direction: row;
@@ -71,9 +51,9 @@
 }
 #leftLine, #rightLine{
    margin: auto;
-    border: 2px solid #EFEFEF;
+    background-color: white;
     width:125px;
-    height:2px;
+    height:1px;
 }
 #or{
     padding:20px;
@@ -81,26 +61,19 @@
     font-weight: 700;
 }
 .log-in-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #EFEFEF;
     border-radius: 46px;
     width: 150px;
     height: 35px;
-    position: absolute;
     color: #101010;
     font-size: 15px;
     font-weight: 100;
     margin: auto;
-    /* top: 45%; */
-    left: 0;
-    right: 0;
 }
 
 #icon {
-    padding-left: 10px;
-    /* padding-right: 6px; */
+    margin-left: 10px;
 }
-
-/* .fa-google {
-    padding-left: 6px;
-    padding-right: 10px;
-} */
