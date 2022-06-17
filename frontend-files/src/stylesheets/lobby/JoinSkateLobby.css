@@ -33,7 +33,7 @@
     padding-bottom: 65px;
 }
 
-.cityMapButton{
+/* .cityMapButton{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,15 +43,11 @@
     margin-left: 20px;
     margin-top: 20px;
     position: relative;
-}
+} */
 
 .cityMapTitle{
     margin-right: 50px;
 }
-
-/* #cityMapArrow {
-  margin-left: 20px;
-} */
 
 .cityMapButtonContainer {
   width: fit-content;
@@ -59,8 +55,8 @@
   white-space: nowrap;
   border-radius: 20px;
   text-align: center;
-  padding-inline: 15px;
-
+  margin: 10px 20px -5px;
+  padding: 0px 0px 0px 10px;
 }
 
 

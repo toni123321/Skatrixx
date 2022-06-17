@@ -42,7 +42,8 @@ h4 {
     text-align: right;
     font-size: 20px;
     font-weight: bolder;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    margin-top: -10px;
     color: #EFEFEF;
 }
 
@@ -50,10 +51,10 @@ h4 {
     text-align: center;
     border-radius: 10px;
     background-color: #1e1e1e;
-    width: 80%;
+    width: 70%;
     height: 450px;
     max-width: 350px;
-    max-height: 250px;
+    max-height: 230px;
     padding: 20px;
     text-decoration: none;
 }

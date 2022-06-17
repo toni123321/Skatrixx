@@ -76,9 +76,10 @@
     height:2px;
 }
 #or{
-    padding:20px;
+    padding: 5px;
     text-transform: capitalize;
-    font-weight: 700;
+    font-weight: 500;
+    font-size: small
 }
 .log-in-button {
     background: #EFEFEF;
