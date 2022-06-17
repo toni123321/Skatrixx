@@ -11,11 +11,12 @@ function CameraComponent() {
       <div>
           
         <Camera ref={camera} numberOfCamerasCallback={setNumberOfCameras}/>
-        <button id="cameraBtn" onClick={() => setImage(camera.current.takePhoto())}>Take photo</button>
+        <button className='default-button' id="cameraBtn" onClick={() => setImage(camera.current.takePhoto())}>Take photo</button>
         <div id="tookImg">
         <img id="taken" src={image} alt='skateboard'/>
         </div>
         <button
+        className='default-button'
         hidden={numberOfCameras <= 1}
         onClick={() => {
           camera.current.switchCamera(); 

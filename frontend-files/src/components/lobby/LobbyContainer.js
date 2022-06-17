@@ -46,7 +46,7 @@ function LobbyContainer(props) {
             {props.lobby.members.length > 3 ? <p>+{props.lobby.members.length - 3}</p> : <img id='lobby-container-image' src={thirdLobbyLeader.image} alt=''/>}
         </div>
         <div id='lobby-container-controls'>
-          <button id='lobby-container-join' onClick={() => {joinLobby()}}>Join</button>
+          <button className='default-button'id='lobby-container-join' onClick={() => {joinLobby()}}>Join</button>
         </div>
         </div>
     </div>

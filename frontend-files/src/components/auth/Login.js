@@ -12,7 +12,7 @@ const Login = () => {
   return (
     <div>
       {/* <i className="fab fa-google"></i> */}
-      <button className="log-in-button" onClick={loginInWithGoogleAndAuthorize}>Sign in with <img id="icon" src={GoogleIcon} alt=''></img> </button>
+      <button className="log-in-button default-button" onClick={loginInWithGoogleAndAuthorize}>Sign in with <img id="icon" src={GoogleIcon} alt=''></img> </button>
     </div>
   )
 }

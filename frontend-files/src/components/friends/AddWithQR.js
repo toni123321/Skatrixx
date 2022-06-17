@@ -65,8 +65,8 @@ function AddWithQR(props) {
     <div className='add-with-qr'>
       <div onClick={() => {props.changeAddOption('')}} id='back'>  <p><i class="fa-solid fa-angle-left"></i></p></div>
         <div className='qr-tabs'>
-          <button onClick={() => {handleTabChange('my')}} id='qr-tabs-my'>MY CODE</button>
-          <button onClick={() => {handleTabChange('scan')}} id='qr-tabs-scan'>SCAN CODE</button>
+          <button className='default-button' onClick={() => {handleTabChange('my')}} id='qr-tabs-my'>MY CODE</button>
+          <button className='default-button' onClick={() => {handleTabChange('scan')}} id='qr-tabs-scan'>SCAN CODE</button>
         </div>
         {displayQRTabs()}
     </div>

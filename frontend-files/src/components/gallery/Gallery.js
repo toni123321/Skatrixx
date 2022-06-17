@@ -108,7 +108,7 @@ function Gallery() {
                 </div>
             )}
             </div>
-            <button id="uploadBtn" onClick={uploadFile}> Upload Image</button>
+            <button className='default-button' sid="uploadBtn" onClick={uploadFile}> Upload Image</button>
           </div>
           </>}
           handleClose={togglePopup}

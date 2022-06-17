@@ -74,7 +74,7 @@ function LogInScreen() {
         </div>
       </form>
       <p id="fpas">Forgot password? <a href='' className="links">Recover here</a></p>
-      <button id="log">Log In</button>
+      <button className='default-button' id="log">Log In</button>
       <p id="acount">Don't have an account? <a href='' className="links">Register here</a> </p>
       <div id="option">
         <hr id="leftLine"></hr>
