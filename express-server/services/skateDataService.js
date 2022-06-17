@@ -1,3 +1,5 @@
+const SkatePerformance = require("../models/skatePerformance");
+
 function getLastPerformance(skateData) {
     let startIndex = 0;
     let endIndex = 0;
@@ -36,11 +38,17 @@ function processSkateData(skateLatestsStats) {
         rotationZ_arr.push(parseFloat(stat.rotationZ))
     }) 
 
+    const max_height = calcMaxHeight(height_arr)
+    const max_airtime = calcAirtime(height_arr)
+    const avg_rotationY = calcRotationY(rotationY_arr)
+    const avg_rotationZ = calcRotationZ(rotationZ_arr)
+
     const skatePerformance = {
-        max_height: calcMaxHeight(height_arr),
-        airtime: calcAirtime(height_arr),
-        rotationY: calcRotationY(rotationY_arr),
-        rotationZ: calcRotationZ(rotationZ_arr)
+        max_height: max_height,
+        max_airtime: max_airtime,
+        avg_rotationY: avg_rotationY,
+        avg_rotationZ: avg_rotationZ,
+        result: calcStatResult(max_height, max_airtime, avg_rotationY, avg_rotationZ)
     }
     return skatePerformance
 }
@@ -71,6 +79,10 @@ function calcAirtime(height_arr) {
         }
     }
     return biggestAirtime
+}
+
+function calcStatResult(max_height, max_airtime, avg_rotationY, avg_rotationZ) {
+    return "Good";
 }
 
 module.exports = {

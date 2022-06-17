@@ -31,7 +31,6 @@ router.patch('/start',async(req,res)=>{
 
  //Update moduleState finish
  router.patch('/finish',async(req,res)=>{
- 
     try{
         const moduleStates = await moduleState.findOne().sort({$natural: -1}).limit(1)
         if( moduleStates.isStarted==true){
