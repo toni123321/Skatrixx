@@ -2,13 +2,16 @@
     font-size: 30px;
     margin-top: 50px;
     margin-left:15px;
+    color: #efefef;
 }
+
 #mic{
     font-size: 30px;
     display: flex;
     margin-top: 180px;
     justify-content: space-evenly;
     justify-items: center;
+    color: #efefef;
 }
 .menu{
     margin-top: 50px;
@@ -17,6 +20,7 @@
     justify-content: space-evenly;
     justify-items: center;
     font-size: 25px;
+    color: #efefef;
 }
 
 
