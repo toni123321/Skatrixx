@@ -69,7 +69,7 @@ const LevelList = (props) => {
       (
         <div >
           <p
-            id="back"
+            className="back-button"
             onClick={() => {
               props.handleDifficultyChange("");
             }}

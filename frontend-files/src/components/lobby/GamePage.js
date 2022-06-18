@@ -1,5 +1,4 @@
 import React from 'react'
-import LevelMenu from '../levels/LevelMenu'
 
 import "../../stylesheets/levels/LevelMenu.css"
 import Loby from './Loby'

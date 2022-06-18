@@ -1,15 +1,10 @@
-#logo{
-    margin-top: -90px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 #log-container{
-    margin-top: 25%;
+    margin-top: 100px;
     width: 94%;
     max-width: 550px;
     text-align: center;
     margin-inline: auto;
+    overflow: hidden;
 }
 
 .logInForm {
@@ -61,6 +56,22 @@
     font-weight: 500;
     font-size: small
 }
+
+#log {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #CF2121;
+    border-radius: 46px;
+    width: 150px;
+    height: 35px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 100;
+    margin-inline: auto;
+    margin-block: 25px;
+}
+
 .log-in-button {
     display: flex;
     align-items: center;

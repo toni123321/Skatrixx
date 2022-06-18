@@ -9,7 +9,6 @@ function LobbyContainer(props) {
 
     const [lobbyLeader, setLobbyLeader] = useState({})
     const [secondLobbyLeader, setSecondLobbyLeader] = useState(undefined)
-    const [thirdLobbyLeader, setThirdLobbyLeader] = useState(undefined)
     const [containerLoaded, setContainerLoaded] = useState(false);
 
     const loadLobbyLeader = async () => {
@@ -17,9 +16,6 @@ function LobbyContainer(props) {
         setLobbyLeader(await getUser(props.lobby.members[0]))
         if(Object.keys(props.lobby.members).length > 1) {
             setSecondLobbyLeader(await getUser(props.lobby.members[1]))
-        }
-        if(Object.keys(props.lobby.members).length > 2) {
-            setThirdLobbyLeader(await getUser(props.lobby.members[2]))
         }
         setContainerLoaded(true)
     }
@@ -43,7 +39,7 @@ function LobbyContainer(props) {
           <div id='lobby-container-images'>
             <img id='lobby-container-image' src={lobbyLeader.image} alt=''/>
             {secondLobbyLeader !== undefined ? <img id='lobby-container-image' src={secondLobbyLeader.image} alt=''/> : ''}
-            {props.lobby.members.length > 3 ? <p>+{props.lobby.members.length - 3}</p> : <img id='lobby-container-image' src={thirdLobbyLeader.image} alt=''/>}
+            {props.lobby.members.length > 3 ? <p>+{props.lobby.members.length - 3}</p> : ''}
         </div>
         <div id='lobby-container-controls'>
           <button className='default-button'id='lobby-container-join' onClick={() => {joinLobby()}}>Join</button>

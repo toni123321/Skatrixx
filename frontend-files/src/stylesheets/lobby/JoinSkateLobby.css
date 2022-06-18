@@ -33,30 +33,21 @@
     padding-bottom: 65px;
 }
 
-/* .cityMapButton{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 50px;
-    border-radius: 20px;
-    margin-left: 20px;
-    margin-top: 20px;
-    position: relative;
-} */
-
 .cityMapTitle{
     margin-right: 20px;
 }
 
 .cityMapButtonContainer {
+  position: relative;
   width: fit-content;
   display: inline-block;
   white-space: nowrap;
   border-radius: 20px;
   text-align: center;
-  margin: 10px 30px -5px;
-  padding: 0px 0px 0px 20px;
+  margin: 10px 20px -5px;
+  padding: 0px 0px 0px 10px;
+  color: white;
+  background-color: transparent;
 }
 
 

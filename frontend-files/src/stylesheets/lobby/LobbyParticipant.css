@@ -23,10 +23,24 @@
     transform: translateY(50%);
 }
 
-.lobby-participant-info img {
+#lobby-participant-image {
     border-radius: 50%;
     width: 60px;
     height: auto;
     margin-left: 15px;
     margin-block: 10px;
 }
+
+.lobby-participant-action {
+    position: absolute;
+    right: 15px;
+    height: 25px;
+    width: 25px;
+}
+
+#lobby-leader-icon {
+    right: 5px;
+    height: 40px !important;
+    width: 40px !important;
+}
+

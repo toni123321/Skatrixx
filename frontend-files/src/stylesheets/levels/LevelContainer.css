@@ -47,6 +47,7 @@
 
 .trick-content{
     display: none;
+    text-align: center;
 }
 
 .trick-content hr {
@@ -94,7 +95,5 @@
 }
 
 #trickBtn {
-    margin-top: -10px !important;
     margin-bottom: 10px !important;
-    margin-left: 33%;
 }

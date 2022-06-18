@@ -47,7 +47,7 @@ name : "Pro Ramp",
     return (
       <div className="level-menu">
       <p
-        id="back"
+        className="back-button"
         onClick={() => {
           props.back("Menu");
         }}>
