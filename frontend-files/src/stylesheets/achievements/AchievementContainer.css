@@ -1,11 +1,16 @@
 .achievement-container{
     position: relative;
     width: 40vw;
-    height: 33vh;
+    height: 35vh;
     max-width: 200px;
     border-radius: 10px;
     overflow: hidden;
     text-align: center;
+}
+
+.achievementsBtn{
+    padding: 5px 20px 5px 20px;
+    margin-top: -45px;
 }
 
 .achievement-image {

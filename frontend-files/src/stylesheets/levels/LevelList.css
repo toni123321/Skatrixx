@@ -31,6 +31,6 @@
 .level-ramp-image {
     position: absolute;
     width: 200px;
-    left: -100px;
-    top: -75px
+    right: -100px;
+    top: -55px
 }

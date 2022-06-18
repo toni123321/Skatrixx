@@ -11,7 +11,7 @@
 
 #trickBtn {
     border: none;
-    margin: auto;
+    /* margin: auto; */
     height: 35px;
     width: 120px;
     border-radius: 45px;
