@@ -1,5 +1,18 @@
 const CACHE_NAME = "version-1";
-const urlsToCache = ["manifest.json",'index.html', 'offline.html'];
+const urlsToCache = ["manifest.json",
+'index.html', 
+'offline.html',
+"stepsPage.html",
+"statisticPage.html",
+"gameMode.html",
+"./css/gameMode.css",
+"./css/offline.css",
+"./css/statisticPage.css",
+"./css/stepsOffline.css",
+"./images/background_image.png",
+"./images/logo.png",
+"./images/good.gif"
+];
 
 const self=this;
 //instal SW

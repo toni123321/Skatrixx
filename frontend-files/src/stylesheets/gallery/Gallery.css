@@ -55,6 +55,10 @@
     overflow-x:hidden;
 }
 
+.uploadImage{
+  padding: 15px 15px;
+}
+
 @media only screen and (max-width : 350px) {
   .gallery{
     grid-template-columns: 1fr 1fr; 
