@@ -3,39 +3,58 @@ import "../../stylesheets/levels/TrickPage.css";
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
+import moduleStateService from "../../services/moduleStateService"
+import skateDataService from '../../services/skateDataService'
+import Statistic from './Statistic';
+import { useParams } from "react-router-dom";
 
-const renderTime = ({ remainingTime }) => {
-  if (remainingTime === 0) {
-    return <div className="timer">Done</div>;
-  }
-
-  return (
-    <div className="timer">
-      <div className="text">Remaining</div>
-      <div className="value">{remainingTime}</div>
-      <div className="text">seconds</div>
-    </div>
-  );
-};
-
-const TrickPage = () => {
+const TrickPage = (props) => {
     // Timer
     const [key, setKey] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
     const [duration, setDuration] = useState(60);
     const [isListening, setIsListening] = useState(true);
+    const [statisticMode, setStatisticMode] = useState(false)
+    const { id } = useParams()
+
+
+    const startTrickAttempt = () => {
+      setIsPlaying(true)
+      moduleStateService.startTrick()
+    }
+
+    const endTrickAttempt = () => {
+      setIsPlaying(false)
+      moduleStateService.endTrick()
+      skateDataService.processLastPerformance()
+      setStatisticMode(true)
+    }
+
+    const renderTime = ({ remainingTime }) => {
+      if (remainingTime === 0) {
+        endTrickAttempt()
+      }
+    
+      return (
+        <div className="timer">
+          <div className="text">Remaining</div>
+          <div className="value">{remainingTime}</div>
+          <div className="text">seconds</div>
+        </div>
+      );
+    };
 
     const commands = [
       {
         command: ["start", "begin", "go", "now"],
         callback: ({command}) => {
-          setIsPlaying(true)
+          startTrickAttempt()
         }
       },
       {
         command: ["stop", "pause", "wait"],
         callback: ({command}) => {
-          setIsPlaying(false)
+          endTrickAttempt()
         }
       },
       {
@@ -76,7 +95,17 @@ const TrickPage = () => {
     }
  
     return (
+      <>
+      {!statisticMode ?
       <div className='timer-container'>
+        <p
+            className="back-button"
+            onClick={() => {
+              window.history.back()
+            }}
+          >
+          <i class="fa-solid fa-angle-left"></i>
+        </p>
         <div className="timer-circle-wrapper">
           <CountdownCircleTimer
             key={key}
@@ -94,8 +123,8 @@ const TrickPage = () => {
           <div>{transcript}</div>
         </div>
         <div className="button-wrapper">
-          <i className="fa-solid fa-circle-pause" onClick={() => setIsPlaying(false)}></i>
-          <i className="fa-solid fa-circle-play" onClick={() => setIsPlaying(true)}></i>
+          <i className="fa-solid fa-circle-pause" onClick={endTrickAttempt}></i>
+          <i className="fa-solid fa-circle-play" onClick={startTrickAttempt}></i>
           <i className="fa-solid fa-clock-rotate-left"
           onClick={() => {
             setKey((prevKey) => prevKey + 1);
@@ -104,6 +133,10 @@ const TrickPage = () => {
           ></i>
         </div>
       </div>
+      :
+      <Statistic trickId={id}/>
+      }
+      </>
     )
  }
 

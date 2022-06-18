@@ -76,6 +76,10 @@ body {
   font-size: 25px;
 }
 
+.default-link {
+  text-decoration: none;
+}
+
 .default-button {
   width: fit-content;
   display: inline-block;

@@ -77,6 +77,11 @@ h4 {
     margin: auto;
 }
 
+#soloGameLink {
+    text-decoration: none;
+    color: #EFEFEF;
+}
+
 .soloContainer{
     width: 266px;
     height: 192px;

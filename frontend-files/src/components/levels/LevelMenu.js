@@ -7,25 +7,26 @@ import ProsRamp from "../../images/ProsRamp.png";
 
 function LevelMenu(props) {
 
-  const difficulties = [{
-    name : "Rookie Ramp",
-    trickNr : "10",
-    diff: "rookie",
-    image: RookieRamp
-  },
-  {
-    name : "Amateur Ramp",
-    trickNr : "20",
-    diff: "amateur",
-    image: IntermediateRamp
-},
-{
-name : "Pro Ramp",
-    trickNr : "25",
-    diff: "pro",
-    image: ProsRamp
-  }
-];
+  const difficulties = [
+    {
+      name : "Rookie Ramp",
+      trickNr : "10",
+      diff: "rookie",
+      image: RookieRamp
+    },
+    {
+      name : "Amateur Ramp",
+      trickNr : "20",
+      diff: "amateur",
+      image: IntermediateRamp
+    },
+    {
+      name : "Pro Ramp",
+      trickNr : "25",
+      diff: "pro",
+      image: ProsRamp
+    }
+  ];
 
   // Use state (hooks)
   const [difficultyOpened, setDificultyOpened] = useState("");
@@ -34,7 +35,6 @@ name : "Pro Ramp",
   // Use effect - load levels
   useEffect(() => {
     var containers = document.getElementsByClassName("difficulty-container")
-    //containers[0].classList.add("selected")
   }, [])
   
 
@@ -49,7 +49,7 @@ name : "Pro Ramp",
       <p
         className="back-button"
         onClick={() => {
-          props.back("Menu");
+         window.history.back();
         }}>
         <i className="fa-solid fa-angle-left"></i>
       </p>
