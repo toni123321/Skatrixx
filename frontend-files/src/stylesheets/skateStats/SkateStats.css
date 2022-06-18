@@ -17,10 +17,9 @@
 }
 
 .skate-stat-item {
-    padding: 20px;
-    font-size: 30px;
+    margin-bottom: 20px;
+    font-size: 25px;
     text-align: center;
-
     display: flex;
     gap: 0.8rem;
     align-items: center;
@@ -28,7 +27,7 @@
 }
 
 .skate-stat-text {
-    font-size: 1.2rem;
+    font-size: 1rem;
     align-self: flex-start;
 }
 
@@ -39,7 +38,13 @@
 .skate-stat-item .value {
     display: flex;
     gap: 3px;
+    font-size: 30px;
 }
+.skate-stat-item img {
+    height: 35px;
+    width: 35px;
+}
+
 .skate-stat-dimensions {
     font-size: 0.8rem;
     align-self: flex-end;

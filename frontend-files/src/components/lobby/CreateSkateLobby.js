@@ -6,6 +6,7 @@ import "../../stylesheets/lobby/CreateSkateLobby.css"
 
 import LobbyMembers from './LobbyMembers';
 import { loggedUser } from '../../services/api_client';
+import Loading from '../Loading';
 
 function CreateSkateLobby() {
 
@@ -71,9 +72,7 @@ function CreateSkateLobby() {
   )
 }
 else {return (
-<div>
-    <p>Ne</p>
-</div>)}
+<Loading/>)}
 }
 
 export default CreateSkateLobby

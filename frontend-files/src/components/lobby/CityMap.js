@@ -3,6 +3,7 @@ import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import "../../stylesheets/Location/CityMap.css"
 import { getLobbies } from "../../services/lobbyService";
 import CityMapLobby from "./CityMapLobby";
+import Loading from "../Loading";
 
 
 export default function CityMap(props) {
@@ -10,7 +11,7 @@ export default function CityMap(props) {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY,
   });
 
-  if (!isLoaded) return <div>Loading...</div>;
+  if (!isLoaded) return <Loading/>;
   return <Map back={props.back}/>;
 }
 

@@ -3,6 +3,7 @@ import skateDataService from '../../services/skateDataService'
 import SkateBoardPreview from './SkateBoardPreview';
 import SkateStats from './SkateStats';
 import "../../stylesheets/skateStats/SkateStats.css"
+import Loading from '../Loading';
 
 
 
@@ -42,7 +43,7 @@ function SkatePage() {
   return (
     <div>
     <SkateBoardPreview />
-    {loading && <div>Loading...</div>}
+    {loading && <Loading/>}
     {!loading && (
       !error ? (
       <div className='skateStatPage'>

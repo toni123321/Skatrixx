@@ -8,6 +8,7 @@ import gallery from "../../images/Image Gallery.png"
 import Modal from './Modal'
 import skateboardImage from '../../services/skateGallery'
 import { loggedUser } from '../../services/api_client';
+import Loading from '../Loading'
 
 
 function Gallery() {
@@ -122,11 +123,11 @@ function Gallery() {
                   </label>
                   <input type="file" id="image_input" name="file"  onChange={onImageChosen}></input>
           </div>
-          {images && images.map(image => (
+          {images.length > 0 ? images.map(image => (
             <div className='gallery-container' onClick={() => {handleOpenImage(image.image)}}>
               <img src={image.image}  className="galleryImage" alt=''/>
             </div>
-          ))}
+          )) : <Loading/>}
           {viewedImage !== undefined ? 
           <div id='viewImage'>
             <p onClick={() => {handleOpenImage(undefined)}}><i class="fa-solid fa-xmark"></i></p>

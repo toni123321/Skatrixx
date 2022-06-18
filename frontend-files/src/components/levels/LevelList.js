@@ -7,6 +7,7 @@ import "../../stylesheets/levels/LevelList.css";
 import RookieRamp from "../../images/RookieRamp.png";
 import IntermediateRamp from "../../images/IntermediateRamp.png";
 import ProsRamp from "../../images/ProsRamp.png";
+import Loading from '../Loading';
 
 
 
@@ -24,12 +25,6 @@ const LevelList = (props) => {
     difficulty: "",
   }
   const [currTrick, setCurrTrick] = useState(initialCurrTrickState)
-
-  // the function change the state play
-  // const handlePlay = (trick) => {
-  //   setCurrTrick(trick)
-  //   setPlay(!play)
-  // }
 
   const handleGoBack = () => {
     setPlay(false)
@@ -77,7 +72,7 @@ const LevelList = (props) => {
             <i class="fa-solid fa-angle-left"></i>
           </p>
           {/*if the data is loading too long*/}
-          {loading && <div>Loading...</div>}
+          {loading && <Loading/>}
           {!loading && (
             !error ? (
               <div id="tricks">

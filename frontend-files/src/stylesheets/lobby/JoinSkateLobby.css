@@ -29,6 +29,7 @@
 
 #public-skate-lobbies {
     overflow-y: scroll;
+    margin-top: 75px;
     height: calc(100vh - 120px);
     padding-bottom: 65px;
 }
@@ -38,16 +39,17 @@
 }
 
 .cityMapButtonContainer {
-  position: relative;
-  width: fit-content;
-  display: inline-block;
-  white-space: nowrap;
+  position: absolute;
+  right: 20px;
+  top: 20px;
   border-radius: 20px;
-  text-align: center;
-  margin: 10px 20px -5px;
   padding: 0px 0px 0px 10px;
   color: white;
   background-color: transparent;
 }
 
-
+.no-public-lobbies{
+  text-align: center;
+  margin-top: 50%;
+  font-size: larger;
+}

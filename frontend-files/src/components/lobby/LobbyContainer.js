@@ -48,7 +48,7 @@ function LobbyContainer(props) {
     </div>
   )
 }
-else {return (<div>Loading...</div>)}
+else {return (<div></div>)}
 }
 
 export default LobbyContainer

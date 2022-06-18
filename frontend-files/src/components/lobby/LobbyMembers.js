@@ -4,6 +4,7 @@ import InviteToLobby from './InviteToLobby'
 import addFriend from "../../images/Add User Group Man Man.png"
 import LobbyParticipant from './LobbyParticipant'
 import { loggedUser } from '../../services/api_client'
+import Loading from '../Loading'
 
 function LobbyMembers(props) {
 
@@ -32,7 +33,7 @@ function LobbyMembers(props) {
     </div>
   )
 }
-else{return (<>Loading</>)}
+else{return (<Loading/>)}
 }
 
 export default LobbyMembers

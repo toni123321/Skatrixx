@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getLobbies, joinLobby } from "../../services/lobbyService";
+import Loading from "../Loading"
 import LobbyContainer from "./LobbyContainer";
 import "../../stylesheets/lobby/JoinSkateLobby.css";
 import CityMap from "./CityMap";
@@ -7,9 +8,11 @@ import CityMap from "./CityMap";
 function JoinSkateLobby() {
   const [mapmode, setMapmode] = useState("Join");
   const [lobbies, setLobbies] = useState([]);
+  const [loaded, setLoaded] = useState(false)
 
   const loadLobbies = async () => {
     setLobbies(await getLobbies());
+    setLoaded(true)
   };
 
   useEffect(() => {
@@ -24,6 +27,13 @@ function JoinSkateLobby() {
     if (mapmode === "Join") {
       return (
         <div className="join-skate-lobby">
+        <p
+        className="back-button"
+        onClick={() => {
+          window.history.back()
+        }}>
+        <i className="fa-solid fa-angle-left"></i>
+      </p>
           <button
             className="cityMapButtonContainer container-border"
             onClick={() => {
@@ -36,9 +46,10 @@ function JoinSkateLobby() {
             </p>
           </button>
           <div id="public-skate-lobbies">
-            {lobbies.map((lobby) => (
+          {loaded && lobbies.length === 0 ? <p className="no-public-lobbies">Ooops looks like there are no available lobbies at this moment</p> : ''}
+            {loaded ? lobbies.map((lobby) => (
               <LobbyContainer lobby={lobby} />
-            ))}
+            )) : <Loading/>}
           </div>
         </div>
       );
