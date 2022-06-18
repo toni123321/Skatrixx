@@ -50,8 +50,8 @@ function Statistic(props) {
           </div>
         </div>
         <div id="stat-btns">
-        <button id="undo">Undo</button>
-        <button onClick={levelUp} id="save">Save</button>
+        <button className='default-button' id="undo">Undo</button>
+        <button className='default-button' onClick={levelUp} id="save">Save</button>
         </div>
 
         <h2>{msg !== "" ? msg: "Save your trick"}</h2>

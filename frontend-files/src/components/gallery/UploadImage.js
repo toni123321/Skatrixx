@@ -48,7 +48,7 @@ function UploadImage() {
     <div>
         {/* image upload will take the value of the input and to access the file and can access multiple and put them in array */}     
              {outputImg !== "" ? (<img src={outputImg} alt=""/>) : (<></>)}
-         <button id="uploadBtn" onClick={uploadFile}> Upload Image</button>
+         <button className='default-button'id="uploadBtn" onClick={uploadFile}> Upload Image</button>
          <div className="displayImages">
          {imageUrls.map((url) => {
            return <img src={url} className="galleryImage" alt="" />;

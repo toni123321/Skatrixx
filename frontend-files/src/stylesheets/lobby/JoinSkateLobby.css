@@ -1,29 +1,30 @@
- #join-lobby-code {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 250px;
-    margin: auto;
-    padding: 10px;
-    position: absolute;
-    left: 0; right: 0;
-    bottom: 65px;
-    border-radius: 10px;
+#join-lobby-code {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  margin: auto;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 65px;
+  border-radius: 10px;
 }
 
 #join-lobby-code input {
-    height: 30px;
-    width: 160px;
-    border-radius: 5px;
-    margin-right: 20px;
+  height: 30px;
+  width: 160px;
+  border-radius: 5px;
+  margin-right: 20px;
 }
 
 #lobby-container-join-button {
-    height: 30px;
-    width: 80px;
-    border-radius: 5px;
-    margin: 0;
+  height: 30px;
+  width: 80px;
+  border-radius: 5px;
+  margin: 0;
 }
 
 #public-skate-lobbies {
@@ -32,23 +33,30 @@
     padding-bottom: 65px;
 }
 
-.cityMapButton{
+/* .cityMapButton{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 200px;
     height: 50px;
-    background: rgba(217, 217, 217, 0.12);
     border-radius: 20px;
     margin-left: 20px;
-    line-gap-override: 20px;
-}
+    margin-top: 20px;
+    position: relative;
+} */
 
 .cityMapTitle{
     margin-right: 50px;
 }
 
-
-
+.cityMapButtonContainer {
+  width: fit-content;
+  display: inline-block;
+  white-space: nowrap;
+  border-radius: 20px;
+  text-align: center;
+  margin: 10px 20px -5px;
+  padding: 0px 0px 0px 10px;
+}
 
 

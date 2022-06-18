@@ -4,7 +4,7 @@ import "../../stylesheets/lobby/Loby.css"
 
 import LevelMenu from '../levels/LevelMenu'
 // import SIcon from "../images/s-1 1.svg"
-import SoloIcon from "../../images/Account.svg"
+import SoloIcon from "../../images/Skateboarding.svg"
 import VersusIcon from "../../images/Head to Head.svg"
 import { Link } from 'react-router-dom'
 
@@ -20,7 +20,6 @@ function Loby() {
   const toggleSkatePopup = () => {
     setSkatePopup(!skatePopup)
   }
-
 
 
   useEffect(() => {
@@ -43,7 +42,7 @@ function Loby() {
                   <img src={SoloIcon} alt='' id="soloIcon" />
               </div>
               <div className='buttonStyling'>
-                <i class="fa-solid fa-arrow-right-long fa-2xl"></i>
+                <i className="fa-solid fa-arrow-right-long fa-2xl"></i>
               </div>
             </div>
             <div className='skateContainer container-border' onClick={() => {toggleSkatePopup()}}>
@@ -56,17 +55,17 @@ function Loby() {
                   <img src={VersusIcon} alt='' id="soloIcon" />
               </div>
               <div className='buttonStyling'>
-                <i class="fa-solid fa-arrow-right-long fa-2xl"></i>
+                <i className="fa-solid fa-arrow-right-long fa-2xl"></i>
               </div>
             </div>
           </div>
           {skatePopup ?
             <div id='SKATE-Popup'>
               <div id='SKATE-options'>
-                <p id='SKATE-close' onClick={toggleSkatePopup}><i class="fa-solid fa-xmark"></i></p>
-                <Link to={'/create'} style={{ textDecoration: 'none' }}><button className='skate-btn'>Create Lobby</button></Link>
+                <p id='SKATE-close' onClick={toggleSkatePopup}><i className="fa-solid fa-xmark"></i></p>
+                <Link to={'/create'} style={{ textDecoration: 'none' }}><button className='skate-btn default-button'>Create Lobby</button></Link>
                 <p id="or">OR</p>
-                <Link to={'/join'} style={{ textDecoration: 'none' }}><button className='skate-btn' id="join">Join Lobby</button></Link>
+                <Link to={'/join'} style={{ textDecoration: 'none' }}><button className='skate-btn default-button' id="join">Join Lobby</button></Link>
               </div>
             </div>
             : ''}

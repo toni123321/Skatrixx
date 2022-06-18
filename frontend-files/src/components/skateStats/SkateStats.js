@@ -14,7 +14,7 @@ function SkateStats({skateStat}) {
                 <img src={speedImg} alt="Speed"/>
                 <div className='stat'>
                     <div className='value'>
-                        <div>{stat.speed}</div>
+                        <div>{stat.max_height}</div>
                         <div className='skate-stat-dimensions'>km/h</div>
                     </div>
                     <div className='skate-stat-text'>Speed</div>
@@ -24,7 +24,7 @@ function SkateStats({skateStat}) {
                 <img src={heightImg} alt="Height"/>
                 <div className='stat'>
                     <div className='value'>
-                        <div>{stat.height}</div>
+                        <div>{stat.max_airtime}</div>
                         <div className='skate-stat-dimensions'>cm</div>
                     </div>
                     <div className='skate-stat-text'>Height</div>
@@ -34,7 +34,7 @@ function SkateStats({skateStat}) {
                 <img src={rotaitonImg} alt="Rotation"/>
                 <div className='stat'>
                     <div className='value'>
-                        <div>{stat.rotation}</div>
+                        <div>{stat.avg_rotationY}</div>
                         <div className='skate-stat-dimensions top'>°</div>
                     </div>
                     <div className='skate-stat-text'>Rotation</div>
@@ -44,7 +44,7 @@ function SkateStats({skateStat}) {
                 <img src={airtimeImg} height="45px" width="45px" alt="Airtime"/>
                 <div className='stat'>
                     <div className='value'>
-                        <div>{stat.airtime}</div>
+                        <div>{stat.avg_rotationZ}</div>
                         <div className='skate-stat-dimensions'>sec</div>
                     </div>
                     <div className='skate-stat-text'>Airtime</div>

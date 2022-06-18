@@ -34,8 +34,8 @@ if(invUser !== undefined)
     <div className='lobby-invite-pop-up'>
       <p>{invUser.username} has invited you to a game of SKATE</p>
       <div id='lobby-invite-buttons'>
-        <button id='lobby-invite-deny' onClick={() => denyLobbyInvite()}>DENY</button>
-        <button id='lobby-invite-accept' onClick={() => acceptLobbyInvite()}>ACCEPT</button>
+        <button className='default-button' id='lobby-invite-deny' onClick={() => denyLobbyInvite()}>DENY</button>
+        <button className='default-button' id='lobby-invite-accept' onClick={() => acceptLobbyInvite()}>ACCEPT</button>
       </div>
     </div>
   )

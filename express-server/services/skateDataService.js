@@ -55,15 +55,15 @@ function processSkateData(skateLatestsStats) {
 
 
 function calcRotationY(rotationY_arr){
-    return rotationY_arr.reduce((a, b) => a+b) / rotationY_arr.length;
+    return Math.round(rotationY_arr.reduce((a, b) => a+b) / rotationY_arr.length)
 }
 
 function calcRotationZ(rotationZ_arr) {
-    return rotationZ_arr.reduce((a, b) => a+b) / rotationZ_arr.length;
+    return Math.round(rotationZ_arr.reduce((a, b) => a+b) / rotationZ_arr.length)
 }
 
 function calcMaxHeight(height_arr) {
-    return Math.max(...height_arr)
+    return Math.round(Math.max(...height_arr))
 }
 
 function calcAirtime(height_arr) {
