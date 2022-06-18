@@ -29,7 +29,7 @@
 }
 
 .level-ramp-image {
-    position: absolute;
+    position: fixed;
     width: 200px;
     right: -100px;
     top: -55px
