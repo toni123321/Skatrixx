@@ -8,7 +8,6 @@ import { searchUserByUsername } from '../../services/userService'
 import { friendRequestSent } from '../../App';
 import AddWithQR from './AddWithQR';
 import searchIcon from '../../images/Search.png';
-import { seededRandom } from 'three/src/math/MathUtils';
 
 function AddFriendPopUp(props) {
 
@@ -39,7 +38,6 @@ function AddFriendPopUp(props) {
     <div>
       <div id="title-container">
       <p id="title-add">Add a friend by <i>name</i> or <i>QR</i></p>
-      {/* <div onClick={() => {changeAddOption('')}} id='back'><p>   <i class="fa-solid fa-angle-left"></i></p></div> */}
       </div>
     
          <div id="modal-container">
@@ -65,11 +63,6 @@ function AddFriendPopUp(props) {
 </div>
       )
     }
-    // else if (addOption === 'username') {
-    //   return (
-      
-    //   )
-    // }
     else if (addOption === 'qr') {
       return (
         <AddWithQR changeAddOption={changeAddOption}/>
@@ -78,7 +71,7 @@ function AddFriendPopUp(props) {
   }
 
   return (
-    <div className='add-friend-popup'>
+    <div className='popup-container'>
       <p onClick={() => { props.open(false) }} id='close'><i class="fa-solid fa-xmark"></i></p>
       <div id='options'>
         {loadAddFriened()}

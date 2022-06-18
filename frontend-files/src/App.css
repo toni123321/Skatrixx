@@ -39,6 +39,18 @@ body {
   border: 0.5px solid rgba(255, 255, 255, 0.281);
 }
 
+.popup-container {
+  background-color: #101010;
+  width: 90%;
+  max-width: 550px;
+  height: 70vh;
+  position: fixed;
+  left: 50%; top:50%;
+  transform: translate(-50%, -55%);
+  z-index: 10;
+  border-radius: 5px;
+}
+
 #background-image {
   z-index: -1;
   opacity: 50%;

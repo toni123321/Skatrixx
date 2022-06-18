@@ -16,7 +16,7 @@ function JoinSkateLobby() {
       return (
         <div className="join-skate-lobby">
           <button
-            className="cityMapButtonContainer default-button"
+            className="cityMapButtonContainer container-border"
             onClick={() => {
               handleMapmode("Map");
             }}

@@ -58,6 +58,7 @@ function CreateSkateLobby() {
         <div id='lobby-members'>
             <LobbyMembers members={lobby.members} pending={lobby.invitations} lobby={lobby}/>
         </div>
+        <button className='default-button'>Start</button>
     </div>
   )
 }

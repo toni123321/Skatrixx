@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 import "../../stylesheets/lobby/Loby.css"
 
 import LevelMenu from '../levels/LevelMenu'
-// import SIcon from "../images/s-1 1.svg"
 import SoloIcon from "../../images/Skateboarding.svg"
 import VersusIcon from "../../images/Head to Head.svg"
 import { Link } from 'react-router-dom'
@@ -61,7 +60,7 @@ function Loby() {
           </div>
           {skatePopup ?
             <div id='SKATE-Popup'>
-              <div id='SKATE-options'>
+              <div className='popup-container' id='SKATE-options'>
                 <p id='SKATE-close' onClick={toggleSkatePopup}><i className="fa-solid fa-xmark"></i></p>
                 <Link to={'/create'} style={{ textDecoration: 'none' }}><button className='skate-btn default-button'>Create Lobby</button></Link>
                 <p id="or">OR</p>

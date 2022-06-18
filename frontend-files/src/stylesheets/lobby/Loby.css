@@ -31,7 +31,6 @@ h4 {
     z-index: 10;
     width: 100vw;
     height: 100vh;
-    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,8 +48,6 @@ h4 {
 
 #SKATE-options {
     text-align: center;
-    border-radius: 10px;
-    background-color: #1e1e1e;
     width: 70%;
     height: 450px;
     max-width: 350px;
