@@ -31,7 +31,7 @@ useEffect(() => {
 if(invUser !== undefined)
 {
   return (
-    <div className='lobby-invite-pop-up'>
+    <div id='lobby-invite-pop-up' className='popup-container'>
       <p>{invUser.username} has invited you to a game of SKATE</p>
       <div id='lobby-invite-buttons'>
         <button className='default-button' id='lobby-invite-deny' onClick={() => denyLobbyInvite()}>DENY</button>

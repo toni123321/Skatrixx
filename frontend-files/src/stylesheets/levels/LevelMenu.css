@@ -1,14 +1,7 @@
-#back {
-  margin-left: 45px;
-  color: #efefef;
-  font-size: 40px;
-  cursor: pointer;
-  text-align: left;
-}
-
 .level-menu {
   max-width: 550px;
   margin: auto;
+  position: relative;
 }
 
 .level-menu h3 {

@@ -51,6 +51,16 @@ body {
   border-radius: 5px;
 }
 
+.back-button {
+  position: absolute;
+  left: 20px;
+  top: -60px;
+  color: #efefef;
+  font-size: 100px;
+  cursor: pointer;
+  margin: 0;
+}
+
 #background-image {
   z-index: -1;
   opacity: 50%;

@@ -52,7 +52,7 @@
     align-items: center;
     width: 96%;
     max-width: 550px;
-    overflow-x:hidden;
+    overflow:hidden;
 }
 
 .uploadImage{

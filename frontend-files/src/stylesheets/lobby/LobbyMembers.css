@@ -19,13 +19,8 @@
     font-size: large;
 }
 
-#invite-to-lobby-button {
-    cursor: pointer;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-weight: 300;
-    background: none;
+.add-friend-lobby{
+    margin-bottom: -25px !important;
 }
 
 #lobby-member-list {
@@ -44,11 +39,4 @@
     margin-top: 20px;
     height: 30px !important;
     width: 90px !important;
-}
-
-.lobby-participant-action {
-    position: absolute;
-    right: 10px;
-    width: auto !important;
-    height: 50px !important;
 }
