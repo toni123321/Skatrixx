@@ -20,8 +20,8 @@ function LobbyMembers(props) {
           <button className='default-button' id='invite-to-lobby-button' onClick={handleToggleInvitePopUp}>Add</button>
         </div>
         <div id='lobby-member-list'>
-          {props.members.map(member => (
-              <LobbyParticipant member={member} pending={false}/>
+          {props.members.map((member, index) => (
+              <LobbyParticipant member={member} pending={false} memberNr={index}/>
           ))}
           {props.pending.map(member => (
               <LobbyParticipant member={member} pending={true}/>

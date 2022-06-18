@@ -1,13 +1,7 @@
 .lobbyMembers {
     overflow-y: scroll;
-    height: calc(100vh - 320px);
-    max-width: 550px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 65px;
+    height: calc(100vh - 240px);
+    margin-inline: auto;
 }
 .not-creator {
     height: calc(100vh - 220px);
@@ -30,10 +24,10 @@
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    /* margin-right: 20px; */
     font-weight: 300;
     background: none;
 }
+
 #lobby-member-list {
     display: flex;
     flex-direction: column;
@@ -44,4 +38,17 @@
     grid-template-columns: 1fr 1fr;
     margin-inline: auto;
     margin-top: 10px;
+}
+
+.start-lobby-button {
+    margin-top: 20px;
+    height: 30px !important;
+    width: 90px !important;
+}
+
+.lobby-participant-action {
+    position: absolute;
+    right: 10px;
+    width: auto !important;
+    height: 50px !important;
 }
