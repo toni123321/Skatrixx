@@ -33,9 +33,8 @@ function SkateBoardPreview(props) {
                   position={[10,15,10]} angle={0.3}/>
                   <directionalLight position={[-2,5,2]} intensity={1}/>
                   <Skate skate={props}/>
-       
-
               </Canvas>
+              <i class="fa-solid fa-pen-to-square"></i>
         </div>
   
        

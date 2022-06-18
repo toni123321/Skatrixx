@@ -1,3 +1,6 @@
+.skateStatPage {
+    background: black;
+}
 
 .skate-stat-parent {
     height: 40vh;
@@ -48,13 +51,23 @@
 }
 
 .skate-preview {
-    background-color: #101010;
-    height: calc(60vh - 64px);
+    background: url("../../images/background_image.png");
+    background-size: 100% 700px;
+    background-repeat: no-repeat;
+    height: calc(60vh - 60px);
     display: flex;
     max-width: 550px;
     margin: auto;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.skate-preview i {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 30px;
 }
 
 #pedal{
@@ -64,7 +77,6 @@
 }
 .canvas{
     height: 500px;
-    background: rgb(0, 0, 0);
 }
 
 .skate-img {
