@@ -26,10 +26,10 @@ const LevelList = (props) => {
   const [currTrick, setCurrTrick] = useState(initialCurrTrickState)
 
   // the function change the state play
-  const handlePlay = (trick) => {
-    setCurrTrick(trick)
-    setPlay(!play)
-  }
+  // const handlePlay = (trick) => {
+  //   setCurrTrick(trick)
+  //   setPlay(!play)
+  // }
 
   const handleGoBack = () => {
     setPlay(false)
@@ -88,7 +88,7 @@ const LevelList = (props) => {
                   {trickData && trickData.map((trick, i) =>
                   (
                     // render LevelContainer and send the trick and the handlePlay function
-                    <LevelContainer trick={trick} key={trick._id} handlePlay={handlePlay} nr={i} difficulty={props.difficulty} />
+                    <LevelContainer trick={trick} key={trick._id} nr={i} difficulty={props.difficulty} />
                   )
                   )}
                 </div>

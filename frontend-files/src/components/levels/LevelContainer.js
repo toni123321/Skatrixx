@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "../../stylesheets/levels/LevelContainer.css"
+import { Link } from 'react-router-dom';
 
 function LevelContainer(props) {  
 
@@ -13,9 +14,9 @@ function LevelContainer(props) {
     container.style.maxHeight = opened ? "100%" : "0px"
    }
 
-   const startTrick = () => {
-    props.handlePlay(props.trick)
-  }
+  //  const startTrick = () => {
+  //   props.handlePlay(props.trick)
+  // }
 
   useEffect(() => {
     var line = document.getElementsByClassName("trick-line-colored")
@@ -60,7 +61,9 @@ function LevelContainer(props) {
               title="video"
             />
           </div>
-          <button className='default-button' type="button" id="trickBtn" onClick={startTrick}>Start</button>
+          <Link className="default-link" to={`/trick/${props.trick._id}`}>
+            <button className='default-button' type="button" id="trickBtn">Start</button>
+          </Link>
         </div>
       </div>
       

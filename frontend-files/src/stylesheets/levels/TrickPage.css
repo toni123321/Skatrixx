@@ -30,7 +30,7 @@
   margin-bottom: 70px;
 }
 
-.timerContainer {
+/* .timerContainer {
   padding-top: 10vh;
   display: flex;
   flex-direction: column;
@@ -54,4 +54,56 @@
   align-items: center;
   gap:0.8rem;
 
+} */
+
+
+
+/* Styling timer */
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 64px);
+}
+
+.timer-circle-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.timer {
+  font-family: "Montserrat";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  color: #aaa;
+}
+
+.value {
+  font-size: 40px;
+}
+
+.info {
+  max-width: 360px;
+  margin: 40px auto 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+.button-wrapper {
+  display: flex;
+  gap: 50px;
+  font-size: 35px;
+}
+
+.speech-recognition-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
 }

@@ -19,7 +19,7 @@ function Statistic(props) {
   useEffect(() => {
     setOvrStat(80) // set skate stat
     setLoggedUserId(localStorage.getItem('userId')) // set logged user id
-    setTrickId(props.trick._id) // set trick id
+    setTrickId(props.trickId) // set trick id
   }, [])
 
   useEffect(() => {
@@ -43,6 +43,7 @@ function Statistic(props) {
 
   return (
     <div className='statistics'>
+        <p>{props.trickId}</p>
         <div id='progress-bars'>         
           <h3 className="title">Statistic</h3>
           <div>
