@@ -5,6 +5,7 @@ import leaderIcon from "../../images/lobby-leader.png"
 import kickIcon from "../../images/kick-player-button.png"
 import blankIcon from "../../images/blank-image.png"
 import '../../stylesheets/lobby/LobbyParticipant.css'
+import { kickPlayer } from '../../services/lobbyService'
 
 
 function LobbyParticipant(props) {
@@ -16,6 +17,12 @@ function LobbyParticipant(props) {
         setUser(await getUser(props.member))
     }
 
+    const kickUser = () => {
+      kickPlayer(props.lobbyId, user._id)
+    }
+
+    const doNothing = () => {}
+
     useEffect(() => {
       loadUser()
     }, [])
@@ -26,7 +33,11 @@ function LobbyParticipant(props) {
           <div className='lobby-participant-info' style={{opacity : pending ? .65 : 1}}>
             <img id='lobby-participant-image' src={user.image}  referrerPolicy='no-referrer' alt='Loading...'/>
             <p>{user.username.split(' ')[0]}</p>
-            <img id={props.memberNr === 0 ? 'lobby-leader-icon' : ''} className='lobby-participant-action' src={props.memberNr === 0 ? leaderIcon : props.kickable ? kickIcon : blankIcon} alt=''/>
+            <img onClick={ () => {props.kickable ? kickUser() : doNothing()}} 
+            id={props.memberNr === 0 ? 'lobby-leader-icon' : ''} 
+            className='lobby-participant-action' 
+            src={props.memberNr === 0 ? leaderIcon : props.kickable ? kickIcon : blankIcon} 
+            alt='' style={{cursor : "pointer"}}/>
           </div>
           { pending ? <p id='lobby-participant-pending'>Pending...</p> : ''}
           <div className='default-container'></div>

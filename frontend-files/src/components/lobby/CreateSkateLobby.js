@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { changeLimit, changeVisibility, createLobby } from '../../services/lobbyService';
+import { changeLimit, changeVisibility, createLobby, kickPlayer } from '../../services/lobbyService';
 import { socket } from '../../websockets/ws_client';
 
 import "../../stylesheets/lobby/CreateSkateLobby.css"
 
 import LobbyMembers from './LobbyMembers';
+import { loggedUser } from '../../services/api_client';
 
 function CreateSkateLobby() {
 
@@ -33,6 +34,11 @@ function CreateSkateLobby() {
         }
     }
 
+    const leaveLobby = () => {
+        kickPlayer(lobby._id, loggedUser)
+        window.location.replace('/join')
+    }
+
     socket.on(lobby._id,  newLobby => {
         setLobby(newLobby)
       })
@@ -40,6 +46,11 @@ function CreateSkateLobby() {
   if(lobby !== {} && lobby.limit !== undefined) {
   return (
     <div className='create-skate-lobby'>
+        <p
+        className="back-button"
+        onClick={() => {leaveLobby()}}>
+        <i className="fa-solid fa-angle-left"></i>
+      </p>
         <div id='lobby-settings'>
         {localStorage.getItem('userId') !== lobby.members[0] ? 
             <div id='lobby-settings-block'>

@@ -6,6 +6,15 @@ import CityMap from "./CityMap";
 
 function JoinSkateLobby() {
   const [mapmode, setMapmode] = useState("Join");
+  const [lobbies, setLobbies] = useState([]);
+
+  const loadLobbies = async () => {
+    setLobbies(await getLobbies());
+  };
+
+  useEffect(() => {
+    loadLobbies();
+  }, []);
 
   const handleMapmode = (mapmode) => {
     setMapmode(mapmode);
@@ -21,7 +30,6 @@ function JoinSkateLobby() {
               handleMapmode("Map");
             }}
           >
-            {/* <Route component={CityMap} /> */}
             <p className="cityMapTitle">
               See City Map{" "}
               <i className="fa-solid fa-arrow-right-long fa-lg"></i>
@@ -35,19 +43,9 @@ function JoinSkateLobby() {
         </div>
       );
     } else if (mapmode === "Map") {
-      return <CityMap />;
+      return <CityMap back={() => {setMapmode("Join")}}/>;
     }
   };
-
-  const [lobbies, setLobbies] = useState([]);
-
-  const loadLobbies = async () => {
-    setLobbies(await getLobbies());
-  };
-
-  useEffect(() => {
-    loadLobbies();
-  }, []);
 
   return <>{loadMapmode()}</>;
 }

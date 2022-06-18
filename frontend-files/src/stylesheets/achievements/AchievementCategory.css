@@ -6,11 +6,20 @@
 }
 
 .achievement-category-items {
+    padding-top: 32px;
     position: relative;
     display: grid;
-    justify-content: center;
+    justify-content: space-evenly;
     grid-template-columns: auto auto auto;
-    column-gap: 20px;
-    row-gap: 20px;
+    grid-auto-rows: min-content;
+    row-gap: 10px;
+    height: 70%;
+    border-radius: 20px;
     margin-top: 20%;
+    overflow-y: scroll;
+}
+
+.achievement-container-box {
+    text-align: center;
+    height: 100%;
 }
