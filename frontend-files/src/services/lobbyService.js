@@ -29,6 +29,14 @@ export const createLobby = async (id) => {
         
 }
 
+export const kickPlayer = async(id, userId) => {
+    try {
+        const resp = await axios.patch(url + `lobbies/${id}/${userId}/leave`)
+        return resp.data
+    }
+    catch(err) {console.log(err)}
+}
+
 export const getLobbyById = async (id) => {
     try {
         const resp = await axios.get(url + 'lobbies/' + id)
@@ -115,4 +123,27 @@ export const denyAndLeaveLobby = async (id, userId) => {
         return null
     }
     catch(err) {console.log(err)}
+}
+
+export const startLobby = async (lobby) => {
+    var scores = [];
+    for (let i = 0; i < lobby.members.length; i++) {
+        scores.push(0)
+    }
+    try {
+        var data = {
+            players : lobby.members,
+            eliminated: [],
+            scores: scores,
+            currentTrick: "",
+            trickPicker: 0,
+            currentPlayer: 0,
+            round : 1,
+            voting: false,
+            votes : []
+        }
+        axios.post(url + 'game', data)
+    } catch (err) {
+        console.log(err)
+    }
 }

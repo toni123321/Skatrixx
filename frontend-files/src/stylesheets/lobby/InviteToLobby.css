@@ -1,22 +1,24 @@
-.invite-popup {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    margin: auto;
-    top: 50%;
-    transform: translateY(calc(-50% - 30px));
-    max-width: 550px;
-    width: 90%; height: 60vh;
-    border: 1px solid #83838380;
-    border-radius: 5px;
-    background-color: #1E1E1E;
+.popup-container #popup-title {
+    margin-block-start: 0px !important;
+    text-align: center;
 }
 
-.invite-popup p {
+.invite-popup-list{
+    height: 80%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#invite-popup p {
     text-align: right;
-    font-size: 25px;
-    margin-right: 20px;
-    margin-top: 5px;
+    font-size: 20px;
     border-radius: 50%;
     background-color: right;
-    color: white;
+    color: #efefef;
+}
+
+.fa-xmark {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
 }

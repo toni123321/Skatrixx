@@ -1,61 +1,65 @@
 import {React, useEffect, useState} from 'react'
 import "../../stylesheets/levels/Statistic.css"
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-import user from "../../services/userService"
+import good from "../../images/good.gif"
+import skateDataService from '../../services/skateDataService'
+import { Link } from 'react-router-dom';
+import Loading from '../Loading';
 
 function Statistic(props) {
-  const [ovrStat, setOvrStat] = useState(50)
-  const [trickId, setTrickId] = useState(null)
-  const [loggedUserId, setLoggedUserId] = useState(null)
-  const [msg, setMsg] = useState("")
 
-  const [attemptTrickData, setAttemptTrickData] = useState({
-    trickId: trickId,
-    trickStat: 0
-  })
-
+  const [skateData, setSkateData] = useState(null) // skateData useState
 
   useEffect(() => {
-    setOvrStat(80) // set skate stat
-    setLoggedUserId(localStorage.getItem('userId')) // set logged user id
-    setTrickId(props.trick._id) // set trick id
+    retrieveLastSkateData()
   }, [])
-
-  useEffect(() => {
-    // set trick attempt data
-    setAttemptTrickData({
-      trickId: trickId,
-      trickStat: ovrStat
-    })
-  }, [trickId])
-
-  const levelUp = async () => { 
-    try{
-      const res = await user.levelUp(loggedUserId, attemptTrickData)
-      console.log(res)
-      setMsg(`Congrats, your xp now is: ${res.data.xp}`)
-    }
-    catch(err) {
-      setMsg("Opps, there was a mistake. Try again!")
+  
+  // Get last record in skate data (async await axiox data retrieving)
+  const retrieveLastSkateData = async () => {
+    try {
+      const res = await skateDataService.getLastPerformance()
+      setSkateData(res.data)
+    } 
+    catch (err) {
+      console.log(err.message)
     }
   }
-
+  if(skateData !== null || skateData !== "") {
   return (
-    <div className='statistics'>
-        <div id='progress-bars'>         
-          <h3 className="title">Statistic</h3>
-          <div>
-            <CircularProgressbar className='bar' value={ovrStat} text={ovrStat} />;
-          </div>
+    <div className='performance-wrapper'>
+      <div className="performance-container container-border">
+        <div className="default-container"></div>
+        <p id="performance-result">{skateData && skateData.result}</p>
+        <img src={skateData && skateData.result_gif} alt="good" id="performance-img"/>
+        <div class="statistics-container">
+            {skateData && (
+              <div class="stats">
+                  <div className="stat">
+                      <p className="stat-value" class="mes">{skateData.max_height} cm</p>
+                      <p className="stat-text" class="st-title">Height</p>
+                  </div>
+                  <div className="stat">
+                      <p className="stat-value" class="mes">{skateData.max_airtime} sec</p>
+                      <p className="stat-text" class="st-title">Airtime</p>
+                  </div>
+                  <div className="stat">
+                      <p className="stat-value" class="mes">{skateData.avg_rotationY} °</p>
+                      <p className="stat-text" class="st-title">Horizontal</p>
+                      <p className="stat-text" class="st-title">Rotation</p>
+                  </div>
+                  <div className="stat">
+                      <p className="stat-value" class="mes">{skateData.avg_rotationZ} °</p>
+                      <p className="stat-text" class="st-title">Vertical</p>
+                      <p className="stat-text" class="st-title">Rotation</p>
+                  </div>
+              </div>
+            )}
         </div>
-        <div id="stat-btns">
-        <button id="undo">Undo</button>
-        <button onClick={levelUp} id="save">Save</button>
-        </div>
-
-        <h2>{msg !== "" ? msg: "Save your trick"}</h2>
+        <Link className="default-link" to={'/game'}>
+          <button className="default-button" id="solo-game-play-again">Play again</button>
+        </Link>
+      </div>
+     
     </div>
-  )
+  )} else {return (<Loading/>)}
 }
 export default Statistic

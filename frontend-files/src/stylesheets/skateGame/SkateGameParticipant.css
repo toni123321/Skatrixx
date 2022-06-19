@@ -1,0 +1,30 @@
+.skate-game-participant {
+    display: flex;
+    width: 98%;
+    max-width: 520px;
+    border-radius: 5px;
+    word-wrap:break-word;
+    margin-bottom: 5px;
+    position: relative;
+    margin-inline: auto;
+    align-items: center;
+}
+
+.skate-game-participant-image {
+    border-radius: 50%;
+    width: 60px;
+    height: auto;
+    margin-left: 15px;
+    margin-block: 10px;
+}
+
+.skate-game-participant-info p{
+    margin-left: 10px;
+    margin-block: 0;
+}
+
+.skate-game-score {
+    font-size: x-large;
+    font-weight: 600;
+    opacity: .5;
+}

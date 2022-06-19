@@ -8,16 +8,15 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #1E1E1E;
-    border: 2px solid #1E1E1E;
     height: 30px;
     width: 60%;
     max-width: 200px;
-    border-radius: 150px;
+    border-radius: 0px;
     margin-left: auto; margin-right: auto;
 }
 
 .qr-tabs button {
+    background-color: transparent;
     height: 100%;
     width: 50%;
     border: none;
@@ -28,21 +27,36 @@
 }
 
 #qr-tabs-my {
-    background-color: #CF2121;
-    border-top-left-radius: 150px;
-    border-bottom-left-radius: 150px;
+    /* background-color: #CF2121; */
+    /* border-top-left-radius: 150px;
+    border-bottom-left-radius: 150px; */
+    /* border-bottom: 3px solid #219EBC;
+    font-size: 20px; */
+    border-left:none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 3px solid #219EBC;
+    border-radius: 0px;
+    
 }
 #qr-tabs-scan {
-    background-color: #1E1E1E;
-    border-top-right-radius: 150px;
-    border-bottom-right-radius: 150px;
+    /* background-color: #1E1E1E; */
+    /* border-top-right-radius: 150px;
+    border-bottom-right-radius: 150px; */
+    border-left:none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 0px;
 }
 
 .my-qr-tab, .scan-qr-tab {
+    background-color: transparent;
     height: 45vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .qr-code-reader {

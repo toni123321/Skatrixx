@@ -16,6 +16,8 @@ const lobbyDataRouter = require('./routes/skateLobbies')
 const moduleStateRouter = require('./routes/moduleStates')
 const achievementsService = require('./routes/achievements')
 const consistencyRouter = require('./routes/consistencies');
+const skateGallery = require('./routes/skateboardImages');
+const gameRouter = require('./routes/skateGames')
 const { Router } = require('express');
 
 // App and DB setup
@@ -23,18 +25,20 @@ const app=express();
 const db=mongoose.connection;
 app.use(express.json())
 
-// CORS origin handling for App and WS
+// CORS origin handling for App and WebSockets(WS)
 app.use(cors({
     origin: [
-        'http://localhost:3001',
-        'http://localhost:3001/*',
-        'https://i451508.hera.fhict.nl',
-        'https://i451508.hera.fhict.nl/*',
-        'https://i455146.hera.fhict.nl',
-        'https://i455146.hera.fhict.nl/*',
-        'http://127.0.0.1:3001'
+      process.env.LOCAL_FRONTEND_ORIGIN,
+      process.env.LOCAL_FRONTEND_PATHS,
+      process.env.PRODUCTION_FRONTEND_ORIGIN,
+      process.env.PRODUCTION_FRONTEND_PATHS,
+      process.env.PRODUCTION_FRONTEND_ORIGIN2,
+      process.env.PRODUCTION_FRONTEND_PATHS2,
+      process.env.LOCAL_LIVE_SERVER_FRONTEND
     ]
 }));
+
+
 
 
 // Confirms/Denies connection to DB
@@ -51,6 +55,8 @@ app.use('/lobbies', lobbyDataRouter)
 app.use('/moduleStates', moduleStateRouter)
 app.use('/achievements', achievementsService)
 app.use('/consistency', consistencyRouter)
+app.use('/skateGallery', skateGallery)
+app.use('/game', gameRouter)
 
 const server = app.listen(port, () => {console.log(`Back end is running on port: ${port}`)});
 
@@ -60,6 +66,8 @@ app.get("*", (req, res) => {
   res.sendFile(path.join('/game', "index.html"));
   res.sendFile(path.join('/join', "index.html"));
   res.sendFile(path.join('/create', "index.html"));
+  res.sendFile(path.join('/trick', "index.html"));
+  res.sendFile(path.join('/skate-game', "index.html"));
 });
 
 //Websocket server declaration
@@ -86,6 +94,12 @@ io.on("connection", socket => {
   })
   socket.on('log-out-user', (userId) => {
     socket.leave(userId)
+  })
+  socket.on('join-game', (gameLobby) => {
+    socket.join(gameLobby)
+  })
+  socket.on('start-game', (gameLobby) => {
+    socket.emit('redirect', gameLobby)
   })
 
   app.set('socketio', io)

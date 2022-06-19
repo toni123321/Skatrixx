@@ -1,28 +1,61 @@
-
-
-#trick {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-inline: 1.2rem;
-    /* display: grid; */
-    /* grid-template-columns: 1fr; */
-    /* gap: 8px; */
-    width: 300px;
-    height: 40px;
-    border: 2px solid #efefef;
-    box-sizing: border-box;
-    border-radius: 150px;
-    margin: auto;
+.trick {
+    border-radius: 46px;
     margin-top: 15px;
+    cursor: pointer;
+    position: relative;
 }
 
-.trick {
-    /* padding: 10px; */
+#trick-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 1rem;
+    padding: 0 1.2rem;
+    height: 70px;
+    margin: auto;
+    color: #efefee;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+
+}
+
+.trick-line-colored {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    font-style: italic;
+    color: #1C80DB;
+}
+
+.trick-container-detail {
+    display: flex;  
+    margin-top: -30px;
+    margin-left: 40px;
+}
+
+.trick-minutes {
+    color: #efefee;
+    font-size: small;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.trick-avarge-scoretext {
+    font-size: small;
+    color: #efefee;
+
+}
+
+.trick-content{
+    display: none;
+    text-align: center;
+}
+
+.trick-content hr {
+    height: .5px;
+    border: none;
+    background-color: #efefee;
+    width: 80%;
+    margin: auto;
 }
 
 .trick-right {
@@ -31,30 +64,36 @@
     gap: 0.5rem;
 }
 
+#VideoDiv{
+    width: 94%;
+    margin: auto;
+}
+
 .play-trick-arrow {
-    color: red;
+    color: #CF2121;
 }
 
 #trick #trickName {
-    /* margin-top: -3px; */
-    /* margin-left: 10px; */
     color: #efefef;
     font-family: 'Segoe UI';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    /* text-align: left; */
 }
+
+#trickName {
+    margin-left: 10px;
+    width: 100%;
+    text-align: left;
+}
+
 #trickXp{
-    /* margin-top: -45px; */
-    /* margin-left: 175px; */
     color: #efefef;
     font-family: 'Segoe UI';
     font-style: italic;
     font-size: 14px;
 }
-#play{
-    /* top: -45px; */
-    /* margin-left: 245px; */
-    /* position: relative; */
+
+#trickBtn {
+    margin-bottom: 10px !important;
 }

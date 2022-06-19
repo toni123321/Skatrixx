@@ -3,23 +3,20 @@ import skateDataService from '../../services/skateDataService'
 import SkateBoardPreview from './SkateBoardPreview';
 import SkateStats from './SkateStats';
 import "../../stylesheets/skateStats/SkateStats.css"
+import Loading from '../Loading';
 
 
 
 function SkatePage() {
-  const initialLastSkateData = {
-    _id: "",
-    speed: "",
-    height: "",
-    airtime: "",
-    rotation: "",
-    accelX: "",
-    accelY: "",
-    accelZ: "",
-    gyroZ: "",
+  const initialLastPerformance = {
+    max_height: null,
+    max_airtime: null,
+    avg_rotationY: null,
+    avg_rotationZ: null,
+    result: ""
   }
 
-  const [skateData, setSkateData] = useState(initialLastSkateData) // skateData useState
+  const [skateData, setSkateData] = useState(initialLastPerformance) // skateData useState
   const [loading, setLoading] = useState(true) // Loading
   const [error, setError] = useState(""); // Error
 
@@ -33,9 +30,8 @@ function SkatePage() {
   const retrieveLastSkateData = async () => {
     setLoading(true)
     try {
-      const res = await skateDataService.getLastStat()
+      const res = await skateDataService.getLastPerformance()
       setSkateData(res.data)
-      // console.log(res.data)
     } 
     catch (err) {
       console.log(err.message)
@@ -46,17 +42,20 @@ function SkatePage() {
 
   return (
     <div>
-    {loading && <div>Loading...</div>}
+    <SkateBoardPreview />
+    {loading && <Loading/>}
     {!loading && (
       !error ? (
       <div className='skateStatPage'>
-        {skateData && 
+        {skateData === "" || skateData === null ?
+        ( 
+          <div className='skate-stat-parent'>
+            <p className="no-performance-msg">No peformances yet...</p>
+          </div>
+        )
+        : 
         (
-          <>
-          <SkateBoardPreview />
           <SkateStats skateStat={skateData}/>
-          </>
-          // <span key={skateData._id}>{skateData.airtime}</span>
         )
         }
       </div>

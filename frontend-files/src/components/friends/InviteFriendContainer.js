@@ -29,14 +29,18 @@ function InviteFriendContainer(props) {
 
     if(friend !== undefined) {
         return (
-            <div className='invite-friend-container'>
-                <img id='invite-friend-image' src={friend.image} alt=''/>    
-                <p id='invite-friend-username'>{friend.username}</p>    
-                <i className="fa-solid fa-user-plus" onClick={sendInvite}></i>   
-            </div>
+              <div className='invite-friend-container container-border'>
+                <div className='default-container'></div>
+                <div id='invite-friend-container-user'>
+                  <img id='invite-friend-image' src={friend.image} alt=''/>    
+                  <p id='invite-friend-username'>{friend.username.split(' ')[0]}</p>
+                </div>
+                <div id='invite-friend-container-btn'>
+                  <i className="fa-solid fa-user-plus" onClick={sendInvite}></i>
+                </div>
+              </div>
           )
     }
-    else {return(<>Loading..</>)}
 }
 
 export default InviteFriendContainer

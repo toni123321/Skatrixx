@@ -35,7 +35,7 @@ export default function Model({...props}) {
         onPointerOver={(event)=> setHover(true)}
         onPointerOut={(event)=> setHover(false) }
         onClick = {(event) => setActive(!active)}
-        scale = {active ? 1 : 0.5}
+        scale = {active ? 0.85 : 0.5}
         geometry={nodes.Object_2.geometry} material={materials.skateboard} >
            
           </mesh>

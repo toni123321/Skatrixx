@@ -1,49 +1,64 @@
-import React, { useState, useEffect } from 'react'
-import { getLobbies, joinLobby } from '../../services/lobbyService'
-import LobbyContainer from './LobbyContainer'
-import '../../stylesheets/lobby/JoinSkateLobby.css'
-import { acceptInvite } from '../../websockets/lobbyWS'
-import { lobbyNotFound } from '../../App'
+import React, { useState, useEffect } from "react";
+import { getLobbies, joinLobby } from "../../services/lobbyService";
+import Loading from "../Loading"
+import LobbyContainer from "./LobbyContainer";
+import "../../stylesheets/lobby/JoinSkateLobby.css";
+import CityMap from "./CityMap";
 
 function JoinSkateLobby() {
-
-  const [lobbies, setLobbies] = useState([])
-  const [lobbyCode, setLobbyCode] = useState('')
+  const [mapmode, setMapmode] = useState("Join");
+  const [lobbies, setLobbies] = useState([]);
+  const [loaded, setLoaded] = useState(false)
 
   const loadLobbies = async () => {
-    setLobbies(await getLobbies())
-  }
-
-  const handleCodeChange = (e) => {
-      setLobbyCode(e.target.value)
-  }
-
-  const joinLobbyWithCode = async () => {
-    if(lobbyCode.length === 6) {
-      const resp = await joinLobby(lobbyCode, localStorage.getItem('userId'))
-      if(resp) {acceptInvite()}
-      else {lobbyNotFound()}
-      }
-    }
+    setLobbies(await getLobbies());
+    setLoaded(true)
+  };
 
   useEffect(() => {
-    loadLobbies()
-  }, [])
-  
+    loadLobbies();
+  }, []);
 
-  return (
-    <div className='join-skate-lobby'>
-        <div id='public-skate-lobbies'>
-        {lobbies.map(lobby => (
-            <LobbyContainer lobby={lobby}/>
-        ))}
+  const handleMapmode = (mapmode) => {
+    setMapmode(mapmode);
+  };
+
+  const loadMapmode = () => {
+    if (mapmode === "Join") {
+      return (
+        <div className="join-skate-lobby">
+        <p
+        className="back-button"
+        onClick={() => {
+          window.history.back()
+        }}>
+        <i className="fa-solid fa-angle-left"></i>
+      </p>
+          <button
+            className="cityMapButtonContainer container-border"
+            onClick={() => {
+              handleMapmode("Map");
+            }}
+          >
+            <p className="cityMapTitle">
+              See City Map{" "}
+              <i className="fa-solid fa-arrow-right-long fa-lg"></i>
+            </p>
+          </button>
+          <div id="public-skate-lobbies">
+          {loaded && lobbies.length === 0 ? <p className="no-public-lobbies">Ooops looks like there are no available lobbies at this moment</p> : ''}
+            {loaded ? lobbies.map((lobby) => (
+              <LobbyContainer lobby={lobby} />
+            )) : <Loading/>}
+          </div>
         </div>
-        <div id='join-lobby-code'>
-          <input type={'text'} onChange={handleCodeChange}/>
-          <button id='lobby-container-join-button' onClick={() => {joinLobbyWithCode()}}>Join</button>
-        </div>
-    </div>
-  )
+      );
+    } else if (mapmode === "Map") {
+      return <CityMap back={() => {setMapmode("Join")}}/>;
+    }
+  };
+
+  return <>{loadMapmode()}</>;
 }
 
-export default JoinSkateLobby
+export default JoinSkateLobby;

@@ -111,7 +111,7 @@ router.patch('/:id', getUser, async(req,res)=>{
 router.patch('/levelUp/:id', getUser, async(req,res)=>{
     // check if req.body parameters(trickId, trickStat) have values)
     try{
-        if(req.body.trickId !=null && req.body.trickStat!= null){
+        if(req.body.trickId != null && req.body.trickStat != null){
             // wait to get the updated user
             const user = await levelService.levelUp(res.user, req.body.trickId, req.body.trickStat )
             res.user.xp = user.xp

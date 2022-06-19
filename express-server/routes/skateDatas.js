@@ -1,11 +1,12 @@
 const express=require('express')
-const skateData = require('../models/skateData')
 const router=express.Router()
 const SkateData=require('../models/skateData')
+const skateDataService = require('../services/skateDataService')
+const SkatePerformance = require('../models/skatePerformance')
 
 
 async function getSkateData(req, res, next){
-    let skateData
+  let skateData
   try{skateData=await SkateData.findById(req.params.id)
    if(skateData == null){
        return res.status(404).json({message: 'Cannot find skate data'})}}
@@ -16,24 +17,55 @@ async function getSkateData(req, res, next){
   next()
 }
 
-//Get all skate data - polzvai - http://localhost:3000/skateDatas !!!
+//Get all skate data
 router.get('/', async(req,res) => {
-  try{const skateData=await SkateData.find() 
+  try{
+    const skateData=await SkateData.find().sort({_id:-1});
     res.send(skateData)
   }catch(err){
       res.status(500).json({message: err.message})
   }
 })
 
-router.get('/lastRecord', async(req, res) => {
+// Process last performance
+router.post('/processLastPerformance', async(req, res) => {
   try {
     const skateData = await SkateData.find().sort({_id:-1});
-    res.send(skateData[0])
+    const lastPerformance = skateDataService.getLastPerformance(skateData)
+    const skatePerformance = new SkatePerformance({
+        max_height: lastPerformance.max_height,
+        max_airtime: lastPerformance.max_airtime,
+        avg_rotationY: lastPerformance.avg_rotationY,
+        avg_rotationZ: lastPerformance.avg_rotationZ,
+        result: lastPerformance.result,
+        result_gif: lastPerformance.result_gif
+    })
+    const newSkatePerformance=await skatePerformance.save()
+    res.status(201).json(newSkatePerformance)
   } catch(err) {
     res.status(500).json({message: err.message})
   }
 })
 
+// Get last performance
+router.get('/getLastPerformance', async(req, res) => {
+  try {
+    const skatePerformances = await SkatePerformance.find().sort({_id:-1});
+    res.send(skatePerformances[0])
+  } catch(err) {
+    res.status(500).json({message: err.message})
+  }
+})
+
+// Get All skate performances
+router.get('/performances', async(req, res) => {
+  try {
+    const skatePerformances = await SkatePerformance.find().sort({_id:-1})
+    res.send(skatePerformances)
+  } catch(err) {
+    res.status(500).json({message: err.message})
+  }
+})
 
 //Get skate data by ID
 router.get('/:id', getSkateData, (req,res)=>{
@@ -46,14 +78,11 @@ try
 //Post skate data
 router.post('/',async(req,res)=>{
   const skateData=new SkateData({
-      speed:req.body.speed, 
+      status: req.body.status,
       height: req.body.height,
       airtime: req.body.airtime,
-      rotation: req.body.rotation,
-      accelX: req.body.accelX, 
-      accelY: req.body.accelY,
-      accelZ: req.body.accelZ, 
-      gyroZ: req.body.gyroZ
+      rotationY:req.body.rotationY,
+      rotationZ: req.body.rotationZ,
   })
   try{
     const newSkateData=await skateData.save()
@@ -62,8 +91,5 @@ router.post('/',async(req,res)=>{
     res.status(400).json({message: err.message})
   }
 })
-
-
-
 
 module.exports=router

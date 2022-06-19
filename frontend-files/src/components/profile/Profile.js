@@ -1,43 +1,19 @@
 import {React, useState} from 'react'
-
 import "../../stylesheets/profile/Profile.css"
-
-import userTabImg from "../../images/Person.png"
-import friendTabImg from "../../images/Friends.png"
-import skateTabImg from "../../images/Skateboard.png"
 import defaultImg from "../../images/default-image.png"
-
-import ProgressBar from '../profile/ProgressBar'
 import Success from '../auth/Success'
 import ProfileRankings from '../profile/ProfileRankings'
-import Achievements from '../achievements/Achievements'
 import FriendList from '../friends/FriendList'
 import Gallery from '../gallery/Gallery'
-import CameraComponent from '../gallery/CameraComponent'
 
 function Profile(props) {
 
-    const [openedTab, setOpenedTab] = useState('Me');
+    const [openedTab, setOpenedTab] = useState('Gallery');
 
     const handleTabChange = (tab) => {
-        if(tab === 'Me') {
-            document.getElementById('tabs-me').style.backgroundColor = '#CF2121';
-            document.getElementById('tabs-friends').style.backgroundColor = '#1E1E1E';
-            document.getElementById('tabs-gallery').style.backgroundColor = '#1E1E1E';
-            setOpenedTab('Me')
-        }
-        else if(tab === 'Friends') {
-            document.getElementById('tabs-me').style.backgroundColor = '#1E1E1E';
-            document.getElementById('tabs-friends').style.backgroundColor = '#CF2121';
-            document.getElementById('tabs-gallery').style.backgroundColor = '#1E1E1E';
-            setOpenedTab('Friends')
-        }
-        else if(tab === 'Gallery') {
-            document.getElementById('tabs-me').style.backgroundColor = '#1E1E1E';
-            document.getElementById('tabs-friends').style.backgroundColor = '#1E1E1E';
-            document.getElementById('tabs-gallery').style.backgroundColor = '#CF2121';
-            setOpenedTab('Gallery')
-        }
+        let tabs = ['Me', 'Friends', 'Gallery']
+        tabs.includes(tab) ? setOpenedTab(tab) : setOpenedTab('')
+        
     }
 
     const displayOpenedTab = () => {
@@ -59,7 +35,6 @@ function Profile(props) {
             return(
                 <div className='gallery-tab'>
                     <Gallery/>
-                    {/* <CameraComponent /> */}
                 </div>
             )
         }
@@ -71,22 +46,21 @@ function Profile(props) {
             <div id='profile-card'>
                 <img src={props.img !== undefined ? props.img : defaultImg}  referrerPolicy='no-referrer' alt='' id="profile-image" />
                 <div id='additional-information'>
-                <p>{props.name}</p>
-                    <ProgressBar level={props.level} xp={props.xp}/>
+                <p>{props.name && props.name.split(' ')[0]}</p>
                 </div>
             </div>
             <div id='tabs'>
-                <button onClick={() => {handleTabChange('Me')}} id='tabs-me'>
-                    <img src={userTabImg} alt=''/>
-                </button>
-                <button onClick={() => {handleTabChange('Friends')}} id='tabs-friends'>
-                    <img src={friendTabImg}alt=''/>
-                </button>
-                <button onClick={() => {handleTabChange('Gallery')}} id='tabs-gallery'>
-                <img src={skateTabImg}alt=''/>
-                </button>
+                <p  id='tabs-gallery'  
+                    class={openedTab === "Gallery"? "openedTab" : ""}
+                    onClick={() => {handleTabChange('Gallery')}} >Gallery</p>
+                <p  id='tabs-me' 
+                    class={openedTab === "Me"? "openedTab" : ""}
+                    onClick={() => {handleTabChange('Me')}}>Profile</p>
+                <p  id='tabs-friends'
+                    class={openedTab === "Friends"? "openedTab" : ""}
+                    onClick={() => {handleTabChange('Friends')}}>Friends</p>
             </div>
-<br/>
+            <br/>
             {displayOpenedTab()}
         </div>
     )

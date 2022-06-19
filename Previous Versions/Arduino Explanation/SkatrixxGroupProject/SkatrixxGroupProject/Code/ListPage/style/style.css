@@ -14,11 +14,11 @@ body{
    font-weight: bold;
 }
 h1{
-    color: white;
+    color: #efefef;
     font-family: 'Raleway', sans-serif;
 }
 a{
-    color: black;
+    color: #1C1C1C;
 }
 .lander{
     min-height: 100vh;
@@ -32,7 +32,7 @@ a{
 .homeScreen{
     min-height: 0vh;
     width: 100vw;
-    background-color: rgb(0, 0, 0);
+    background-color: #1C1C1C;
     display: flex;
     flex-direction: column;
 }
@@ -40,7 +40,7 @@ a{
 .topBoard{
     min-height: 10%;
     width: 100%;
-    background-color: rgb(0, 0, 0);
+    background-color: #1C1C1C;;
 }
 .bottomsection{
     background-color: #CF2121;
@@ -66,7 +66,7 @@ a{
     width: 100%;
 }
 .cards{
-    background-color: white;
+    background-color: #efefef;
     margin-top: 5%;
     margin-left: 5%;
     border-radius: 10px;
@@ -91,7 +91,7 @@ a{
 .navBar{
     min-height: 6%;
     width: 100%;
-    background-color: rgb(255, 255, 255);
+    background-color: #efefef;
     display: flex;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;

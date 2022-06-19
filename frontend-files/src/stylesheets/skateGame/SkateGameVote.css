@@ -1,0 +1,25 @@
+.skate-game-vote-popup {
+    height: 33%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.skate-game-vote-popup p {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    font-size: larger;
+}
+
+.skate-game-vote-popup-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skate-game-vote-popup-buttons img {
+    max-width: 60px;
+    max-width: 60px;
+    margin-inline: 20px;
+}

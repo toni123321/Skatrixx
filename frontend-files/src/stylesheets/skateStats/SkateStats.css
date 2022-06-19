@@ -1,3 +1,6 @@
+.skateStatPage {
+    background: black;
+}
 
 .skate-stat-parent {
     height: 40vh;
@@ -7,17 +10,33 @@
 }
 
 .skate-stat-container {
-    display: grid;
-    grid-template-columns: auto auto;
-    padding: 10px;
-    color: white;
+    width: 100vw;
+    max-width: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skate-stat-container .stats {
+    column-gap: 50px;
+}
+
+.skate-stat-container .stat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.skate-stat-container .stat img {
+    width: 30px;
+    height: 30px;
 }
 
 .skate-stat-item {
-    padding: 20px;
-    font-size: 30px;
+    margin-bottom: 20px;
+    font-size: 25px;
     text-align: center;
-
     display: flex;
     gap: 0.8rem;
     align-items: center;
@@ -25,17 +44,52 @@
 }
 
 .skate-stat-text {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    align-self: flex-start;
+}
+
+.skate-stat-item .stat {
+    display: flex;
+    flex-direction: column;
+}
+.skate-stat-item .value {
+    display: flex;
+    gap: 3px;
+    font-size: 30px;
+}
+.skate-stat-item img {
+    height: 35px;
+    width: 35px;
+}
+
+.skate-stat-dimensions {
+    font-size: 0.8rem;
+    align-self: flex-end;
+    font-weight: 600;
+}
+.skate-stat-item .top {
+    align-self: flex-start !important;
+    font-size: 1.5rem;
 }
 
 .skate-preview {
-    background-color: #101010;
-    height: calc(60vh - 64px);
+    background: url("../../images/background_image.png");
+    background-size: 100% 700px;
+    background-repeat: no-repeat;
+    height: calc(60vh - 60px);
     display: flex;
     max-width: 550px;
     margin: auto;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.skate-preview i {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 30px;
 }
 
 #pedal{
@@ -45,7 +99,6 @@
 }
 .canvas{
     height: 500px;
-    background: rgb(0, 0, 0);
 }
 
 .skate-img {

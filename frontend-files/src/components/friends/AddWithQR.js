@@ -21,12 +21,14 @@ function AddWithQR(props) {
       var my = document.getElementById('qr-tabs-my')
       var scan = document.getElementById('qr-tabs-scan')
       if(tab === 'my') {
-          my.style.backgroundColor = '#CF2121'
-          scan.style.backgroundColor = '#1E1E1E'
+          my.style.borderColor = '#219EBC'
+          scan.style.borderColor = 'transparent'
+          
       }
       else if (tab === 'scan') {
-          scan.style.backgroundColor = '#CF2121'
-          my.style.backgroundColor = '#1E1E1E'
+          scan.style.borderColor = '#219EBC'
+          my.style.borderColor = 'transparent'
+         
       }
       setQrTab(tab);
     }
@@ -61,10 +63,10 @@ function AddWithQR(props) {
 
   return (
     <div className='add-with-qr'>
-      <div onClick={() => {props.changeAddOption('')}} id='back'><p>&lt;</p></div>
+      <div onClick={() => {props.changeAddOption('')}} id='back'>  <p><i class="fa-solid fa-angle-left"></i></p></div>
         <div className='qr-tabs'>
-          <button onClick={() => {handleTabChange('my')}} id='qr-tabs-my'>MY CODE</button>
-          <button onClick={() => {handleTabChange('scan')}} id='qr-tabs-scan'>SCAN CODE</button>
+          <button className='default-button' onClick={() => {handleTabChange('my')}} id='qr-tabs-my'>MY CODE</button>
+          <button className='default-button' onClick={() => {handleTabChange('scan')}} id='qr-tabs-scan'>SCAN CODE</button>
         </div>
         {displayQRTabs()}
     </div>

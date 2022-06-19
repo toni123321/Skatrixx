@@ -6,13 +6,27 @@
 #image_input {
   visibility: hidden;
 }
-#uploading{
-  height: 150px;
-  width: 150px;
+#imageFrame{
+  width:80%;
+  height: 80%;
+  margin: 20px auto;
 }
+
+.imageFrame-selectFiles {
+  border: 1px dashed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#selectFilesBtn {
+  height: 50px;
+}
+
 #outputImg{
   width: auto;
   height: 100%;
+  object-fit: cover;
 }
 #outputImgContainer{
   height: 80%;
@@ -25,6 +39,7 @@
   border-radius: 5px;
   width: 150px;
   height: 50px;
+  color: #efefef;
 }
 #join{
   background: transparent;
@@ -32,51 +47,95 @@
 .gallery {
     margin: auto;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-evenly;
     align-items: center;
     width: 96%;
     max-width: 550px;
-    overflow-x:hidden;
-  }
+    overflow:hidden;
+}
 
-  .gallery-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid black;
-      aspect-ratio: 1;
-      overflow: hidden;
-  }
+.uploadImage{
+  padding: 15px 15px;
+}
 
-  .galleryImage {
-    width: 150px;
-    height: 150px;
-    object-fit: fit; 
+@media only screen and (max-width : 350px) {
+  .gallery{
+    grid-template-columns: 1fr 1fr; 
   }
-  #viewImage {
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.377);
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      left: 0; top:0;
-      margin: auto;
-      color: black;
-      z-index: 5;
-  }
+}
 
-  #viewImage p {
-    font-size: 40px;
-      margin:auto;
-      margin-top: 10vh;
-      max-width: 550px;
-      text-align: left;
-  }
+.gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #1C1C1C;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
 
-  #viewImage img {
-      margin: auto;
-    max-width: 450px; max-height: 450px;
-    z-index : 6;
-    width: 90vw; height: 90vw;
-  }
+.gallery-container, .galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+
+#add_new_image {
+  position: relative;
+}
+
+#add_new_image label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+#add_new_image label i {
+  font-size: 35px;
+}
+
+#image_input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#uploading {
+  height: 100%;
+  max-width: 125px;
+  max-height: 125px;
+}
+
+
+#viewImage {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.377);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0; top:0;
+    margin: auto;
+    z-index: 5;
+}
+
+#viewImage p {
+  /* font-size: 30px; */
+  margin: auto;
+  margin-right: 25px;
+  margin-top: 10vh;
+  max-width: 550px;
+  text-align: right;
+  z-index: 3;
+}
+
+#viewImage img {
+    margin: auto;
+  max-width: 450px; max-height: 450px;
+  z-index : 6;
+  width: 90vw; height: 90vw;
+}
+
+  
