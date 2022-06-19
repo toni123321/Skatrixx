@@ -7,8 +7,7 @@ import Loading from '../Loading';
 
 function Statistic(props) {
 
-  const [skateData, setSkateData] = useState() // skateData useState
-
+  const [skateData, setSkateData] = useState(null) // skateData useState
 
   useEffect(() => {
     retrieveLastSkateData()
@@ -24,7 +23,7 @@ function Statistic(props) {
       console.log(err.message)
     }
   }
-  if(skateData !== undefined) {
+  if(skateData !== null) {
   return (
     <div className='performance-wrapper'>
       <div className="performance-container container-border">

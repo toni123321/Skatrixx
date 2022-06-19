@@ -16,7 +16,6 @@ function getLastPerformance(skateData) {
     for(let i = startIndex; i <= endIndex; i++) {
       skateLatestsStats.push(skateData[i])
     }
-    console.log(skateLatestsStats)
     return processSkateData(skateLatestsStats)
 }
 
@@ -97,16 +96,16 @@ function getResultGif(result) {
     let result_gif = ""
     switch(result) {
         case 'try_again':
-            result_gif = "https://firebasestorage.googleapis.com/v0/b/skatrixx2-3f452.appspot.com/o/skatePerformanceGifs%2Ftry_again_performance.png?alt=media&token=d9774ea0-75f8-4c47-8971-2bb3515b446f"
+            result_gif = "https://firebasestorage.googleapis.com/v0/b/skatrixx2-3f452.appspot.com/o/skatePerformanceGifs%2Ftry_again_performance.gif?alt=media&token=e62ae626-bbea-481c-bfe5-567a281a09ab"
             break
         case 'good':
-            result_gif = "https://firebasestorage.googleapis.com/v0/b/skatrixx2-3f452.appspot.com/o/skatePerformanceGifs%2Fgood_performance.png?alt=media&token=5510b72e-2a6b-45f9-84c2-b01dc3bae61f"
+            result_gif = "https://firebasestorage.googleapis.com/v0/b/skatrixx2-3f452.appspot.com/o/skatePerformanceGifs%2Fgood-performance.gif?alt=media&token=18eb0be5-a57a-4ed2-bf02-2ac2d3cc4961"
             break
         case 'incredible':
-            result_gif = "https://firebasestorage.googleapis.com/v0/b/skatrixx2-3f452.appspot.com/o/skatePerformanceGifs%2Fincredible_performance.png?alt=media&token=cdbe1cda-5b31-478f-b708-4a4eb3a3a9cd"
+            result_gif = "https://firebasestorage.googleapis.com/v0/b/skatrixx2-3f452.appspot.com/o/skatePerformanceGifs%2Fincredible-performance.gif?alt=media&token=c5463f16-fc8c-4f9e-96fe-b714066206fb"
             break
         default:
-            result_gif = "https://firebasestorage.googleapis.com/v0/b/skatrixx2-3f452.appspot.com/o/skatePerformanceGifs%2Ftry_again_performance.png?alt=media&token=d9774ea0-75f8-4c47-8971-2bb3515b446f"
+            result_gif = "https://firebasestorage.googleapis.com/v0/b/skatrixx2-3f452.appspot.com/o/skatePerformanceGifs%2Ftry_again_performance.gif?alt=media&token=e62ae626-bbea-481c-bfe5-567a281a09ab"
             break
     }
     return result_gif
