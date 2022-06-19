@@ -6,7 +6,7 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import moduleStateService from "../../services/moduleStateService"
 import skateDataService from '../../services/skateDataService'
 import Statistic from './Statistic';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const TrickPage = (props) => {
     // Timer
@@ -14,9 +14,8 @@ const TrickPage = (props) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [duration, setDuration] = useState(60);
     const [isListening, setIsListening] = useState(true);
-    const [statisticMode, setStatisticMode] = useState(false)
     const { id } = useParams()
-
+    const navigate = useNavigate();
 
     const startTrickAttempt = () => {
       setIsPlaying(true)
@@ -27,7 +26,7 @@ const TrickPage = (props) => {
       setIsPlaying(false)
       moduleStateService.endTrick()
       skateDataService.processLastPerformance()
-      setStatisticMode(true)
+      navigate(`/trick/${id}/stat`)
     }
 
     const renderTime = ({ remainingTime }) => {
@@ -95,8 +94,6 @@ const TrickPage = (props) => {
     }
  
     return (
-      <>
-      {!statisticMode ?
       <div className='timer-container'>
         <p
             className="back-button"
@@ -133,10 +130,6 @@ const TrickPage = (props) => {
           ></i>
         </div>
       </div>
-      :
-      <Statistic trickId={id}/>
-      }
-      </>
     )
  }
 

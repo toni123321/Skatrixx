@@ -35,7 +35,6 @@ function Statistic(props) {
     <div className='performance-wrapper'>
       <div className="performance-container container-border">
         <div className="default-container"></div>
-        <h3 id="performance-title">Overall performance</h3>
         <p id="performance-result">{skateData && skateData.result}</p>
         <img src={skateData && skateData.result_gif} alt="good" id="performance-img"/>
         <div class="statistics-container">
