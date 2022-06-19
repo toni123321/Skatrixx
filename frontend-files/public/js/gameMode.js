@@ -1,6 +1,6 @@
 const FULL_DASH_ARRAY = 283;
-const WARNING_THRESHOLD = 60;
-const ALERT_THRESHOLD = 30;
+const WARNING_THRESHOLD = 10;
+const ALERT_THRESHOLD = 5;
 
 const COLOR_CODES = {
   info: {
@@ -21,9 +21,9 @@ let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
 let remainingPathColor = COLOR_CODES.info.color;
-let start = document.getElementById("start")
-let restart = document.getElementById("restart")
-let stop = document.getElementById("stop")
+let starting = document.getElementById("start")
+let stopping = document.getElementById("stop")
+let reset =document.getElementById("reset")
 
 document.getElementById("app").innerHTML = `
 <div class="base-timer">
@@ -51,16 +51,9 @@ document.getElementById("app").innerHTML = `
 
 startTimer();
 
-start.addEventListener('click', function (params) {
-  
-})
-restart.addEventListener('click', function () {
-  stopTimer()
-  console.log("yayayay")
-})
 
-function stopTimer() {
-  clearInterval();
+function onTimesUp() {
+  clearInterval(timerInterval);
 }
 
 function startTimer() {
@@ -74,7 +67,7 @@ function startTimer() {
     setRemainingPathColor(timeLeft);
 
     if (timeLeft === 0) {
-      stopTimer();
+      onTimesUp();
     }
   }, 1000);
 }
@@ -122,3 +115,19 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
+
+var starts
+starting.addEventListener('click', function(){
+  if(starts === undefined){
+    starts = setInterval(startTimer, 1000)
+} else {
+    alert("Timer is already running");
+}
+})
+stopping.addEventListener('click', function(){
+  onTimesUp()
+  starts = undefined;
+})
+
+
+

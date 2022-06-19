@@ -1,6 +1,7 @@
 const cacheName="cacheName";
 const appFiles=["manifest.json", 
 "js/script.js",
+"js/gameMode.js",
 'offline.html',
 "stepsPage.html",
 "statisticPage.html",
@@ -11,7 +12,12 @@ const appFiles=["manifest.json",
 "css/stepsOffline.css",
 "images/background_image.png",
 "images/logo.png",
-"images/good.gif"
+"images/good.gif",
+"images/angle-left-solid.svg",
+"images/arrow-rotate-left-solid.svg",
+"images/play-solid.svg",
+"images/stop-solid.svg",
+"images/forward-solid.svg"
 ];
 
 const self=this;
