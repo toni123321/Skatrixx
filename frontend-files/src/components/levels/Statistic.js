@@ -23,7 +23,7 @@ function Statistic(props) {
       console.log(err.message)
     }
   }
-  if(skateData !== null) {
+  if(skateData !== null || skateData !== "") {
   return (
     <div className='performance-wrapper'>
       <div className="performance-container container-border">
