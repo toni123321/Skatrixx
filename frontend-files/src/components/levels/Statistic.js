@@ -3,16 +3,11 @@ import "../../stylesheets/levels/Statistic.css"
 import good from "../../images/good.gif"
 import skateDataService from '../../services/skateDataService'
 import { Link } from 'react-router-dom';
+import Loading from '../Loading';
 
 function Statistic(props) {
-  const initialLastPerformance = {
-    max_height: null,
-    max_airtime: null,
-    avg_rotationY: null,
-    avg_rotationZ: null,
-    result: ""
-  }
-  const [skateData, setSkateData] = useState(initialLastPerformance) // skateData useState
+
+  const [skateData, setSkateData] = useState() // skateData useState
 
 
   useEffect(() => {
@@ -29,14 +24,13 @@ function Statistic(props) {
       console.log(err.message)
     }
   }
-
+  if(skateData !== undefined) {
   return (
     <div className='performance-wrapper'>
       <div className="performance-container container-border">
         <div className="default-container"></div>
-        <h3 id="performance-title">Overall performance</h3>
         <p id="performance-result">{skateData && skateData.result}</p>
-        <img src={good} alt="good" id="performance-img"/>
+        <img src={skateData && skateData.result_gif} alt="good" id="performance-img"/>
         <div class="statistics-container">
             {skateData && (
               <div class="stats">
@@ -67,6 +61,6 @@ function Statistic(props) {
       </div>
      
     </div>
-  )
+  )} else {return (<Loading/>)}
 }
 export default Statistic

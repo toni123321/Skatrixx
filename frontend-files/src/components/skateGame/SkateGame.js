@@ -1,17 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import "../../stylesheets/skateGame/SkateGame.css"
 import SkateGameParticipant from './SkateGameParticipant';
 import SkateGamePick from './SkateGamePick';
 import SkateGameVote from './SkateGameVote';
+import { getSkateGame } from '../../services/skateGameService';
+import Loading from '../Loading';
 
-function SkateGame({}) {
+function SkateGame() {
 
+  const { id } = useParams()
   const [voting, setVoting] = useState(false);
   const [picking, setPicking] = useState(false)
   const [key, setKey] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(30);
+  const [skateGame, setSkateGame] = useState(undefined);
+
+  const loadGame = async () => {
+    setSkateGame(await getSkateGame(id))
+  }
+
+  useEffect(() => {
+    loadGame()
+  }, [])
+  
 
   const renderTime = ({ remainingTime }) => {
     return (
@@ -28,10 +42,11 @@ function SkateGame({}) {
     if(voting) {return (<SkateGameVote/>)}
   }
 
-
+if(skateGame !== undefined) {
   return (
     <div className='skate-game'>
       <p className='skate-game-notifier'>Eric is now attempting the Ollie</p>
+      {console.log(skateGame)}
       <CountdownCircleTimer
             key={key}
             isPlaying={isPlaying}
@@ -42,13 +57,13 @@ function SkateGame({}) {
             {renderTime}
           </CountdownCircleTimer>
           <div className='skate-game-participants'>
-            <SkateGameParticipant userId={"6249734a528e0cad7bc2aca2"}/>
-            <SkateGameParticipant userId={"6249734a528e0cad7bc2aca2"}/>
-            <SkateGameParticipant userId={"6249734a528e0cad7bc2aca2"}/>
+            {skateGame.players.map((player,index) => (
+              <SkateGameParticipant userId={player} key={index}/>
+            ))}
           </div>
           {checkEvent()}
     </div>
-  )
+  )} else {return (<Loading/>)}
   }
 
 export default SkateGame

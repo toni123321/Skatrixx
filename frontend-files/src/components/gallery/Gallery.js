@@ -22,7 +22,7 @@ function Gallery() {
   const [isOpen, setIsOpen] = useState(false);
   const [galleryMode, setgalleryMode] = useState('Gallery')
   const imageListRef = ref(storage, "images/")
-  const [images, setImages] = useState([])
+  const [images, setImages] = useState(undefined)
 
   // currUser
   const [userId, setUserId] = useState("")
@@ -123,7 +123,7 @@ function Gallery() {
                   </label>
                   <input type="file" id="image_input" name="file"  onChange={onImageChosen}></input>
           </div>
-          {images.length > 0 ? images.map(image => (
+          {images.length !== undefined ? images.map(image => (
             <div className='gallery-container' onClick={() => {handleOpenImage(image.image)}}>
               <img src={image.image}  className="galleryImage" alt=''/>
             </div>
