@@ -1,18 +1,5 @@
 const CACHE_NAME = "version-1";
-const urlsToCache = ["manifest.json",
-'index.html', 
-'offline.html',
-"stepsPage.html",
-"statisticPage.html",
-"gameMode.html",
-"./css/gameMode.css",
-"./css/offline.css",
-"./css/statisticPage.css",
-"./css/stepsOffline.css",
-"./images/background_image.png",
-"./images/logo.png",
-"./images/good.gif"
-];
+const urlsToCache = ['index.html', 'offline.html'];
 
 const self=this;
 //instal SW
@@ -29,8 +16,6 @@ self.addEventListener('install', (event)=>{
     )
 });
 
-
-
 //listen for requests
 self.addEventListener('fetch', (event)=>{
     event.respondWith(
@@ -42,8 +27,6 @@ self.addEventListener('fetch', (event)=>{
     )
     
 });
-
-
 
 // Activate the SW
 self.addEventListener('activate', (event)=>{
