@@ -124,3 +124,26 @@ export const denyAndLeaveLobby = async (id, userId) => {
     }
     catch(err) {console.log(err)}
 }
+
+export const startLobby = async (lobby) => {
+    var scores = [];
+    for (let i = 0; i < lobby.members.length; i++) {
+        scores.push(0)
+    }
+    try {
+        var data = {
+            players : lobby.members,
+            eliminated: [],
+            scores: scores,
+            currentTrick: "",
+            trickPicker: 0,
+            currentPlayer: 0,
+            round : 1,
+            voting: false,
+            votes : []
+        }
+        axios.post(url + 'game', data)
+    } catch (err) {
+        console.log(err)
+    }
+}

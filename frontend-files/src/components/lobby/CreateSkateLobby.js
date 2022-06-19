@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { changeLimit, changeVisibility, createLobby, kickPlayer } from '../../services/lobbyService';
+import { changeVisibility, createLobby, kickPlayer, startLobby } from '../../services/lobbyService';
 import { socket } from '../../websockets/ws_client';
 
 import "../../stylesheets/lobby/CreateSkateLobby.css"
@@ -7,7 +7,7 @@ import "../../stylesheets/lobby/CreateSkateLobby.css"
 import LobbyMembers from './LobbyMembers';
 import { loggedUser } from '../../services/api_client';
 import Loading from '../Loading';
-import { kicked } from '../../websockets/lobbyWS';
+import { kicked, startGameRedirect, startLobbyWS } from '../../websockets/lobbyWS';
 
 function CreateSkateLobby() {
 
@@ -17,12 +17,18 @@ function CreateSkateLobby() {
        setLobby(await createLobby(localStorage.getItem('userId')))
     }
 
+    const startButtonClicked = () => {
+        if(loggedUser === lobby.members[0]) {
+            startLobby(lobby)
+            startLobbyWS(lobby)
+            startGameRedirect(lobby._id)
+        }
+    }
     
     useEffect(() => {
         loadContent()  
     }, [])
     
-
     const handleLobbyVisibilityChange = (visibility) => {
         if(visibility === 'private') {
             document.getElementById('private-lobby-visibility').style.borderBottom = '2px solid white'
@@ -54,7 +60,7 @@ function CreateSkateLobby() {
         <i className="fa-solid fa-angle-left"></i>
       </p>
         <div id='lobby-settings'>
-        {localStorage.getItem('userId') !== lobby.members[0] ? 
+        {loggedUser !== lobby.members[0] ? 
             <div id='lobby-settings-block'>
                 <p>Only the lobby leader can change the settings of the lobby</p>
             </div>
@@ -68,7 +74,7 @@ function CreateSkateLobby() {
         <div id='lobby-members'>
             <LobbyMembers members={lobby.members} pending={lobby.invitations} lobby={lobby}/>
         </div>
-        <button className='default-button start-lobby-button'>Start</button>
+        <button className='default-button start-lobby-button' onClick={() => {startButtonClicked()}}>Start</button>
         {kicked()}
     </div>
   )

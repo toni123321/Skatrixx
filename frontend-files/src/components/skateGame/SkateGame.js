@@ -5,7 +5,7 @@ import SkateGameParticipant from './SkateGameParticipant';
 import SkateGamePick from './SkateGamePick';
 import SkateGameVote from './SkateGameVote';
 
-function SkateGame() {
+function SkateGame({}) {
 
   const [voting, setVoting] = useState(false);
   const [picking, setPicking] = useState(false)

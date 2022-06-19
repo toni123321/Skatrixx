@@ -64,6 +64,8 @@ app.get("*", (req, res) => {
   res.sendFile(path.join('/game', "index.html"));
   res.sendFile(path.join('/join', "index.html"));
   res.sendFile(path.join('/create', "index.html"));
+  res.sendFile(path.join('/trick', "index.html"));
+  res.sendFile(path.join('/skate-game', "index.html"));
 });
 
 //Websocket server declaration
@@ -94,9 +96,9 @@ io.on("connection", socket => {
   socket.on('join-game', (gameLobby) => {
     socket.join(gameLobby)
   })
-  // socket.on('start-game', (game) => {
-  //   socket.join(game)
-  // })
+  socket.on('start-game', (gameLobby) => {
+    socket.emit('redirect', gameLobby)
+  })
 
   app.set('socketio', io)
 

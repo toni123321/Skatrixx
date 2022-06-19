@@ -84,7 +84,7 @@ function App() {
             <Route path='/join' element={<JoinSkateLobby/>}/>
             <Route path='/create' element={<CreateSkateLobby/>}/>
             <Route path={`/trick/:id`} element={<TrickPage/>}/>
-            <Route path={'/skate-game'} element={<SkateGame/>}/>
+            <Route path={'/skate-game/:id'} element={<SkateGame/>}/>
           </Routes>
           <NavBar/>
           <NotificationContainer/>

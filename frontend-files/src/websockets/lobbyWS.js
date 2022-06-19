@@ -16,6 +16,12 @@ export const kicked = () => {
       })
 }
 
-export const startLobby = (lobbyId) => {
-    socket.emit('')
+export const startGameRedirect = (lobbyId) => {
+    socket.on('redirect', () => {
+        window.location.replace(`/skate-game/${lobbyId}`)
+    })
+}
+
+export const startLobbyWS = (lobbyId) => {
+    socket.emit('start-game', lobbyId)
 }
