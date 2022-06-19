@@ -1,19 +1,10 @@
 import {React, useState} from 'react'
-
 import "../../stylesheets/profile/Profile.css"
-
-import userTabImg from "../../images/Person.png"
-import friendTabImg from "../../images/Friends.png"
-import skateTabImg from "../../images/Skateboard.png"
 import defaultImg from "../../images/default-image.png"
-
-import ProgressBar from '../profile/ProgressBar'
 import Success from '../auth/Success'
 import ProfileRankings from '../profile/ProfileRankings'
-import Achievements from '../achievements/Achievements'
 import FriendList from '../friends/FriendList'
 import Gallery from '../gallery/Gallery'
-import CameraComponent from '../gallery/CameraComponent'
 
 function Profile(props) {
 
@@ -55,8 +46,7 @@ function Profile(props) {
             <div id='profile-card'>
                 <img src={props.img !== undefined ? props.img : defaultImg}  referrerPolicy='no-referrer' alt='' id="profile-image" />
                 <div id='additional-information'>
-                <p>{props.name}</p>
-                    <ProgressBar level={props.level} xp={props.xp}/>
+                <p>{props.name && props.name.split(' ')[0]}</p>
                 </div>
             </div>
             <div id='tabs'>

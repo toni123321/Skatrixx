@@ -1,55 +1,50 @@
 import React, { useState, useEffect } from 'react'
-import { changeLimit, changeVisibility, createLobby } from '../../services/lobbyService';
+import { changeVisibility, createLobby, kickPlayer, startLobby } from '../../services/lobbyService';
 import { socket } from '../../websockets/ws_client';
 
 import "../../stylesheets/lobby/CreateSkateLobby.css"
 
 import LobbyMembers from './LobbyMembers';
+import { loggedUser } from '../../services/api_client';
+import Loading from '../Loading';
+import { kicked, startGameRedirect, startLobbyWS } from '../../websockets/lobbyWS';
 
 function CreateSkateLobby() {
 
     const [lobby, setLobby] = useState({})
-    const [maxPlayerCount, setMaxPlayerCount] = useState(undefined)
-    const [lobbyVisibility, setLobbyVisibility]  = useState(undefined)
     
     const loadContent = async () => {
        setLobby(await createLobby(localStorage.getItem('userId')))
     }
 
-    const loadLobbyData = () => {
-        setMaxPlayerCount(lobby.limit)
+    const startButtonClicked = () => {
+        if(loggedUser === lobby.members[0]) {
+            startLobby(lobby)
+            startLobbyWS(lobby)
+            startGameRedirect(lobby._id)
+        }
     }
     
     useEffect(() => {
-        loadContent()     
+        loadContent()  
     }, [])
     
-
-    const handleChangeMaxPlayerCount = async (position) => {
-        if(position === 'up' && maxPlayerCount< 10) {
-            const newCount = maxPlayerCount + 1
-            setMaxPlayerCount(newCount)
-            changeLimit(lobby._id, newCount)
-        }
-        else if (position === 'down' && (maxPlayerCount > 2 && maxPlayerCount > lobby.members.length)) {
-            const newCount = maxPlayerCount - 1
-            setMaxPlayerCount(newCount)
-            changeLimit(lobby._id, newCount)
-        }
-    }
-
     const handleLobbyVisibilityChange = (visibility) => {
-        setLobbyVisibility(visibility)
         if(visibility === 'private') {
-            document.getElementById('private-lobby-visibility').style.backgroundColor = '#CF2121'
-            document.getElementById('public-lobby-visibility').style.backgroundColor = '#1e1e1e'
+            document.getElementById('private-lobby-visibility').style.borderBottom = '2px solid white'
+            document.getElementById('public-lobby-visibility').style.borderBottom = 'none'
             changeVisibility(lobby._id, 'true');
         }
         else if(visibility === 'public') {
-            document.getElementById('public-lobby-visibility').style.backgroundColor = '#CF2121'
-            document.getElementById('private-lobby-visibility').style.backgroundColor = '#1e1e1e'
+            document.getElementById('private-lobby-visibility').style.borderBottom = 'none'
+            document.getElementById('public-lobby-visibility').style.borderBottom = '2px solid white'
             changeVisibility(lobby._id, 'false')
         }
+    }
+
+    const leaveLobby = () => {
+        kickPlayer(lobby._id, loggedUser)
+        window.location.replace('/join')
     }
 
     socket.on(lobby._id,  newLobby => {
@@ -59,44 +54,33 @@ function CreateSkateLobby() {
   if(lobby !== {} && lobby.limit !== undefined) {
   return (
     <div className='create-skate-lobby'>
+        <p
+        className="back-button"
+        onClick={() => {leaveLobby()}}>
+        <i className="fa-solid fa-angle-left"></i>
+      </p>
         <div id='lobby-settings'>
-            {localStorage.getItem('userId') !== lobby.members[0] ? 
-                (
-                    <div id='lobby-settings-block'>
-                        <p>Only the lobby leader can change the settings of the lobby</p>
-                    </div>
-                )
-                :
-                (
-                    <div>
-                        <div id='visibility-switch'>
-                            <p onClick={() => handleLobbyVisibilityChange('private')} id='private-lobby-visibility' style={{backgroundColor : lobby.isPrivate ? '#CF2121' : '#1e1e1e'}}>Private</p>
-                            <p onClick={() => handleLobbyVisibilityChange('public')} id='public-lobby-visibility' style={{backgroundColor : !lobby.isPrivate ? '#CF2121' : '#1e1e1e'}}>Public</p>
-                        </div>
-                        <div id='player-limit'>
-                            <p>Max. players:</p>
-                            <div id='player-limit-control'>
-                            <button onClick={() => handleChangeMaxPlayerCount('down')} style={{opacity : maxPlayerCount>2 && maxPlayerCount !== lobby.members.length  ? 1 : .5}} id='player-limit-decrease'>-</button>
-                            
-                                <p id='player-limit-current'>{maxPlayerCount !== undefined ? maxPlayerCount : loadLobbyData()}</p>
-                                <button onClick={() => handleChangeMaxPlayerCount('up')} style={{opacity : maxPlayerCount<10 ? 1 : .5}} id='player-limit-increase'>+</button>
-                            </div>
-                        </div>
-                        <p id='lobby-code-text'>ACCESS CODE</p>
-                        <p id='lobby-code'>{lobby.accessCode}</p>
-                    </div>
-                )
-            }    
+        {loggedUser !== lobby.members[0] ? 
+            <div id='lobby-settings-block'>
+                <p>Only the lobby leader can change the settings of the lobby</p>
+            </div>
+             : ''
+        }
+            <div id='visibility-switch'>
+                <p onClick={() => handleLobbyVisibilityChange('private')} style={{borderBottom : lobby.isPrivate ? "2px solid white" : "none"}} id='private-lobby-visibility'>Private</p>
+                <p onClick={() => handleLobbyVisibilityChange('public')} style={{borderBottom : !lobby.isPrivate ? "2px solid white" : "none"}} id='public-lobby-visibility'>Public</p>
+            </div>
         </div>
-        <div id='line'></div>
-        <LobbyMembers members={lobby.members} pending={lobby.invitations} lobby={lobby} is_creator={localStorage.getItem('userId') === lobby.members[0] ? true : false}/>
+        <div id='lobby-members'>
+            <LobbyMembers members={lobby.members} pending={lobby.invitations} lobby={lobby}/>
+        </div>
+        <button className='default-button start-lobby-button' onClick={() => {startButtonClicked()}}>Start</button>
+        {kicked()}
     </div>
   )
 }
 else {return (
-<div>
-    <p>Ne</p>
-</div>)}
+<Loading/>)}
 }
 
 export default CreateSkateLobby

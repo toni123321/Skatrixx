@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Loading from './components/Loading';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Suspense fallback={<div>Loading... </div>}>
+const root = ReactDOM.createRoot(document.getElementById("root"))
+
+root.render(
+    <Suspense fallback={<Loading/>}>
     <App />
     </Suspense>
-  </React.StrictMode>,
-  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

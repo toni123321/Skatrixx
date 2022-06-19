@@ -4,15 +4,12 @@ h4 {
 }
 
  #Sicon {
-    display: flex;
-    margin: auto;
-    padding-top: 60px;
+    height: calc(100vh - 64px);
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: auto;
-    padding-top: 160px;
-    /* align-items: center;
-    justify-content: center; */
 
 } 
 #solo{
@@ -21,13 +18,12 @@ h4 {
 #soloIcon {
     display: flex;
     margin: auto;
-    /* margin-top: -400px; */
+    width: 60px;
 }
 
 #vsIcon {
     display: flex;
     margin: auto;
-    /* margin-top: 110px; */
 }
 
 #SKATE-Popup {
@@ -35,7 +31,6 @@ h4 {
     z-index: 10;
     width: 100vw;
     height: 100vh;
-    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,18 +41,17 @@ h4 {
     text-align: right;
     font-size: 20px;
     font-weight: bolder;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    margin-top: -10px;
     color: #EFEFEF;
 }
 
 #SKATE-options {
     text-align: center;
-    border-radius: 10px;
-    background-color: #1e1e1e;
-    width: 80%;
+    width: 70%;
     height: 450px;
     max-width: 350px;
-    max-height: 250px;
+    max-height: 230px;
     padding: 20px;
     text-decoration: none;
 }
@@ -77,3 +71,52 @@ h4 {
     color: #EFEFEF;
     font-weight: lighter;
 }
+
+.mainLobyContainer {
+    align-items: center;
+    margin: auto;
+}
+
+#soloGameLink {
+    text-decoration: none;
+    color: #EFEFEF;
+}
+
+.soloContainer{
+    width: 266px;
+    height: 192px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.soloContainerInfo{
+    display: flex;
+    margin-left: 20px;
+}
+
+.lobbyContainerHeader{
+    font-size: x-large;
+    margin-bottom: -5px;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.skateContainer{
+    width: 266px;
+    height: 192px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.soloGameInfo{
+    width: 120px;
+    height: 45px;
+    font-size: small;
+    font-weight: italic bold;
+}
+
+.buttonStyling{
+    text-align: right;
+    margin-right: 45px;
+    margin-top: 10px;
+} 

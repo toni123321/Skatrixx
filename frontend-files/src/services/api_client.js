@@ -1,8 +1,8 @@
 import axios from "axios";
 
-let baseURL = process.env.LOCAL_BASE_URL
+let baseURL = process.env.REACT_APP_LOCAL_BASE_URL
 if (process.env.NODE_ENV === 'production') {
-  baseURL = process.env.PRODUCTION_BASE_URL
+  baseURL = process.env.REACT_APP_PRODUCTION_BASE_URL
 }
 
 export default axios.create({

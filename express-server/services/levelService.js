@@ -15,13 +15,6 @@ async function levelUp(user, trickId, trickStat) {
     return user
 }
 
-
-// TODO: check how to improve the trick of the user and to return some description
-function checkForLevelUp(){
-    
-}
-
-
 module.exports = {
     levelUp
 }

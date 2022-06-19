@@ -7,8 +7,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.tricks-list {
+    width: 92%;
+    margin-top: 20px;
+    margin-inline: auto;
+    max-width: 550px;
     overflow-y: scroll;
-    height: calc(100vh - 65px);
+    height: calc(80vh - 64px);
     padding-bottom: 64px;
 }
 
@@ -17,4 +24,13 @@
     text-align: center;
     font-weight: 150;
     font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+.level-ramp-image {
+    position: fixed;
+    width: 200px;
+    right: -100px;
+    top: -55px
 }

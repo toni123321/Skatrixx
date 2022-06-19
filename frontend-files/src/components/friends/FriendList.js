@@ -5,6 +5,7 @@ import "../../stylesheets/friends/FriendList.css"
 import AddFriendPopUp from './AddFriendPopUp';
 import FriendContainer from './FriendContainer';
 import addFriend from "../../images/Add User Group Man Man.png"
+import Loading from '../Loading';
 
 function FriendList(props) {
 
@@ -27,11 +28,11 @@ function FriendList(props) {
   return (
     <div className='friend-list'>
       <div id="add-container">
-      <div onClick={() => {toggleAddFriendPopup(true)}} id='add-friend'><img src={addFriend} id="add" alt=""></img></div>
+      <div onClick={() => {toggleAddFriendPopup(true)}} id='add-friend'><p>Add</p></div>
       </div>
-      {friends !== undefined ? friends.map(friend=> (
+      {friends.length > 0 ? friends.map(friend=> (
             <FriendContainer connection={friend}/>
-        )) : ''}
+        )) : <Loading/>}
         {addFriendPopup ? <AddFriendPopUp open={toggleAddFriendPopup}/> : ''}
     </div>
   )

@@ -1,17 +1,91 @@
-.log-in-button {
-    border-radius: 10px;
-    width: 250px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    transform: translateY(-50%);
-    border: none;
-    padding: 0.5rem;
-    background-color: #CF2121;
+#log-container{
+    margin-top: 100px;
+    width: 94%;
+    max-width: 550px;
+    text-align: center;
+    margin-inline: auto;
+    overflow: hidden;
 }
 
-.fa-google{
-    padding-right: 10px;
+.logInForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    margin: auto;
+}
+
+#email,
+#pwd {
+    padding-left:15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    max-width: 300px;
+    width: 250px;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #efeefe;
+    color: #efefef;
+}
+#fpas, #acount{
+    font-size: 12px;
+}
+.links{
+    color:#CF2121;
+}
+
+#option{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+#leftLine, #rightLine{
+   margin: auto;
+    background-color: white;
+    width:125px;
+    height:1px;
+}
+#or{
+    padding: 5px;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: small
+}
+
+#log {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #CF2121;
+    border-radius: 46px;
+    width: 150px;
+    height: 35px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 100;
+    margin-inline: auto;
+    margin-block: 25px;
+}
+
+.log-in-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #EFEFEF;
+    border-radius: 46px;
+    width: 150px;
+    height: 35px;
+    color: #101010;
+    font-size: 15px;
+    font-weight: 100;
+    margin: auto;
+}
+
+#icon {
+    margin-left: 10px;
 }

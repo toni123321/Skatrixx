@@ -1,46 +1,106 @@
-html, body {height: 100%;}
+html,
+body {
+  height: 100%;
+}
 @font-face {
   font-family: "Malgun Gothic";
-    src: url('./fonts/malgun.ttf') format("truetype");
-  }
+  src: url("./fonts/malgun.ttf") format("truetype");
+}
 
 body {
   background: transparent;
-  /*background-image: none;*/
-  background-image: linear-gradient(to bottom, #590D0D, #101010 );
-  /* background: url(./images/image\ 13.png); */
+  background-color: black;
   color: #efefee;
 }
 
+:root {
+  --container-position: absolute;
+  --container-background: rgba(0, 0, 0, 0.33);
+  --container-blend-mode: darken;
+  --container-box-shadown: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+  --container-backdrop-filter: blur(4px);
+  --container-z-index: -1;
+  --container-width: 100%;
+  --container-height: 100%;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.default-container {
+  position: var(--container-position);
+  background: var(--container-background);
+  mix-blend-mode: var(--container-blend-mode);
+  box-shadow: var(--container-box-shadown);
+  backdrop-filter: var(--container-backdrop-filter);
+  z-index: var(--container-z-index);
+  width: var(--container-width);
+  height: var(--container-height);
+}
+
+.container-border {
+  border: 0.5px solid rgba(255, 255, 255, 0.281);
+}
+
+.popup-container {
+  background-color: #101010;
+  width: 90%;
+  max-width: 550px;
+  height: 70vh;
+  position: fixed;
+  left: 50%; top:50%;
+  transform: translate(-50%, -55%);
+  z-index: 10;
+  border-radius: 5px;
+}
+
+.back-button {
+  position: absolute;
+  left: 20px;
+  top: -60px;
+  color: #efefef;
+  font-size: 100px;
+  cursor: pointer;
+  margin: 0;
+  z-index: 2;
+}
 
 #background-image {
-  z-index: -1 ;
-  opacity: 90%;
+  z-index: -1;
+  opacity: 50%;
   position: fixed;
   top: 0;
   left: 0;
   min-width: 100vw;
   min-height: 100vh;
 }
+
 .fa-angle-left:before {
   content: "\f104";
   font-size: 25px;
 }
-button {
+
+.default-link {
+  text-decoration: none;
+}
+
+.default-button {
+  width: fit-content;
+  display: inline-block;
+  white-space: nowrap;
+  border-radius: 20px;
+  text-align: center;
+  padding-inline: 15px;
   border: none;
-  display: flex;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
   cursor: pointer;
-
   color: #efefee;
-  background-color: #CF2121;
-  font-size: large;
+  background-color: #A61F1F;
+  font-size: initial;
   font-weight: bold;
-  box-shadow: 15px 3px 4px rgba(26, 26, 26, 0.25), inset 1px 0px 2px rgba(26, 26, 26, 0.25);
-
+  box-shadow: 15px 3px 4px rgba(26, 26, 26, 0.25),
+    inset 1px 0px 2px rgba(26, 26, 26, 0.25);
 }

@@ -1,0 +1,25 @@
+.achievement-category {
+    height: calc(100vh - 65px);
+    width: 94%;
+    max-width: 550px;
+    margin: auto;
+}
+
+.achievement-category-items {
+    padding-top: 32px;
+    position: relative;
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: auto auto auto;
+    grid-auto-rows: min-content;
+    row-gap: 10px;
+    height: 70%;
+    border-radius: 20px;
+    margin-top: 20%;
+    overflow-y: scroll;
+}
+
+.achievement-container-box {
+    text-align: center;
+    height: 100%;
+}

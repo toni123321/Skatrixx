@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Bluetooth demo</title>
+</head>
+
+<body>
+  <button id="go">Go Bluetooth</button>
+  <script>
+    document.querySelector('#go').onclick = (e) => {
+      e.preventDefault();
+      // Use the same service UUID as in mbed here!
+      // navigator.bluetooth.requestDevice({ filters: [{ services: [ 0x8765 ] }] })
+      //   .then(device => {
+      //     console.log('Found device ' + device.name);
+      //     return device.connectGATT();
+      //   })
+      //   .then(() =>
+      //     alert('Connected over GATT!')
+      //   )
+      //   .catch(err => {
+      //     alert('' + err + ' ' + JSON.stringify(err));
+      //   });
+      navigator.bluetooth.requestDevice({
+          filters: [{
+            services: ['battery_service']
+          }]
+        })
+        .then(device => {
+          // Human-readable name of the device.
+          console.log(device.name);
+
+          // Attempts to connect to remote GATT Server.
+          return device.gatt.connect();
+        })
+        .then(server => {
+          /* … */ })
+        .catch(error => {
+          console.error(error);
+        });
+    };
+  </script>
+</body>
+
+</html>

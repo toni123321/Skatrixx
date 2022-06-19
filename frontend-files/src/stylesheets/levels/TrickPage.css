@@ -11,15 +11,15 @@
 
 #trickBtn {
     border: none;
-    margin: auto;
-    height: 40px;
-    border-radius: 5px;
+
+    height: 35px;
+    width: 120px;
+    border-radius: 45px;
     color: #efefee;
-    background-color: #CF2121;
+    background-color: #A61F1F;
     font-size: large;
     font-weight: bold;
     box-shadow: 15px 3px 4px rgba(26, 26, 26, 0.25), inset 1px 0px 2px rgba(26, 26, 26, 0.25);
-
 }
 
 .bar {
@@ -30,47 +30,19 @@
   margin-bottom: 70px;
 }
 
-.speechText{
-  color: white;
-}
-
-#timer {
-  color: white;
-}
-
-.timerContainer {
+/* .timerContainer {
+  padding-top: 10vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   min-height: 100vh;
-}
-
-.iconsContainer i{
-  margin-inline: 20px;
-  margin-top: 40px;
-}
-
-#timerIcons {
-  color: white;
+  background-color: #101010;
 }
 
 .speechText{
   color:white;
 }
 
-.timer-parent {
-  color: #efefee;
-  margin-top:0.5rem;
-  display: flex;
-  justify-content: center;
-}
-
-.timer {
-  display: flex;
-  max-width: 300px;
-  width: 60%;
-}
 
 .time-text {
   width:50%
@@ -82,4 +54,56 @@
   align-items: center;
   gap:0.8rem;
 
+} */
+
+
+
+/* Styling timer */
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 64px);
+}
+
+.timer-circle-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.timer {
+  font-family: "Montserrat";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  color: #aaa;
+}
+
+.value {
+  font-size: 40px;
+}
+
+.info {
+  max-width: 360px;
+  margin: 40px auto 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+.button-wrapper {
+  display: flex;
+  gap: 50px;
+  font-size: 35px;
+}
+
+.speech-recognition-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
 }
