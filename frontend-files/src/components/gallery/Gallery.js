@@ -22,10 +22,11 @@ function Gallery() {
   const [isOpen, setIsOpen] = useState(false);
   const [galleryMode, setgalleryMode] = useState('Gallery')
   const imageListRef = ref(storage, "images/")
-  const [images, setImages] = useState(undefined)
+  const [images, setImages] = useState([])
 
   // currUser
   const [userId, setUserId] = useState("")
+  const [loading, setLoading] = useState(true) // Loading
 
   
   useEffect(() => {
@@ -39,8 +40,10 @@ function Gallery() {
 
 
   const getSkateboardImages = async (user_id) => {
+    setLoading(true)
     const skateboardImages = await skateboardImage.getAllByUserId()
     setImages(skateboardImages.data)
+    setLoading(false)
   }
 
   // --- Methods
@@ -123,11 +126,14 @@ function Gallery() {
                   </label>
                   <input type="file" id="image_input" name="file"  onChange={onImageChosen}></input>
           </div>
-          {images.length !== undefined ? images.map(image => (
-            <div className='gallery-container' onClick={() => {handleOpenImage(image.image)}}>
-              <img src={image.image}  className="galleryImage" alt=''/>
-            </div>
-          )) : <Loading/>}
+          {loading && <Loading/>}
+          {images &&
+            images.map(image => (
+              <div className='gallery-container' onClick={() => {handleOpenImage(image.image)}}>
+                <img src={image.image}  className="galleryImage" alt=''/>
+              </div>
+            ))
+          }
           {viewedImage !== undefined ? 
           <div id='viewImage'>
             <p onClick={() => {handleOpenImage(undefined)}}><i class="fa-solid fa-xmark"></i></p>
