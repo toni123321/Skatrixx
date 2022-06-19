@@ -23,7 +23,7 @@ function LobbyMembers(props) {
         </div>
         <div id='lobby-member-list'>
           {props.members.map((member, index) => (
-              <LobbyParticipant member={member} pending={false} memberNr={index} kickable={props.members[0] === loggedUser ? true : false} lobbyId={props.lobby._id} key={index}/>
+              <LobbyParticipant member={member} pending={false} memberNr={index} kickable={props.members[0] === loggedUser ? true : false} lobby={props.lobby} key={index}/>
           ))}
           {props.pending.map((member, index) => (
               <LobbyParticipant member={member} pending={true} key={index}/>

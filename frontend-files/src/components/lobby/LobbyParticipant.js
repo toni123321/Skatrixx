@@ -6,6 +6,7 @@ import kickIcon from "../../images/kick-player-button.png"
 import blankIcon from "../../images/blank-image.png"
 import '../../stylesheets/lobby/LobbyParticipant.css'
 import { kickPlayer } from '../../services/lobbyService'
+import { loggedUser } from '../../services/api_client'
 
 
 function LobbyParticipant(props) {
@@ -18,7 +19,8 @@ function LobbyParticipant(props) {
     }
 
     const kickUser = () => {
-      kickPlayer(props.lobbyId, user._id)
+      if(loggedUser === props.lobby.members[0])
+      {kickPlayer(props.lobby._id, user._id)}
     }
 
     const doNothing = () => {}

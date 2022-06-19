@@ -9,3 +9,13 @@ export const denyInvite = (lobbyId) => {
     socket.emit('leave-lobby', lobbyId)
     window.location.replace('/')
 }
+
+export const kicked = () => {
+    socket.on('kicked', () => {
+        window.location.replace('/join')
+      })
+}
+
+export const startLobby = (lobbyId) => {
+    socket.emit('')
+}

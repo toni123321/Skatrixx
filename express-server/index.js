@@ -94,6 +94,9 @@ io.on("connection", socket => {
   socket.on('join-game', (gameLobby) => {
     socket.join(gameLobby)
   })
+  // socket.on('start-game', (game) => {
+  //   socket.join(game)
+  // })
 
   app.set('socketio', io)
 

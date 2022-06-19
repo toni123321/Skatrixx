@@ -7,6 +7,7 @@ import "../../stylesheets/lobby/CreateSkateLobby.css"
 import LobbyMembers from './LobbyMembers';
 import { loggedUser } from '../../services/api_client';
 import Loading from '../Loading';
+import { kicked } from '../../websockets/lobbyWS';
 
 function CreateSkateLobby() {
 
@@ -68,6 +69,7 @@ function CreateSkateLobby() {
             <LobbyMembers members={lobby.members} pending={lobby.invitations} lobby={lobby}/>
         </div>
         <button className='default-button start-lobby-button'>Start</button>
+        {kicked()}
     </div>
   )
 }

@@ -148,6 +148,7 @@ router.patch('/:id/:userId/leave', getSkateLobby, async (req, res) => {
         if(res.skateLobby.members.length == 0) {await res.skateLobby.remove()}
         const updatedLobby = await res.skateLobby.save()
         io.emit(req.params.id, updatedLobby)
+        io.emit('kicked', req.params.userId)
         res.json(updatedLobby)
     }
     catch (err) {
