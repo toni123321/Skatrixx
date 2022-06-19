@@ -10,7 +10,8 @@ function Statistic(props) {
     max_airtime: null,
     avg_rotationY: null,
     avg_rotationZ: null,
-    result: ""
+    result: "",
+    result_gif: ""
   }
   const [skateData, setSkateData] = useState(initialLastPerformance) // skateData useState
 
@@ -36,7 +37,7 @@ function Statistic(props) {
         <div className="default-container"></div>
         <h3 id="performance-title">Overall performance</h3>
         <p id="performance-result">{skateData && skateData.result}</p>
-        <img src={good} alt="good" id="performance-img"/>
+        <img src={skateData && skateData.result_gif} alt="good" id="performance-img"/>
         <div class="statistics-container">
             {skateData && (
               <div class="stats">

@@ -46,7 +46,13 @@ function SkatePage() {
     {!loading && (
       !error ? (
       <div className='skateStatPage'>
-        {skateData && 
+        {skateData === "" || skateData === null ?
+        ( 
+          <div className='skate-stat-parent'>
+            <p className="no-performance-msg">No peformances yet...</p>
+          </div>
+        )
+        : 
         (
           <SkateStats skateStat={skateData}/>
         )

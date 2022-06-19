@@ -9,7 +9,41 @@ function SkateStats({skateStat}) {
     return (
         <div className='skate-stat-parent'>
         <div className="skate-stat-container">
-            <div className="skate-stat-item">
+        {stat && (
+              <div class="stats">
+                  <div className="stat">
+                        <img src={heightImg} alt="Height"/>
+                        <div>
+                            <p className="stat-value" class="mes">{stat.max_height} cm</p>
+                            <p className="stat-text" class="st-title">Height</p>
+                        </div>
+                  </div>
+                  <div className="stat">
+                        <img src={airtimeImg} alt="Airtime"/>
+                        <div>
+                            <p className="stat-value" class="mes">{stat.max_airtime} sec</p>
+                            <p className="stat-text" class="st-title">Airtime</p>
+                        </div>
+                  </div>
+                  <div className="stat">
+                        <img src={rotaitonImg}  alt="RotaitonX"/>
+                        <div>
+                            <p className="stat-value" class="mes">{stat.avg_rotationY} °</p>
+                            <p className="stat-text" class="st-title">Horizontal</p>
+                            <p className="stat-text" class="st-title">Rotation</p>
+                        </div>
+                  </div>
+                  <div className="stat">
+                        <img src={rotaitonImg} alt="RotationY"/>
+                        <div>
+                            <p className="stat-value" class="mes">{stat.avg_rotationZ} °</p>
+                            <p className="stat-text" class="st-title">Vertical</p>
+                            <p className="stat-text" class="st-title">Rotation</p>
+                        </div>
+                  </div>
+              </div>
+            )}
+            {/* <div className="skate-stat-item">
                 <img src={heightImg} alt="Height"/>
                 <div className='stat'>
                     <div className='value'>
@@ -48,7 +82,7 @@ function SkateStats({skateStat}) {
                     </div>
                     <div className='skate-stat-text'>Horizontal</div>
                 </div>
-            </div>
+            </div> */}
         </div>
         </div>
     );

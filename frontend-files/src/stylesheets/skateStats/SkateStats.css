@@ -6,14 +6,31 @@
     height: 40vh;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .skate-stat-container {
     width: 100vw;
     max-width: 550px;
-    display: grid;
-    grid-template-columns: auto auto;
-    color: #efefef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skate-stat-container .stats {
+    column-gap: 50px;
+}
+
+.skate-stat-container .stat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.skate-stat-container .stat img {
+    width: 30px;
+    height: 30px;
 }
 
 .skate-stat-item {
