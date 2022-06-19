@@ -32,6 +32,8 @@ app.use(cors({
       process.env.LOCAL_FRONTEND_PATHS,
       process.env.PRODUCTION_FRONTEND_ORIGIN,
       process.env.PRODUCTION_FRONTEND_PATHS,
+      process.env.PRODUCTION_FRONTEND_ORIGIN2,
+      process.env.PRODUCTION_FRONTEND_PATHS2,
       process.env.LOCAL_LIVE_SERVER_FRONTEND
     ]
 }));

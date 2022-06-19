@@ -21,6 +21,10 @@ const skatePerformance = new mongoose.Schema({
     result: {
         type: String,
         required: true
+    },
+    result_gif: {
+        type: String,
+        required: true
     }
 })
 

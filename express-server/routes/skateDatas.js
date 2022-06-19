@@ -37,7 +37,8 @@ router.post('/processLastPerformance', async(req, res) => {
         max_airtime: lastPerformance.max_airtime,
         avg_rotationY: lastPerformance.avg_rotationY,
         avg_rotationZ: lastPerformance.avg_rotationZ,
-        result: lastPerformance.result
+        result: lastPerformance.result,
+        result_gif: lastPerformance.result_gif
     })
     const newSkatePerformance=await skatePerformance.save()
     res.status(201).json(newSkatePerformance)
@@ -51,6 +52,16 @@ router.get('/getLastPerformance', async(req, res) => {
   try {
     const skatePerformances = await SkatePerformance.find().sort({_id:-1});
     res.send(skatePerformances[0])
+  } catch(err) {
+    res.status(500).json({message: err.message})
+  }
+})
+
+// Get All skate performances
+router.get('/performances', async(req, res) => {
+  try {
+    const skatePerformances = await SkatePerformance.find().sort({_id:-1})
+    res.send(skatePerformances)
   } catch(err) {
     res.status(500).json({message: err.message})
   }
@@ -80,8 +91,5 @@ router.post('/',async(req,res)=>{
     res.status(400).json({message: err.message})
   }
 })
-
-
-
 
 module.exports=router
