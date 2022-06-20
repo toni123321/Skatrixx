@@ -3,7 +3,7 @@
     "name": "Skatixx application",
     "icons": [
         {
-            "src": "/images/logo.png",
+            "src": "./images/logo.png",
             "type": "image/png",
             "sizes": "1024x1024"
         }
