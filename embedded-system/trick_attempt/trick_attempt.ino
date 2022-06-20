@@ -76,8 +76,8 @@ unsigned long getTrickMillis = 0;
 String stat_status = "start-stat";
 String skate_height = "";
 String skate_airtime = "";
-String skate_accelY = "";
-String skate_accelZ = "";
+String skate_rotationY = "";
+String skate_rotationZ = "";
 
 
 void loop() {
@@ -124,8 +124,8 @@ void loop() {
     mySensor.accelUpdate();
     mySensor.gyroUpdate();
 
-    skate_accelY = String(mySensor.accelY());
-    skate_accelZ = String(mySensor.accelZ());
+    skate_rotationY = String(mySensor.gyroX());
+    skate_rotationZ = String(mySensor.gyroY());
     skate_height = String(distanceCm);
     skate_airtime = String(1);
 
@@ -137,14 +137,14 @@ void loop() {
       client.addHeader("Content-Type", "application/json");
 
 
-      const size_t CAPACITY = JSON_OBJECT_SIZE(sizeof(skate_accelZ));
+      const size_t CAPACITY = JSON_OBJECT_SIZE(sizeof(skate_rotationZ));
 
 
       StaticJsonDocument<CAPACITY> doc;
       JsonObject object = doc.to<JsonObject>();
       object["status"] = stat_status;
-      object["rotationY"] = skate_accelY;
-      object["rotationZ"] = skate_accelZ;
+      object["rotationY"] = skate_rotationY;
+      object["rotationZ"] = skate_rotationZ;
       object["height"] = skate_height;
       object["airtime"] = skate_airtime;
 
@@ -177,15 +177,15 @@ void loop() {
     client.addHeader("Content-Type", "application/json");
 
 
-    const size_t CAPACITY = JSON_OBJECT_SIZE(sizeof(skate_accelZ));
+    const size_t CAPACITY = JSON_OBJECT_SIZE(sizeof(skate_rotationZ));
 
     StaticJsonDocument<CAPACITY> doc;
     JsonObject object = doc.to<JsonObject>();
     object["status"] = "end-stat";
     object["height"] = skate_height;
     object["airtime"] = skate_airtime;
-    object["rotationY"] = skate_accelY;
-    object["rotationZ"] = skate_accelZ;
+    object["rotationY"] = skate_rotationY;
+    object["rotationZ"] = skate_rotationZ;
 
     stat_status = "start-stat";
     
