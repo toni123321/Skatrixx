@@ -35,19 +35,21 @@ function Statistic(props) {
               <div class="stats">
                   <div className="stat">
                       <p className="stat-value" class="mes">{skateData.max_height} cm</p>
+                      <p className="stat-text" class="st-title">Max</p>
                       <p className="stat-text" class="st-title">Height</p>
                   </div>
                   <div className="stat">
                       <p className="stat-value" class="mes">{skateData.max_airtime} sec</p>
+                      <p className="stat-text" class="st-title">Max</p>
                       <p className="stat-text" class="st-title">Airtime</p>
                   </div>
                   <div className="stat">
-                      <p className="stat-value" class="mes">{skateData.avg_rotationY} °</p>
+                      <p className="stat-value" class="mes">{skateData.avg_rotationY}</p>
                       <p className="stat-text" class="st-title">Horizontal</p>
                       <p className="stat-text" class="st-title">Rotation</p>
                   </div>
                   <div className="stat">
-                      <p className="stat-value" class="mes">{skateData.avg_rotationZ} °</p>
+                      <p className="stat-value" class="mes">{skateData.avg_rotationZ}</p>
                       <p className="stat-text" class="st-title">Vertical</p>
                       <p className="stat-text" class="st-title">Rotation</p>
                   </div>
