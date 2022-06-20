@@ -22,10 +22,10 @@ const TrickPage = (props) => {
       moduleStateService.startTrick()
     }
 
-    const endTrickAttempt = () => {
+    const endTrickAttempt = async () => {
       setIsPlaying(false)
-      moduleStateService.endTrick()
-      skateDataService.processLastPerformance()
+      await moduleStateService.endTrick()
+      await skateDataService.processLastPerformance()
       navigate(`/trick/${id}/stat`)
     }
 

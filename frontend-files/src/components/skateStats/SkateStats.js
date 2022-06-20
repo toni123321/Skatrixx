@@ -15,6 +15,7 @@ function SkateStats({skateStat}) {
                         <img src={heightImg} alt="Height"/>
                         <div>
                             <p className="stat-value" class="mes">{stat.max_height} cm</p>
+                            <p className="stat-text" class="st-title">Max</p>
                             <p className="stat-text" class="st-title">Height</p>
                         </div>
                   </div>
@@ -22,13 +23,14 @@ function SkateStats({skateStat}) {
                         <img src={airtimeImg} alt="Airtime"/>
                         <div>
                             <p className="stat-value" class="mes">{stat.max_airtime} sec</p>
+                            <p className="stat-text" class="st-title">Max</p>
                             <p className="stat-text" class="st-title">Airtime</p>
                         </div>
                   </div>
                   <div className="stat">
                         <img src={rotaitonImg}  alt="RotaitonX"/>
                         <div>
-                            <p className="stat-value" class="mes">{stat.avg_rotationY} °</p>
+                            <p className="stat-value" class="mes">{stat.avg_rotationY}</p>
                             <p className="stat-text" class="st-title">Horizontal</p>
                             <p className="stat-text" class="st-title">Rotation</p>
                         </div>
@@ -36,7 +38,7 @@ function SkateStats({skateStat}) {
                   <div className="stat">
                         <img src={rotaitonImg} alt="RotationY"/>
                         <div>
-                            <p className="stat-value" class="mes">{stat.avg_rotationZ} °</p>
+                            <p className="stat-value" class="mes">{stat.avg_rotationZ}</p>
                             <p className="stat-text" class="st-title">Vertical</p>
                             <p className="stat-text" class="st-title">Rotation</p>
                         </div>

@@ -61,16 +61,23 @@ function calcRotationZ(rotationZ_arr) {
     return (rotationZ_arr.reduce((a, b) => a+b) / rotationZ_arr.length).toFixed(1)
 }
 
+function processHeight(height_arr) {
+    return height_arr.filter(height => height <= 40)
+}
+
 function calcMaxHeight(height_arr) {
-    return Math.max(...height_arr).toFixed(1)
+    height_arr = processHeight(height_arr)
+    let max_height = Math.max(...height_arr).toFixed(1)
+    return max_height <= 8.5 ? 0 : max_height
 }
 
 function calcAirtime(height_arr) {
     let biggestAirtime = 0
     let currAirtime = 0
+    height_arr = processHeight(height_arr)
 
     for (let i=0; i < height_arr.length; i++) {
-        if(height_arr[i] > 5) {
+        if(height_arr[i] > 8.5) {
             currAirtime++
             if(currAirtime > biggestAirtime) {
                 biggestAirtime = currAirtime
@@ -83,10 +90,10 @@ function calcAirtime(height_arr) {
 function calcStatResult(max_height, max_airtime, avg_rotationY, avg_rotationZ) {
     let result = "try_again"
 
-    if(max_height >= 20) {
+    if(max_height >= 27) {
         result = "incredible"
     }
-    else if(max_height >= 10){
+    else if(max_height >= 17){
         result = "good"
     }
     return result;
