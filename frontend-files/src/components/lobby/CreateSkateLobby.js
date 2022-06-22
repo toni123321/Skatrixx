@@ -17,11 +17,11 @@ function CreateSkateLobby() {
        setLobby(await createLobby(localStorage.getItem('userId')))
     }
 
-    const startButtonClicked = () => {
+    const startButtonClicked = async () => {
         if(loggedUser === lobby.members[0]) {
-            startLobby(lobby)
+            const resp = await startLobby(lobby)
             startLobbyWS(lobby)
-            startGameRedirect(lobby._id)
+            startGameRedirect(resp._id)
         }
     }
     
