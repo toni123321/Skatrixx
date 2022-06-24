@@ -142,7 +142,8 @@ export const startLobby = async (lobby) => {
             voting: false,
             votes : []
         }
-        axios.post(url + 'game', data)
+        const resp = await axios.post(url + 'game', data)
+        return resp.data
     } catch (err) {
         console.log(err)
     }

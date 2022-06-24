@@ -36,9 +36,9 @@ function LevelContainer(props) {
    
 
   return (
-      <div className='trick container-border'>
+      <div className='trick container-border' onClick={openTrick}>
         <div className='default-container'></div>
-        <div id='trick-header' onClick={openTrick}>
+        <div id='trick-header'>
           <p className='trick-line-colored'>|</p>
         <p id="trickName">{props.trick.name} - {props.trick.xp}XP</p> 
         <div className='trick-right'>
