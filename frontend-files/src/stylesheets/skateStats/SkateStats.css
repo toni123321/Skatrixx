@@ -2,10 +2,12 @@
     background: black;
 }
 
-.skate-stat-parent {
-    height: 40vh;
+
+.skateStatPage {
+    height: calc(45vh - 60px);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 15px;
     justify-content: center;
 }
 
@@ -76,7 +78,7 @@
     background: url("../../images/background_image.png");
     background-size: 100% 700px;
     background-repeat: no-repeat;
-    height: calc(60vh - 60px);
+    height: 55vh;
     display: flex;
     max-width: 550px;
     margin: auto;
