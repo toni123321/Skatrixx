@@ -1,12 +1,14 @@
 # SM4-RB1-Skatrixx
 This is the official repository for Skatrixx project. Skatrixx project is an IoT system
-including PWA app, Hardware system and Server. The idea of the project is to be made a 
-handy and small hardware system that can be attached to the skateboard of the user and this
-small system to be connected to our server and to the app which the user has access to.
+including PWA app, Skate box attached to user skateboard(Embedded system) and Server for dealing with all the logic. 
+The idea of the project is to create a skaters community where skaters can learn new tricks or compete between each other. The Skatrixx system have many different cool features and we are waiting for you to check them out.
+
 
 **You want to find a real demo. Find the PWA app here**
-## Live Link
+## Live Links
 > https://i451508.hera.fhict.nl/
+
+> https://i454917.hera.fhict.nl/
 
 ## Video of hardware system communicating with the PWA app through the backend server
 - You can see it in our YouTube channel. [Link here](https://youtu.be/Ymbr5G8lzB0)
@@ -18,8 +20,8 @@ Please see below fo rmore information.**
 ## Figma prototype
 > https://www.figma.com/file/xPccm5aQFLGmXnU8X67uyT/High-fidelity-Skaterixx
 
-## Documentation
-> https://git.fhict.nl/I451508/sm4-rb1-skatrixx/-/tree/main/Documents
+## Documentation in OneDrive (available only for people within Fontys organisation)
+> https://stichtingfontys-my.sharepoint.com/:f:/g/personal/454917_student_fontys_nl/Eq1yXJvIDHpMgRlx0YuxtgMBz1AbYpNPyRdf0iURkj-JOA
 
 ## Links to all members's portfolios
 
@@ -33,21 +35,26 @@ Please see below fo rmore information.**
 | Arkan | [Link](https://git.fhict.nl/I451854/shaban_a) |
 
 
+## !! Developers only
 ## Localhost installation to continue developing (**This part of the Readme is provided for developers in the team.**)
 
 1. Clone the repository
 > git clone https://git.fhict.nl/I451508/sm4-rb1-skatrixx.git
 
-2. Switch to the specified branch (if you don't know on which branch to start, please ask the team leader)
-3. Install node modules since you probably have a local version of node modules which differs from the one from used in the project
+2. Switch to the specified branch (if you don't know on which branch to start, please ask someone from the team)
+3. Install node modules since you probably have a local version of node modules which differs from the one used in the project
 - Install node modules on the backend
-> cd express-server (Please, run this command from the parent folder - sm4-rb1-skatrixx/)
+> cd express-server (Please, run this command from the parent folder* - sm4-rb1-skatrixx/)
 
 > npm install
+
 - Install node modules on the frontend
-> cd frontend-files (Please, run this command from the parent folder - sm4-rb1-skatrixx/)
+> cd frontend-files (Please, run this command from the parent folder* - sm4-rb1-skatrixx/)
 
 > npm install
+
+*to go one level up in the folders use the command below
+>  cd ..
 
 
 4. Running the app and/or the server
@@ -63,17 +70,23 @@ Please see below fo rmore information.**
 - Run Express server only
 > cd express-server (Please, run this command from the parent folder - sm4-rb1-skatrixx/)
 
-> nodemon index.js
+> npm start
 
 - Run React app only
 > cd frontend-files (Please, run this command from the parent folder - sm4-rb1-skatrixx/)
 
 > npm start
 
-
-**This part is still in development, please do not use it unless you have a specific task related to it**
+5. Run the whole app in Docker
 
 We use docker to containerize our applications for better development and testing.
+- Please, run this command from the parent folder - sm4-rb1-skatrixx/ to launch the whole system in Docker
+> docker-compose up
+
+**PS:** and the whole system is going to be launched.
+If there are existing instances of the images for frontend and backend, then it is good to delete them firstly(for example from Docker Desktop app) in order to install the last version of the app
+
+**If you would like to do some configuration on your own there here are some useful commands which you can use**
 1. To build Docker image
 > docker build -t (folder-name) .
 
