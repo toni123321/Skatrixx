@@ -24,6 +24,7 @@ function SkatePage() {
   // on react component loading
   useEffect(() => {
     retrieveLastSkateData()
+    setLoading(false)
   }, [])
   
   // Get last record in skate data (async await axiox data retrieving)
@@ -47,11 +48,9 @@ function SkatePage() {
     {!loading && (
       !error ? (
       <div className='skateStatPage'>
-        {skateData === "" || skateData === null ?
+        {skateData === "" || skateData === null || skateData.result === "" ?
         ( 
-          <div className='skate-stat-parent'>
-            <p className="no-performance-msg">No peformances yet...</p>
-          </div>
+          <p className="no-performance-msg">No peformances yet...</p>
         )
         : 
         (

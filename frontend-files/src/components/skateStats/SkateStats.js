@@ -7,7 +7,6 @@ function SkateStats({skateStat}) {
     const [stat, setStat] = useState(skateStat)
 
     return (
-        <div className='skate-stat-parent'>
         <div className="skate-stat-container">
         {stat && (
               <div class="stats">
@@ -85,7 +84,6 @@ function SkateStats({skateStat}) {
                     <div className='skate-stat-text'>Horizontal</div>
                 </div>
             </div> */}
-        </div>
         </div>
     );
 }
